@@ -27,7 +27,7 @@ export const concerns: Concern[] = [
     id: 'sensitive',
     question: 'I don’t want to share sensitive details online.',
     response:
-      'The demo booking only asks for your name, email, and optional practice area. You are not asked for case narratives, documents, or payment details here.',
+      'The demo booking and contact forms only ask for basic contact details and an optional practice area. You are not asked for case narratives, documents, or payment details.',
   },
   {
     id: 'time',

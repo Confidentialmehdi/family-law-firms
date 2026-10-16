@@ -2,14 +2,14 @@ import { useBooking } from '@/components/booking/BookingContext'
 import { Button } from '@/components/ui/button'
 import { site } from '@/content/site'
 
+/** Home hero — provides the page’s sole h1 (id=page-heading). */
 export function Hero() {
   const { openBooking } = useBooking()
 
   return (
     <section
-      id="top"
       className="texture-paper relative overflow-hidden border-b border-border/60"
-      aria-labelledby="hero-heading"
+      aria-labelledby="page-heading"
     >
       <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:items-end md:gap-12 md:px-8 md:py-24 lg:py-28">
         <div className="animate-fade-up max-w-2xl">
@@ -17,8 +17,9 @@ export function Hero() {
             {site.firmName}
           </p>
           <h1
-            id="hero-heading"
-            className="mt-6 font-serif text-4xl leading-[1.15] text-navy md:text-5xl lg:text-[3.25rem]"
+            id="page-heading"
+            tabIndex={-1}
+            className="mt-6 font-serif text-4xl leading-[1.15] text-navy outline-none md:text-5xl lg:text-[3.25rem]"
           >
             Clear guidance for your family’s next chapter.
           </h1>
@@ -33,7 +34,10 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="animate-fade-in relative hidden md:block" style={{ animationDelay: '120ms' }}>
+        <div
+          className="animate-fade-in relative hidden md:block"
+          style={{ animationDelay: '120ms' }}
+        >
           <div className="relative aspect-[4/5] max-h-[28rem] overflow-hidden border border-border/70 bg-[#ebe4da]">
             <div
               className="absolute inset-0"

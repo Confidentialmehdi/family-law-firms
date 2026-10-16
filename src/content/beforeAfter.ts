@@ -2,16 +2,16 @@ export const beforeAfter = {
   heading: 'From uncertainty to a clearer next step.',
   items: [
     {
-      before: 'Unsure where to begin',
-      after: 'An overview of the process',
+      before: 'Uncertainty about the process',
+      after: 'A clearer overview',
     },
     {
-      before: 'Overwhelmed by competing concerns',
-      after: 'Clearer priorities',
+      before: 'Overwhelming concerns',
+      after: 'More organized priorities',
     },
     {
-      before: 'Unsure what to prepare',
-      after: 'An organized list of questions',
+      before: 'Uncertainty about preparation',
+      after: 'A useful list of questions',
     },
   ],
 } as const

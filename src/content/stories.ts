@@ -21,7 +21,7 @@ export const stories: Story[] = [
     id: 'professional',
     title: 'A professional preparing questions',
     situation:
-      'A professional felt unsure how shared assets, retirement accounts, and household debts fit together and did not know which documents mattered yet.',
+      'A professional felt unsure how shared property, retirement accounts, and household debts fit together and did not know which documents mattered yet.',
     conversation:
       'Rather than diving into every account, they mapped categories of questions and talked through how property conversations often begin.',
     nextStep:

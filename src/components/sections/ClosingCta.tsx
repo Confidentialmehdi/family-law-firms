@@ -6,11 +6,7 @@ export function ClosingCta() {
   const { openBooking } = useBooking()
 
   return (
-    <section
-      id="book"
-      className="scroll-mt-24 border-b border-border/60"
-      aria-labelledby="closing-heading"
-    >
+    <section className="border-b border-border/60" aria-labelledby="closing-heading">
       <div className="mx-auto max-w-[1200px] px-5 py-20 text-center md:px-8 md:py-24">
         <h2
           id="closing-heading"

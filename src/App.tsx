@@ -1,55 +1,34 @@
-import { BookingDialog } from '@/components/booking/BookingDialog'
-import { BookingProvider, useBooking } from '@/components/booking/BookingContext'
-import { StickyMobileCta } from '@/components/StickyMobileCta'
-import { BeforeAfter } from '@/components/sections/BeforeAfter'
-import { ClosingCta } from '@/components/sections/ClosingCta'
-import { Concerns } from '@/components/sections/Concerns'
-import { FAQ } from '@/components/sections/FAQ'
-import { Footer } from '@/components/sections/Footer'
-import { Header } from '@/components/sections/Header'
-import { Hero } from '@/components/sections/Hero'
-import { MeetRobert } from '@/components/sections/MeetRobert'
-import { PracticeAreas } from '@/components/sections/PracticeAreas'
-import { Stories } from '@/components/sections/Stories'
-import { Testimonials } from '@/components/sections/Testimonials'
-import { WhatToExpect } from '@/components/sections/WhatToExpect'
-import { cn } from '@/lib/utils'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
-function PageShell() {
-  const { open } = useBooking()
-
-  return (
-    <div className={cn('min-h-dvh', !open && 'pb-[4.75rem] md:pb-0')}>
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-ivory focus:px-3 focus:py-2 focus:text-navy"
-      >
-        Skip to content
-      </a>
-      <Header />
-      <main id="main">
-        <Hero />
-        <PracticeAreas />
-        <MeetRobert />
-        <WhatToExpect />
-        <BeforeAfter />
-        <Stories />
-        <Testimonials />
-        <Concerns />
-        <FAQ />
-        <ClosingCta />
-      </main>
-      <Footer />
-      <StickyMobileCta />
-      <BookingDialog />
-    </div>
-  )
-}
+import { BookingProvider } from '@/components/booking/BookingContext'
+import { RootLayout } from '@/layouts/RootLayout'
+import { AboutUsPage } from '@/pages/AboutUsPage'
+import { ContactUsPage } from '@/pages/ContactUsPage'
+import { FaqPage } from '@/pages/FaqPage'
+import { HomePage } from '@/pages/HomePage'
+import { NotFoundPage } from '@/pages/NotFoundPage'
+import { OurResultsPage } from '@/pages/OurResultsPage'
+import { PracticeAreasPage } from '@/pages/PracticeAreasPage'
+import { WhatToExpectPage } from '@/pages/WhatToExpectPage'
 
 export default function App() {
   return (
     <BookingProvider>
-      <PageShell />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<RootLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="practice-areas" element={<PracticeAreasPage />} />
+            <Route path="about-us" element={<AboutUsPage />} />
+            <Route path="contact-us" element={<ContactUsPage />} />
+            <Route path="our-results" element={<OurResultsPage />} />
+            <Route path="what-to-expect" element={<WhatToExpectPage />} />
+            <Route path="faq" element={<FaqPage />} />
+            <Route path="meet-robert" element={<Navigate to="/about-us" replace />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </BookingProvider>
   )
 }

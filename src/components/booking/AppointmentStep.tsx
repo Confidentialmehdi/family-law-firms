@@ -81,7 +81,7 @@ export function AppointmentStep() {
           <Label id="meeting-type-label">Meeting type</Label>
           <RadioGroup
             aria-labelledby="meeting-type-label"
-            value={draft.meetingType ?? undefined}
+            value={draft.meetingType ?? ''}
             onValueChange={(value) => {
               updateDraft({ meetingType: value as 'video' | 'in-person' })
               clearAppointmentErrors()

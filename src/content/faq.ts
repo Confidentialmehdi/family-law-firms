@@ -7,13 +7,13 @@ export type FaqItem = {
 export const faqItems: FaqItem[] = [
   {
     id: 'first',
-    question: 'What happens at the first appointment?',
+    question: 'What happens during the first appointment?',
     answer:
       'You share what brought you here and what matters most. The conversation focuses on clarifying options and outlining possible next steps—not on making every decision in one sitting.',
   },
   {
     id: 'length',
-    question: 'How long does it take?',
+    question: 'How long is it?',
     answer:
       'Sample appointments are scheduled for 30 minutes. That is usually enough time to cover priorities and leave with a clearer sense of direction.',
   },
@@ -39,12 +39,25 @@ export const faqItems: FaqItem[] = [
     id: 'area',
     question: 'What if I’m unsure which practice area applies?',
     answer:
-      'Select “Not sure” in the booking form. Sorting that out can be part of the conversation.',
+      'Select “Not sure” when booking or requesting contact. Sorting that out can be part of the conversation.',
+  },
+  {
+    id: 'details',
+    question: 'Do I need to share case details when booking?',
+    answer:
+      'No. The demo booking only asks for your name, email, and an optional practice area. You are not asked for case narratives, documents, or payment details.',
+  },
+  {
+    id: 'contact',
+    question: 'How can I contact the firm?',
+    answer:
+      'Visit the Contact Us page to see sample contact details or use the demo contact-request form. In this prototype, neither path sends a real message.',
   },
   {
     id: 'demo',
-    question: 'Does this demo schedule a real appointment?',
+    question:
+      'Does this demo schedule a real appointment or send a contact request?',
     answer:
-      'No. This is a front-end prototype. Completing the flow does not schedule a meeting, send email, or store your information.',
+      'No. Completing the booking dialog or the contact form does not schedule a meeting, send email, store your information, or trigger a response from the firm. Both flows are front-end demonstrations only.',
   },
 ]
