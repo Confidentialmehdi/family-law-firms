@@ -70,7 +70,7 @@ export function Hero() {
           className="animate-fade-in relative hidden min-h-[32rem] md:block lg:min-h-[36rem]"
           style={{ animationDelay: '120ms' }}
         >
-          <figure className="relative h-full min-h-[32rem] overflow-hidden border border-border/70 bg-[#ebe6de] lg:min-h-[36rem]">
+          <figure className="relative h-full min-h-[32rem] overflow-hidden border border-border/70 bg-[#ebe4e2] lg:min-h-[36rem]">
             <img
               src={attorney.imageSrc}
               alt={attorney.imageAlt}
