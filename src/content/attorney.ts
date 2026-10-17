@@ -18,11 +18,6 @@ At Whitfield Law Group, the initial conversation is an opportunity to organize p
 } as const
 
 export const aboutPage = {
-  eyebrow: 'About Whitfield Law Group',
-  headline: 'Family matters deserve personal attention.',
-  supporting:
-    'Meet the people behind a clear, considered approach to divorce, parenting arrangements, and financial decisions.',
-  locationDetail: 'New York, NY',
   team: {
     heading: 'The people supporting your next step.',
     supporting:
@@ -51,12 +46,6 @@ export const aboutPage = {
           'Explore what may need further attention and which information could help the next conversation.',
       },
     ],
-  },
-  closing: {
-    headline: 'Let’s begin with what matters to you.',
-    supporting:
-      'Choose a time for an initial conversation about your questions and priorities.',
-    terms: '30 minutes · Video or in person',
   },
 } as const
 
