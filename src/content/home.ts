@@ -65,26 +65,29 @@ export const homeAppointment = {
 } as const
 
 export const homeConcerns = {
-  eyebrow: 'Before you book',
-  heading: 'You don’t need everything figured out.',
+  eyebrow: 'FAQ',
+  heading: 'A few things to know before booking.',
   supporting:
-    'Most people schedule a first conversation while questions are still forming. That is enough to begin.',
-  linkLabel: 'More questions? Visit our FAQ',
+    'Quick answers to the questions people ask most often before scheduling a consultation.',
+  linkLabel: 'See all FAQ',
   items: [
     {
       id: 'service',
-      title: 'You can choose “Not sure.”',
-      detail: 'You don’t need to name a practice area before booking.',
+      question: 'Do I need to know which practice area applies?',
+      answer:
+        'No. Choose “Not sure” when you book—sorting that out can be part of the conversation.',
     },
     {
       id: 'prepare',
-      title: 'Questions are enough.',
-      detail: 'No documents required to schedule the first consultation.',
+      question: 'What should I prepare?',
+      answer:
+        'A short list of questions or concerns is enough. You do not need documents to schedule the first consultation.',
     },
     {
       id: 'cost',
-      title: 'Fees before you confirm.',
-      detail: 'Cost is discussed when you book—so nothing is a surprise.',
+      question: 'What does the appointment cost?',
+      answer:
+        'Fees are discussed when you book, so you know what to expect before you confirm a time.',
     },
   ],
 } as const

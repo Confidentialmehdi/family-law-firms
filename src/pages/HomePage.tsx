@@ -4,6 +4,12 @@ import { ImageFallback } from '@/components/ImageFallback'
 import { StoryCard } from '@/components/results/StoryCard'
 import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { Hero } from '@/components/sections/Hero'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { attorney } from '@/content/attorney'
 import {
@@ -181,7 +187,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 6. Before you book */}
+      {/* 6. FAQ preview */}
       <section
         className="border-b border-border/60 bg-navy text-ivory"
         aria-labelledby="home-concerns-heading"
@@ -202,25 +208,26 @@ export function HomePage() {
             </p>
           </div>
 
-          <ul className="mt-14 grid gap-10 border-t border-ivory/15 pt-12 md:grid-cols-3 md:gap-8 lg:gap-12">
-            {homeConcerns.items.map((item, index) => (
-              <li
-                key={item.id}
-                className="animate-fade-up"
-                style={{ animationDelay: `${100 + index * 90}ms` }}
-              >
-                <p className="font-serif text-xl leading-snug text-ivory md:text-[1.35rem]">
-                  {item.title}
-                </p>
-                <div className="mt-4 h-px w-10 bg-brass/60" aria-hidden="true" />
-                <p className="mt-4 text-base leading-relaxed text-ivory/65">{item.detail}</p>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-10 max-w-3xl border-t border-ivory/15">
+            <Accordion type="single" collapsible defaultValue={homeConcerns.items[0]?.id}>
+              {homeConcerns.items.map((item) => (
+                <AccordionItem
+                  key={item.id}
+                  value={item.id}
+                  className="border-ivory/15"
+                >
+                  <AccordionTrigger className="text-ivory hover:text-brass-muted [&[data-state=open]]:text-ivory">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-ivory/70">{item.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
 
           <Link
             to="/faq"
-            className="mt-12 inline-block text-sm font-medium text-brass-muted underline-offset-4 hover:text-brass hover:underline"
+            className="mt-10 inline-block text-sm font-medium text-brass-muted underline-offset-4 hover:text-brass hover:underline"
           >
             {homeConcerns.linkLabel}
           </Link>
