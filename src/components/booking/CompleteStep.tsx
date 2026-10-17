@@ -51,10 +51,8 @@ export function CompleteStep() {
             <dd>{meetingTypeLabel ?? '—'}</dd>
           </div>
           <div>
-            <dt className="text-sm text-muted">Duration / fee</dt>
-            <dd>
-              {bookingPage.duration} · {bookingPage.sampleFee}
-            </dd>
+            <dt className="text-sm text-muted">Duration</dt>
+            <dd>{bookingPage.duration}</dd>
           </div>
           <div>
             <dt className="text-sm text-muted">Contact</dt>

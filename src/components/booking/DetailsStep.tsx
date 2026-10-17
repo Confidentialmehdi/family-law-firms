@@ -65,7 +65,7 @@ export function DetailsStep() {
             aria-invalid={Boolean(detailsErrors.email)}
             aria-describedby={detailsErrors.email ? 'email-error' : undefined}
             onChange={(event) => {
-              updateDraft({ email: toInitialCaps(event.target.value) })
+              updateDraft({ email: capitalizeFirstOnly(event.target.value) })
               clearDetailsErrors()
             }}
           />

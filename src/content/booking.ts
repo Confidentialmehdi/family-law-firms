@@ -106,7 +106,7 @@ export const bookingPage = {
   headline: 'Choose a time to talk.',
   supporting:
     'Arrange an initial consultation with Robert Whitfield to discuss your questions and priorities.',
-  appointmentDetails: '30 minutes · Video or in person · $150 sample consultation fee',
+  appointmentDetails: '30 minutes · Video or in person',
   demoNotice: 'Demo booking. No consultation will be scheduled.',
   progress: [
     { id: 'appointment', label: 'Consultation' },
@@ -119,7 +119,6 @@ export const bookingPage = {
     'The date you selected is no longer among the next three working days. Please choose a new date and time.',
   attorneyName: 'Robert Whitfield',
   duration: '30 minutes',
-  sampleFee: '$150 sample fee',
   summaryHeading: 'Your consultation',
   summaryEmpty: 'Choose a date and time.',
   reviewDemoNotice: 'This is a demonstration. Nothing will be scheduled or charged.',
