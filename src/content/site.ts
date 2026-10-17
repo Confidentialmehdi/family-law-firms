@@ -2,7 +2,7 @@ export const site = {
   firmName: 'Whitfield Law Group',
   location: 'New York, NY',
   tagline: 'New York family law',
-  ctaLabel: 'Book an appointment',
+  ctaLabel: 'Book a consultation',
   demoBanner: 'Demo booking — no appointment will be scheduled.',
   demoComplete: 'Demo complete. No appointment has been scheduled.',
   contactDemoBanner: 'Demo form — your request will not be sent.',
