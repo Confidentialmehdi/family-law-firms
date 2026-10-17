@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
+import { attorney } from '@/content/attorney'
 import { homeHero } from '@/content/home'
 import { site } from '@/content/site'
 
@@ -37,19 +38,19 @@ export function Hero() {
         >
           <figure className="relative h-full min-h-[28rem] overflow-hidden border border-border/70 bg-[#ebe4da] lg:min-h-[32rem]">
             <img
-              src="/images/hero/new-york.jpg"
-              alt="Quiet New York City street in soft daylight"
-              className="absolute inset-0 h-full w-full object-cover object-center"
+              src={attorney.imageSrc}
+              alt={attorney.imageAlt}
+              className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
               loading="eager"
               decoding="async"
             />
             <div
-              className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/20 to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/25 to-transparent"
               aria-hidden="true"
             />
             <figcaption className="absolute right-6 bottom-6 left-6">
-              <p className="font-serif text-3xl text-navy lg:text-4xl">New York</p>
-              <p className="mt-1.5 text-base text-muted">Family law</p>
+              <p className="font-serif text-3xl text-navy lg:text-4xl">{attorney.name}</p>
+              <p className="mt-1.5 text-base text-muted">{attorney.role}</p>
             </figcaption>
           </figure>
         </div>
