@@ -38,7 +38,7 @@ export function Header() {
           {site.firmName}
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Primary">
           {headerNav.map((link) => (
             <NavLink key={link.to} to={link.to} className={linkClass}>
               {link.label}

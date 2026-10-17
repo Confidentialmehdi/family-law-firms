@@ -30,17 +30,11 @@ export const closingConversion = {
   },
 } as const
 
-/** Primary header navigation — What to Expect and FAQ are footer-only. */
-export const headerNav = [
-  { to: '/practice-areas', label: 'Practice Areas' },
-  { to: '/about-us', label: 'About Us' },
-  { to: '/contact-us', label: 'Contact Us' },
-  { to: '/our-results', label: 'Our Results' },
-] as const
-
-/** Site pages — shown in a two-column footer grid. */
-export const footerNav = [
-  { to: '/', label: 'Home' },
+/**
+ * Canonical site navigation — same destinations in header and footer
+ * so chrome stays identical on every page.
+ */
+export const mainNav = [
   { to: '/practice-areas', label: 'Practice Areas' },
   { to: '/about-us', label: 'About Us' },
   { to: '/contact-us', label: 'Contact Us' },
@@ -49,7 +43,13 @@ export const footerNav = [
   { to: '/faq', label: 'FAQ' },
 ] as const
 
-/** Legal links — footer column. */
+/** Header uses the full main nav (Home is the brand link). */
+export const headerNav = mainNav
+
+/** Footer Explore grid — Home plus the shared main nav. */
+export const footerNav = [{ to: '/', label: 'Home' }, ...mainNav] as const
+
+/** Legal links — footer column on every page. */
 export const footerLegal = [
   { to: '/privacy', label: 'Privacy Policy' },
   { to: '/terms', label: 'Terms of Use' },
