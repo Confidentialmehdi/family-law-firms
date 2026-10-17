@@ -16,17 +16,10 @@ export function OurResultsPage() {
   useDocumentTitle('Our Results')
   const { openBooking } = useBooking()
 
-  const featured =
-    resultTestimonials.find((item) => item.featured) ?? resultTestimonials[0]
-  const supporting = resultTestimonials.filter((item) => item.id !== featured?.id)
-
   return (
     <main id="main">
       {/* 1. Hero */}
-      <section
-        className="bg-navy text-ivory"
-        aria-labelledby="page-heading"
-      >
+      <section className="bg-navy text-ivory" aria-labelledby="page-heading">
         <div className="mx-auto grid max-w-[1200px] gap-8 px-5 py-14 md:grid-cols-[minmax(0,1.5fr)_minmax(0,0.9fr)] md:items-end md:gap-12 md:px-8 md:py-16">
           <div>
             <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
@@ -44,7 +37,7 @@ export function OurResultsPage() {
         </div>
       </section>
 
-      {/* 2. Eight story cards — 2 columns */}
+      {/* 2. Eight story cards */}
       <section
         className="border-b border-border bg-ivory"
         aria-labelledby="stories-heading"
@@ -119,73 +112,100 @@ export function OurResultsPage() {
         </div>
       </section>
 
-      {/* 4. Testimonials */}
+      {/* 4. Client reflections — navy editorial */}
       <section
-        className="border-b border-border bg-ivory"
+        className="bg-navy text-ivory"
         aria-labelledby="testimonials-heading"
       >
-        <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
-          <h2
-            id="testimonials-heading"
-            className="max-w-2xl font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
-          >
-            {resultsPage.testimonials.heading}
-          </h2>
-          <p className="mt-3 text-sm text-muted">{site.fictionalLabel}</p>
-
-          <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.85fr)] lg:gap-16">
-            {featured ? (
-              <blockquote className="border-l-2 border-brass pl-6">
-                <p className="font-serif text-2xl leading-snug text-navy md:text-[2rem] lg:text-[2.25rem]">
-                  “{featured.quote}”
-                </p>
-                <footer className="mt-6 text-sm text-muted">{featured.attribution}</footer>
-              </blockquote>
-            ) : null}
-
-            <ul className="flex flex-col justify-center gap-10">
-              {supporting.map((item) => (
-                <li key={item.id}>
-                  <blockquote className="border-l border-border pl-5">
-                    <p className="font-serif text-xl leading-snug text-navy">
-                      “{item.quote}”
-                    </p>
-                    <footer className="mt-4 text-sm text-muted">{item.attribution}</footer>
-                  </blockquote>
-                </li>
-              ))}
-            </ul>
+        <div className="mx-auto grid max-w-[1200px] gap-12 px-5 py-16 md:grid-cols-[minmax(14rem,0.38fr)_minmax(0,1fr)] md:gap-16 md:px-8 md:py-20 lg:gap-20">
+          <div>
+            <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+              {resultsPage.testimonials.label}
+            </p>
+            <h2
+              id="testimonials-heading"
+              className="mt-4 font-serif text-[2rem] leading-[1.15] text-ivory md:text-[2.5rem]"
+            >
+              {resultsPage.testimonials.heading}
+            </h2>
+            <p className="mt-4 text-base text-ivory/65 md:text-lg">
+              {resultsPage.testimonials.supporting}
+            </p>
+            <p className="mt-4 text-sm text-ivory/45">
+              {resultsPage.testimonials.disclaimer}
+            </p>
           </div>
+
+          <ul className="divide-y divide-ivory/15">
+            {resultTestimonials.map((item) => (
+              <li key={item.id} className="py-8 first:pt-0 last:pb-0 md:py-10">
+                <blockquote>
+                  <p className="font-serif text-xl leading-snug text-ivory md:text-[1.65rem]">
+                    “{item.quote}”
+                  </p>
+                  <footer className="mt-4 text-sm text-ivory/50">
+                    {item.attribution}
+                  </footer>
+                </blockquote>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* 5. Closing CTA */}
+      {/* 5. Appointment section — ivory + navy panel */}
       <section
-        className="border-b border-brass/30 bg-navy text-ivory"
+        className="border-b border-border bg-ivory"
         aria-labelledby="closing-heading"
       >
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-8 px-5 py-16 md:flex-row md:items-end md:justify-between md:gap-12 md:px-8 md:py-20">
-          <div className="max-w-2xl">
+        <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-center md:gap-14 md:px-8 md:py-20">
+          <div>
+            <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+              {resultsPage.closing.label}
+            </p>
             <h2
               id="closing-heading"
-              className="font-serif text-[2rem] leading-[1.15] text-ivory md:text-[2.75rem] lg:text-[3.25rem]"
+              className="mt-4 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.75rem]"
             >
               {resultsPage.closing.headline}
             </h2>
-            <p className="mt-5 max-w-md text-lg text-ivory/70">
+            <div className="mt-5 h-px w-16 bg-brass" aria-hidden="true" />
+            <p className="mt-5 max-w-md text-lg text-muted">
               {resultsPage.closing.supporting}
             </p>
-            <p className="mt-4 text-sm text-ivory/55">{resultsPage.closing.terms}</p>
           </div>
-          <div className="shrink-0">
-            <Button type="button" size="lg" onClick={openBooking}>
+
+          <aside className="rounded-sm bg-navy px-6 py-7 text-ivory md:px-8 md:py-8">
+            <h3 className="font-serif text-xl text-ivory md:text-2xl">
+              {resultsPage.closing.panelHeading}
+            </h3>
+
+            <dl className="mt-6 divide-y divide-ivory/15 border-y border-ivory/15">
+              {resultsPage.closing.details.map((row) => (
+                <div
+                  key={row.label}
+                  className="flex items-baseline justify-between gap-4 py-3.5"
+                >
+                  <dt className="text-sm text-ivory/55">{row.label}</dt>
+                  <dd className="text-right text-base text-ivory">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <p className="mt-5 text-sm text-ivory/65">{resultsPage.closing.note}</p>
+
+            <Button
+              type="button"
+              size="lg"
+              className="mt-6 w-full md:w-auto"
+              onClick={openBooking}
+            >
               {site.ctaLabel}
             </Button>
-          </div>
+            <p className="mt-3 text-xs text-ivory/45">{resultsPage.closing.demoNote}</p>
+          </aside>
         </div>
       </section>
-
-      <div className="h-6 bg-ivory md:h-8" aria-hidden="true" />
     </main>
   )
 }

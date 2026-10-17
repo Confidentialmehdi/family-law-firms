@@ -41,13 +41,25 @@ export const resultsPage = {
     ],
   },
   testimonials: {
-    heading: 'Feeling heard. Understanding what comes next.',
+    label: 'Client reflections',
+    heading: 'What stayed with them.',
+    supporting:
+      'Being heard. Understanding the conversation. Knowing what to prepare.',
+    disclaimer: 'Fictional testimonials for demonstration',
   },
   closing: {
-    headline: 'Your situation starts with a conversation.',
+    label: 'Your next step',
+    headline: 'Start with what’s on your mind.',
     supporting:
-      'Bring your questions and priorities to an initial appointment with Robert Whitfield.',
-    terms: '30 minutes · Video or in person · $150 sample consultation fee',
+      'You don’t need to have everything figured out. Choose a time to discuss your questions and priorities with Robert Whitfield.',
+    panelHeading: 'An initial conversation',
+    details: [
+      { label: 'Duration', value: '30 minutes' },
+      { label: 'Format', value: 'Video or in person' },
+      { label: 'Sample fee', value: '$150' },
+    ],
+    note: 'Bring your questions. No document uploads are required to book.',
+    demoNote: 'Demo booking. No appointment will be scheduled.',
   },
 } as const
 
