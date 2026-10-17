@@ -30,11 +30,16 @@ export const closingConversion = {
   },
 } as const
 
-/**
- * Canonical site navigation — same destinations in header and footer
- * so chrome stays identical on every page.
- */
-export const mainNav = [
+/** Primary header navigation — keep this short. */
+export const headerNav = [
+  { to: '/practice-areas', label: 'Practice Areas' },
+  { to: '/about-us', label: 'About Us' },
+  { to: '/our-results', label: 'Our Results' },
+] as const
+
+/** Footer Explore grid — full site map including pages not in the header. */
+export const footerNav = [
+  { to: '/', label: 'Home' },
   { to: '/practice-areas', label: 'Practice Areas' },
   { to: '/about-us', label: 'About Us' },
   { to: '/contact-us', label: 'Contact Us' },
@@ -42,12 +47,6 @@ export const mainNav = [
   { to: '/what-to-expect', label: 'What to Expect' },
   { to: '/faq', label: 'FAQ' },
 ] as const
-
-/** Header uses the full main nav (Home is the brand link). */
-export const headerNav = mainNav
-
-/** Footer Explore grid — Home plus the shared main nav. */
-export const footerNav = [{ to: '/', label: 'Home' }, ...mainNav] as const
 
 /** Legal links — footer column on every page. */
 export const footerLegal = [
