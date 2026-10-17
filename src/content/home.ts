@@ -36,9 +36,9 @@ export const homeMeet = {
 
 export const homeExperience = {
   heading: 'Feeling heard. Understanding what comes next.',
-  linkLabel: 'Explore our results',
-  /** Prefer clear explanations + feeling heard themes. */
-  testimonialIds: ['t2', 't1'] as const,
+  buttonLabel: 'Learn more',
+  /** Four stories featured on the homepage; full set lives on Our Results. */
+  storyIds: ['michael', 'sarah', 'dana', 'james'] as const,
 } as const
 
 export const homeAppointment = {

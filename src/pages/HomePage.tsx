@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 
 import { ImageFallback } from '@/components/ImageFallback'
+import { StoryCard } from '@/components/results/StoryCard'
 import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { Hero } from '@/components/sections/Hero'
+import { Button } from '@/components/ui/button'
 import { attorney } from '@/content/attorney'
 import {
   homeAppointment,
@@ -12,15 +14,15 @@ import {
   homePractice,
 } from '@/content/home'
 import { getPracticeArea } from '@/content/practiceAreas'
-import { testimonials } from '@/content/testimonials'
+import { clientStories } from '@/content/results'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
 export function HomePage() {
   useDocumentTitle()
 
-  const experienceQuotes = homeExperience.testimonialIds
-    .map((id) => testimonials.find((item) => item.id === id))
-    .filter((item): item is (typeof testimonials)[number] => Boolean(item))
+  const featuredStories = homeExperience.storyIds
+    .map((id) => clientStories.find((story) => story.id === id))
+    .filter((story): story is (typeof clientStories)[number] => Boolean(story))
 
   return (
     <main id="main">
@@ -99,7 +101,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 4. Client experience */}
+      {/* 4. Results preview */}
       <section className="border-b border-border/60" aria-labelledby="home-experience-heading">
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
           <div className="max-w-2xl">
@@ -110,22 +112,18 @@ export function HomePage() {
               {homeExperience.heading}
             </h2>
           </div>
-          <ul className="mt-10 grid gap-10 md:grid-cols-2">
-            {experienceQuotes.map((item) => (
-              <li key={item.id} className="border-l-2 border-brass/50 pl-5">
-                <blockquote className="font-serif text-xl leading-snug text-navy md:text-2xl">
-                  <p>“{item.quote}”</p>
-                </blockquote>
-                <p className="mt-4 text-sm text-muted">{item.attribution}</p>
+          <ul className="mt-10 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:gap-7">
+            {featuredStories.map((story) => (
+              <li key={story.id} className="flex">
+                <StoryCard story={story} variant="compact" />
               </li>
             ))}
           </ul>
-          <Link
-            to="/our-results"
-            className="mt-10 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
-          >
-            {homeExperience.linkLabel}
-          </Link>
+          <div className="mt-10">
+            <Button asChild size="lg">
+              <Link to="/our-results">{homeExperience.buttonLabel}</Link>
+            </Button>
+          </div>
         </div>
       </section>
 

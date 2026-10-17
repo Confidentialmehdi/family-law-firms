@@ -1,14 +1,22 @@
 import type { ClientStory } from '@/content/results'
+import { cn } from '@/lib/utils'
 
 type StoryCardProps = {
   story: ClientStory
+  /** Compact cards suit homepage previews; full cards suit the results page. */
+  variant?: 'full' | 'compact'
 }
 
-export function StoryCard({ story }: StoryCardProps) {
+export function StoryCard({ story, variant = 'full' }: StoryCardProps) {
+  const compact = variant === 'compact'
+
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-sm border border-border bg-surface">
-      {/* Identity row */}
-      <div className="flex items-center gap-3 px-4 pt-4 pb-3">
+    <article
+      className={cn(
+        'flex h-full flex-col overflow-hidden rounded-sm border border-border bg-surface',
+      )}
+    >
+      <div className={cn('flex items-center gap-3', compact ? 'px-4 pt-4 pb-2' : 'px-4 pt-4 pb-3')}>
         <div
           className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#e8e2d8] font-serif text-xs tracking-wide text-navy"
           aria-hidden="true"
@@ -21,8 +29,12 @@ export function StoryCard({ story }: StoryCardProps) {
         </div>
       </div>
 
-      {/* Main image — 4:5 */}
-      <div className="relative aspect-[4/5] w-full bg-[#ebe4da]">
+      <div
+        className={cn(
+          'relative w-full bg-[#ebe4da]',
+          compact ? 'aspect-[16/10]' : 'aspect-[4/5]',
+        )}
+      >
         <div
           className="absolute inset-0"
           style={{
@@ -45,13 +57,26 @@ export function StoryCard({ story }: StoryCardProps) {
         </div>
       </div>
 
-      {/* Caption */}
-      <div className="flex flex-1 flex-col px-4 pt-4 pb-5">
+      <div className={cn('flex flex-1 flex-col', compact ? 'px-4 pt-3 pb-4' : 'px-4 pt-4 pb-5')}>
         <p className="text-[0.65rem] tracking-[0.14em] text-brass uppercase">
           {story.practiceArea}
         </p>
-        <h3 className="mt-2 font-serif text-xl leading-snug text-navy">{story.title}</h3>
-        <p className="mt-3 flex-1 text-base leading-relaxed text-muted">{story.caption}</p>
+        <h3
+          className={cn(
+            'mt-2 font-serif leading-snug text-navy',
+            compact ? 'text-lg' : 'text-xl',
+          )}
+        >
+          {story.title}
+        </h3>
+        <p
+          className={cn(
+            'mt-2 flex-1 text-base leading-relaxed text-muted',
+            compact && 'line-clamp-3',
+          )}
+        >
+          {story.caption}
+        </p>
       </div>
     </article>
   )
