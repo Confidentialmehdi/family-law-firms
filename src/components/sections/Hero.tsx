@@ -1,4 +1,4 @@
-import { Lock, Route, Video, type LucideIcon } from 'lucide-react'
+import { BriefcaseBusiness, FolderCheck, Star, type LucideIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
@@ -7,9 +7,9 @@ import { homeHero } from '@/content/home'
 import { site } from '@/content/site'
 
 const heroPointIcons: Record<(typeof homeHero.points)[number]['id'], LucideIcon> = {
-  private: Lock,
-  clarity: Route,
-  format: Video,
+  experience: BriefcaseBusiness,
+  matters: FolderCheck,
+  rating: Star,
 }
 
 /** Home hero — provides the page’s sole h1 (id=page-heading). */
