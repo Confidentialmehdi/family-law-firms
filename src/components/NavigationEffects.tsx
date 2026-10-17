@@ -6,7 +6,7 @@ export function NavigationEffects() {
   const { pathname } = useLocation()
 
   React.useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
 
     // Defer until the new page heading is in the DOM.
     const frame = requestAnimationFrame(() => {

@@ -17,7 +17,6 @@ const progressSteps = bookingPage.progress
 export function BookConsultationPage() {
   useDocumentTitle('Book a Consultation')
   const { step, refreshAvailability, setStep } = useBooking()
-  const workspaceRef = React.useRef<HTMLDivElement>(null)
   const stepHeadingRef = React.useRef<HTMLHeadingElement>(null)
 
   React.useEffect(() => {
@@ -25,12 +24,11 @@ export function BookConsultationPage() {
   }, [refreshAvailability])
 
   React.useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     const frame = requestAnimationFrame(() => {
       if (step === 'complete') {
         document.getElementById('page-heading')?.focus({ preventScroll: true })
       } else {
-        workspaceRef.current?.scrollIntoView({ block: 'center', behavior: 'auto' })
         stepHeadingRef.current?.focus({ preventScroll: true })
       }
     })
@@ -41,13 +39,10 @@ export function BookConsultationPage() {
   const isComplete = step === 'complete'
 
   return (
-    <main id="main" className="flex min-h-[calc(100dvh-4.5rem)] flex-col bg-ivory">
-      <div className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-center px-5 py-6 md:px-8 md:py-8">
+    <main id="main" className="bg-ivory">
+      <div className="mx-auto w-full max-w-[1200px] px-5 py-6 md:px-8 md:py-8">
         {isComplete ? (
-          <div
-            ref={workspaceRef}
-            className="mx-auto my-auto w-full max-w-xl rounded-sm border border-border bg-surface px-5 py-8 md:px-8 md:py-10"
-          >
+          <div className="mx-auto w-full max-w-xl rounded-sm border border-border bg-surface px-5 py-8 md:px-8 md:py-10">
             <CompleteStep />
           </div>
         ) : (
@@ -67,7 +62,7 @@ export function BookConsultationPage() {
               </p>
             </div>
 
-            <div ref={workspaceRef} className="mt-6 md:mt-8">
+            <div className="mt-6 md:mt-8">
               <div className="mb-4 lg:hidden">
                 <ConsultationSummary variant="compact" />
               </div>
@@ -77,20 +72,20 @@ export function BookConsultationPage() {
                   <ol className="mb-5 flex flex-wrap gap-1.5 border-b border-border pb-4">
                     {progressSteps.map((item, index) => {
                       const isActive = item.id === step
-                      const isComplete = activeIndex > index
+                      const isStepComplete = activeIndex > index
                       return (
                         <li key={item.id} className="flex items-center gap-2">
                           <button
                             type="button"
-                            disabled={!isComplete}
+                            disabled={!isStepComplete}
                             onClick={() => {
-                              if (isComplete) setStep(item.id as BookingStep)
+                              if (isStepComplete) setStep(item.id as BookingStep)
                             }}
                             className={cn(
                               'rounded-sm px-2.5 py-1 text-sm transition-colors',
                               isActive
                                 ? 'bg-navy text-ivory'
-                                : isComplete
+                                : isStepComplete
                                   ? 'text-teal hover:bg-teal/10'
                                   : 'text-muted',
                             )}

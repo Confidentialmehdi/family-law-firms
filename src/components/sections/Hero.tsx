@@ -8,10 +8,10 @@ import { site } from '@/content/site'
 export function Hero() {
   return (
     <section
-      className="texture-paper relative flex min-h-[min(92vh,52rem)] overflow-hidden border-b border-border/60 md:min-h-[min(88vh,48rem)]"
+      className="texture-paper relative overflow-hidden border-b border-border/60"
       aria-labelledby="page-heading"
     >
-      <div className="mx-auto grid w-full max-w-[1200px] flex-1 items-center gap-12 px-5 py-20 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:gap-16 md:px-8 md:py-24 lg:gap-20 lg:py-28">
+      <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-5 py-14 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:items-start md:gap-16 md:px-8 md:py-16 lg:gap-20 lg:py-20">
         <div className="animate-fade-up max-w-2xl">
           <h1
             id="page-heading"
