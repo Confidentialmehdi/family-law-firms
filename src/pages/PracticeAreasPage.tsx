@@ -177,7 +177,7 @@ function ServiceSection({
       className={cn(
         'scroll-mt-28',
         index > 0 && 'border-t border-border',
-        tinted ? 'bg-[#f0ebe3]/40' : 'bg-ivory',
+        tinted ? 'bg-[#efe9e2]/40' : 'bg-ivory',
       )}
       aria-labelledby={`${area.id}-heading`}
     >
@@ -229,7 +229,7 @@ function ServiceSection({
             </div>
           </div>
 
-          <aside className="border border-border bg-[#f0ebe3] px-5 py-6 md:px-6 md:py-7">
+          <aside className="border border-border bg-[#efe9e2] px-5 py-6 md:px-6 md:py-7">
             <ServiceTopics questions={area.questions} />
           </aside>
         </div>

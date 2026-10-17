@@ -1,21 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ivory: #f7f4ef;
-  --color-navy: #172b3a;
-  --color-teal: #185c58;
-  --color-teal-hover: #144a47;
-  --color-brass: #a58b60;
-  --color-brass-muted: #c4b08a;
-  --color-surface: #fffdf9;
-  --color-border: #e4ddd2;
-  --color-muted: #5c6b76;
+  /* Warm white background */
+  --color-ivory: #f7f4f0;
+  /* Charcoal — main text and dark chrome */
+  --color-navy: #252629;
+  /* Burgundy — primary CTAs (token name kept for existing classes) */
+  --color-teal: #7a263a;
+  --color-teal-hover: #641f30;
+  /* Muted bronze — decorative accent */
+  --color-brass: #a58b73;
+  --color-brass-muted: #c4b19c;
+  --color-surface: #fffcf9;
+  --color-border: #e2ddd7;
+  --color-muted: #5f6165;
 
   --font-serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman",
     serif;
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
 
-  --shadow-soft: 0 1px 2px rgb(23 43 58 / 0.04);
+  --shadow-soft: 0 1px 2px rgb(37 38 41 / 0.05);
 }
 
 @layer base {
@@ -83,7 +87,7 @@
     background-image:
       radial-gradient(
         ellipse 80% 50% at 50% -10%,
-        rgb(165 139 96 / 0.08),
+        rgb(165 139 115 / 0.08),
         transparent 55%
       ),
       url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
