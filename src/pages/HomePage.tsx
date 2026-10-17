@@ -181,45 +181,49 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 6. Booking reassurances */}
-      <section className="border-b border-border/60" aria-labelledby="home-concerns-heading">
-        <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
-          <h2
-            id="home-concerns-heading"
-            className="max-w-2xl font-serif text-3xl text-navy md:text-4xl"
-          >
-            {homeConcerns.heading}
-          </h2>
+      {/* 6. Before you book — editorial aside */}
+      <section
+        className="border-b border-border/60 bg-navy text-ivory"
+        aria-labelledby="home-concerns-heading"
+      >
+        <div className="mx-auto grid max-w-[1200px] gap-12 px-5 py-16 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-end md:gap-16 md:px-8 md:py-20 lg:gap-20">
+          <div className="animate-fade-up max-w-xl">
+            <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
+              {homeConcerns.eyebrow}
+            </p>
+            <h2
+              id="home-concerns-heading"
+              className="mt-4 font-serif text-3xl leading-[1.15] text-ivory md:text-4xl lg:text-[2.75rem]"
+            >
+              {homeConcerns.heading}
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-ivory/70">
+              {homeConcerns.supporting}
+            </p>
+            <Link
+              to="/faq"
+              className="mt-8 inline-block text-sm font-medium text-brass-muted underline-offset-4 hover:text-brass hover:underline"
+            >
+              {homeConcerns.linkLabel}
+            </Link>
+          </div>
 
-          <ul className="mt-12 max-w-2xl space-y-0">
+          <ul className="border-t border-ivory/15">
             {homeConcerns.items.map((item, index) => (
               <li
                 key={item.id}
-                className="animate-fade-up border-t border-brass/25 py-8 first:border-t-0 first:pt-0 last:pb-0"
-                style={{ animationDelay: `${60 + index * 90}ms` }}
+                className="animate-fade-up grid gap-2 border-b border-ivory/15 py-6 sm:grid-cols-[7.5rem_1fr] sm:gap-8 sm:py-7"
+                style={{ animationDelay: `${100 + index * 90}ms` }}
               >
-                <div className="flex gap-4">
-                  <span
-                    className="mt-2.5 size-1.5 shrink-0 rounded-full bg-brass"
-                    aria-hidden="true"
-                  />
-                  <div>
-                    <p className="font-serif text-xl leading-snug text-navy md:text-[1.35rem]">
-                      {item.statement}
-                    </p>
-                    <p className="mt-2 text-base leading-relaxed text-muted">{item.detail}</p>
-                  </div>
-                </div>
+                <p className="text-[0.7rem] tracking-[0.14em] text-brass uppercase">
+                  {item.label}
+                </p>
+                <p className="font-serif text-lg leading-snug text-ivory md:text-xl">
+                  {item.statement}
+                </p>
               </li>
             ))}
           </ul>
-
-          <Link
-            to="/faq"
-            className="mt-10 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
-          >
-            {homeConcerns.linkLabel}
-          </Link>
         </div>
       </section>
 
