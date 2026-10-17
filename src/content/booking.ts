@@ -124,8 +124,6 @@ export const bookingPage = {
   reviewDemoNotice: 'This is a demonstration. Nothing will be scheduled or charged.',
   completeHeading: 'Demo complete.',
   completeCopy: 'No consultation has been scheduled.',
-  startAgainLabel: 'Start again',
-  backHomeLabel: 'Back to Home',
   reassurance: {
     heading: 'A few things before we speak.',
     items: [

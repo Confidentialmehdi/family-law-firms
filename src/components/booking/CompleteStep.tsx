@@ -1,8 +1,5 @@
-import { Link } from 'react-router-dom'
-
 import { bookingPage } from '@/content/booking'
 import { site } from '@/content/site'
-import { Button } from '@/components/ui/button'
 
 import { useBooking } from './BookingContext'
 
@@ -12,7 +9,6 @@ export function CompleteStep() {
     meetingTypeLabel,
     practiceAreaLabel,
     draft,
-    resetBooking,
   } = useBooking()
 
   return (
@@ -70,17 +66,6 @@ export function CompleteStep() {
             </dd>
           </div>
         </dl>
-      </div>
-
-      <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Button type="button" variant="outline" onClick={resetBooking}>
-          {bookingPage.startAgainLabel}
-        </Button>
-        <Button asChild>
-          <Link to="/" onClick={resetBooking}>
-            {bookingPage.backHomeLabel}
-          </Link>
-        </Button>
       </div>
     </div>
   )
