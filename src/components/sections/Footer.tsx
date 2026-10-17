@@ -19,9 +19,9 @@ export function Footer() {
           </div>
 
           <div className="grid flex-1 gap-10 sm:grid-cols-2 sm:gap-12 md:max-w-xl md:gap-16">
-            <nav aria-label="Footer pages">
+            <nav aria-label="Footer pages" className="min-w-0">
               <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">Explore</p>
-              <ul className="mt-4 grid grid-cols-2 gap-x-8 gap-y-2.5">
+              <ul className="mt-4 space-y-2.5">
                 {footerNav.map((link) => (
                   <li key={link.to}>
                     <Link
@@ -35,7 +35,7 @@ export function Footer() {
               </ul>
             </nav>
 
-            <nav aria-label="Legal">
+            <nav aria-label="Legal" className="min-w-0">
               <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">Legal</p>
               <ul className="mt-4 space-y-2.5">
                 {footerLegal.map((link) => (
