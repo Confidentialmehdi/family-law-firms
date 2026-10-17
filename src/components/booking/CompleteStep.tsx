@@ -61,6 +61,7 @@ export function CompleteStep() {
             <dd>
               {draft.name}
               <span className="block text-muted">{draft.email}</span>
+              <span className="block text-muted">{draft.phone}</span>
               {practiceAreaLabel ? (
                 <span className="block text-muted">{practiceAreaLabel}</span>
               ) : null}

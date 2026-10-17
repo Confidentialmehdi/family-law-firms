@@ -16,6 +16,7 @@ export type BookingDraft = {
   meetingType: MeetingType | null
   name: string
   email: string
+  phone: string
   practiceArea: string
 }
 
