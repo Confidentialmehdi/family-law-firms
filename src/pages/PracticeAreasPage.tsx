@@ -111,27 +111,24 @@ function ServiceSection({
           {number}
         </span>
 
-        <div className="relative grid gap-10 lg:grid-cols-[7rem_minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12">
-          <div>
-            <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-              {number} / {area.title}
-            </p>
-          </div>
+        <div className="relative">
+          <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+            {number} / {area.title}
+          </p>
+          <h2
+            id={`${area.id}-heading`}
+            className="mt-3 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem] lg:text-[2.75rem]"
+          >
+            {area.title}
+          </h2>
+          <div className="mt-5 h-px w-16 bg-brass" aria-hidden="true" />
 
-          <div>
-            <h2
-              id={`${area.id}-heading`}
-              className="font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem] lg:text-[2.75rem]"
-            >
-              {area.title}
-            </h2>
-            <div className="mt-5 h-px w-16 bg-brass" aria-hidden="true" />
-            <p className="mt-6 max-w-prose text-lg text-muted">{area.description}</p>
+          <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12">
+            <p className="max-w-prose text-lg text-muted">{area.description}</p>
+            <aside className="border border-border bg-[#f0ebe3] px-5 py-6 md:px-6">
+              <ServiceTopics questions={area.questions} />
+            </aside>
           </div>
-
-          <aside className="border border-border bg-[#f0ebe3] px-5 py-6 md:px-6">
-            <ServiceTopics questions={area.questions} />
-          </aside>
         </div>
       </div>
     </section>
