@@ -24,7 +24,7 @@ export function StoryCard({ story, variant = 'full' }: StoryCardProps) {
       >
         <div
           className={cn(
-            'flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#e4e7eb] font-serif tracking-wide text-navy',
+            'flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#e8e3db] font-serif tracking-wide text-navy',
             compact ? 'size-9 text-[0.7rem]' : 'size-10 text-xs',
           )}
           aria-hidden="true"
@@ -47,7 +47,7 @@ export function StoryCard({ story, variant = 'full' }: StoryCardProps) {
 
       <div
         className={cn(
-          'relative w-full overflow-hidden bg-[#e4e7eb]',
+          'relative w-full overflow-hidden bg-[#ebe6de]',
           compact ? 'aspect-[3/4]' : 'aspect-[4/5]',
         )}
       >
