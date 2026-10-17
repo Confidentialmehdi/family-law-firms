@@ -5,7 +5,7 @@ export const homeHero = {
   points: [
     {
       id: 'experience',
-      lines: ['25+ years of', 'combined experience'],
+      lines: ['25+ years', 'combined experience'],
     },
     {
       id: 'matters',
