@@ -38,15 +38,14 @@ export function Header() {
           {site.firmName}
         </Link>
 
-        <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Primary">
-          {headerNav.map((link) => (
-            <NavLink key={link.to} to={link.to} className={linkClass}>
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:gap-5 lg:gap-6">
+          <nav className="hidden items-center gap-5 lg:flex" aria-label="Primary">
+            {headerNav.map((link) => (
+              <NavLink key={link.to} to={link.to} className={linkClass}>
+                {link.label}
+              </NavLink>
+            ))}
+          </nav>
           <Button type="button" className="hidden sm:inline-flex" onClick={openBooking}>
             {site.ctaLabel}
           </Button>
