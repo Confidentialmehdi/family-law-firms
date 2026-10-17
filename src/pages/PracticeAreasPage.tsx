@@ -225,107 +225,12 @@ export function PracticeAreasPage() {
         </div>
       </section>
 
-      {/* 3. Featured Divorce */}
-      {divorce ? (
-        <section
-          id={divorce.id}
-          className="scroll-mt-28 border-b border-border bg-ivory"
-          aria-labelledby={`${divorce.id}-heading`}
-        >
-          <div className="relative mx-auto max-w-[1200px] overflow-hidden px-5 py-16 md:px-8 md:py-20">
-            <span
-              className="pointer-events-none absolute top-8 right-4 select-none font-serif text-[7rem] leading-none text-navy/[0.04] md:top-6 md:right-8 md:text-[10rem]"
-              aria-hidden="true"
-            >
-              01
-            </span>
+      {/* Service sections — shared three-column layout */}
+      {practiceAreas.map((area, index) => (
+        <ServiceSection key={area.id} area={area} index={index} />
+      ))}
 
-            <div className="relative grid gap-10 lg:grid-cols-[7rem_minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12">
-              <div>
-                <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-                  01 / Divorce
-                </p>
-              </div>
-
-              <div>
-                <h2
-                  id={`${divorce.id}-heading`}
-                  className="font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem] lg:text-[2.75rem]"
-                >
-                  {divorce.title}
-                </h2>
-                <div className="mt-5 h-px w-16 bg-brass" aria-hidden="true" />
-                <p className="mt-6 max-w-prose text-lg text-muted">{divorce.description}</p>
-              </div>
-
-              <aside className="border border-border bg-[#f0ebe3] px-5 py-6 md:px-6">
-                <ServiceTopics questions={divorce.questions} />
-              </aside>
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      {/* 4. Remaining services */}
-      {remaining.map((area, index) => {
-        const number = String(index + 2).padStart(2, '0')
-        const mirrored = index % 2 === 1
-        const tinted = index === 1
-
-        return (
-          <section
-            key={area.id}
-            id={area.id}
-            className={cn(
-              'scroll-mt-28 border-b border-border',
-              tinted ? 'bg-[#f0ebe3]/55' : 'bg-ivory',
-            )}
-            aria-labelledby={`${area.id}-heading`}
-          >
-            <div className="mx-auto max-w-[1200px] px-5 py-14 md:px-8 md:py-16">
-              <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-                {number} / {area.title}
-              </p>
-
-              {mirrored ? (
-                /* Wider heading row, then balanced columns */
-                <div className="mt-4">
-                  <h2
-                    id={`${area.id}-heading`}
-                    className="max-w-3xl font-serif text-[1.85rem] leading-[1.15] text-navy md:text-[2.25rem] lg:text-[2.5rem]"
-                  >
-                    {area.title}
-                  </h2>
-                  <div className="mt-5 h-px w-12 bg-brass/70" aria-hidden="true" />
-                  <div className="mt-8 grid gap-10 md:grid-cols-2 md:gap-14">
-                    <p className="text-lg text-muted">{area.description}</p>
-                    <ServiceTopics questions={area.questions} />
-                  </div>
-                </div>
-              ) : (
-                /* Heading + description left; topics right */
-                <div className="mt-4 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
-                  <div>
-                    <h2
-                      id={`${area.id}-heading`}
-                      className="font-serif text-[1.85rem] leading-[1.15] text-navy md:text-[2.25rem] lg:text-[2.5rem]"
-                    >
-                      {area.title}
-                    </h2>
-                    <div className="mt-5 h-px w-12 bg-brass/70" aria-hidden="true" />
-                    <p className="mt-6 max-w-prose text-lg text-muted">
-                      {area.description}
-                    </p>
-                  </div>
-                  <ServiceTopics questions={area.questions} />
-                </div>
-              )}
-            </div>
-          </section>
-        )
-      })}
-
-      {/* 5. Unsure — calm pause */}
+      {/* Unsure — calm pause */}
       <section
         className="border-b border-border bg-ivory"
         aria-labelledby="unsure-heading"
