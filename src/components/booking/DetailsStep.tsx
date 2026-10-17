@@ -73,6 +73,30 @@ export function DetailsStep() {
         </div>
 
         <div className="space-y-2">
+          <Label htmlFor="booking-phone">
+            Phone number <span className="text-muted">(required)</span>
+          </Label>
+          <Input
+            id="booking-phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            value={draft.phone}
+            aria-invalid={Boolean(detailsErrors.phone)}
+            aria-describedby={detailsErrors.phone ? 'phone-error' : undefined}
+            onChange={(event) => {
+              updateDraft({ phone: event.target.value })
+              clearDetailsErrors()
+            }}
+          />
+          {detailsErrors.phone ? (
+            <p id="phone-error" className="text-sm text-red-800" role="alert">
+              {detailsErrors.phone}
+            </p>
+          ) : null}
+        </div>
+
+        <div className="space-y-2">
           <Label htmlFor="booking-practice-area">
             Practice area <span className="text-muted">(optional)</span>
           </Label>

@@ -45,7 +45,7 @@ export const faqItems: FaqItem[] = [
     id: 'details',
     question: 'Do I need to share case details when booking?',
     answer:
-      'No. The booking page only asks for your name, email, and an optional practice area. You are not asked for case narratives, documents, or payment details online.',
+      'No. The booking page only asks for your name, email, phone, and an optional practice area. You are not asked for case narratives, documents, or payment details online.',
   },
   {
     id: 'how-to-book',

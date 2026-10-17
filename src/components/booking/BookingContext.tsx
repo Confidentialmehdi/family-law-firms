@@ -35,7 +35,7 @@ type BookingContextValue = {
   dateStale: boolean
   clearDateStale: () => void
   appointmentErrors: { date?: string; slot?: string; meetingType?: string }
-  detailsErrors: { name?: string; email?: string }
+  detailsErrors: { name?: string; email?: string; phone?: string }
   validateAppointment: () => boolean
   validateDetails: () => boolean
   clearAppointmentErrors: () => void
@@ -48,6 +48,7 @@ const emptyDraft: BookingDraft = {
   meetingType: null,
   name: '',
   email: '',
+  phone: '',
   practiceArea: '',
 }
 
@@ -55,6 +56,11 @@ const BookingContext = React.createContext<BookingContextValue | null>(null)
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+}
+
+function isValidPhone(value: string) {
+  const digits = value.replace(/\D/g, '')
+  return digits.length >= 10
 }
 
 export function BookingProvider({ children }: { children: React.ReactNode }) {
@@ -70,6 +76,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   const [detailsErrors, setDetailsErrors] = React.useState<{
     name?: string
     email?: string
+    phone?: string
   }>({})
 
   const slots = React.useMemo(() => generateAvailabilitySlots(), [slotVersion])
@@ -136,13 +143,15 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   }, [draft.dateKey, draft.meetingType, draft.slotId])
 
   const validateDetails = React.useCallback(() => {
-    const next: { name?: string; email?: string } = {}
+    const next: { name?: string; email?: string; phone?: string } = {}
     if (!draft.name.trim()) next.name = 'Enter your full name.'
     if (!draft.email.trim()) next.email = 'Enter your email address.'
     else if (!isValidEmail(draft.email.trim())) next.email = 'Enter a valid email address.'
+    if (!draft.phone.trim()) next.phone = 'Enter your phone number.'
+    else if (!isValidPhone(draft.phone.trim())) next.phone = 'Enter a valid phone number.'
     setDetailsErrors(next)
     return Object.keys(next).length === 0
-  }, [draft.email, draft.name])
+  }, [draft.email, draft.name, draft.phone])
 
   const completeBooking = React.useCallback(() => {
     setStep('complete')
