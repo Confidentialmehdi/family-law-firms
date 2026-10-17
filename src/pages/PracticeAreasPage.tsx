@@ -84,12 +84,63 @@ function ServiceTopics({ questions }: { questions: readonly string[] }) {
   )
 }
 
+function ServiceSection({
+  area,
+  index,
+}: {
+  area: (typeof practiceAreas)[number]
+  index: number
+}) {
+  const number = String(index + 1).padStart(2, '0')
+  const tinted = index % 2 === 1
+
+  return (
+    <section
+      id={area.id}
+      className={cn(
+        'scroll-mt-28 border-b border-border',
+        tinted ? 'bg-[#f0ebe3]/40' : 'bg-ivory',
+      )}
+      aria-labelledby={`${area.id}-heading`}
+    >
+      <div className="relative mx-auto max-w-[1200px] overflow-hidden px-5 py-16 md:px-8 md:py-20">
+        <span
+          className="pointer-events-none absolute top-8 right-4 select-none font-serif text-[7rem] leading-none text-navy/[0.04] md:top-6 md:right-8 md:text-[10rem]"
+          aria-hidden="true"
+        >
+          {number}
+        </span>
+
+        <div className="relative grid gap-10 lg:grid-cols-[7rem_minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12">
+          <div>
+            <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+              {number} / {area.title}
+            </p>
+          </div>
+
+          <div>
+            <h2
+              id={`${area.id}-heading`}
+              className="font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem] lg:text-[2.75rem]"
+            >
+              {area.title}
+            </h2>
+            <div className="mt-5 h-px w-16 bg-brass" aria-hidden="true" />
+            <p className="mt-6 max-w-prose text-lg text-muted">{area.description}</p>
+          </div>
+
+          <aside className="border border-border bg-[#f0ebe3] px-5 py-6 md:px-6">
+            <ServiceTopics questions={area.questions} />
+          </aside>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export function PracticeAreasPage() {
   useDocumentTitle('Practice Areas')
   const { openBooking } = useBooking()
-
-  const divorce = practiceAreas[0]
-  const remaining = practiceAreas.slice(1)
 
   return (
     <main id="main">
