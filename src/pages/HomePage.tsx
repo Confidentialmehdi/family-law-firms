@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { ImageFallback } from '@/components/ImageFallback'
@@ -18,7 +19,6 @@ import {
   homeMeet,
   homePractice,
 } from '@/content/home'
-import { getPracticeArea } from '@/content/practiceAreas'
 import { clientStories } from '@/content/results'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
@@ -33,7 +33,7 @@ export function HomePage() {
     <main id="main">
       <Hero />
 
-      {/* 2. Practice areas */}
+      {/* 2. Practice pathways */}
       <section className="border-b border-border/60" aria-labelledby="home-practice-heading">
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
           <div className="max-w-2xl">
@@ -46,30 +46,36 @@ export function HomePage() {
             <p className="mt-3 text-lg text-muted">{homePractice.introduction}</p>
           </div>
 
-          <div className="mt-12 space-y-12">
-            {homePractice.groups.map((group) => (
-              <div key={group.id}>
-                <h3 className="text-xs tracking-[0.14em] text-brass uppercase">
-                  {group.label}
-                </h3>
-                <ul className="mt-5 divide-y divide-border border-y border-border">
-                  {group.areaIds.map((areaId) => {
-                    const area = getPracticeArea(areaId)
-                    if (!area) return null
-                    return (
-                      <li
-                        key={area.id}
-                        className="grid gap-2 py-5 md:grid-cols-[minmax(12rem,0.4fr)_1fr] md:gap-8"
-                      >
-                        <p className="font-serif text-xl text-navy">{area.title}</p>
-                        <p className="text-base text-muted md:pt-0.5">{area.preview}</p>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
+          <ul className="mt-12 divide-y divide-border border-y border-border">
+            {homePractice.pathways.map((pathway, index) => (
+              <li
+                key={pathway.id}
+                className="animate-fade-up grid gap-4 py-10 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:items-end md:gap-12 md:py-12"
+                style={{ animationDelay: `${80 + index * 90}ms` }}
+              >
+                <div>
+                  <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase tabular-nums">
+                    {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <h3 className="mt-3 font-serif text-2xl leading-snug text-navy md:text-[2rem]">
+                    {pathway.title}
+                  </h3>
+                </div>
+                <div className="md:pb-1">
+                  <p className="max-w-md text-base leading-relaxed text-muted md:text-lg">
+                    {pathway.description}
+                  </p>
+                  <Link
+                    to={pathway.href}
+                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-teal underline-offset-4 hover:underline"
+                  >
+                    {pathway.linkLabel}
+                    <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                  </Link>
+                </div>
+              </li>
             ))}
-          </div>
+          </ul>
 
           <Link
             to="/practice-areas"
