@@ -32,9 +32,9 @@ export const contactForm = {
   validation: {
     name: 'Enter your full name.',
     email: 'Enter your email address.',
-    emailInvalid: 'Enter a valid email address.',
+    emailInvalid: 'Enter a valid email (for example, name@example.com).',
     phone: 'Enter your phone number.',
-    phoneInvalid: 'Enter a valid phone number.',
+    phoneInvalid: 'Enter a 10-digit US phone number.',
   },
 } as const
 

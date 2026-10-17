@@ -1,7 +1,8 @@
-import { practiceAreaOptions } from '@/content/practiceAreas'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { practiceAreaOptions } from '@/content/practiceAreas'
+import { contactForm } from '@/content/site'
 import { capitalizeFirstOnly, formatUsPhone, toInitialCaps } from '@/lib/inputFormat'
 import { cn } from '@/lib/utils'
 
@@ -115,7 +116,7 @@ export function DetailsStep() {
               'flex h-11 w-full rounded-sm border border-border bg-surface px-3 py-2 text-base text-navy shadow-soft focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25',
             )}
           >
-            <option value="">Select an option</option>
+            <option value="">{contactForm.selectOption}</option>
             {practiceAreaOptions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}

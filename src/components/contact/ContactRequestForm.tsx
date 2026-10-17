@@ -6,7 +6,13 @@ import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { practiceAreaOptions } from '@/content/practiceAreas'
 import { contactForm, site } from '@/content/site'
-import { formatUsPhone } from '@/lib/inputFormat'
+import {
+  capitalizeFirstOnly,
+  formatUsPhone,
+  isValidEmailAddress,
+  isValidUsPhone,
+  toInitialCaps,
+} from '@/lib/inputFormat'
 import { cn } from '@/lib/utils'
 
 type ContactMethod = 'email' | 'phone'
@@ -29,15 +35,6 @@ const emptyForm: FormState = {
   practiceArea: '',
   message: '',
   preferredTime: '',
-}
-
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-}
-
-function isValidPhone(value: string) {
-  const digits = value.replace(/\D/g, '')
-  return digits.length >= 10
 }
 
 type ContactRequestFormProps = {
@@ -69,9 +66,9 @@ export function ContactRequestForm({
     const next: Partial<Record<keyof FormState, string>> = {}
     if (!form.name.trim()) next.name = contactForm.validation.name
     if (!form.email.trim()) next.email = contactForm.validation.email
-    else if (!isValidEmail(form.email.trim())) next.email = contactForm.validation.emailInvalid
+    else if (!isValidEmailAddress(form.email)) next.email = contactForm.validation.emailInvalid
     if (!form.phone.trim()) next.phone = contactForm.validation.phone
-    else if (!isValidPhone(form.phone.trim())) next.phone = contactForm.validation.phoneInvalid
+    else if (!isValidUsPhone(form.phone)) next.phone = contactForm.validation.phoneInvalid
     setErrors(next)
     return Object.keys(next).length === 0
   }
@@ -109,10 +106,11 @@ export function ContactRequestForm({
           id={`${idPrefix}-name`}
           name="name"
           autoComplete="name"
+          autoCapitalize="words"
           value={form.name}
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? `${idPrefix}-name-error` : undefined}
-          onChange={(event) => update('name', event.target.value)}
+          onChange={(event) => update('name', toInitialCaps(event.target.value))}
         />
         {errors.name ? (
           <p id={`${idPrefix}-name-error`} className="text-sm text-red-800" role="alert">
@@ -156,10 +154,12 @@ export function ContactRequestForm({
           name="email"
           type="email"
           autoComplete="email"
+          inputMode="email"
+          placeholder="name@example.com"
           value={form.email}
           aria-invalid={Boolean(errors.email)}
           aria-describedby={errors.email ? `${idPrefix}-email-error` : undefined}
-          onChange={(event) => update('email', event.target.value)}
+          onChange={(event) => update('email', capitalizeFirstOnly(event.target.value))}
         />
         {errors.email ? (
           <p id={`${idPrefix}-email-error`} className="text-sm text-red-800" role="alert">
