@@ -38,7 +38,7 @@ export function Hero() {
               </Button>
             </div>
           </div>
-          <ul className="mt-6 flex flex-wrap items-center gap-y-4 text-sm text-muted md:text-[0.95rem]">
+          <ul className="mt-6 flex flex-col gap-4 text-sm text-muted md:flex-row md:flex-wrap md:items-center md:gap-y-4 md:text-[0.95rem]">
             {homeHero.points.map((point, index) => {
               const Icon = heroPointIcons[point.id]
               return (
@@ -46,8 +46,8 @@ export function Hero() {
                   key={point.id}
                   className={
                     index === 0
-                      ? 'flex items-center gap-2.5 pr-5'
-                      : 'flex items-center gap-2.5 border-l border-border pr-5 pl-5 last:pr-0'
+                      ? 'flex items-center gap-2.5 md:pr-5'
+                      : 'flex items-center gap-2.5 md:border-l md:border-border md:pr-5 md:pl-5 md:last:pr-0'
                   }
                 >
                   <Icon
