@@ -1,11 +1,12 @@
 import * as React from 'react'
+import { CircleCheck } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { practiceAreaOptions } from '@/content/practiceAreas'
-import { contactForm, site } from '@/content/site'
+import { contactForm } from '@/content/site'
 import {
   capitalizeFirstOnly,
   formatUsPhone,
@@ -88,10 +89,17 @@ export function ContactRequestForm({
   if (completed) {
     return (
       <div className="rounded-sm border border-border bg-surface px-4 py-6 text-center" role="status" aria-live="polite">
-        <p className="font-serif text-lg text-navy">{site.contactComplete}</p>
-        <Button type="button" variant="outline" className="mt-5" onClick={handleReset}>
+        <div className="flex flex-col items-center">
+          <CircleCheck className="size-12 text-teal" strokeWidth={1.5} aria-hidden />
+          <p className="mt-4 font-serif text-xl text-navy md:text-2xl">
+            {contactForm.completeHeading}
+          </p>
+          <p className="mt-2 text-base text-muted">{contactForm.completeCopy}</p>
+        </div>
+        <Button type="button" variant="outline" className="mt-6" onClick={handleReset}>
           {contactForm.startAgain}
         </Button>
+        <p className="mt-5 text-sm text-muted">{contactForm.completeDemoNotice}</p>
       </div>
     )
   }

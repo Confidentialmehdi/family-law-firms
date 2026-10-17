@@ -3,10 +3,6 @@ export const site = {
   location: 'New York, NY',
   tagline: 'New York family law',
   ctaLabel: 'Book a consultation',
-  bookingComplete:
-    'Demo complete. No consultation has been scheduled, and nothing was sent.',
-  contactComplete:
-    'Demo complete. Your contact request was not sent. Nothing was stored.',
   consultationNote: '30-minute consultation · Video or in person · $150 sample fee',
   timeZoneLabel: 'New York time',
   footerDisclaimer: 'New York family law practice.',
@@ -29,6 +25,9 @@ export const contactForm = {
   selectOption: 'Select an option',
   startAgain: 'Start again',
   submitLabel: 'Request contact',
+  completeHeading: 'Contact request received',
+  completeCopy: 'Thank you for sharing how we can reach you.',
+  completeDemoNotice: 'Demo only. Your contact request was not sent. Nothing was stored.',
   validation: {
     name: 'Enter your full name.',
     email: 'Enter your email address.',
