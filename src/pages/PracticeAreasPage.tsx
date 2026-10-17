@@ -133,7 +133,7 @@ function HeroScalesMark() {
           className="text-brass/55"
         />
       </svg>
-      <figcaption className="mt-3 text-center text-[0.7rem] tracking-[0.16em] text-brass/80 uppercase">
+      <figcaption className="mt-3 text-center text-[0.7rem] tracking-[0.18em] text-brass uppercase">
         Measured guidance for family decisions
       </figcaption>
     </figure>
