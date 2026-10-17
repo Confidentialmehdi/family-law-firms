@@ -27,39 +27,116 @@ const practiceIcons: Record<string, LucideIcon> = {
   prenup: FilePenLine,
 }
 
-function HeroPracticeIndex() {
+/** Editorial scales mark — signals measured family-law guidance in the hero. */
+function HeroScalesMark() {
   return (
-    <nav aria-label="Jump to a practice area">
-      <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-        Jump to a topic
-      </p>
-      <ul className="mt-4 divide-y divide-ivory/15 border-y border-ivory/15">
-        {practiceAreas.map((area) => {
-          const Icon = practiceIcons[area.id] ?? Scale
-          return (
-            <li key={area.id}>
-              <a
-                href={`#${area.id}`}
-                className="group flex items-center gap-3 py-3 text-ivory/85 transition-colors hover:text-ivory"
-              >
-                <Icon
-                  className="size-4 shrink-0 text-brass transition-colors group-hover:text-brass-muted"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                />
-                <span className="min-w-0 flex-1 font-serif text-base leading-snug">
-                  {area.title}
-                </span>
-                <ArrowUpRight
-                  className="size-3.5 shrink-0 text-ivory/35 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brass"
-                  aria-hidden="true"
-                />
-              </a>
-            </li>
-          )
-        })}
-      </ul>
-    </nav>
+    <figure className="relative mx-auto flex h-full max-w-sm flex-col justify-end">
+      <svg
+        viewBox="0 0 320 340"
+        className="h-full w-full"
+        fill="none"
+        aria-hidden="true"
+      >
+        {/* Beam */}
+        <path
+          d="M40 118h240"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="text-brass"
+        />
+        {/* Fulcrum stem */}
+        <path
+          d="M160 68v170"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="text-brass/80"
+        />
+        {/* Crown / pivot */}
+        <circle
+          cx="160"
+          cy="118"
+          r="7"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="text-brass"
+        />
+        <path
+          d="M148 68h24l-4 18h-16l-4-18z"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          className="text-ivory/55"
+        />
+        {/* Left arm */}
+        <path
+          d="M40 118l-18 78"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          className="text-ivory/45"
+        />
+        {/* Right arm */}
+        <path
+          d="M280 118l18 78"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          className="text-ivory/45"
+        />
+        {/* Left pan */}
+        <path
+          d="M8 196h48l-8 28H16l-8-28z"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          className="text-brass"
+        />
+        <path
+          d="M22 196v-14M32 196v-10M42 196v-14"
+          stroke="currentColor"
+          strokeWidth="1"
+          className="text-ivory/35"
+        />
+        {/* Right pan */}
+        <path
+          d="M264 196h48l-8 28h-32l-8-28z"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          className="text-brass"
+        />
+        <path
+          d="M278 196v-14M288 196v-10M298 196v-14"
+          stroke="currentColor"
+          strokeWidth="1"
+          className="text-ivory/35"
+        />
+        {/* Base */}
+        <path
+          d="M118 238h84"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="text-brass/70"
+        />
+        <path
+          d="M128 238l-10 36h84l-10-36"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          className="text-ivory/40"
+        />
+        <path
+          d="M96 274h128"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="text-brass"
+        />
+        {/* Quiet home mark under the base — family context */}
+        <path
+          d="M148 300l12-10 12 10v18h-8v-10h-8v10h-8v-18z"
+          stroke="currentColor"
+          strokeWidth="1.15"
+          className="text-brass/55"
+        />
+      </svg>
+      <figcaption className="mt-3 text-center text-[0.7rem] tracking-[0.16em] text-brass/80 uppercase">
+        Measured guidance for family decisions
+      </figcaption>
+    </figure>
   )
 }
 
@@ -185,7 +262,7 @@ export function PracticeAreasPage() {
         className="relative overflow-hidden bg-navy text-ivory"
         aria-labelledby="page-heading"
       >
-        <div className="relative mx-auto grid max-w-[1200px] gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] md:items-start md:gap-10 md:px-8 md:py-16 lg:gap-14 lg:py-20">
+        <div className="relative mx-auto grid max-w-[1200px] gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] md:items-end md:gap-10 md:px-8 md:py-16 lg:gap-14 lg:py-20">
           <div className="relative z-10 max-w-3xl">
             <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
               Whitfield Law Group / Practice Areas
@@ -204,8 +281,8 @@ export function PracticeAreasPage() {
             </div>
           </div>
 
-          <div className="relative hidden md:block">
-            <HeroPracticeIndex />
+          <div className="relative hidden h-72 md:block lg:h-80">
+            <HeroScalesMark />
           </div>
         </div>
 
