@@ -118,7 +118,7 @@ export function HomePage() {
               {homeExperience.heading}
             </h2>
           </div>
-          <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
+          <ul className="mx-auto mt-10 grid w-full max-w-[80%] grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
             {featuredStories.map((story) => (
               <li key={story.id} className="flex min-w-0">
                 <StoryCard story={story} variant="compact" />
