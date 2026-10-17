@@ -32,7 +32,7 @@ export function StoryCard({ story, variant = 'full' }: StoryCardProps) {
       <div
         className={cn(
           'relative w-full bg-[#ebe4da]',
-          compact ? 'aspect-[16/10]' : 'aspect-[4/5]',
+          compact ? 'aspect-[3/4]' : 'aspect-[4/5]',
         )}
       >
         <div
