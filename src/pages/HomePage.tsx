@@ -57,7 +57,7 @@ export function HomePage() {
                         className="grid gap-2 py-5 md:grid-cols-[minmax(12rem,0.4fr)_1fr] md:gap-8"
                       >
                         <p className="font-serif text-xl text-navy">{area.title}</p>
-                        <p className="text-base text-muted md:pt-0.5">{area.description}</p>
+                        <p className="text-base text-muted md:pt-0.5">{area.preview}</p>
                       </li>
                     )
                   })}

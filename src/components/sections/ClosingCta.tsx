@@ -6,13 +6,15 @@ import { cn } from '@/lib/utils'
 type ClosingCtaProps = {
   headline?: string
   supporting?: string
-  /** Distinct calm treatment for the homepage invitation. */
+  terms?: string
+  /** Distinct calm treatment for invitation sections. */
   variant?: 'default' | 'invitation'
 }
 
 export function ClosingCta({
   headline = 'Take the next step with clarity.',
   supporting,
+  terms,
   variant = 'default',
 }: ClosingCtaProps) {
   const { openBooking } = useBooking()
@@ -48,6 +50,16 @@ export function ClosingCta({
             )}
           >
             {supporting}
+          </p>
+        ) : null}
+        {terms ? (
+          <p
+            className={cn(
+              'mx-auto mt-3 max-w-lg text-sm',
+              variant === 'invitation' ? 'text-ivory/60' : 'text-muted',
+            )}
+          >
+            {terms}
           </p>
         ) : null}
         <div className="mt-8">
