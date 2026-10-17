@@ -7,32 +7,29 @@ export const homeHero = {
 
 export const homePractice = {
   heading: 'What brings you here?',
-  introduction: 'Choose the path that fits your questions. We’ll help from there.',
+  introduction: 'Find guidance for the decisions you’re facing.',
   linkLabel: 'Explore all practice areas',
-  pathways: [
+  groups: [
     {
       id: 'divorce-finances',
       title: 'Divorce and finances',
       description:
         'Ending a marriage, support, and shared property—questions that often arrive together.',
-      href: '/practice-areas#divorce',
-      linkLabel: 'See these areas',
+      areaIds: ['divorce', 'spousal-support', 'property'],
     },
     {
       id: 'parenting-support',
       title: 'Parenting and support',
       description:
         'Schedules, responsibilities, and what your children need as arrangements take shape.',
-      href: '/practice-areas#custody',
-      linkLabel: 'See these areas',
+      areaIds: ['custody', 'child-support'],
     },
     {
       id: 'planning',
       title: 'Planning ahead',
       description:
         'Financial expectations before or during marriage, discussed with care and clarity.',
-      href: '/practice-areas#prenup',
-      linkLabel: 'See this area',
+      areaIds: ['prenup'],
     },
   ],
 } as const

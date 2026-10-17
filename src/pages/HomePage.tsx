@@ -1,4 +1,3 @@
-import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { ImageFallback } from '@/components/ImageFallback'
@@ -19,6 +18,7 @@ import {
   homeMeet,
   homePractice,
 } from '@/content/home'
+import { getPracticeArea } from '@/content/practiceAreas'
 import { clientStories } from '@/content/results'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
@@ -33,7 +33,7 @@ export function HomePage() {
     <main id="main">
       <Hero />
 
-      {/* 2. Practice pathways */}
+      {/* 2. Practice areas — group row, then area grid */}
       <section className="border-b border-border/60" aria-labelledby="home-practice-heading">
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
           <div className="max-w-2xl">
@@ -46,40 +46,48 @@ export function HomePage() {
             <p className="mt-3 text-lg text-muted">{homePractice.introduction}</p>
           </div>
 
-          <ul className="mt-12 divide-y divide-border border-y border-border">
-            {homePractice.pathways.map((pathway, index) => (
-              <li
-                key={pathway.id}
-                className="animate-fade-up grid gap-4 py-10 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:items-end md:gap-12 md:py-12"
-                style={{ animationDelay: `${80 + index * 90}ms` }}
-              >
-                <div>
-                  <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase tabular-nums">
-                    {String(index + 1).padStart(2, '0')}
-                  </p>
-                  <h3 className="mt-3 font-serif text-2xl leading-snug text-navy md:text-[2rem]">
-                    {pathway.title}
+          <div className="mt-14 space-y-14 md:space-y-16">
+            {homePractice.groups.map((group) => (
+              <div key={group.id}>
+                <div className="max-w-2xl border-b border-border pb-5">
+                  <h3 className="font-serif text-2xl text-navy md:text-[1.75rem]">
+                    {group.title}
                   </h3>
+                  <p className="mt-2 text-base text-muted">{group.description}</p>
                 </div>
-                <div className="md:pb-1">
-                  <p className="max-w-md text-base leading-relaxed text-muted md:text-lg">
-                    {pathway.description}
-                  </p>
-                  <Link
-                    to={pathway.href}
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-teal underline-offset-4 hover:underline"
-                  >
-                    {pathway.linkLabel}
-                    <ArrowUpRight className="size-3.5" aria-hidden="true" />
-                  </Link>
-                </div>
-              </li>
+
+                <ul className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+                  {group.areaIds.map((areaId) => {
+                    const area = getPracticeArea(areaId)
+                    if (!area) return null
+                    return (
+                      <li key={area.id} className="min-w-0">
+                        <Link
+                          to={`/practice-areas#${area.id}`}
+                          className="group block outline-none"
+                        >
+                          <p className="font-serif text-xl text-navy transition-colors group-hover:text-teal">
+                            {area.title}
+                          </p>
+                          <div
+                            className="mt-3 h-px w-8 bg-brass/50 transition-all group-hover:w-12 group-hover:bg-brass"
+                            aria-hidden="true"
+                          />
+                          <p className="mt-3 text-sm leading-relaxed text-muted">
+                            {area.preview}
+                          </p>
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
 
           <Link
             to="/practice-areas"
-            className="mt-10 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
+            className="mt-12 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
           >
             {homePractice.linkLabel}
           </Link>
