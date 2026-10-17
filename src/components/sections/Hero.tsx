@@ -41,7 +41,7 @@ export function Hero() {
                 return (
                   <li
                     key={point.id}
-                    className="flex h-full items-center gap-2.5 sm:px-4 sm:pr-5 sm:first:pl-0 sm:last:pr-0 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:border-border"
+                    className="flex h-full items-center gap-2.5 sm:px-5 sm:first:pl-0 sm:last:pr-0 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:border-border"
                   >
                     <Icon
                       className="size-6 shrink-0 text-brass md:size-7"
