@@ -40,25 +40,20 @@ export const resultsPage = {
       },
     ],
   },
-  testimonials: {
-    label: 'Client reflections',
-    heading: 'What stayed with them.',
-    supporting:
-      'Being heard. Understanding the conversation. Knowing what to prepare.',
-    disclaimer: 'Fictional testimonials for demonstration',
+  personal: {
+    label: 'Beyond the examples',
+    heading: 'Your situation may look different.',
+    copy: 'The questions in these stories may feel familiar, but your priorities and circumstances are your own. You may be thinking about your children, your finances, your relationship, or several connected decisions.',
+    followUp:
+      'You don’t need to fit your situation into someone else’s story before starting a conversation.',
+    linkLabel: 'Meet Robert and the team',
   },
   closing: {
-    label: 'Your next step',
-    headline: 'Start with what’s on your mind.',
+    label: 'When you’re ready',
+    headline: 'Begin with your questions.',
     supporting:
-      'You don’t need to have everything figured out. Choose a time to discuss your questions and priorities with Robert Whitfield.',
-    panelHeading: 'An initial conversation',
-    details: [
-      { label: 'Duration', value: '30 minutes' },
-      { label: 'Format', value: 'Video or in person' },
-      { label: 'Sample fee', value: '$150' },
-    ],
-    note: 'Bring your questions. No document uploads are required to book.',
+      'Choose a time to discuss what matters to you with Robert Whitfield.',
+    terms: '30 minutes · Video or in person · $150 sample consultation fee',
     demoNote: 'Demo booking. No appointment will be scheduled.',
   },
 } as const
@@ -146,31 +141,3 @@ export const clientStories: ClientStory[] = [
   },
 ]
 
-export type ResultTestimonial = {
-  id: string
-  quote: string
-  attribution: string
-  featured?: boolean
-}
-
-export const resultTestimonials: ResultTestimonial[] = [
-  {
-    id: 'heard',
-    quote:
-      'I felt listened to from the start. We stayed with my priorities before talking about paperwork or timelines.',
-    attribution: 'Fictional client voice',
-    featured: true,
-  },
-  {
-    id: 'explanations',
-    quote:
-      'The explanations were clear. I finally understood the process in language I could follow.',
-    attribution: 'Fictional client voice',
-  },
-  {
-    id: 'prepare',
-    quote:
-      'I left knowing what to prepare—and what I did not need to decide yet.',
-    attribution: 'Fictional client voice',
-  },
-]

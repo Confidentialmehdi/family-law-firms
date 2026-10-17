@@ -1,14 +1,11 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 import { PageHeading } from '@/components/PageHeading'
 import { useBooking } from '@/components/booking/BookingContext'
 import { StoryCard } from '@/components/results/StoryCard'
 import { Button } from '@/components/ui/button'
-import {
-  clientStories,
-  resultTestimonials,
-  resultsPage,
-} from '@/content/results'
+import { clientStories, resultsPage } from '@/content/results'
 import { site } from '@/content/site'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
@@ -112,98 +109,73 @@ export function OurResultsPage() {
         </div>
       </section>
 
-      {/* 4. Client reflections — navy editorial */}
+      {/* 4. Your situation is personal */}
       <section
-        className="bg-navy text-ivory"
-        aria-labelledby="testimonials-heading"
+        className="border-b border-border bg-ivory"
+        aria-labelledby="personal-heading"
       >
-        <div className="mx-auto grid max-w-[1200px] gap-12 px-5 py-16 md:grid-cols-[minmax(14rem,0.38fr)_minmax(0,1fr)] md:gap-16 md:px-8 md:py-20 lg:gap-20">
-          <div>
-            <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-              {resultsPage.testimonials.label}
-            </p>
-            <h2
-              id="testimonials-heading"
-              className="mt-4 font-serif text-[2rem] leading-[1.15] text-ivory md:text-[2.5rem]"
-            >
-              {resultsPage.testimonials.heading}
-            </h2>
-            <p className="mt-4 text-base text-ivory/65 md:text-lg">
-              {resultsPage.testimonials.supporting}
-            </p>
-            <p className="mt-4 text-sm text-ivory/45">
-              {resultsPage.testimonials.disclaimer}
-            </p>
-          </div>
+        <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
+          <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+            {resultsPage.personal.label}
+          </p>
 
-          <ul className="divide-y divide-ivory/15">
-            {resultTestimonials.map((item) => (
-              <li key={item.id} className="py-8 first:pt-0 last:pb-0 md:py-10">
-                <blockquote>
-                  <p className="font-serif text-xl leading-snug text-ivory md:text-[1.65rem]">
-                    “{item.quote}”
-                  </p>
-                  <footer className="mt-4 text-sm text-ivory/50">
-                    {item.attribution}
-                  </footer>
-                </blockquote>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-5 grid gap-8 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.95fr)] md:items-start md:gap-14 lg:gap-16">
+            <h2
+              id="personal-heading"
+              className="font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.75rem] lg:text-[3rem]"
+            >
+              {resultsPage.personal.heading}
+            </h2>
+
+            <div>
+              <div className="mb-6 h-px w-16 bg-brass" aria-hidden="true" />
+              <p className="text-lg text-muted">{resultsPage.personal.copy}</p>
+              <p className="mt-5 text-lg text-navy/85">{resultsPage.personal.followUp}</p>
+              <Link
+                to="/about-us"
+                className="mt-8 inline-flex items-center gap-2 text-base text-teal underline-offset-4 hover:underline"
+              >
+                {resultsPage.personal.linkLabel}
+                <ArrowUpRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 5. Appointment section — ivory + navy panel */}
+      {/* 5. Start your conversation */}
       <section
-        className="border-b border-border bg-ivory"
+        className="border-t border-border bg-ivory"
         aria-labelledby="closing-heading"
       >
-        <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-center md:gap-14 md:px-8 md:py-20">
+        <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:items-end md:gap-14 md:px-8 md:py-20">
           <div>
             <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
               {resultsPage.closing.label}
             </p>
             <h2
               id="closing-heading"
-              className="mt-4 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.75rem]"
+              className="mt-4 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.75rem] lg:text-[3.25rem]"
             >
               {resultsPage.closing.headline}
             </h2>
-            <div className="mt-5 h-px w-16 bg-brass" aria-hidden="true" />
             <p className="mt-5 max-w-md text-lg text-muted">
               {resultsPage.closing.supporting}
             </p>
           </div>
 
-          <aside className="rounded-sm bg-navy px-6 py-7 text-ivory md:px-8 md:py-8">
-            <h3 className="font-serif text-xl text-ivory md:text-2xl">
-              {resultsPage.closing.panelHeading}
-            </h3>
-
-            <dl className="mt-6 divide-y divide-ivory/15 border-y border-ivory/15">
-              {resultsPage.closing.details.map((row) => (
-                <div
-                  key={row.label}
-                  className="flex items-baseline justify-between gap-4 py-3.5"
-                >
-                  <dt className="text-sm text-ivory/55">{row.label}</dt>
-                  <dd className="text-right text-base text-ivory">{row.value}</dd>
-                </div>
-              ))}
-            </dl>
-
-            <p className="mt-5 text-sm text-ivory/65">{resultsPage.closing.note}</p>
-
+          <div className="md:pb-1">
+            <p className="text-base text-navy/80">{resultsPage.closing.terms}</p>
             <Button
               type="button"
               size="lg"
-              className="mt-6 w-full md:w-auto"
+              className="mt-6 w-full sm:w-auto"
               onClick={openBooking}
             >
               {site.ctaLabel}
             </Button>
-            <p className="mt-3 text-xs text-ivory/45">{resultsPage.closing.demoNote}</p>
-          </aside>
+            <p className="mt-3 text-sm text-muted">{resultsPage.closing.demoNote}</p>
+          </div>
         </div>
       </section>
     </main>
