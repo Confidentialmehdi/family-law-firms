@@ -21,7 +21,7 @@ export const concerns: Concern[] = [
     id: 'costs',
     question: 'I’m worried about costs.',
     response:
-      'This site shows a $150 sample fee for a 30-minute consultation. Fees are confirmed when you book so you know what to expect before continuing.',
+      'The consultation fee is $150 for 30 minutes. Fees are confirmed when you book so you know what to expect before continuing.',
   },
   {
     id: 'sensitive',

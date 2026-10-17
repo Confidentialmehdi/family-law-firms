@@ -106,25 +106,21 @@ export const bookingPage = {
   headline: 'Book a consultation with Robert Whitfield.',
   supporting:
     'Choose a format, date, and time for a 30-minute conversation about your questions and priorities.',
-  appointmentDetails: '30 minutes · Video or in person · $150 sample fee',
-  demoNotice: 'Demo booking only. Completing this form does not schedule a consultation.',
+  appointmentDetails: '30 minutes · Video or in person · $150',
   progress: [
     { id: 'appointment', label: 'Consultation' },
     { id: 'details', label: 'Your details' },
     { id: 'review', label: 'Review' },
   ] as const,
   timesLabel: 'All times shown in New York time.',
-  sampleAvailabilityNote: 'Sample availability for this prototype—not live calendar openings.',
-  selectDateForTimes: 'Select a date to see available sample times.',
+  selectDateForTimes: 'Select a date to see available times.',
   dateStaleNotice:
     'That date is no longer among the next three working days. Please choose a new date and time.',
   attorneyName: 'Robert Whitfield',
   duration: '30 minutes',
-  sampleFee: '$150 sample fee',
+  sampleFee: '$150',
   summaryHeading: 'Your consultation',
   summaryEmpty: 'Choose a date and time.',
-  reviewDemoNotice:
-    'This is a demonstration. Nothing will be scheduled, charged, or emailed.',
   completeHeading: 'Consultation confirmed',
   completeCopy: 'Here is a summary of the details you selected.',
   completeDemoNotice: 'Demo only. No consultation has been scheduled. Nothing was sent or stored.',
@@ -151,9 +147,8 @@ export const bookingPage = {
           'Bring your questions and any notes that help you explain them. No uploads are required to book.',
       },
       {
-        question: 'Will this demo charge me?',
-        answer:
-          'No. This prototype collects no payment. The $150 amount is a sample fee shown for demonstration.',
+        question: 'What does the consultation cost?',
+        answer: 'The consultation fee is $150 for 30 minutes. Fees are confirmed when you book.',
       },
     ],
     contactLinkLabel: 'Prefer another way to reach us? Contact us',

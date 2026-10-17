@@ -177,7 +177,7 @@ export const practicePage = {
   closing: {
     headline: 'Talk through the questions that matter to you.',
     supporting: 'Book a 30-minute consultation with Robert Whitfield.',
-    terms: '30 minutes · Video or in person · $150 sample fee',
+    terms: '30 minutes · Video or in person · $150',
   },
   questionsHeading: 'Questions you may want to discuss.',
 } as const

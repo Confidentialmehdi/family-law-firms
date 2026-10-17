@@ -15,7 +15,7 @@ export const resultsPage = {
   eyebrow: 'Our Results',
   headline: 'Illustrative stories from first conversations.',
   supporting:
-    'These examples show how people organize priorities, understand options, and prepare for a next discussion. They are fictional for this prototype and are not promises of results.',
+    'These examples show how people organize priorities, understand options, and prepare for a next discussion. They illustrate kinds of conversations and are not promises of results.',
   stories: {
     heading: 'Different situations. Personal priorities.',
     introduction:

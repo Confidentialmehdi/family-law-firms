@@ -115,8 +115,7 @@ export function AppointmentStep() {
 
         <fieldset>
           <legend className="mb-2 text-sm font-medium text-navy">Time</legend>
-          <p className="mb-1 text-sm text-muted">{bookingPage.timesLabel}</p>
-          <p className="mb-3 text-xs text-muted">{bookingPage.sampleAvailabilityNote}</p>
+          <p className="mb-3 text-sm text-muted">{bookingPage.timesLabel}</p>
           {draft.dateKey ? (
             <div className="flex flex-wrap gap-2">
               {timesForDate.map((slot) => {

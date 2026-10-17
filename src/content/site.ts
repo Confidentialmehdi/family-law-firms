@@ -3,7 +3,7 @@ export const site = {
   location: 'New York, NY',
   tagline: 'New York family law',
   ctaLabel: 'Book a consultation',
-  consultationNote: '30-minute consultation · Video or in person · $150 sample fee',
+  consultationNote: '30-minute consultation · Video or in person · $150',
   timeZoneLabel: 'New York time',
   footerDisclaimer: 'New York family law practice.',
 } as const
@@ -50,13 +50,13 @@ export const closingConversion = {
     details: [
       '30-minute consultation',
       'Video or in person',
-      '$150 sample fee',
+      '$150',
       'New York time',
     ],
   },
   contact: {
     heading: 'Request contact',
-    copy: 'Share how you prefer to be reached. On this prototype, submissions are not sent.',
+    copy: 'Share how you prefer to be reached. We will use the details you provide to respond.',
   },
 } as const
 

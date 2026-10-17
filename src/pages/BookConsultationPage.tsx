@@ -65,9 +65,6 @@ export function BookConsultationPage() {
               </h1>
               <p className="mt-2 text-base text-muted md:text-lg">{bookingPage.supporting}</p>
               <p className="mt-2 text-sm text-muted">{bookingPage.appointmentDetails}</p>
-              <p className="mt-3 inline-block rounded-sm bg-brass/10 px-3 py-1.5 text-sm text-navy/80">
-                {bookingPage.demoNotice}
-              </p>
             </div>
 
             <div className="mt-6 md:mt-8">

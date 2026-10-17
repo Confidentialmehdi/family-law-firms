@@ -48,5 +48,5 @@ npm run preview
 
 - Appointment times use **America/New_York** civil dates and are labeled “New York time.”
 - Contact details on Contact Us are shown as plain text.
-- Portrait, story, and hero photos in `public/images/` are editorial **Unsplash** samples for the prototype—not firm photography.
-- Visitor-facing copy uses a calm, plain-language brand voice. Booking and contact flows are demos: confirmations state that nothing was scheduled or sent. Stats, ratings, stories, and the $150 consultation fee are labeled as samples.
+- Portrait, story, and hero photos in `public/images/` are editorial **Unsplash** samples—not firm photography.
+- Booking and contact confirmation screens note that nothing was scheduled or sent.

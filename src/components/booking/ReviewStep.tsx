@@ -110,10 +110,6 @@ export function ReviewStep() {
         </div>
       </dl>
 
-      <p className="mt-4 rounded-sm bg-brass/10 px-3 py-2 text-sm text-navy/80">
-        {bookingPage.reviewDemoNotice}
-      </p>
-
       <div className="mt-6 flex flex-col-reverse gap-2 border-t border-border pt-4 sm:flex-row sm:justify-between">
         <Button type="button" variant="outline" onClick={() => setStep('details')}>
           Back

@@ -21,7 +21,7 @@ export const faqItems: FaqItem[] = [
     id: 'cost',
     question: 'What does it cost?',
     answer:
-      'This prototype shows a $150 sample fee for a 30-minute consultation. Fees are confirmed when you book so you know what to expect before you continue.',
+      'The consultation fee is $150 for 30 minutes. Fees are confirmed when you book so you know what to expect before you continue.',
   },
   {
     id: 'remote',
@@ -51,13 +51,13 @@ export const faqItems: FaqItem[] = [
     id: 'how-to-book',
     question: 'How do I book a consultation?',
     answer:
-      'Use Book a consultation in the header, footer, or closing sections. Choose a format, date, and time, enter your details, and review before confirming. This site’s booking flow is a front-end demo and does not schedule a live appointment.',
+      'Use Book a consultation in the header, footer, or closing sections. Choose a format, date, and time, enter your details, and review before confirming.',
   },
   {
     id: 'contact',
     question: 'How can I contact the firm?',
     answer:
-      'Visit Contact Us for phone and email, or leave your details in the Request contact form on most pages. On this prototype, form submissions are not sent.',
+      'Visit Contact Us for phone and email, or leave your details in the Request contact form on most pages.',
   },
 ]
 

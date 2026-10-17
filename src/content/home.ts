@@ -13,10 +13,9 @@ export const homeHero = {
     },
     {
       id: 'rating',
-      lines: ['4.9/5 sample', 'client rating'],
+      lines: ['4.9/5', 'client rating'],
     },
   ],
-  statsNote: 'Sample figures for this prototype. Not independently verified firm metrics.',
 } as const
 
 export const homePractice = {
@@ -64,7 +63,7 @@ export const homeExperience = {
 
 export const homeAppointment = {
   heading: 'What the first consultation includes.',
-  feeNote: '30 minutes · Video or in person · $150 sample fee',
+  feeNote: '30 minutes · Video or in person · $150',
   linkLabel: 'Read the full appointment guide',
   steps: [
     {
@@ -110,7 +109,7 @@ export const homeConcerns = {
       id: 'cost',
       question: 'What does the appointment cost?',
       answer:
-        'The sample consultation fee shown on this site is $150 for 30 minutes. Fees are confirmed when you book.',
+        'The consultation fee is $150 for 30 minutes. Fees are confirmed when you book.',
     },
   ],
 } as const
