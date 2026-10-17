@@ -87,7 +87,7 @@ function HeroArtwork() {
 
 function ServiceTopics({ questions }: { questions: readonly string[] }) {
   return (
-    <div>
+    <div className="flex h-full flex-col">
       <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
         Questions to explore
       </p>
@@ -98,6 +98,7 @@ function ServiceTopics({ questions }: { questions: readonly string[] }) {
           </li>
         ))}
       </ul>
+      <p className="mt-4 text-sm text-muted">{practicePage.questionsNote}</p>
     </div>
   )
 }
@@ -111,6 +112,9 @@ function ServiceSection({
 }) {
   const tinted = index % 2 === 1
   const Icon = practiceIcons[area.id] ?? Scale
+  const related = area.relatedIds
+    .map((id) => getPracticeArea(id))
+    .filter((item): item is (typeof practiceAreas)[number] => Boolean(item))
 
   return (
     <section
@@ -122,27 +126,72 @@ function ServiceSection({
       aria-labelledby={`${area.id}-heading`}
     >
       <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
-        <div>
-          <Icon
-            className="size-6 text-brass md:size-7"
-            strokeWidth={1.25}
-            aria-hidden="true"
-          />
-          <h2
-            id={`${area.id}-heading`}
-            className="mt-4 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem] lg:text-[2.75rem]"
-          >
-            {area.title}
-          </h2>
-          <div className="mt-5 h-px w-16 bg-brass" aria-hidden="true" />
+        <Icon
+          className="size-6 text-brass md:size-7"
+          strokeWidth={1.25}
+          aria-hidden="true"
+        />
+        <h2
+          id={`${area.id}-heading`}
+          className="mt-4 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem] lg:text-[2.75rem]"
+        >
+          {area.title}
+        </h2>
+        <div className="mt-5 h-px w-16 bg-brass" aria-hidden="true" />
 
-          <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-12">
+        <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-12">
+          <div>
             <p className="max-w-prose text-lg text-muted">{area.description}</p>
-            <aside className="border border-border bg-[#f0ebe3] px-5 py-6 md:px-6">
-              <ServiceTopics questions={area.questions} />
-            </aside>
+
+            <h3 className="mt-8 text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+              {practicePage.oftenInvolvesLabel}
+            </h3>
+            <ul className="mt-3 max-w-prose space-y-2.5">
+              {area.oftenInvolves.map((item) => (
+                <li key={item} className="flex gap-3 text-base text-navy/85">
+                  <span
+                    className="mt-2.5 h-px w-3 shrink-0 bg-brass/70"
+                    aria-hidden="true"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 border-l border-brass pl-4">
+              <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+                {practicePage.approachLabel}
+              </p>
+              <p className="mt-2 font-serif text-xl leading-snug text-navy">
+                {area.approachLine}
+              </p>
+            </div>
           </div>
+
+          <aside className="border border-border bg-[#f0ebe3] px-5 py-6 md:px-6 md:py-7">
+            <ServiceTopics questions={area.questions} />
+          </aside>
         </div>
+
+        {related.length > 0 ? (
+          <div className="mt-10 border-t border-border pt-6">
+            <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+              {practicePage.relatedLabel}
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+              {related.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className="text-base text-teal underline-offset-4 hover:underline"
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </div>
     </section>
   )
