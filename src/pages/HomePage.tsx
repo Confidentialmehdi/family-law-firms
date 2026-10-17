@@ -46,43 +46,58 @@ export function HomePage() {
             <p className="mt-3 text-lg text-muted">{homePractice.introduction}</p>
           </div>
 
-          <div className="mt-14 space-y-14 md:space-y-16">
-            {homePractice.groups.map((group) => (
-              <div key={group.id}>
-                <div className="max-w-2xl border-b border-border pb-5">
-                  <h3 className="font-serif text-2xl text-navy md:text-[1.75rem]">
-                    {group.title}
-                  </h3>
-                  <p className="mt-2 text-base text-muted">{group.description}</p>
-                </div>
+          <div className="mt-12 space-y-8 md:space-y-10">
+            {homePractice.groups.map((group) => {
+              const colCount = Math.min(group.areaIds.length, 3)
+              const areaColsClass =
+                colCount === 1
+                  ? 'md:grid-cols-1'
+                  : colCount === 2
+                    ? 'md:grid-cols-2'
+                    : 'md:grid-cols-3'
 
-                <ul className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
-                  {group.areaIds.map((areaId) => {
-                    const area = getPracticeArea(areaId)
-                    if (!area) return null
-                    return (
-                      <li key={area.id} className="min-w-0">
-                        <Link
-                          to={`/practice-areas#${area.id}`}
-                          className="group block outline-none"
-                        >
-                          <p className="font-serif text-xl text-navy transition-colors group-hover:text-teal">
-                            {area.title}
-                          </p>
-                          <div
-                            className="mt-3 h-px w-8 bg-brass/50 transition-all group-hover:w-12 group-hover:bg-brass"
-                            aria-hidden="true"
-                          />
-                          <p className="mt-3 text-sm leading-relaxed text-muted">
-                            {area.preview}
-                          </p>
-                        </Link>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            ))}
+              return (
+                <div
+                  key={group.id}
+                  className="overflow-hidden rounded-sm border border-border"
+                >
+                  <div className="border-b border-border bg-surface/60 px-5 py-6 md:px-7 md:py-7">
+                    <h3 className="font-serif text-2xl text-navy md:text-[1.75rem]">
+                      {group.title}
+                    </h3>
+                    <p className="mt-2 max-w-2xl text-base text-muted">
+                      {group.description}
+                    </p>
+                  </div>
+
+                  <ul className={`grid grid-cols-1 divide-y divide-border md:divide-x md:divide-y-0 ${areaColsClass}`}>
+                    {group.areaIds.map((areaId) => {
+                      const area = getPracticeArea(areaId)
+                      if (!area) return null
+                      return (
+                        <li key={area.id} className="min-w-0">
+                          <Link
+                            to={`/practice-areas#${area.id}`}
+                            className="group flex h-full flex-col px-5 py-6 outline-none transition-colors hover:bg-ivory/80 md:px-6 md:py-7"
+                          >
+                            <p className="font-serif text-xl text-navy transition-colors group-hover:text-teal">
+                              {area.title}
+                            </p>
+                            <div
+                              className="mt-3 h-px w-8 bg-brass/50 transition-all group-hover:w-12 group-hover:bg-brass"
+                              aria-hidden="true"
+                            />
+                            <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                              {area.preview}
+                            </p>
+                          </Link>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              )
+            })}
           </div>
 
           <Link
