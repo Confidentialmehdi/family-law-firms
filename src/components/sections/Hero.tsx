@@ -38,7 +38,7 @@ export function Hero() {
           <figure className="relative h-full min-h-[28rem] overflow-hidden border border-border/70 bg-[#ebe4da] lg:min-h-[32rem]">
             <img
               src="/images/hero/new-york.jpg"
-              alt="New York City skyline in soft daylight"
+              alt="Quiet New York City street in soft daylight"
               className="absolute inset-0 h-full w-full object-cover object-center"
               loading="eager"
               decoding="async"
