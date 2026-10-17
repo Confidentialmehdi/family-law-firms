@@ -48,7 +48,11 @@ export function Hero() {
                       strokeWidth={1.5}
                       aria-hidden="true"
                     />
-                    <span className="leading-snug">{point.label}</span>
+                    <span className="leading-snug">
+                      {point.lines[0]}
+                      <br />
+                      {point.lines[1]}
+                    </span>
                   </li>
                 )
               })}
