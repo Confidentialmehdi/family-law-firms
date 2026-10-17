@@ -1,4 +1,4 @@
-import { Clock3, Lock, MessageCircle, type LucideIcon } from 'lucide-react'
+import { Lock, Route, Video, type LucideIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
@@ -7,9 +7,9 @@ import { homeHero } from '@/content/home'
 import { site } from '@/content/site'
 
 const heroPointIcons: Record<(typeof homeHero.points)[number]['id'], LucideIcon> = {
-  confidential: Lock,
-  options: MessageCircle,
-  format: Clock3,
+  private: Lock,
+  clarity: Route,
+  format: Video,
 }
 
 /** Home hero — provides the page’s sole h1 (id=page-heading). */
