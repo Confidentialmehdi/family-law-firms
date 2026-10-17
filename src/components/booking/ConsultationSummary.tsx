@@ -25,7 +25,6 @@ export function ConsultationSummary({ variant = 'panel' }: ConsultationSummaryPr
         ) : (
           <ul className="mt-3 space-y-1 text-sm text-ivory/80">
             <li>{bookingPage.duration}</li>
-            <li>{bookingPage.sampleFee}</li>
             {meetingTypeLabel ? <li>{meetingTypeLabel}</li> : null}
             {selectedSlot ? (
               <li>
@@ -51,10 +50,6 @@ export function ConsultationSummary({ variant = 'panel' }: ConsultationSummaryPr
         <div>
           <dt className="text-ivory/55">Duration</dt>
           <dd className="mt-1 text-base text-ivory">{bookingPage.duration}</dd>
-        </div>
-        <div>
-          <dt className="text-ivory/55">Fee</dt>
-          <dd className="mt-1 text-base text-ivory">{bookingPage.sampleFee}</dd>
         </div>
         <div>
           <dt className="text-ivory/55">Format</dt>

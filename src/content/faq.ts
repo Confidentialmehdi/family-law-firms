@@ -21,7 +21,7 @@ export const faqItems: FaqItem[] = [
     id: 'cost',
     question: 'What does it cost?',
     answer:
-      'The booking page shows a $150 sample consultation fee for this demo. In a live setting, fees are confirmed before you finalize a time.',
+      'Fees are discussed when you book. You’ll know what to expect before you confirm a time.',
   },
   {
     id: 'remote',

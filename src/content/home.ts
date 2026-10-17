@@ -93,7 +93,7 @@ export const homeConcerns = {
       id: 'cost',
       question: 'What does the appointment cost?',
       answer:
-        'The booking page shows a $150 sample fee for this demo so you know what to expect before you confirm a time.',
+        'Fees are discussed when you book, so you know what to expect before you confirm a time.',
     },
   ],
 } as const
