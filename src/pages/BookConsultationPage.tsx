@@ -42,16 +42,11 @@ export function BookConsultationPage() {
 
   return (
     <main id="main" className="flex min-h-[calc(100dvh-4.5rem)] flex-col bg-ivory">
-      <div
-        className={cn(
-          'mx-auto flex w-full max-w-[1200px] flex-1 flex-col px-5 py-6 md:px-8 md:py-8',
-          isComplete ? 'justify-start' : 'justify-center',
-        )}
-      >
+      <div className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-center px-5 py-6 md:px-8 md:py-8">
         {isComplete ? (
           <div
             ref={workspaceRef}
-            className="mx-auto w-full max-w-xl rounded-sm border border-border bg-surface px-5 py-8 md:px-8 md:py-10"
+            className="mx-auto my-auto w-full max-w-xl rounded-sm border border-border bg-surface px-5 py-8 md:px-8 md:py-10"
           >
             <CompleteStep />
           </div>
