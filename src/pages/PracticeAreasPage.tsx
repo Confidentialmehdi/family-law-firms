@@ -299,9 +299,9 @@ export function PracticeAreasPage() {
         </div>
       </section>
 
-      {/* 6. Closing — navy finish */}
+      {/* 6. Closing — navy finish, separated from footer */}
       <section
-        className="bg-navy text-ivory"
+        className="border-b border-brass/30 bg-navy text-ivory"
         aria-labelledby="closing-heading"
       >
         <div className="mx-auto flex max-w-[1200px] flex-col gap-8 px-5 py-16 md:flex-row md:items-end md:justify-between md:gap-12 md:px-8 md:py-20">
@@ -324,6 +324,9 @@ export function PracticeAreasPage() {
           </div>
         </div>
       </section>
+
+      {/* Ivory band so the navy CTA does not run into the navy footer */}
+      <div className="h-6 bg-ivory md:h-8" aria-hidden="true" />
     </main>
   )
 }
