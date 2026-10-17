@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { practiceAreaOptions } from '@/content/practiceAreas'
 import { contactForm, site } from '@/content/site'
+import { formatUsPhone } from '@/lib/inputFormat'
 import { cn } from '@/lib/utils'
 
 type ContactMethod = 'email' | 'phone'
@@ -67,13 +68,10 @@ export function ContactRequestForm({
   function validate() {
     const next: Partial<Record<keyof FormState, string>> = {}
     if (!form.name.trim()) next.name = contactForm.validation.name
-    if (form.method === 'email') {
-      if (!form.email.trim()) next.email = contactForm.validation.email
-      else if (!isValidEmail(form.email.trim())) next.email = contactForm.validation.emailInvalid
-    } else {
-      if (!form.phone.trim()) next.phone = contactForm.validation.phone
-      else if (!isValidPhone(form.phone.trim())) next.phone = contactForm.validation.phoneInvalid
-    }
+    if (!form.email.trim()) next.email = contactForm.validation.email
+    else if (!isValidEmail(form.email.trim())) next.email = contactForm.validation.emailInvalid
+    if (!form.phone.trim()) next.phone = contactForm.validation.phone
+    else if (!isValidPhone(form.phone.trim())) next.phone = contactForm.validation.phoneInvalid
     setErrors(next)
     return Object.keys(next).length === 0
   }
@@ -149,49 +147,49 @@ export function ContactRequestForm({
         </RadioGroup>
       </fieldset>
 
-      {form.method === 'email' ? (
-        <div className="space-y-2">
-          <Label htmlFor={`${idPrefix}-email`}>
-            Email address <span className="text-muted">(required)</span>
-          </Label>
-          <Input
-            id={`${idPrefix}-email`}
-            name="email"
-            type="email"
-            autoComplete="email"
-            value={form.email}
-            aria-invalid={Boolean(errors.email)}
-            aria-describedby={errors.email ? `${idPrefix}-email-error` : undefined}
-            onChange={(event) => update('email', event.target.value)}
-          />
-          {errors.email ? (
-            <p id={`${idPrefix}-email-error`} className="text-sm text-red-800" role="alert">
-              {errors.email}
-            </p>
-          ) : null}
-        </div>
-      ) : (
-        <div className="space-y-2">
-          <Label htmlFor={`${idPrefix}-phone`}>
-            Phone number <span className="text-muted">(required)</span>
-          </Label>
-          <Input
-            id={`${idPrefix}-phone`}
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            value={form.phone}
-            aria-invalid={Boolean(errors.phone)}
-            aria-describedby={errors.phone ? `${idPrefix}-phone-error` : undefined}
-            onChange={(event) => update('phone', event.target.value)}
-          />
-          {errors.phone ? (
-            <p id={`${idPrefix}-phone-error`} className="text-sm text-red-800" role="alert">
-              {errors.phone}
-            </p>
-          ) : null}
-        </div>
-      )}
+      <div className="space-y-2">
+        <Label htmlFor={`${idPrefix}-email`}>
+          Email address <span className="text-muted">(required)</span>
+        </Label>
+        <Input
+          id={`${idPrefix}-email`}
+          name="email"
+          type="email"
+          autoComplete="email"
+          value={form.email}
+          aria-invalid={Boolean(errors.email)}
+          aria-describedby={errors.email ? `${idPrefix}-email-error` : undefined}
+          onChange={(event) => update('email', event.target.value)}
+        />
+        {errors.email ? (
+          <p id={`${idPrefix}-email-error`} className="text-sm text-red-800" role="alert">
+            {errors.email}
+          </p>
+        ) : null}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor={`${idPrefix}-phone`}>
+          Phone number <span className="text-muted">(required)</span>
+        </Label>
+        <Input
+          id={`${idPrefix}-phone`}
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          inputMode="numeric"
+          placeholder="(555) 123-4567"
+          value={form.phone}
+          aria-invalid={Boolean(errors.phone)}
+          aria-describedby={errors.phone ? `${idPrefix}-phone-error` : undefined}
+          onChange={(event) => update('phone', formatUsPhone(event.target.value))}
+        />
+        {errors.phone ? (
+          <p id={`${idPrefix}-phone-error`} className="text-sm text-red-800" role="alert">
+            {errors.phone}
+          </p>
+        ) : null}
+      </div>
 
       <div className="space-y-2">
         <Label htmlFor={`${idPrefix}-practice-area`}>
