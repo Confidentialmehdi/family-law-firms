@@ -8,6 +8,7 @@ import { ConsultationSummary } from '@/components/booking/ConsultationSummary'
 import { DetailsStep } from '@/components/booking/DetailsStep'
 import { ReviewStep } from '@/components/booking/ReviewStep'
 import { bookingPage } from '@/content/booking'
+import type { BookingStep } from '@/components/booking/BookingContext'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 import { cn } from '@/lib/utils'
 
@@ -72,7 +73,7 @@ export function BookConsultationPage() {
                           type="button"
                           disabled={!isComplete}
                           onClick={() => {
-                            if (isComplete) setStep(item.id)
+                            if (isComplete) setStep(item.id as BookingStep)
                           }}
                           className={cn(
                             'rounded-sm px-3 py-1.5 text-sm transition-colors',

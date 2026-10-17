@@ -15,7 +15,7 @@ export const concerns: Concern[] = [
     id: 'fit',
     question: 'I’m unsure whether my situation fits.',
     response:
-      'You do not need to name a practice area first. Choose “Not sure” when booking, and we can sort that together.',
+      'You do not need to name a practice area first. Choose “Not sure” on the booking page, and we can sort that together.',
   },
   {
     id: 'costs',
