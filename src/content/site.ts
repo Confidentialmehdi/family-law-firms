@@ -15,6 +15,7 @@ export const contactPage = {
   directHeading: 'Phone, email, and office hours',
   phoneLabel: 'Phone',
   emailLabel: 'Email',
+  addressLabel: 'Address',
   locationLabel: 'Location',
   hoursLabel: 'Office hours',
 } as const
@@ -87,8 +88,9 @@ export const footerLegal = [
 
 /** Firm contact details — display as plain text. */
 export const firmContact = {
+  address: '450 Park Avenue, Suite 1200',
+  location: 'New York, NY',
   phone: '(212) 555-0148',
   email: 'hello@whitfieldlaw.com',
-  location: 'New York, NY',
   officeHours: 'Weekdays, 9:00 AM–5:00 PM (New York time)',
 } as const

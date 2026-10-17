@@ -19,16 +19,19 @@ export function ContactUsPage() {
             </h2>
             <dl className="mt-8 space-y-5">
               <div>
+                <dt className="text-sm text-muted">{contactPage.addressLabel}</dt>
+                <dd className="mt-1 text-lg text-navy">
+                  {firmContact.address}
+                  <span className="block">{firmContact.location}</span>
+                </dd>
+              </div>
+              <div>
                 <dt className="text-sm text-muted">{contactPage.phoneLabel}</dt>
                 <dd className="mt-1 text-lg text-navy">{firmContact.phone}</dd>
               </div>
               <div>
                 <dt className="text-sm text-muted">{contactPage.emailLabel}</dt>
                 <dd className="mt-1 text-lg text-navy">{firmContact.email}</dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted">{contactPage.locationLabel}</dt>
-                <dd className="mt-1 text-lg text-navy">{firmContact.location}</dd>
               </div>
               <div>
                 <dt className="text-sm text-muted">{contactPage.hoursLabel}</dt>

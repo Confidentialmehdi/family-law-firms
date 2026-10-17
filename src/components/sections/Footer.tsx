@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import { footerLegal, footerNav, site } from '@/content/site'
+import { firmContact, footerLegal, footerNav, site } from '@/content/site'
 
 export function Footer() {
   return (
@@ -9,7 +9,12 @@ export function Footer() {
         <div className="flex flex-col gap-10 md:flex-row md:justify-between md:gap-16">
           <div className="max-w-sm shrink-0">
             <p className="font-serif text-xl">{site.firmName}</p>
-            <p className="mt-1 text-sm text-ivory/70">{site.location}</p>
+            <div className="mt-3 space-y-1 text-sm text-ivory/70">
+              <p>{firmContact.address}</p>
+              <p>{firmContact.location}</p>
+              <p className="pt-2">{firmContact.phone}</p>
+              <p>{firmContact.email}</p>
+            </div>
             <p className="mt-4 text-sm text-ivory/65">{site.footerDisclaimer}</p>
           </div>
 
