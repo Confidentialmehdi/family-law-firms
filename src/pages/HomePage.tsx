@@ -209,13 +209,11 @@ export function HomePage() {
                 className="animate-fade-up"
                 style={{ animationDelay: `${100 + index * 90}ms` }}
               >
-                <p className="text-[0.7rem] tracking-[0.14em] text-brass uppercase">
-                  {item.label}
+                <p className="font-serif text-xl leading-snug text-ivory md:text-[1.35rem]">
+                  {item.title}
                 </p>
                 <div className="mt-4 h-px w-10 bg-brass/60" aria-hidden="true" />
-                <p className="mt-5 font-serif text-xl leading-snug text-ivory md:text-[1.35rem]">
-                  {item.statement}
-                </p>
+                <p className="mt-4 text-base leading-relaxed text-ivory/65">{item.detail}</p>
               </li>
             ))}
           </ul>

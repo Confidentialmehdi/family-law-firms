@@ -73,18 +73,18 @@ export const homeConcerns = {
   items: [
     {
       id: 'service',
-      label: 'Practice area',
-      statement: 'Choose “Not sure” if you are still sorting out what applies.',
+      title: 'You can choose “Not sure.”',
+      detail: 'You don’t need to name a practice area before booking.',
     },
     {
       id: 'prepare',
-      label: 'What to bring',
-      statement: 'A short list of questions is enough—no documents required to book.',
+      title: 'Questions are enough.',
+      detail: 'No documents required to schedule the first consultation.',
     },
     {
       id: 'cost',
-      label: 'Fees',
-      statement: 'Cost is discussed when you book, before you confirm a time.',
+      title: 'Fees before you confirm.',
+      detail: 'Cost is discussed when you book—so nothing is a surprise.',
     },
   ],
 } as const
