@@ -103,44 +103,59 @@ export const meetingTypeLabels: Record<MeetingType, string> = {
 }
 
 export const bookingPage = {
-  headline: 'Choose a time to talk.',
+  headline: 'Book a consultation with Robert Whitfield.',
   supporting:
-    'Arrange an initial consultation with Robert Whitfield to discuss your questions and priorities.',
-  appointmentDetails: '30 minutes · Video or in person',
-  demoNotice: 'Demo booking. No consultation will be scheduled.',
+    'Choose a format, date, and time for a 30-minute conversation about your questions and priorities.',
+  appointmentDetails: '30 minutes · Video or in person · $150 sample fee',
+  demoNotice: 'Demo booking only. Completing this form does not schedule a consultation.',
   progress: [
     { id: 'appointment', label: 'Consultation' },
     { id: 'details', label: 'Your details' },
     { id: 'review', label: 'Review' },
   ] as const,
   timesLabel: 'All times shown in New York time.',
-  sampleAvailabilityNote: 'Sample availability — not live calendar openings.',
+  sampleAvailabilityNote: 'Sample availability for this prototype—not live calendar openings.',
+  selectDateForTimes: 'Select a date to see available sample times.',
   dateStaleNotice:
-    'The date you selected is no longer among the next three working days. Please choose a new date and time.',
+    'That date is no longer among the next three working days. Please choose a new date and time.',
   attorneyName: 'Robert Whitfield',
   duration: '30 minutes',
+  sampleFee: '$150 sample fee',
   summaryHeading: 'Your consultation',
   summaryEmpty: 'Choose a date and time.',
-  reviewDemoNotice: 'This is a demonstration. Nothing will be scheduled or charged.',
-  completeHeading: 'Consultation confirmed.',
-  completeCopy: 'Your initial consultation details are below.',
-  completeDemoNotice: 'This is a demo. No consultation has been scheduled.',
+  reviewDemoNotice:
+    'This is a demonstration. Nothing will be scheduled, charged, or emailed.',
+  completeHeading: 'Demo complete.',
+  completeCopy: 'The details below show what a consultation summary can look like.',
+  completeDemoNotice: 'No consultation has been scheduled. Nothing was sent or stored.',
+  validation: {
+    meetingType: 'Choose video or in person.',
+    date: 'Select a date.',
+    slot: 'Select a time.',
+    name: 'Enter your full name.',
+    email: 'Enter your email address.',
+    emailInvalid: 'Enter a valid email (for example, name@example.com).',
+    phone: 'Enter your phone number.',
+    phoneInvalid: 'Enter a 10-digit US phone number.',
+  },
   reassurance: {
-    heading: 'A few things before we speak.',
+    heading: 'Before you confirm.',
     items: [
       {
         question: 'Unsure which practice area applies?',
-        answer: 'Select “Not sure.” Start with the questions that matter to you.',
+        answer: 'Select “Not sure.” Begin with the questions that matter to you.',
       },
       {
         question: 'What should I prepare?',
-        answer: 'Bring your questions and relevant information. No uploads are required to book.',
+        answer:
+          'Bring your questions and any notes that help you explain them. No uploads are required to book.',
       },
       {
         question: 'Will this demo charge me?',
-        answer: 'No. No payment is collected.',
+        answer:
+          'No. This prototype collects no payment. The $150 amount is a sample fee shown for demonstration.',
       },
     ],
-    contactLinkLabel: 'Prefer to reach us another way? Contact us',
+    contactLinkLabel: 'Prefer another way to reach us? Contact us',
   },
 } as const

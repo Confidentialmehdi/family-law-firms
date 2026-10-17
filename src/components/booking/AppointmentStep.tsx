@@ -143,7 +143,7 @@ export function AppointmentStep() {
               })}
             </div>
           ) : (
-            <p className="text-sm text-muted">Select a date to see sample times.</p>
+            <p className="text-sm text-muted">{bookingPage.selectDateForTimes}</p>
           )}
           {appointmentErrors.slot ? (
             <p className="mt-2 text-sm text-red-800" role="alert">

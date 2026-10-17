@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { ClosingConversion } from '@/components/sections/ClosingConversion'
-import { faqItems } from '@/content/faq'
+import { faqItems, faqPage } from '@/content/faq'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
 export function FaqPage() {
@@ -17,9 +17,7 @@ export function FaqPage() {
       <div className="border-b border-border/60 bg-surface/40">
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
           <PageHeading>FAQ</PageHeading>
-          <p className="mt-4 max-w-2xl text-lg text-muted">
-            Practical answers about the first consultation and how to get in touch.
-          </p>
+          <p className="mt-4 max-w-2xl text-lg text-muted">{faqPage.supporting}</p>
 
           <div className="mt-10 max-w-3xl">
             <Accordion type="single" collapsible defaultValue={faqItems[0]?.id}>

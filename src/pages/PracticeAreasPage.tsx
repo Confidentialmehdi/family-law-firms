@@ -271,11 +271,10 @@ export function PracticeAreasPage() {
         <div className="relative mx-auto grid max-w-[1200px] gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] md:items-stretch md:gap-10 md:px-8 md:py-16 lg:gap-14 lg:py-20">
           <div className="relative z-10 max-w-3xl">
             <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
-              Whitfield Law Group / Practice Areas
+              {practicePage.eyebrow}
             </p>
             <PageHeading className="mt-5 text-[2.25rem] leading-[1.1] text-ivory md:text-[3.5rem] lg:text-[4.25rem]">
-              Family law guidance
-              <br className="hidden sm:block" /> for the decisions ahead.
+              {practicePage.headline}
             </PageHeading>
             <p className="mt-6 max-w-md text-lg text-ivory/70">
               {practicePage.supporting}

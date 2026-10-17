@@ -27,7 +27,7 @@ export function AboutUsPage() {
 
           <div>
             <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-              Lead attorney
+              {attorney.role}
             </p>
             <PageHeading className="mt-3 text-[2rem] leading-[1.15] text-navy md:text-[2.75rem] lg:text-[3rem]">
               {attorney.name}

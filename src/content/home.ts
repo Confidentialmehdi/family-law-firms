@@ -1,7 +1,7 @@
 export const homeHero = {
-  headline: 'New York family law. A clear next step.',
+  headline: 'New York family law. A defined first conversation.',
   supporting:
-    'Guidance through divorce, parenting arrangements, and financial decisions with attorney Robert Whitfield.',
+    'Whitfield Law Group helps you discuss divorce, parenting arrangements, and financial questions with attorney Robert Whitfield—so you can understand your options before deciding what comes next.',
   points: [
     {
       id: 'experience',
@@ -13,100 +13,104 @@ export const homeHero = {
     },
     {
       id: 'rating',
-      lines: ['4.9/5 verified', 'client rating'],
+      lines: ['4.9/5 sample', 'client rating'],
     },
   ],
+  statsNote: 'Sample figures for this prototype. Not independently verified firm metrics.',
 } as const
 
 export const homePractice = {
-  heading: 'What brings you here?',
-  introduction: 'Find guidance for the decisions you’re facing.',
-  linkLabel: 'Explore all practice areas',
+  heading: 'Which questions are you bringing?',
+  introduction:
+    'Many people arrive with more than one concern. Use these groups to find the services that match what you want to discuss.',
+  linkLabel: 'View all practice areas',
   groups: [
     {
       id: 'divorce-finances',
       title: 'Divorce and finances',
       description:
-        'Ending a marriage, support, and shared property—questions that often arrive together.',
+        'Ending a marriage, financial support, and shared property—topics that often need to be discussed together.',
       areaIds: ['divorce', 'spousal-support', 'property'],
     },
     {
       id: 'parenting-support',
-      title: 'Parenting and support',
+      title: 'Parenting and child support',
       description:
-        'Schedules, responsibilities, and what your children need as arrangements take shape.',
+        'Schedules, decision-making, and financial contributions toward your children’s needs.',
       areaIds: ['custody', 'child-support'],
     },
     {
       id: 'planning',
-      title: 'Planning ahead',
+      title: 'Agreements before or during marriage',
       description:
-        'Financial expectations before or during marriage, discussed with care and clarity.',
+        'Financial expectations, assets, and debts discussed thoughtfully before preparing an agreement.',
       areaIds: ['prenup'],
     },
   ],
 } as const
 
 export const homeMeet = {
-  heading: 'Meet the attorney you’ll speak with.',
-  body: `Robert Whitfield listens carefully, explains options in plain language, and helps you discuss possible next steps—so you can understand your choices before deciding how to move forward.`,
-  linkLabel: 'About Whitfield Law Group',
+  heading: 'Meet Robert Whitfield.',
+  body: `Robert Whitfield leads Whitfield Law Group. In a consultation, he listens to your priorities, explains options in ordinary language, and helps you organize what may need attention next—without asking you to decide everything in one sitting.`,
+  linkLabel: 'About the firm and team',
 } as const
 
 export const homeExperience = {
-  heading: 'Feeling heard. Understanding what comes next.',
-  buttonLabel: 'Learn more',
+  heading: 'How a first conversation can help organize priorities.',
+  buttonLabel: 'See illustrative stories',
   /** Four stories featured on the homepage; full set lives on Our Results. */
   storyIds: ['michael', 'sarah', 'dana', 'james'] as const,
 } as const
 
 export const homeAppointment = {
-  heading: 'Here’s what your first appointment involves.',
-  feeNote: '30 minutes · Video or in person',
-  linkLabel: 'What to expect',
+  heading: 'What the first consultation includes.',
+  feeNote: '30 minutes · Video or in person · $150 sample fee',
+  linkLabel: 'Read the full appointment guide',
   steps: [
     {
       step: 1,
-      title: 'Choose a time',
-      description: 'Select a date and time, and choose video or in person.',
+      title: 'Choose a time and format',
+      description: 'Select a date and time, then choose video or in person.',
     },
     {
       step: 2,
       title: 'Discuss your priorities',
-      description: 'Bring the questions and concerns that matter most to you.',
+      description:
+        'Bring the questions you want to cover—family, finances, timing, or several connected topics.',
     },
     {
       step: 3,
-      title: 'Explore possible next steps',
-      description: 'Discuss your options and what may need further consideration.',
+      title: 'Review possible next steps',
+      description:
+        'Leave with a practical sense of options and what information may help a later discussion.',
     },
   ],
 } as const
 
 export const homeConcerns = {
-  eyebrow: 'FAQ',
-  heading: 'A few things to know before booking.',
+  eyebrow: 'Before you book',
+  heading: 'Common questions about the consultation.',
   supporting:
-    'Quick answers to the questions people ask most often before scheduling a consultation.',
-  linkLabel: 'See all FAQ',
+    'Short answers about preparation, fit, and cost. Fuller responses are on the FAQ page.',
+  linkLabel: 'Read the FAQ',
   items: [
     {
       id: 'service',
       question: 'Do I need to know which practice area applies?',
       answer:
-        'No. Choose “Not sure” on the booking page—sorting that out can be part of the conversation.',
+        'No. Choose “Not sure” when you book. Identifying the right topics can be part of the conversation.',
     },
     {
       id: 'prepare',
       question: 'What should I prepare?',
       answer:
-        'A short list of questions or concerns is enough. You do not need documents to schedule the first consultation.',
+        'A short list of questions is enough. You do not need documents to schedule the first consultation.',
     },
     {
       id: 'cost',
       question: 'What does the appointment cost?',
       answer:
-        'Fees are discussed when you book, so you know what to expect before you confirm a time.',
+        'The sample consultation fee shown on this site is $150 for 30 minutes. Fees are confirmed when you book.',
     },
   ],
 } as const

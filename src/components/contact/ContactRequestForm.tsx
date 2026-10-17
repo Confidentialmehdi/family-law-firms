@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { practiceAreaOptions } from '@/content/practiceAreas'
-import { site } from '@/content/site'
+import { contactForm, site } from '@/content/site'
 import { cn } from '@/lib/utils'
 
 type ContactMethod = 'email' | 'phone'
@@ -66,13 +66,13 @@ export function ContactRequestForm({
 
   function validate() {
     const next: Partial<Record<keyof FormState, string>> = {}
-    if (!form.name.trim()) next.name = 'Enter your full name.'
+    if (!form.name.trim()) next.name = contactForm.validation.name
     if (form.method === 'email') {
-      if (!form.email.trim()) next.email = 'Enter your email address.'
-      else if (!isValidEmail(form.email.trim())) next.email = 'Enter a valid email address.'
+      if (!form.email.trim()) next.email = contactForm.validation.email
+      else if (!isValidEmail(form.email.trim())) next.email = contactForm.validation.emailInvalid
     } else {
-      if (!form.phone.trim()) next.phone = 'Enter your phone number.'
-      else if (!isValidPhone(form.phone.trim())) next.phone = 'Enter a valid phone number.'
+      if (!form.phone.trim()) next.phone = contactForm.validation.phone
+      else if (!isValidPhone(form.phone.trim())) next.phone = contactForm.validation.phoneInvalid
     }
     setErrors(next)
     return Object.keys(next).length === 0
@@ -95,7 +95,7 @@ export function ContactRequestForm({
       <div className="rounded-sm border border-border bg-surface px-4 py-6 text-center" role="status" aria-live="polite">
         <p className="font-serif text-lg text-navy">{site.contactComplete}</p>
         <Button type="button" variant="outline" className="mt-5" onClick={handleReset}>
-          Start again
+          {contactForm.startAgain}
         </Button>
       </div>
     )
@@ -206,7 +206,7 @@ export function ContactRequestForm({
             'flex h-11 w-full rounded-sm border border-border bg-surface px-3 py-2 text-base text-navy shadow-soft focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25',
           )}
         >
-          <option value="">Select an option</option>
+          <option value="">{contactForm.selectOption}</option>
           {practiceAreaOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -222,7 +222,7 @@ export function ContactRequestForm({
               <Label htmlFor={`${idPrefix}-message`}>
                 Brief message <span className="text-muted">(optional)</span>
               </Label>
-              <p className="text-sm text-muted">Please avoid including sensitive case details.</p>
+              <p className="text-sm text-muted">{contactForm.sensitiveNote}</p>
             </div>
             <textarea
               id={`${idPrefix}-message`}
@@ -242,7 +242,7 @@ export function ContactRequestForm({
               id={`${idPrefix}-preferred-time`}
               name="preferredTime"
               autoComplete="off"
-              placeholder="e.g. Weekday mornings"
+              placeholder={contactForm.preferredTimePlaceholder}
               value={form.preferredTime}
               onChange={(event) => update('preferredTime', event.target.value)}
             />
@@ -251,7 +251,7 @@ export function ContactRequestForm({
       ) : null}
 
       <Button type="submit" variant={compact ? 'outline' : 'default'} className="w-full sm:w-auto">
-        Request contact
+        {contactForm.submitLabel}
       </Button>
     </form>
   )

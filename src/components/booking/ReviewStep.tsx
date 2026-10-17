@@ -82,6 +82,11 @@ export function ReviewStep() {
           <dd className="mt-1 text-navy">{bookingPage.duration}</dd>
         </div>
 
+        <div className="border-b border-border pb-3">
+          <dt className="text-sm text-muted">Fee</dt>
+          <dd className="mt-1 text-navy">{bookingPage.sampleFee}</dd>
+        </div>
+
         <div className="flex items-start justify-between gap-4 border-b border-border pb-3">
           <div>
             <dt className="text-sm text-muted">Your details</dt>

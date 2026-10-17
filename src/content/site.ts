@@ -3,30 +3,59 @@ export const site = {
   location: 'New York, NY',
   tagline: 'New York family law',
   ctaLabel: 'Book a consultation',
-  bookingComplete: 'Thank you. Your consultation request has been received.',
-  contactComplete: 'Thank you. Your contact request has been received.',
-  consultationNote: '30-minute consultation · Video or in person',
+  bookingComplete:
+    'Demo complete. No consultation has been scheduled, and nothing was sent.',
+  contactComplete:
+    'Demo complete. Your contact request was not sent. Nothing was stored.',
+  consultationNote: '30-minute consultation · Video or in person · $150 sample fee',
   timeZoneLabel: 'New York time',
-  footerDisclaimer: 'New York family law counsel.',
+  footerDisclaimer: 'New York family law practice.',
+} as const
+
+export const contactPage = {
+  headline: 'Reach Whitfield Law Group.',
+  supporting:
+    'Call, email, or leave your details below. Choose the option that feels most comfortable—there is no obligation to book.',
+  directHeading: 'Phone, email, and office hours',
+  phoneLabel: 'Phone',
+  emailLabel: 'Email',
+  locationLabel: 'Location',
+  hoursLabel: 'Office hours',
+} as const
+
+export const contactForm = {
+  sensitiveNote: 'Please avoid including sensitive case details.',
+  preferredTimePlaceholder: 'e.g. Weekday mornings',
+  selectOption: 'Select an option',
+  startAgain: 'Start again',
+  submitLabel: 'Request contact',
+  validation: {
+    name: 'Enter your full name.',
+    email: 'Enter your email address.',
+    emailInvalid: 'Enter a valid email address.',
+    phone: 'Enter your phone number.',
+    phoneInvalid: 'Enter a valid phone number.',
+  },
 } as const
 
 export const closingConversion = {
-  label: 'Your next step',
-  headline: 'Let’s start with a conversation.',
+  label: 'First step',
+  headline: 'Begin with a 30-minute consultation.',
   supporting:
-    'Choose a consultation time, or leave your details and request contact.',
+    'Book a time to discuss your questions with Robert Whitfield, or leave your details and request contact.',
   booking: {
-    heading: 'Ready to speak with us?',
-    copy: 'Choose a time for an initial conversation about your questions and priorities.',
+    heading: 'Book a consultation',
+    copy: 'Choose video or in person, pick a time, and review your details before you confirm.',
     details: [
       '30-minute consultation',
       'Video or in person',
+      '$150 sample fee',
       'New York time',
     ],
   },
   contact: {
-    heading: 'Prefer us to contact you?',
-    copy: 'Leave your preferred contact details.',
+    heading: 'Request contact',
+    copy: 'Share how you prefer to be reached. On this prototype, submissions are not sent.',
   },
 } as const
 

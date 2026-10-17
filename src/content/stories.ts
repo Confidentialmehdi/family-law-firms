@@ -13,7 +13,7 @@ export const stories: Story[] = [
     situation:
       'A parent facing separation wanted to sort worries about schedules, school, and how to talk with the children—without deciding everything at once.',
     conversation:
-      'The conversation focused on naming priorities, separating immediate needs from longer-term questions, and clarifying what “parenting time” can mean in everyday terms.',
+      'The conversation focused on naming priorities, separating immediate needs from longer-term questions, and explaining what parenting time can mean in everyday terms.',
     nextStep:
       'They left with a short list of topics to gather and questions to bring to a follow-up discussion.',
   },
@@ -23,7 +23,7 @@ export const stories: Story[] = [
     situation:
       'A professional felt unsure how shared property, retirement accounts, and household debts fit together and did not know which documents mattered yet.',
     conversation:
-      'Rather than diving into every account, they mapped categories of questions and talked through how property conversations often begin.',
+      'Rather than covering every account, they mapped categories of questions and talked through how property discussions often begin.',
     nextStep:
       'They prepared an organized set of questions and a simple inventory checklist for a later appointment.',
   },

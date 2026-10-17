@@ -18,13 +18,13 @@ export const testimonials: Testimonial[] = [
     quote:
       'I finally understood the process in language I could follow. Nothing felt rushed, and I knew what to ask next.',
     attribution: 'J.R.',
-    theme: 'Clear explanations',
+    theme: 'Plain explanations',
   },
   {
     id: 't3',
     quote:
-      'I left knowing what to prepare—and what I did not need to decide yet. That clarity mattered.',
+      'I left knowing what to prepare—and what I did not need to decide yet. That distinction mattered.',
     attribution: 'S.L.',
-    theme: 'Understanding what to prepare',
+    theme: 'Knowing what to prepare',
   },
 ]

@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import {
+  bookingPage,
   generateAvailabilitySlots,
   meetingTypeLabels,
   type MeetingType,
@@ -127,23 +128,23 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
 
   const validateAppointment = React.useCallback(() => {
     const next: { date?: string; slot?: string; meetingType?: string } = {}
-    if (!draft.meetingType) next.meetingType = 'Choose video or in person.'
-    if (!draft.dateKey) next.date = 'Select a date.'
-    if (!draft.slotId) next.slot = 'Select a time.'
+    if (!draft.meetingType) next.meetingType = bookingPage.validation.meetingType
+    if (!draft.dateKey) next.date = bookingPage.validation.date
+    if (!draft.slotId) next.slot = bookingPage.validation.slot
     setAppointmentErrors(next)
     return Object.keys(next).length === 0
   }, [draft.dateKey, draft.meetingType, draft.slotId])
 
   const validateDetails = React.useCallback(() => {
     const next: { name?: string; email?: string; phone?: string } = {}
-    if (!draft.name.trim()) next.name = 'Enter your full name.'
-    if (!draft.email.trim()) next.email = 'Enter your email address.'
+    if (!draft.name.trim()) next.name = bookingPage.validation.name
+    if (!draft.email.trim()) next.email = bookingPage.validation.email
     else if (!isValidEmailAddress(draft.email)) {
-      next.email = 'Enter a valid email (for example, name@example.com).'
+      next.email = bookingPage.validation.emailInvalid
     }
-    if (!draft.phone.trim()) next.phone = 'Enter your phone number.'
+    if (!draft.phone.trim()) next.phone = bookingPage.validation.phone
     else if (!isValidUsPhone(draft.phone)) {
-      next.phone = 'Enter a 10-digit US phone number.'
+      next.phone = bookingPage.validation.phoneInvalid
     }
     setDetailsErrors(next)
     return Object.keys(next).length === 0

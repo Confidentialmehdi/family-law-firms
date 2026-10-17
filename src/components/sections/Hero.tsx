@@ -63,6 +63,7 @@ export function Hero() {
               )
             })}
           </ul>
+          <p className="mt-3 max-w-xl text-xs text-muted">{homeHero.statsNote}</p>
         </div>
 
         <div

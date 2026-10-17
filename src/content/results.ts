@@ -13,20 +13,20 @@ export type ClientStory = {
 
 export const resultsPage = {
   eyebrow: 'Our Results',
-  headline: 'What a clearer way forward can look like.',
+  headline: 'Illustrative stories from first conversations.',
   supporting:
-    'Explore stories about organizing priorities, understanding options, and preparing for the next step.',
+    'These examples show how people organize priorities, understand options, and prepare for a next discussion. They are fictional for this prototype and are not promises of results.',
   stories: {
     heading: 'Different situations. Personal priorities.',
     introduction:
-      'Every situation begins with its own questions. These stories illustrate how a conversation can help organize them.',
+      'Each story begins with its own questions. Use them to see how a consultation can help sort what needs attention now from what can wait.',
   },
   personal: {
-    label: 'Beyond the examples',
+    label: 'Your circumstances',
     heading: 'Your situation may look different.',
-    copy: 'The questions in these stories may feel familiar, but your priorities and circumstances are your own. You may be thinking about your children, your finances, your relationship, or several connected decisions.',
+    copy: 'The questions in these stories may feel familiar, but your priorities are your own. You may be thinking about your children, your finances, your relationship, or several connected decisions.',
     followUp:
-      'You don’t need to fit your situation into someone else’s story before starting a conversation.',
+      'You do not need to match someone else’s story before booking a consultation.',
     linkLabel: 'Meet Robert and the team',
   },
 } as const
@@ -40,7 +40,7 @@ export const clientStories: ClientStory[] = [
     practiceArea: 'Divorce',
     title: 'Finding a place to begin.',
     caption:
-      'Michael was considering divorce and felt pulled between questions about his children, housing, and finances. In conversation, he named what felt most urgent and what could wait. He left with a clearer overview of the process and a short list of topics to prepare for a next discussion.',
+      'Michael was considering divorce and felt pulled between questions about his children, housing, and finances. In conversation, he named what felt most urgent and what could wait. He left with a practical overview of the process and a short list of topics to prepare for a next discussion.',
     imageSrc: '/images/stories/michael.jpg',
     imageAlt: 'Thoughtful man looking toward the camera',
   },
@@ -64,7 +64,7 @@ export const clientStories: ClientStory[] = [
     practiceArea: 'Child Custody & Parenting Time',
     title: 'Putting parenting questions into words.',
     caption:
-      'Dana wanted to talk about parenting schedules, shared responsibilities, and everyday routines without assuming a finished plan. Together they mapped the questions that mattered most for school, weekends, and decision-making. She left knowing how to describe her priorities more clearly.',
+      'Dana wanted to talk about parenting schedules, shared responsibilities, and everyday routines without assuming a finished plan. Together they mapped the questions that mattered most for school, weekends, and decision-making. She left knowing how to describe her priorities more precisely.',
     imageSrc: '/images/stories/dana.jpg',
     imageAlt: 'Parent walking outdoors with a young child',
   },
@@ -76,7 +76,7 @@ export const clientStories: ClientStory[] = [
     practiceArea: 'Child Support',
     title: 'Preparing the financial picture.',
     caption:
-      'James needed help organizing information about income and his children’s expenses before a longer discussion. The conversation focused on which details were useful to gather and which questions to bring next. He left with a practical preparation list rather than a finished financial answer.',
+      'James needed help organizing information about income and his children’s expenses before a longer discussion. The conversation focused on which details were useful to gather and which questions to bring next. He left with a preparation list rather than a finished financial answer.',
     imageSrc: '/images/stories/james.jpg',
     imageAlt: 'Professional reviewing notes at a desk',
   },
@@ -88,7 +88,7 @@ export const clientStories: ClientStory[] = [
     practiceArea: 'Spousal Support',
     title: 'Understanding what to ask.',
     caption:
-      'Morgan faced financial uncertainty after separation and was unsure what support questions were worth asking. They talked through income, needs, and how support conversations often begin. Morgan left with clearer language for the next discussion and a sense of what information to organize.',
+      'Morgan faced financial uncertainty after separation and was unsure which support questions were worth asking. They talked through income, needs, and how support conversations often begin. Morgan left with clearer language for the next discussion and a sense of what information to organize.',
     imageSrc: '/images/stories/morgan.jpg',
     imageAlt: 'Close portrait of a person in soft natural light',
   },
@@ -129,4 +129,3 @@ export const clientStories: ClientStory[] = [
     imageAlt: 'Person looking calmly toward soft window light',
   },
 ]
-

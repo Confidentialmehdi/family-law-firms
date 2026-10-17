@@ -4,7 +4,7 @@ import { PageHeading } from '@/components/PageHeading'
 import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { concerns } from '@/content/concerns'
 import { site } from '@/content/site'
-import { whatToExpect } from '@/content/whatToExpect'
+import { whatToExpect, whatToExpectPage } from '@/content/whatToExpect'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
 export function WhatToExpectPage() {
@@ -15,10 +15,7 @@ export function WhatToExpectPage() {
       <div className="border-b border-border/60">
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
           <PageHeading>What to Expect</PageHeading>
-          <p className="mt-4 max-w-2xl text-lg text-muted">
-            A straightforward look at the initial consultation—from choosing a time to
-            understanding possible next steps.
-          </p>
+          <p className="mt-4 max-w-2xl text-lg text-muted">{whatToExpectPage.supporting}</p>
           <p className="mt-3 text-sm text-muted">
             {site.consultationNote}. Times shown in {site.timeZoneLabel}.
           </p>
@@ -37,18 +34,14 @@ export function WhatToExpectPage() {
 
           <section className="mt-16 max-w-3xl" aria-labelledby="prepare-heading">
             <h2 id="prepare-heading" className="font-serif text-2xl text-navy">
-              What to prepare
+              {whatToExpectPage.prepareHeading}
             </h2>
-            <p className="mt-3 text-base text-muted">
-              A short list of questions or priorities is enough. You do not need documents or a
-              finished plan for the first consultation. Bring what helps you explain what matters
-              most right now.
-            </p>
+            <p className="mt-3 text-base text-muted">{whatToExpectPage.prepareCopy}</p>
           </section>
 
           <section className="mt-14 max-w-3xl" aria-labelledby="concerns-heading">
             <h2 id="concerns-heading" className="font-serif text-2xl text-navy">
-              Common concerns
+              {whatToExpectPage.concernsHeading}
             </h2>
             <ul className="mt-6 space-y-6">
               {concerns.map((item) => (
@@ -61,11 +54,11 @@ export function WhatToExpectPage() {
           </section>
 
           <p className="mt-12 text-base text-muted">
-            More answers are on the{' '}
+            {whatToExpectPage.faqLeadIn}{' '}
             <Link to="/faq" className="font-medium text-teal underline-offset-4 hover:underline">
-              FAQ
+              {whatToExpectPage.faqLinkLabel}
             </Link>{' '}
-            page.
+            {whatToExpectPage.faqLeadOut}
           </p>
         </div>
       </div>
