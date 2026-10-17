@@ -1,5 +1,4 @@
-import { groupSlotsByDate } from '@/content/booking'
-import { site } from '@/content/site'
+import { bookingPage, groupSlotsByDate } from '@/content/booking'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
@@ -16,9 +15,14 @@ export function AppointmentStep() {
     clearAppointmentErrors,
     validateAppointment,
     setStep,
+    dateStale,
+    clearDateStale,
   } = useBooking()
 
   const grouped = groupSlotsByDate(slots)
+  const timesForDate = draft.dateKey
+    ? grouped.find((group) => group.dateKey === draft.dateKey)?.slots ?? []
+    : []
 
   function handleContinue() {
     if (validateAppointment()) {
@@ -27,58 +31,16 @@ export function AppointmentStep() {
   }
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <div className="min-h-0 flex-1 space-y-6 overflow-y-auto px-5 py-2">
-        <p className="text-sm text-muted">
-          {site.consultationNote}
-          <span className="mx-2 text-brass" aria-hidden="true">
-            ·
-          </span>
-          <span>{site.timeZoneLabel}</span>
-        </p>
-
-        <fieldset>
-          <legend className="mb-3 text-sm font-medium text-navy">Date and time</legend>
-          <div className="space-y-5">
-            {grouped.map((group) => (
-              <div key={group.dateKey}>
-                <p className="mb-2 font-serif text-base text-navy">{group.dateLabelLong}</p>
-                <div className="flex flex-wrap gap-2">
-                  {group.slots.map((slot) => {
-                    const selected = draft.slotId === slot.id
-                    return (
-                      <button
-                        key={slot.id}
-                        type="button"
-                        onClick={() => {
-                          updateDraft({ slotId: slot.id })
-                          clearAppointmentErrors()
-                        }}
-                        aria-pressed={selected}
-                        className={cn(
-                          'min-h-11 rounded-sm border px-3 py-2 text-sm transition-colors',
-                          selected
-                            ? 'border-teal bg-teal text-white'
-                            : 'border-border bg-surface text-navy hover:border-teal/40',
-                        )}
-                      >
-                        {slot.timeLabel}
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
-          {appointmentErrors.slot ? (
-            <p className="mt-2 text-sm text-red-800" role="alert">
-              {appointmentErrors.slot}
-            </p>
-          ) : null}
-        </fieldset>
+    <div className="flex flex-col">
+      <div className="space-y-8">
+        {dateStale ? (
+          <p className="rounded-sm bg-brass/15 px-3 py-2 text-sm text-navy" role="status">
+            {bookingPage.dateStaleNotice}
+          </p>
+        ) : null}
 
         <div className="space-y-3">
-          <Label id="meeting-type-label">Meeting type</Label>
+          <Label id="meeting-type-label">Meeting format</Label>
           <RadioGroup
             aria-labelledby="meeting-type-label"
             value={draft.meetingType ?? ''}
@@ -111,9 +73,87 @@ export function AppointmentStep() {
             </p>
           ) : null}
         </div>
+
+        <fieldset>
+          <legend className="mb-3 text-sm font-medium text-navy">Date</legend>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {grouped.map((group) => {
+              const selected = draft.dateKey === group.dateKey
+              return (
+                <button
+                  key={group.dateKey}
+                  type="button"
+                  onClick={() => {
+                    updateDraft({ dateKey: group.dateKey, slotId: null })
+                    clearAppointmentErrors()
+                    clearDateStale()
+                  }}
+                  aria-pressed={selected}
+                  className={cn(
+                    'min-h-11 rounded-sm border px-4 py-4 text-left transition-colors',
+                    selected
+                      ? 'border-teal bg-teal/10 ring-2 ring-teal/25'
+                      : 'border-border bg-surface hover:border-teal/40',
+                  )}
+                >
+                  <span className="block text-xs tracking-wide text-brass uppercase">
+                    {group.weekdayLabel}
+                  </span>
+                  <span className="mt-1 block font-serif text-xl text-navy">
+                    {group.monthDayLabel}
+                  </span>
+                </button>
+              )
+            })}
+          </div>
+          {appointmentErrors.date ? (
+            <p className="mt-2 text-sm text-red-800" role="alert">
+              {appointmentErrors.date}
+            </p>
+          ) : null}
+        </fieldset>
+
+        <fieldset>
+          <legend className="mb-2 text-sm font-medium text-navy">Time</legend>
+          <p className="mb-1 text-sm text-muted">{bookingPage.timesLabel}</p>
+          <p className="mb-3 text-xs text-muted">{bookingPage.sampleAvailabilityNote}</p>
+          {draft.dateKey ? (
+            <div className="flex flex-wrap gap-2">
+              {timesForDate.map((slot) => {
+                const selected = draft.slotId === slot.id
+                return (
+                  <button
+                    key={slot.id}
+                    type="button"
+                    onClick={() => {
+                      updateDraft({ slotId: slot.id })
+                      clearAppointmentErrors()
+                    }}
+                    aria-pressed={selected}
+                    className={cn(
+                      'min-h-11 rounded-sm border px-4 py-2 text-sm transition-colors',
+                      selected
+                        ? 'border-teal bg-teal text-white'
+                        : 'border-border bg-surface text-navy hover:border-teal/40',
+                    )}
+                  >
+                    {slot.timeLabel}
+                  </button>
+                )
+              })}
+            </div>
+          ) : (
+            <p className="text-sm text-muted">Select a date to see sample times.</p>
+          )}
+          {appointmentErrors.slot ? (
+            <p className="mt-2 text-sm text-red-800" role="alert">
+              {appointmentErrors.slot}
+            </p>
+          ) : null}
+        </fieldset>
       </div>
 
-      <div className="flex justify-end border-t border-border bg-surface/60 px-5 py-4">
+      <div className="mt-10 flex justify-end border-t border-border pt-6">
         <Button type="button" onClick={handleContinue}>
           Continue
         </Button>

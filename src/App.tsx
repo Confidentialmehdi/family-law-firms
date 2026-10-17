@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { disclaimerPage, privacyPage, termsPage } from '@/content/legal'
 import { RootLayout } from '@/layouts/RootLayout'
 import { AboutUsPage } from '@/pages/AboutUsPage'
+import { BookConsultationPage } from '@/pages/BookConsultationPage'
 import { ContactUsPage } from '@/pages/ContactUsPage'
 import { FaqPage } from '@/pages/FaqPage'
 import { HomePage } from '@/pages/HomePage'
@@ -16,7 +17,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Every page shares Header + Footer via RootLayout */}
         <Route element={<RootLayout />}>
           <Route index element={<HomePage />} />
           <Route path="practice-areas" element={<PracticeAreasPage />} />
@@ -25,6 +25,7 @@ export default function App() {
           <Route path="our-results" element={<OurResultsPage />} />
           <Route path="what-to-expect" element={<WhatToExpectPage />} />
           <Route path="faq" element={<FaqPage />} />
+          <Route path="book-consultation" element={<BookConsultationPage />} />
           <Route
             path="privacy"
             element={

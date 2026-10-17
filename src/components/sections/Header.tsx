@@ -2,15 +2,16 @@ import { Menu, X } from 'lucide-react'
 import * as React from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 
-import { useBooking } from '@/components/booking/BookingContext'
 import { Button } from '@/components/ui/button'
 import { headerNav, site } from '@/content/site'
 import { cn } from '@/lib/utils'
 
+const BOOK_PATH = '/book-consultation'
+
 export function Header() {
-  const { openBooking } = useBooking()
   const { pathname } = useLocation()
   const [menuOpen, setMenuOpen] = React.useState(false)
+  const onBookingPage = pathname === BOOK_PATH
 
   React.useEffect(() => {
     setMenuOpen(false)
@@ -46,9 +47,11 @@ export function Header() {
               </NavLink>
             ))}
           </nav>
-          <Button type="button" className="hidden sm:inline-flex" onClick={openBooking}>
-            {site.ctaLabel}
-          </Button>
+          {!onBookingPage ? (
+            <Button asChild className="hidden sm:inline-flex">
+              <Link to={BOOK_PATH}>{site.ctaLabel}</Link>
+            </Button>
+          ) : null}
           <Button
             type="button"
             variant="ghost"
@@ -82,16 +85,13 @@ export function Header() {
               {link.label}
             </NavLink>
           ))}
-          <Button
-            type="button"
-            className="mt-2 sm:hidden"
-            onClick={() => {
-              setMenuOpen(false)
-              openBooking()
-            }}
-          >
-            {site.ctaLabel}
-          </Button>
+          {!onBookingPage ? (
+            <Button asChild className="mt-2 sm:hidden">
+              <Link to={BOOK_PATH} onClick={() => setMenuOpen(false)}>
+                {site.ctaLabel}
+              </Link>
+            </Button>
+          ) : null}
         </nav>
       </div>
     </header>

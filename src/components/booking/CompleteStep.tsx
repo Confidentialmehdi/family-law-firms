@@ -1,27 +1,82 @@
-import { CheckCircle2 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
+import { bookingPage } from '@/content/booking'
 import { site } from '@/content/site'
 import { Button } from '@/components/ui/button'
 
 import { useBooking } from './BookingContext'
 
 export function CompleteStep() {
-  const { setOpen } = useBooking()
+  const {
+    selectedSlot,
+    meetingTypeLabel,
+    practiceAreaLabel,
+    draft,
+    resetBooking,
+  } = useBooking()
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <div className="flex flex-1 flex-col items-center justify-center gap-4 px-5 py-10 text-center">
-        <CheckCircle2 className="size-10 text-teal" aria-hidden="true" />
-        <p className="font-serif text-xl text-navy" role="status">
-          {site.bookingComplete}
+    <div className="text-center" role="status" aria-live="polite">
+      <h2 className="font-serif text-3xl text-navy md:text-4xl">
+        {bookingPage.completeHeading}
+      </h2>
+      <p className="mt-3 text-lg text-muted">{bookingPage.completeCopy}</p>
+
+      <div className="mx-auto mt-10 max-w-md rounded-sm border border-border bg-surface px-6 py-6 text-left">
+        <p className="text-[0.7rem] tracking-[0.14em] text-brass uppercase">
+          {bookingPage.summaryHeading}
         </p>
-        <p className="max-w-sm text-sm text-muted">
-          We will follow up to confirm your consultation details.
-        </p>
+        <dl className="mt-4 space-y-3 text-base text-navy">
+          <div>
+            <dt className="text-sm text-muted">Attorney</dt>
+            <dd>{bookingPage.attorneyName}</dd>
+          </div>
+          <div>
+            <dt className="text-sm text-muted">Date & time</dt>
+            <dd>
+              {selectedSlot ? (
+                <>
+                  {selectedSlot.dateLabelLong}
+                  <span className="block text-muted">
+                    {selectedSlot.timeLabel} · {site.timeZoneLabel}
+                  </span>
+                </>
+              ) : (
+                '—'
+              )}
+            </dd>
+          </div>
+          <div>
+            <dt className="text-sm text-muted">Format</dt>
+            <dd>{meetingTypeLabel ?? '—'}</dd>
+          </div>
+          <div>
+            <dt className="text-sm text-muted">Duration / fee</dt>
+            <dd>
+              {bookingPage.duration} · {bookingPage.sampleFee}
+            </dd>
+          </div>
+          <div>
+            <dt className="text-sm text-muted">Contact</dt>
+            <dd>
+              {draft.name}
+              <span className="block text-muted">{draft.email}</span>
+              {practiceAreaLabel ? (
+                <span className="block text-muted">{practiceAreaLabel}</span>
+              ) : null}
+            </dd>
+          </div>
+        </dl>
       </div>
-      <div className="flex justify-end border-t border-border bg-surface/60 px-5 py-4">
-        <Button type="button" onClick={() => setOpen(false)}>
-          Close
+
+      <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <Button type="button" variant="outline" onClick={resetBooking}>
+          {bookingPage.startAgainLabel}
+        </Button>
+        <Button asChild>
+          <Link to="/" onClick={resetBooking}>
+            {bookingPage.backHomeLabel}
+          </Link>
         </Button>
       </div>
     </div>

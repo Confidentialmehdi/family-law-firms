@@ -11,7 +11,6 @@ import {
 import { Link } from 'react-router-dom'
 
 import { PageHeading } from '@/components/PageHeading'
-import { useBooking } from '@/components/booking/BookingContext'
 import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { Button } from '@/components/ui/button'
 import { getPracticeArea, practiceAreas, practicePage } from '@/content/practiceAreas'
@@ -199,7 +198,6 @@ function ServiceSection({
 
 export function PracticeAreasPage() {
   useDocumentTitle('Practice Areas')
-  const { openBooking } = useBooking()
 
   return (
     <main id="main">
@@ -221,8 +219,8 @@ export function PracticeAreasPage() {
               {practicePage.supporting}
             </p>
             <div className="mt-8">
-              <Button type="button" size="lg" onClick={openBooking}>
-                {site.ctaLabel}
+              <Button asChild size="lg">
+                <Link to="/book-consultation">{site.ctaLabel}</Link>
               </Button>
             </div>
           </div>

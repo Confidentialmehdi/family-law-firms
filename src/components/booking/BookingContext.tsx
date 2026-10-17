@@ -11,6 +11,7 @@ import { practiceAreaOptions } from '@/content/practiceAreas'
 export type BookingStep = 'appointment' | 'details' | 'review' | 'complete'
 
 export type BookingDraft = {
+  dateKey: string | null
   slotId: string | null
   meetingType: MeetingType | null
   name: string
@@ -19,9 +20,6 @@ export type BookingDraft = {
 }
 
 type BookingContextValue = {
-  open: boolean
-  setOpen: (open: boolean) => void
-  openBooking: () => void
   step: BookingStep
   setStep: (step: BookingStep) => void
   draft: BookingDraft
@@ -31,7 +29,11 @@ type BookingContextValue = {
   practiceAreaLabel: string | null
   meetingTypeLabel: string | null
   completeBooking: () => void
-  appointmentErrors: { slot?: string; meetingType?: string }
+  resetBooking: () => void
+  refreshAvailability: () => void
+  dateStale: boolean
+  clearDateStale: () => void
+  appointmentErrors: { date?: string; slot?: string; meetingType?: string }
   detailsErrors: { name?: string; email?: string }
   validateAppointment: () => boolean
   validateDetails: () => boolean
@@ -40,6 +42,7 @@ type BookingContextValue = {
 }
 
 const emptyDraft: BookingDraft = {
+  dateKey: null,
   slotId: null,
   meetingType: null,
   name: '',
@@ -54,10 +57,12 @@ function isValidEmail(value: string) {
 }
 
 export function BookingProvider({ children }: { children: React.ReactNode }) {
-  const [open, setOpenState] = React.useState(false)
   const [step, setStep] = React.useState<BookingStep>('appointment')
   const [draft, setDraft] = React.useState<BookingDraft>(emptyDraft)
+  const [slotVersion, setSlotVersion] = React.useState(0)
+  const [dateStale, setDateStale] = React.useState(false)
   const [appointmentErrors, setAppointmentErrors] = React.useState<{
+    date?: string
     slot?: string
     meetingType?: string
   }>({})
@@ -66,7 +71,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     email?: string
   }>({})
 
-  const slots = React.useMemo(() => generateAvailabilitySlots(), [])
+  const slots = React.useMemo(() => generateAvailabilitySlots(), [slotVersion])
 
   const selectedSlot = React.useMemo(
     () => slots.find((slot) => slot.id === draft.slotId) ?? null,
@@ -84,46 +89,55 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     ? meetingTypeLabels[draft.meetingType]
     : null
 
-  const resetAfterComplete = React.useCallback(() => {
+  const resetBooking = React.useCallback(() => {
     setDraft(emptyDraft)
     setStep('appointment')
     setAppointmentErrors({})
     setDetailsErrors({})
+    setDateStale(false)
+    setSlotVersion((version) => version + 1)
   }, [])
 
-  const setOpen = React.useCallback(
-    (next: boolean) => {
-      setOpenState(next)
-      if (!next && step === 'complete') {
-        resetAfterComplete()
-      }
-    },
-    [resetAfterComplete, step],
-  )
+  const refreshAvailability = React.useCallback(() => {
+    setSlotVersion((version) => version + 1)
+  }, [])
 
-  const openBooking = React.useCallback(() => {
-    if (step === 'complete') {
-      resetAfterComplete()
+  React.useEffect(() => {
+    if (!draft.dateKey && !draft.slotId) return
+    const dateStillValid =
+      Boolean(draft.dateKey) && slots.some((slot) => slot.dateKey === draft.dateKey)
+    const slotStillValid =
+      Boolean(draft.slotId) && slots.some((slot) => slot.id === draft.slotId)
+
+    if (!dateStillValid || (draft.slotId && !slotStillValid)) {
+      setDraft((prev) => ({ ...prev, dateKey: null, slotId: null }))
+      setDateStale(true)
     }
-    setOpenState(true)
-  }, [resetAfterComplete, step])
+  }, [slots, draft.dateKey, draft.slotId])
 
   const updateDraft = React.useCallback((patch: Partial<BookingDraft>) => {
-    setDraft((prev) => ({ ...prev, ...patch }))
+    setDraft((prev) => {
+      const next = { ...prev, ...patch }
+      if (patch.dateKey !== undefined && patch.dateKey !== prev.dateKey) {
+        next.slotId = patch.slotId ?? null
+      }
+      return next
+    })
   }, [])
 
   const validateAppointment = React.useCallback(() => {
-    const next: { slot?: string; meetingType?: string } = {}
-    if (!draft.slotId) next.slot = 'Select a date and time.'
+    const next: { date?: string; slot?: string; meetingType?: string } = {}
     if (!draft.meetingType) next.meetingType = 'Choose video or in person.'
+    if (!draft.dateKey) next.date = 'Select a date.'
+    if (!draft.slotId) next.slot = 'Select a time.'
     setAppointmentErrors(next)
     return Object.keys(next).length === 0
-  }, [draft.meetingType, draft.slotId])
+  }, [draft.dateKey, draft.meetingType, draft.slotId])
 
   const validateDetails = React.useCallback(() => {
     const next: { name?: string; email?: string } = {}
-    if (!draft.name.trim()) next.name = 'Enter your name.'
-    if (!draft.email.trim()) next.email = 'Enter your email.'
+    if (!draft.name.trim()) next.name = 'Enter your full name.'
+    if (!draft.email.trim()) next.email = 'Enter your email address.'
     else if (!isValidEmail(draft.email.trim())) next.email = 'Enter a valid email address.'
     setDetailsErrors(next)
     return Object.keys(next).length === 0
@@ -134,9 +148,6 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   const value: BookingContextValue = {
-    open,
-    setOpen,
-    openBooking,
     step,
     setStep,
     draft,
@@ -146,6 +157,10 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     practiceAreaLabel,
     meetingTypeLabel,
     completeBooking,
+    resetBooking,
+    refreshAvailability,
+    dateStale,
+    clearDateStale: () => setDateStale(false),
     appointmentErrors,
     detailsErrors,
     validateAppointment,
@@ -158,9 +173,9 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useBooking() {
-  const ctx = React.useContext(BookingContext)
-  if (!ctx) {
+  const context = React.useContext(BookingContext)
+  if (!context) {
     throw new Error('useBooking must be used within BookingProvider')
   }
-  return ctx
+  return context
 }

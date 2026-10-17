@@ -155,8 +155,8 @@ export const practiceAreas: PracticeArea[] = [
 ]
 
 export const practiceAreaOptions = [
-  { value: 'not-sure', label: 'Not sure' },
   ...practiceAreas.map((area) => ({ value: area.id, label: area.title })),
+  { value: 'not-sure', label: 'Not sure' },
 ] as const
 
 export const practicePage = {
@@ -171,7 +171,7 @@ export const practicePage = {
   questionsNote: 'Bring whichever of these feel urgent.',
   unsure: {
     heading: 'Not sure where your situation fits?',
-    copy: 'You don’t need to choose the right legal category before speaking with us. Family matters often involve several connected questions. Select “Not sure” when booking and start with what matters to you.',
+    copy: 'You don’t need to choose the right legal category before speaking with us. Family matters often involve several connected questions. Select “Not sure” on the booking page and start with what matters to you.',
     linkLabel: 'What to expect at your appointment',
   },
   closing: {

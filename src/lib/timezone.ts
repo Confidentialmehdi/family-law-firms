@@ -80,6 +80,23 @@ export function formatNyDateShort(date: NyDateParts): string {
   }).format(carrier)
 }
 
+export function formatNyWeekday(date: NyDateParts): string {
+  const carrier = new Date(Date.UTC(date.year, date.month - 1, date.day, 12, 0, 0))
+  return new Intl.DateTimeFormat('en-US', {
+    timeZone: 'UTC',
+    weekday: 'long',
+  }).format(carrier)
+}
+
+export function formatNyMonthDay(date: NyDateParts): string {
+  const carrier = new Date(Date.UTC(date.year, date.month - 1, date.day, 12, 0, 0))
+  return new Intl.DateTimeFormat('en-US', {
+    timeZone: 'UTC',
+    month: 'short',
+    day: 'numeric',
+  }).format(carrier)
+}
+
 export function formatTimeLabel(hour: number, minute: number): string {
   const period = hour >= 12 ? 'PM' : 'AM'
   const h12 = hour % 12 === 0 ? 12 : hour % 12

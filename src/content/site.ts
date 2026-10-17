@@ -46,6 +46,7 @@ export const footerNav = [
   { to: '/our-results', label: 'Our Results' },
   { to: '/what-to-expect', label: 'What to Expect' },
   { to: '/faq', label: 'FAQ' },
+  { to: '/book-consultation', label: 'Book a Consultation' },
 ] as const
 
 /** Legal links — footer column on every page. */

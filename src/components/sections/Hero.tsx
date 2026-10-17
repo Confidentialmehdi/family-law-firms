@@ -1,12 +1,11 @@
-import { useBooking } from '@/components/booking/BookingContext'
+import { Link } from 'react-router-dom'
+
 import { Button } from '@/components/ui/button'
 import { homeHero } from '@/content/home'
 import { site } from '@/content/site'
 
 /** Home hero — provides the page’s sole h1 (id=page-heading). */
 export function Hero() {
-  const { openBooking } = useBooking()
-
   return (
     <section
       className="texture-paper relative flex min-h-[min(92vh,52rem)] overflow-hidden border-b border-border/60 md:min-h-[min(88vh,48rem)]"
@@ -25,8 +24,8 @@ export function Hero() {
             {homeHero.supporting}
           </p>
           <div className="mt-9 md:mt-10">
-            <Button type="button" size="lg" onClick={openBooking}>
-              {site.ctaLabel}
+            <Button asChild size="lg">
+              <Link to="/book-consultation">{site.ctaLabel}</Link>
             </Button>
             <p className="mt-4 text-sm text-muted md:text-base">{homeHero.terms}</p>
           </div>

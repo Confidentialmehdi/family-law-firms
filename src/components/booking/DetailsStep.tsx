@@ -23,11 +23,11 @@ export function DetailsStep() {
   }
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <div className="min-h-0 flex-1 space-y-4 overflow-y-auto px-5 py-2">
+    <div className="flex flex-col">
+      <div className="space-y-5">
         <div className="space-y-2">
           <Label htmlFor="booking-name">
-            Name <span className="text-muted">(required)</span>
+            Full name <span className="text-muted">(required)</span>
           </Label>
           <Input
             id="booking-name"
@@ -50,7 +50,7 @@ export function DetailsStep() {
 
         <div className="space-y-2">
           <Label htmlFor="booking-email">
-            Email <span className="text-muted">(required)</span>
+            Email address <span className="text-muted">(required)</span>
           </Label>
           <Input
             id="booking-email"
@@ -95,7 +95,7 @@ export function DetailsStep() {
         </div>
       </div>
 
-      <div className="flex flex-col-reverse gap-2 border-t border-border bg-surface/60 px-5 py-4 sm:flex-row sm:justify-between">
+      <div className="mt-10 flex flex-col-reverse gap-2 border-t border-border pt-6 sm:flex-row sm:justify-between">
         <Button type="button" variant="outline" onClick={() => setStep('appointment')}>
           Back
         </Button>

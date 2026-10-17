@@ -21,31 +21,37 @@ export const faqItems: FaqItem[] = [
     id: 'cost',
     question: 'What does it cost?',
     answer:
-      'Consultation fees are discussed when you book. You’ll know what to expect before you confirm a time.',
+      'The booking page shows a $150 sample consultation fee for this demo. In a live setting, fees are confirmed before you finalize a time.',
   },
   {
     id: 'remote',
     question: 'Can I meet remotely?',
     answer:
-      'Yes. When booking a consultation, you can choose Video or In person.',
+      'Yes. On the Book a Consultation page, you can choose Video or In person.',
   },
   {
     id: 'prepare',
     question: 'What should I prepare?',
     answer:
-      'A short list of questions or concerns is enough. You do not need documents to book your first consultation.',
+      'A short list of questions or concerns is enough. You do not need documents to book your first consultation on the booking page.',
   },
   {
     id: 'area',
     question: 'What if I’m unsure which practice area applies?',
     answer:
-      'Select “Not sure” when booking or requesting contact. Sorting that out can be part of the conversation.',
+      'Select “Not sure” on the booking page or when requesting contact. Sorting that out can be part of the conversation.',
   },
   {
     id: 'details',
     question: 'Do I need to share case details when booking?',
     answer:
-      'No. Booking only asks for your name, email, and an optional practice area. You are not asked for case narratives, documents, or payment details online.',
+      'No. The booking page only asks for your name, email, and an optional practice area. You are not asked for case narratives, documents, or payment details online.',
+  },
+  {
+    id: 'how-to-book',
+    question: 'How do I book a consultation?',
+    answer:
+      'Use Book a consultation in the header, footer, or closing sections to open the booking page. Choose a format, date, and time, then enter your details and review before confirming. This site’s booking flow is a front-end demo and does not schedule a live appointment.',
   },
   {
     id: 'contact',

@@ -81,7 +81,7 @@ export const homeConcerns = {
       id: 'service',
       question: 'Do I need to know which practice area applies?',
       answer:
-        'No. Choose “Not sure” when you book—sorting that out can be part of the conversation.',
+        'No. Choose “Not sure” on the booking page—sorting that out can be part of the conversation.',
     },
     {
       id: 'prepare',
@@ -93,7 +93,7 @@ export const homeConcerns = {
       id: 'cost',
       question: 'What does the appointment cost?',
       answer:
-        'Fees are discussed when you book, so you know what to expect before you confirm a time.',
+        'The booking page shows a $150 sample fee for this demo so you know what to expect before you confirm a time.',
     },
   ],
 } as const

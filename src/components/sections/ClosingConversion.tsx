@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom'
+
 import { ContactRequestForm } from '@/components/contact/ContactRequestForm'
-import { useBooking } from '@/components/booking/BookingContext'
 import { Button } from '@/components/ui/button'
 import { closingConversion, site } from '@/content/site'
 
@@ -9,8 +10,6 @@ type ClosingConversionProps = {
 }
 
 export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversionProps) {
-  const { openBooking } = useBooking()
-
   return (
     <section
       className="border-t border-border bg-ivory"
@@ -29,7 +28,6 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
         <p className="mt-4 max-w-xl text-lg text-muted">{closingConversion.supporting}</p>
 
         <div className="mt-10 grid overflow-hidden rounded-sm border border-border lg:grid-cols-[minmax(0,0.45fr)_minmax(0,0.55fr)]">
-          {/* Option 1 — Book */}
           <div className="bg-navy px-6 py-8 text-ivory md:px-8 md:py-9">
             <h3 className="font-serif text-xl text-ivory md:text-2xl">
               {closingConversion.booking.heading}
@@ -40,12 +38,11 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <Button type="button" size="lg" className="mt-6 w-full" onClick={openBooking}>
-              {site.ctaLabel}
+            <Button asChild size="lg" className="mt-6 w-full">
+              <Link to="/book-consultation">{site.ctaLabel}</Link>
             </Button>
           </div>
 
-          {/* Option 2 — Contact request */}
           <div className="border-t border-border bg-surface px-6 py-8 md:px-8 md:py-9 lg:border-t-0 lg:border-l">
             <h3 className="font-serif text-xl text-navy md:text-2xl">
               {closingConversion.contact.heading}
