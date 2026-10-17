@@ -55,15 +55,6 @@ const emptyDraft: BookingDraft = {
 
 const BookingContext = React.createContext<BookingContextValue | null>(null)
 
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-}
-
-function isValidPhone(value: string) {
-  const digits = value.replace(/\D/g, '')
-  return digits.length >= 10
-}
-
 export function BookingProvider({ children }: { children: React.ReactNode }) {
   const [step, setStep] = React.useState<BookingStep>('appointment')
   const [draft, setDraft] = React.useState<BookingDraft>(emptyDraft)
@@ -147,9 +138,13 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     const next: { name?: string; email?: string; phone?: string } = {}
     if (!draft.name.trim()) next.name = 'Enter your full name.'
     if (!draft.email.trim()) next.email = 'Enter your email address.'
-    else if (!isValidEmail(draft.email.trim())) next.email = 'Enter a valid email address.'
+    else if (!isValidEmailAddress(draft.email)) {
+      next.email = 'Enter a valid email (for example, name@example.com).'
+    }
     if (!draft.phone.trim()) next.phone = 'Enter your phone number.'
-    else if (!isValidPhone(draft.phone.trim())) next.phone = 'Enter a valid phone number.'
+    else if (!isValidUsPhone(draft.phone)) {
+      next.phone = 'Enter a 10-digit US phone number.'
+    }
     setDetailsErrors(next)
     return Object.keys(next).length === 0
   }, [draft.email, draft.name, draft.phone])
