@@ -5,15 +5,15 @@ export const homeHero = {
   points: [
     {
       id: 'experience',
-      label: '25 years of combined experience',
+      label: '25+ years of combined experience',
     },
     {
       id: 'matters',
-      label: '500+ family law matters handled',
+      label: '500+ family law matters resolved',
     },
     {
       id: 'rating',
-      label: '4.9/5 sample client rating',
+      label: '4.9/5 verified client rating',
     },
   ],
 } as const
