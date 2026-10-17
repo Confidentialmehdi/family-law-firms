@@ -2,16 +2,13 @@ import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { PageHeading } from '@/components/PageHeading'
-import { useBooking } from '@/components/booking/BookingContext'
+import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { StoryCard } from '@/components/results/StoryCard'
-import { Button } from '@/components/ui/button'
 import { clientStories, resultsPage } from '@/content/results'
-import { site } from '@/content/site'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
 export function OurResultsPage() {
   useDocumentTitle('Our Results')
-  const { openBooking } = useBooking()
 
   return (
     <main id="main">
@@ -97,41 +94,7 @@ export function OurResultsPage() {
         </div>
       </section>
 
-      {/* 5. Start your conversation */}
-      <section
-        className="border-t border-border bg-ivory"
-        aria-labelledby="closing-heading"
-      >
-        <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:items-end md:gap-14 md:px-8 md:py-20">
-          <div>
-            <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-              {resultsPage.closing.label}
-            </p>
-            <h2
-              id="closing-heading"
-              className="mt-4 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.75rem] lg:text-[3.25rem]"
-            >
-              {resultsPage.closing.headline}
-            </h2>
-            <p className="mt-5 max-w-md text-lg text-muted">
-              {resultsPage.closing.supporting}
-            </p>
-          </div>
-
-          <div className="md:pb-1">
-            <p className="text-base text-navy/80">{resultsPage.closing.terms}</p>
-            <Button
-              type="button"
-              size="lg"
-              className="mt-6 w-full sm:w-auto"
-              onClick={openBooking}
-            >
-              {site.ctaLabel}
-            </Button>
-            <p className="mt-3 text-sm text-muted">{resultsPage.closing.demoNote}</p>
-          </div>
-        </div>
-      </section>
+      <ClosingConversion formIdPrefix="results-closing" />
     </main>
   )
 }

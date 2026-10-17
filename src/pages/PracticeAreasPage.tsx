@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { PageHeading } from '@/components/PageHeading'
 import { useBooking } from '@/components/booking/BookingContext'
+import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { Button } from '@/components/ui/button'
 import { practiceAreas, practicePage } from '@/content/practiceAreas'
 import { site } from '@/content/site'

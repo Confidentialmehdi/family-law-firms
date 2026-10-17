@@ -28,14 +28,6 @@ export const resultsPage = {
       'You don’t need to fit your situation into someone else’s story before starting a conversation.',
     linkLabel: 'Meet Robert and the team',
   },
-  closing: {
-    label: 'When you’re ready',
-    headline: 'Begin with your questions.',
-    supporting:
-      'Choose a time to discuss what matters to you with Robert Whitfield.',
-    terms: '30 minutes · Video or in person · $150 sample consultation fee',
-    demoNote: 'Demo booking. No appointment will be scheduled.',
-  },
 } as const
 
 export const clientStories: ClientStory[] = [

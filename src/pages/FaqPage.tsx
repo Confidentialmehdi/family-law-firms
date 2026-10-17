@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { ClosingCta } from '@/components/sections/ClosingCta'
+import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { faqItems } from '@/content/faq'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
@@ -18,7 +18,7 @@ export function FaqPage() {
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
           <PageHeading>FAQ</PageHeading>
           <p className="mt-4 max-w-2xl text-lg text-muted">
-            Practical answers about the first appointment, contact options, and this prototype.
+            Practical answers about the first consultation, contact options, and this prototype.
           </p>
 
           <div className="mt-10 max-w-3xl">
@@ -33,7 +33,7 @@ export function FaqPage() {
           </div>
         </div>
       </div>
-      <ClosingCta />
+      <ClosingConversion formIdPrefix="faq-closing" />
     </main>
   )
 }

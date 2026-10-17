@@ -192,12 +192,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 7. Closing invitation */}
-      <ClosingCta
-        variant="invitation"
-        headline={homeClosing.headline}
-        supporting={homeClosing.supporting}
-      />
+      <ClosingConversion formIdPrefix="home-closing" />
     </main>
   )
 }
