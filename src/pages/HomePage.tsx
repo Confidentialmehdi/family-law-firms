@@ -181,13 +181,13 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 6. Before you book — editorial aside */}
+      {/* 6. Before you book */}
       <section
         className="border-b border-border/60 bg-navy text-ivory"
         aria-labelledby="home-concerns-heading"
       >
-        <div className="mx-auto grid max-w-[1200px] gap-12 px-5 py-16 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-end md:gap-16 md:px-8 md:py-20 lg:gap-20">
-          <div className="animate-fade-up max-w-xl">
+        <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
+          <div className="animate-fade-up max-w-2xl">
             <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
               {homeConcerns.eyebrow}
             </p>
@@ -200,30 +200,32 @@ export function HomePage() {
             <p className="mt-5 text-lg leading-relaxed text-ivory/70">
               {homeConcerns.supporting}
             </p>
-            <Link
-              to="/faq"
-              className="mt-8 inline-block text-sm font-medium text-brass-muted underline-offset-4 hover:text-brass hover:underline"
-            >
-              {homeConcerns.linkLabel}
-            </Link>
           </div>
 
-          <ul className="border-t border-ivory/15">
+          <ul className="mt-14 grid gap-10 border-t border-ivory/15 pt-12 md:grid-cols-3 md:gap-8 lg:gap-12">
             {homeConcerns.items.map((item, index) => (
               <li
                 key={item.id}
-                className="animate-fade-up grid gap-2 border-b border-ivory/15 py-6 sm:grid-cols-[7.5rem_1fr] sm:gap-8 sm:py-7"
+                className="animate-fade-up"
                 style={{ animationDelay: `${100 + index * 90}ms` }}
               >
                 <p className="text-[0.7rem] tracking-[0.14em] text-brass uppercase">
                   {item.label}
                 </p>
-                <p className="font-serif text-lg leading-snug text-ivory md:text-xl">
+                <div className="mt-4 h-px w-10 bg-brass/60" aria-hidden="true" />
+                <p className="mt-5 font-serif text-xl leading-snug text-ivory md:text-[1.35rem]">
                   {item.statement}
                 </p>
               </li>
             ))}
           </ul>
+
+          <Link
+            to="/faq"
+            className="mt-12 inline-block text-sm font-medium text-brass-muted underline-offset-4 hover:text-brass hover:underline"
+          >
+            {homeConcerns.linkLabel}
+          </Link>
         </div>
       </section>
 
