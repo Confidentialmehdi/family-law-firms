@@ -15,10 +15,10 @@ export function PracticeAreasPage() {
   return (
     <main id="main">
       <div className="mx-auto max-w-[1200px] px-5 md:px-8">
-        {/* 1. Compact hero */}
-        <header className="border-b border-border py-12 md:py-14">
+        {/* Hero + jump links in one band */}
+        <header className="border-b border-border pt-12 pb-10 md:pt-14 md:pb-12">
           <p className="text-sm text-muted">{practicePage.eyebrow}</p>
-          <PageHeading className="mt-2 text-3xl md:text-4xl">
+          <PageHeading className="mt-2 max-w-3xl text-3xl md:text-4xl">
             {practicePage.headline}
           </PageHeading>
           <p className="mt-4 max-w-2xl text-lg text-muted">
@@ -29,76 +29,77 @@ export function PracticeAreasPage() {
               {site.ctaLabel}
             </Button>
           </div>
+
+          <nav className="mt-10" aria-label="Practice areas on this page">
+            <p className="sr-only">{practicePage.navHeading}</p>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
+              {practiceAreas.map((area) => (
+                <li key={area.id}>
+                  <a
+                    href={`#${area.id}`}
+                    className="text-base text-teal underline-offset-4 hover:underline"
+                  >
+                    {area.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </header>
 
-        {/* 2. Quick service navigation */}
-        <nav
-          className="border-b border-border py-8"
-          aria-labelledby="practice-nav-heading"
-        >
-          <h2 id="practice-nav-heading" className="font-serif text-xl text-navy">
-            {practicePage.navHeading}
-          </h2>
-          <ul className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-2">
-            {practiceAreas.map((area) => (
-              <li key={area.id}>
-                <a
-                  href={`#${area.id}`}
-                  className="text-base text-teal underline-offset-4 hover:underline"
-                >
-                  {area.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* 3. Six service explanations */}
+        {/* Service rows: title left, body right */}
         <div aria-label="Practice area details">
-          {practiceAreas.map((area) => (
+          {practiceAreas.map((area, index) => (
             <article
               key={area.id}
               id={area.id}
-              className="scroll-mt-28 border-b border-border py-10 md:py-12"
+              className={
+                index === 0
+                  ? 'scroll-mt-28 border-b border-border pt-14 pb-10 md:pt-16 md:pb-12'
+                  : 'scroll-mt-28 border-b border-border py-10 md:py-12'
+              }
             >
-              <h2
-                className={
-                  area.id === 'divorce'
-                    ? 'font-serif text-3xl text-navy'
-                    : 'font-serif text-2xl text-navy'
-                }
-              >
-                {area.title}
-              </h2>
-              <p className="mt-4 max-w-3xl text-lg text-muted">{area.description}</p>
-              <p className="mt-8 text-sm font-medium text-navy">
-                {practicePage.questionsHeading}
-              </p>
-              <ul className="mt-3 max-w-2xl list-disc space-y-2 pl-5 text-base text-muted">
-                {area.questions.map((question) => (
-                  <li key={question}>{question}</li>
-                ))}
-              </ul>
+              <div className="grid gap-4 md:grid-cols-[minmax(12rem,0.34fr)_minmax(0,1fr)] md:gap-12">
+                <h2 className="font-serif text-2xl text-navy md:text-[1.65rem]">
+                  {area.title}
+                </h2>
+                <div>
+                  <p className="max-w-prose text-lg text-muted">{area.description}</p>
+                  <ul className="mt-5 max-w-prose space-y-2 text-base text-navy/80">
+                    {area.questions.map((question) => (
+                      <li key={question} className="pl-0">
+                        {question}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </article>
           ))}
         </div>
 
-        {/* 4. Guidance for unsure visitors */}
-        <section className="border-b border-border py-12" aria-labelledby="unsure-heading">
-          <h2 id="unsure-heading" className="font-serif text-2xl text-navy">
-            {practicePage.unsure.heading}
-          </h2>
-          <p className="mt-4 max-w-2xl text-lg text-muted">{practicePage.unsure.copy}</p>
-          <Link
-            to="/what-to-expect"
-            className="mt-5 inline-block text-base text-teal underline-offset-4 hover:underline"
-          >
-            {practicePage.unsure.linkLabel}
-          </Link>
+        {/* Unsure — same rhythm as a service row */}
+        <section
+          className="border-b border-border py-10 md:py-12"
+          aria-labelledby="unsure-heading"
+        >
+          <div className="grid gap-4 md:grid-cols-[minmax(12rem,0.34fr)_minmax(0,1fr)] md:gap-12">
+            <h2 id="unsure-heading" className="font-serif text-2xl text-navy md:text-[1.65rem]">
+              {practicePage.unsure.heading}
+            </h2>
+            <div>
+              <p className="max-w-prose text-lg text-muted">{practicePage.unsure.copy}</p>
+              <Link
+                to="/what-to-expect"
+                className="mt-5 inline-block text-base text-teal underline-offset-4 hover:underline"
+              >
+                {practicePage.unsure.linkLabel}
+              </Link>
+            </div>
+          </div>
         </section>
       </div>
 
-      {/* 5. Closing invitation */}
       <ClosingCta
         headline={practicePage.closing.headline}
         supporting={practicePage.closing.supporting}
