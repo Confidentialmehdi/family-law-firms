@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { PageHeading } from '@/components/PageHeading'
@@ -62,54 +62,8 @@ export function OurResultsPage() {
         </div>
       </section>
 
-      {/* 3. Before and after */}
-      <section
-        className="border-b border-border bg-[#f0ebe3]/40"
-        aria-labelledby="before-after-heading"
-      >
-        <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
-          <div className="max-w-2xl">
-            <h2
-              id="before-after-heading"
-              className="font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
-            >
-              {resultsPage.beforeAfter.heading}
-            </h2>
-            <p className="mt-4 text-lg text-muted">
-              {resultsPage.beforeAfter.supporting}
-            </p>
-            <p className="mt-2 text-sm text-muted">{resultsPage.beforeAfter.label}</p>
-          </div>
+      {/* Personal reflection */}
 
-          <ul className="mt-12 max-w-4xl divide-y divide-border border-y border-border">
-            {resultsPage.beforeAfter.items.map((item) => (
-              <li
-                key={item.before}
-                className="grid gap-4 py-8 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-10"
-              >
-                <div>
-                  <p className="text-[0.65rem] tracking-[0.14em] text-brass uppercase">
-                    Before
-                  </p>
-                  <p className="mt-2 text-lg text-muted">{item.before}</p>
-                </div>
-                <ArrowRight
-                  className="hidden size-5 text-brass md:block"
-                  aria-hidden="true"
-                />
-                <div className="md:text-right">
-                  <p className="text-[0.65rem] tracking-[0.14em] text-brass uppercase">
-                    After
-                  </p>
-                  <p className="mt-2 font-serif text-xl text-navy">{item.after}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 4. Your situation is personal */}
       <section
         className="border-b border-border bg-ivory"
         aria-labelledby="personal-heading"
