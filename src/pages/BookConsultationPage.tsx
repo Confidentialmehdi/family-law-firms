@@ -28,7 +28,9 @@ export function BookConsultationPage() {
     window.scrollTo(0, 0)
     const frame = requestAnimationFrame(() => {
       workspaceRef.current?.scrollIntoView({ block: 'center', behavior: 'auto' })
-      if (step !== 'complete') {
+      if (step === 'complete') {
+        document.getElementById('page-heading')?.focus({ preventScroll: true })
+      } else {
         stepHeadingRef.current?.focus({ preventScroll: true })
       }
     })
@@ -40,28 +42,31 @@ export function BookConsultationPage() {
   return (
     <main id="main" className="flex min-h-[calc(100dvh-4.5rem)] flex-col bg-ivory">
       <div className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-center px-5 py-6 md:px-8 md:py-8">
-        <div className="mx-auto max-w-2xl text-center md:max-w-3xl">
-          <h1
-            id="page-heading"
-            tabIndex={-1}
-            className="font-serif text-2xl leading-[1.15] text-navy outline-none md:text-3xl lg:text-[2.15rem]"
+        {step === 'complete' ? (
+          <div
+            ref={workspaceRef}
+            className="mx-auto w-full max-w-xl rounded-sm border border-border bg-surface px-5 py-8 md:px-8 md:py-10"
           >
-            {bookingPage.headline}
-          </h1>
-          <p className="mt-2 text-base text-muted md:text-lg">{bookingPage.supporting}</p>
-          <p className="mt-2 text-sm text-muted">{bookingPage.appointmentDetails}</p>
-          <p className="mt-3 inline-block rounded-sm bg-brass/10 px-3 py-1.5 text-sm text-navy/80">
-            {bookingPage.demoNotice}
-          </p>
-        </div>
-
-        <div ref={workspaceRef} className="mt-6 md:mt-8">
-          {step === 'complete' ? (
-            <div className="mx-auto max-w-xl rounded-sm border border-border bg-surface px-5 py-8 md:px-8 md:py-10">
-              <CompleteStep />
+            <CompleteStep />
+          </div>
+        ) : (
+          <>
+            <div className="mx-auto max-w-2xl text-center md:max-w-3xl">
+              <h1
+                id="page-heading"
+                tabIndex={-1}
+                className="font-serif text-2xl leading-[1.15] text-navy outline-none md:text-3xl lg:text-[2.15rem]"
+              >
+                {bookingPage.headline}
+              </h1>
+              <p className="mt-2 text-base text-muted md:text-lg">{bookingPage.supporting}</p>
+              <p className="mt-2 text-sm text-muted">{bookingPage.appointmentDetails}</p>
+              <p className="mt-3 inline-block rounded-sm bg-brass/10 px-3 py-1.5 text-sm text-navy/80">
+                {bookingPage.demoNotice}
+              </p>
             </div>
-          ) : (
-            <>
+
+            <div ref={workspaceRef} className="mt-6 md:mt-8">
               <div className="mb-4 lg:hidden">
                 <ConsultationSummary variant="compact" />
               </div>
@@ -115,9 +120,9 @@ export function BookConsultationPage() {
                   <ConsultationSummary />
                 </div>
               </div>
-            </>
-          )}
-        </div>
+            </div>
+          </>
+        )}
       </div>
 
       {step !== 'complete' ? (
