@@ -36,7 +36,7 @@ export function Hero() {
               <Link to="/book-consultation">{site.ctaLabel}</Link>
             </Button>
             <ul className="mt-6 flex max-w-xl flex-wrap items-start gap-y-3 text-sm text-muted md:flex-nowrap md:gap-0 md:text-[0.95rem]">
-              {homeHero.points.map((point, index) => {
+              {homeHero.points.map((point) => {
                 const Icon = heroPointIcons[point.id]
                 return (
                   <li
@@ -49,9 +49,6 @@ export function Hero() {
                       aria-hidden="true"
                     />
                     <span className="leading-snug">{point.label}</span>
-                    <span className="sr-only">
-                      {index < homeHero.points.length - 1 ? '|' : ''}
-                    </span>
                   </li>
                 )
               })}
