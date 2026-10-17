@@ -44,7 +44,7 @@ export function Hero() {
                     className="flex min-w-0 flex-1 items-start gap-2.5 md:px-3 md:first:pl-0 md:last:pr-0 md:[&:not(:first-child)]:border-l md:[&:not(:first-child)]:border-border"
                   >
                     <Icon
-                      className="mt-0.5 size-4 shrink-0 text-brass"
+                      className="mt-0.5 size-6 shrink-0 text-brass md:size-7"
                       strokeWidth={1.5}
                       aria-hidden="true"
                     />
