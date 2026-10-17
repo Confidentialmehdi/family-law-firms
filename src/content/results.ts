@@ -20,26 +20,6 @@ export const resultsPage = {
     introduction:
       'Every situation begins with its own questions. These fictional stories illustrate how a conversation can help organize them.',
   },
-  beforeAfter: {
-    heading: 'Small shifts that make the next step clearer.',
-    supporting:
-      'These illustrative comparisons describe changes in understanding and preparation.',
-    label: 'Illustrative experiences, not legal case results.',
-    items: [
-      {
-        before: 'I don’t know where to begin.',
-        after: 'I have an overview and questions to explore.',
-      },
-      {
-        before: 'Everything feels connected and overwhelming.',
-        after: 'I can explain my main priorities.',
-      },
-      {
-        before: 'I don’t know what information matters.',
-        after: 'I have a useful preparation list.',
-      },
-    ],
-  },
   personal: {
     label: 'Beyond the examples',
     heading: 'Your situation may look different.',
