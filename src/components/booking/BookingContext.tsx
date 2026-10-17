@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import {
-  generateSampleSlots,
+  generateAvailabilitySlots,
   meetingTypeLabels,
   type MeetingType,
   type TimeSlot,
@@ -66,7 +66,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     email?: string
   }>({})
 
-  const slots = React.useMemo(() => generateSampleSlots(), [])
+  const slots = React.useMemo(() => generateAvailabilitySlots(), [])
 
   const selectedSlot = React.useMemo(
     () => slots.find((slot) => slot.id === draft.slotId) ?? null,

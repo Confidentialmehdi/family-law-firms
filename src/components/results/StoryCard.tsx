@@ -1,4 +1,3 @@
-import { site } from '@/content/site'
 import type { ClientStory } from '@/content/results'
 
 type StoryCardProps = {
@@ -43,9 +42,6 @@ export function StoryCard({ story }: StoryCardProps) {
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 p-4 text-center">
           <span className="font-serif text-base text-navy/55">{story.practiceArea}</span>
-          <span className="text-[0.65rem] tracking-wide text-muted/80 uppercase">
-            {site.sampleImageryLabel}
-          </span>
         </div>
       </div>
 
@@ -56,7 +52,6 @@ export function StoryCard({ story }: StoryCardProps) {
         </p>
         <h3 className="mt-2 font-serif text-xl leading-snug text-navy">{story.title}</h3>
         <p className="mt-3 flex-1 text-base leading-relaxed text-muted">{story.caption}</p>
-        <p className="mt-4 text-xs text-muted/75">Fictional client story</p>
       </div>
     </article>
   )

@@ -18,7 +18,7 @@ export function FaqPage() {
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
           <PageHeading>FAQ</PageHeading>
           <p className="mt-4 max-w-2xl text-lg text-muted">
-            Practical answers about the first consultation, contact options, and this prototype.
+            Practical answers about the first consultation and how to get in touch.
           </p>
 
           <div className="mt-10 max-w-3xl">

@@ -93,7 +93,7 @@ export function ContactRequestForm({
   if (completed) {
     return (
       <div className="rounded-sm border border-border bg-surface px-4 py-6 text-center" role="status" aria-live="polite">
-        <p className="font-serif text-lg text-navy">{site.contactDemoComplete}</p>
+        <p className="font-serif text-lg text-navy">{site.contactComplete}</p>
         <Button type="button" variant="outline" className="mt-5" onClick={handleReset}>
           Start again
         </Button>
@@ -103,10 +103,6 @@ export function ContactRequestForm({
 
   return (
     <form onSubmit={handleSubmit} noValidate className={cn('space-y-4', compact && 'space-y-3.5')}>
-      <p className="rounded-sm bg-brass/10 px-3 py-2 text-sm text-navy/80">
-        {site.contactDemoBanner}
-      </p>
-
       <div className="space-y-2">
         <Label htmlFor={`${idPrefix}-name`}>
           Full name <span className="text-muted">(required)</span>

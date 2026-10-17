@@ -12,7 +12,6 @@ import {
   homePractice,
 } from '@/content/home'
 import { getPracticeArea } from '@/content/practiceAreas'
-import { site } from '@/content/site'
 import { testimonials } from '@/content/testimonials'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
@@ -80,7 +79,7 @@ export function HomePage() {
         aria-labelledby="home-meet-heading"
       >
         <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-center md:gap-14 md:px-8 md:py-20">
-          <ImageFallback label="Portrait placeholder" className="w-full max-w-sm" />
+          <ImageFallback label="Portrait" className="w-full max-w-sm" />
           <div>
             <h2 id="home-meet-heading" className="font-serif text-3xl text-navy md:text-4xl">
               {homeMeet.heading}
@@ -110,7 +109,6 @@ export function HomePage() {
             >
               {homeExperience.heading}
             </h2>
-            <p className="mt-3 text-sm text-muted">{site.fictionalLabel}</p>
           </div>
           <ul className="mt-10 grid gap-10 md:grid-cols-2">
             {experienceQuotes.map((item) => (

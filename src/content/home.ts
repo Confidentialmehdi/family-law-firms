@@ -2,7 +2,7 @@ export const homeHero = {
   headline: 'New York family law. A clear next step.',
   supporting:
     'Guidance through divorce, parenting arrangements, and financial decisions with attorney Robert Whitfield.',
-  terms: '30-minute consultation · Video or in person · $150 sample fee',
+  terms: '30-minute consultation · Video or in person',
 } as const
 
 export const homePractice = {
@@ -43,13 +43,13 @@ export const homeExperience = {
 
 export const homeAppointment = {
   heading: 'Here’s what your first appointment involves.',
-  feeNote: '30 minutes · $150 sample consultation fee',
+  feeNote: '30 minutes · Video or in person',
   linkLabel: 'What to expect',
   steps: [
     {
       step: 1,
       title: 'Choose a time',
-      description: 'Select a sample appointment and choose video or in person.',
+      description: 'Select a date and time, and choose video or in person.',
     },
     {
       step: 2,
@@ -83,7 +83,7 @@ export const homeConcerns = {
       id: 'cost',
       question: 'What does the appointment cost?',
       answer:
-        'The prototype shows a $150 sample fee for a 30-minute appointment. No payment is collected in this demo.',
+        'Fees are discussed when you book so you know what to expect before confirming a consultation.',
     },
   ],
 } as const

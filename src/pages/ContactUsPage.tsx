@@ -1,7 +1,6 @@
 import { PageHeading } from '@/components/PageHeading'
 import { ClosingConversion } from '@/components/sections/ClosingConversion'
-import { sampleContact } from '@/content/site'
-import { closingConversion } from '@/content/site'
+import { closingConversion, firmContact } from '@/content/site'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
 export function ContactUsPage() {
@@ -18,38 +17,28 @@ export function ContactUsPage() {
             <h2 id="direct-contact-heading" className="font-serif text-2xl text-navy">
               Contact us directly
             </h2>
-            <p className="mt-2 text-sm text-muted">
-              Details below are labeled sample content for this prototype.
-            </p>
             <dl className="mt-8 space-y-5">
               <div>
-                <dt className="text-sm text-muted">
-                  Phone <span className="text-brass">· {sampleContact.sampleLabel}</span>
-                </dt>
-                <dd className="mt-1 text-lg text-navy">{sampleContact.phone}</dd>
+                <dt className="text-sm text-muted">Phone</dt>
+                <dd className="mt-1 text-lg text-navy">{firmContact.phone}</dd>
               </div>
               <div>
-                <dt className="text-sm text-muted">
-                  Email <span className="text-brass">· {sampleContact.sampleLabel}</span>
-                </dt>
-                <dd className="mt-1 text-lg text-navy">{sampleContact.email}</dd>
+                <dt className="text-sm text-muted">Email</dt>
+                <dd className="mt-1 text-lg text-navy">{firmContact.email}</dd>
               </div>
               <div>
                 <dt className="text-sm text-muted">Location</dt>
-                <dd className="mt-1 text-lg text-navy">{sampleContact.location}</dd>
+                <dd className="mt-1 text-lg text-navy">{firmContact.location}</dd>
               </div>
               <div>
-                <dt className="text-sm text-muted">
-                  Office hours <span className="text-brass">· {sampleContact.sampleLabel}</span>
-                </dt>
-                <dd className="mt-1 text-lg text-navy">{sampleContact.officeHours}</dd>
+                <dt className="text-sm text-muted">Office hours</dt>
+                <dd className="mt-1 text-lg text-navy">{firmContact.officeHours}</dd>
               </div>
             </dl>
           </section>
         </div>
       </div>
 
-      {/* Single two-option conversion — reuses compact contact form, no second form */}
       <ClosingConversion formIdPrefix="contact-page" />
     </main>
   )

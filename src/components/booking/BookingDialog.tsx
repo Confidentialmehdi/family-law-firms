@@ -19,7 +19,7 @@ const stepCopy: Record<
 > = {
   appointment: {
     title: 'Book your consultation.',
-    description: 'Select a sample date, time, and meeting type.',
+    description: 'Select a date, time, and meeting type.',
   },
   details: {
     title: 'Your details',
@@ -27,11 +27,11 @@ const stepCopy: Record<
   },
   review: {
     title: 'Review',
-    description: 'Confirm your selections before finishing this demo booking.',
+    description: 'Confirm your selections before submitting.',
   },
   complete: {
     title: 'Thank you',
-    description: site.demoBanner,
+    description: site.bookingComplete,
   },
 }
 
@@ -41,18 +41,10 @@ export function BookingDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent aria-describedby="booking-demo-banner">
+      <DialogContent>
         <DialogHeader>
           <DialogTitle>{copy.title}</DialogTitle>
           <DialogDescription>{copy.description}</DialogDescription>
-          {step !== 'complete' ? (
-            <p
-              id="booking-demo-banner"
-              className="mt-2 rounded-sm bg-brass/10 px-3 py-2 text-sm text-navy/80"
-            >
-              {site.demoBanner}
-            </p>
-          ) : null}
         </DialogHeader>
 
         {step === 'appointment' ? <AppointmentStep /> : null}

@@ -8,7 +8,7 @@ export type PracticeArea = {
   preview: string
   /** Practical topics people often recognize. */
   oftenInvolves: readonly string[]
-  /** Short approach line — sample positioning, not a guarantee. */
+  /** Short approach line for this practice area. */
   approachLine: string
   questions: readonly string[]
   /** Related practice area ids for in-page links. */
@@ -177,7 +177,7 @@ export const practicePage = {
   closing: {
     headline: 'Talk through the questions that matter to you.',
     supporting: 'Choose a time for an initial conversation with Robert Whitfield.',
-    terms: '30 minutes · Video or in person · $150 sample consultation fee',
+    terms: '30 minutes · Video or in person',
   },
   questionsHeading: 'Questions you may want to discuss.',
 } as const

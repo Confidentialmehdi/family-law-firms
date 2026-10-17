@@ -20,8 +20,7 @@ export function WhatToExpectPage() {
             understanding possible next steps.
           </p>
           <p className="mt-3 text-sm text-muted">
-            Sample arrangements: {site.consultationNote}. Video or in person. Times shown in{' '}
-            {site.timeZoneLabel}.
+            {site.consultationNote}. Times shown in {site.timeZoneLabel}.
           </p>
 
           <ol className="mt-12 grid gap-8 md:grid-cols-3 md:gap-10">
@@ -42,8 +41,8 @@ export function WhatToExpectPage() {
             </h2>
             <p className="mt-3 text-base text-muted">
               A short list of questions or priorities is enough. You do not need documents or a
-              finished plan for a sample first consultation. Bring what helps you explain what
-              matters most right now.
+              finished plan for the first consultation. Bring what helps you explain what matters
+              most right now.
             </p>
           </section>
 

@@ -1,18 +1,15 @@
 import { cn } from '@/lib/utils'
-import { site } from '@/content/site'
 
 type ImageFallbackProps = {
   label: string
   aspect?: 'portrait' | 'wide' | 'square'
   className?: string
-  showSampleLabel?: boolean
 }
 
 export function ImageFallback({
   label,
   aspect = 'portrait',
   className,
-  showSampleLabel = true,
 }: ImageFallbackProps) {
   const aspectClass =
     aspect === 'wide' ? 'aspect-[16/10]' : aspect === 'square' ? 'aspect-square' : 'aspect-[3/4]'
@@ -38,11 +35,6 @@ export function ImageFallback({
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 text-center">
         <span className="font-serif text-lg text-navy/70">{label}</span>
-        {showSampleLabel ? (
-          <span className="text-xs tracking-wide text-muted/80 uppercase">
-            {site.sampleImageryLabel}
-          </span>
-        ) : null}
       </div>
     </figure>
   )

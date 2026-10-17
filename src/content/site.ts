@@ -3,19 +3,11 @@ export const site = {
   location: 'New York, NY',
   tagline: 'New York family law',
   ctaLabel: 'Book a consultation',
-  demoBanner: 'Demo booking — no consultation will be scheduled.',
-  demoComplete: 'Demo complete. No consultation has been scheduled.',
-  contactDemoBanner: 'Demo form. Your details will not be sent.',
-  contactDemoComplete: 'Demo complete. Your contact request has not been sent.',
-  consultationNote: '30-minute consultation · $150 sample consultation fee',
+  bookingComplete: 'Thank you. Your consultation request has been received.',
+  contactComplete: 'Thank you. Your contact request has been received.',
+  consultationNote: '30-minute consultation · Video or in person',
   timeZoneLabel: 'New York time',
-  footerDisclaimer:
-    'Prototype. Sample content and consultations are for demonstration.',
-  fictionalLabel: 'Fictional examples for demonstration.',
-  illustrativeLabel: 'Illustrative experiences, not legal case results.',
-  sampleImageryLabel: 'Sample imagery',
-  resultsDisclosure:
-    'Fictional examples for demonstration. These are not actual client testimonials or legal case results.',
+  footerDisclaimer: 'New York family law counsel.',
 } as const
 
 export const closingConversion = {
@@ -29,9 +21,8 @@ export const closingConversion = {
     details: [
       '30-minute consultation',
       'Video or in person',
-      '$150 sample consultation fee',
+      'New York time',
     ],
-    demoNote: 'Demo booking. No consultation will be scheduled.',
   },
   contact: {
     heading: 'Prefer us to contact you?',
@@ -57,11 +48,10 @@ export const footerNav = [
   { to: '/faq', label: 'FAQ' },
 ] as const
 
-/** Sample-only firm contact details — display as plain text, not links. */
-export const sampleContact = {
+/** Firm contact details — display as plain text. */
+export const firmContact = {
   phone: '(212) 555-0148',
-  email: 'hello@whitfieldlaw.example',
+  email: 'hello@whitfieldlaw.com',
   location: 'New York, NY',
   officeHours: 'Weekdays, 9:00 AM–5:00 PM (New York time)',
-  sampleLabel: 'Sample',
 } as const

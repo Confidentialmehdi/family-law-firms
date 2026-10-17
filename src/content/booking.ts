@@ -20,7 +20,7 @@ export type TimeSlot = {
   dateLabelShort: string
 }
 
-const SAMPLE_TIMES: Array<{ hour: number; minute: number }> = [
+const SLOT_TIMES: Array<{ hour: number; minute: number }> = [
   { hour: 9, minute: 0 },
   { hour: 10, minute: 30 },
   { hour: 13, minute: 0 },
@@ -28,8 +28,8 @@ const SAMPLE_TIMES: Array<{ hour: number; minute: number }> = [
   { hour: 16, minute: 0 },
 ]
 
-/** Build sample slots from NY civil dates so labels stay correct in any visitor timezone. */
-export function generateSampleSlots(now = new Date()): TimeSlot[] {
+/** Build availability slots from NY civil dates so labels stay correct in any visitor timezone. */
+export function generateAvailabilitySlots(now = new Date()): TimeSlot[] {
   const weekdays = getUpcomingNyWeekdays(8, now)
 
   return weekdays.flatMap((date) => {
@@ -37,7 +37,7 @@ export function generateSampleSlots(now = new Date()): TimeSlot[] {
     const dateLabelLong = formatNyDateLong(date)
     const dateLabelShort = formatNyDateShort(date)
 
-    return SAMPLE_TIMES.map(({ hour, minute }) => ({
+    return SLOT_TIMES.map(({ hour, minute }) => ({
       id: `${dateKey}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}-NY`,
       dateKey,
       date,

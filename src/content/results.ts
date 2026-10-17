@@ -13,12 +13,10 @@ export const resultsPage = {
   headline: 'What a clearer way forward can look like.',
   supporting:
     'Explore stories about organizing priorities, understanding options, and preparing for the next step.',
-  disclosure:
-    'Fictional examples for demonstration. These are not actual client testimonials or legal case results.',
   stories: {
     heading: 'Different situations. Personal priorities.',
     introduction:
-      'Every situation begins with its own questions. These fictional stories illustrate how a conversation can help organize them.',
+      'Every situation begins with its own questions. These stories illustrate how a conversation can help organize them.',
   },
   personal: {
     label: 'Beyond the examples',

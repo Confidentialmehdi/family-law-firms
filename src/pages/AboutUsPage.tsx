@@ -55,7 +55,7 @@ export function AboutUsPage() {
       >
         <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] md:items-start md:gap-14 md:px-8 md:py-20 lg:gap-16">
           <ImageFallback
-            label="Portrait placeholder"
+            label="Portrait"
             className="w-full max-w-md border border-border md:max-w-none"
           />
 
@@ -81,14 +81,7 @@ export function AboutUsPage() {
               <p className="font-serif text-2xl leading-snug text-navy md:text-[1.85rem]">
                 {attorney.approachStatement}
               </p>
-              <p className="mt-3 text-xs text-muted/80">
-                Sample positioning copy for this prototype.
-              </p>
             </blockquote>
-
-            <p className="mt-8 text-xs text-muted/80">
-              Sample profile content for this prototype.
-            </p>
           </div>
         </div>
       </section>
@@ -107,14 +100,13 @@ export function AboutUsPage() {
               {aboutPage.team.heading}
             </h2>
             <p className="mt-4 text-lg text-muted">{aboutPage.team.supporting}</p>
-            <p className="mt-3 text-sm text-muted">{aboutPage.team.disclaimer}</p>
           </div>
 
           <ul className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-10">
             {teamMembers.map((member) => (
               <li key={member.id} className="border-t border-border pt-6">
                 <ImageFallback
-                  label="Portrait placeholder"
+                  label="Portrait"
                   aspect="square"
                   className="w-full border border-border"
                 />
@@ -130,12 +122,7 @@ export function AboutUsPage() {
                     member.name
                   )}
                 </h3>
-                <p className="mt-1 text-sm text-muted">
-                  {member.role}
-                  {member.fictional ? (
-                    <span className="text-brass"> — fictional sample profile</span>
-                  ) : null}
-                </p>
+                <p className="mt-1 text-sm text-muted">{member.role}</p>
                 <p className="mt-3 text-base text-muted">{member.description}</p>
               </li>
             ))}

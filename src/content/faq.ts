@@ -15,25 +15,25 @@ export const faqItems: FaqItem[] = [
     id: 'length',
     question: 'How long is it?',
     answer:
-      'Sample consultations are scheduled for 30 minutes. That is usually enough time to cover priorities and leave with a clearer sense of direction.',
+      'Consultations are scheduled for 30 minutes. That is usually enough time to cover priorities and leave with a clearer sense of direction.',
   },
   {
     id: 'cost',
     question: 'What does it cost?',
     answer:
-      'This demo lists a sample consultation fee of $150. No payment is collected in the prototype, and nothing is billed.',
+      'Consultation fees are discussed when you book. You’ll know what to expect before you confirm a time.',
   },
   {
     id: 'remote',
     question: 'Can I meet remotely?',
     answer:
-      'Yes. When booking a consultation, you can choose Video or In person. Both are sample options for this demonstration.',
+      'Yes. When booking a consultation, you can choose Video or In person.',
   },
   {
     id: 'prepare',
     question: 'What should I prepare?',
     answer:
-      'A short list of questions or concerns is enough. You do not need documents for this demo consultation.',
+      'A short list of questions or concerns is enough. You do not need documents to book your first consultation.',
   },
   {
     id: 'area',
@@ -45,19 +45,12 @@ export const faqItems: FaqItem[] = [
     id: 'details',
     question: 'Do I need to share case details when booking?',
     answer:
-      'No. The demo booking only asks for your name, email, and an optional practice area. You are not asked for case narratives, documents, or payment details.',
+      'No. Booking only asks for your name, email, and an optional practice area. You are not asked for case narratives, documents, or payment details online.',
   },
   {
     id: 'contact',
     question: 'How can I contact the firm?',
     answer:
-      'Visit the Contact Us page to see sample contact details, or use the contact-request option in the closing section on most pages. In this prototype, neither path sends a real message.',
-  },
-  {
-    id: 'demo',
-    question:
-      'Does this demo schedule a real consultation or send a contact request?',
-    answer:
-      'No. Completing the booking dialog or the contact form does not schedule a consultation, send email, store your information, or trigger a response from the firm. Both flows are front-end demonstrations only.',
+      'Visit the Contact Us page for phone and email, or leave your details in the contact-request form on most pages.',
   },
 ]

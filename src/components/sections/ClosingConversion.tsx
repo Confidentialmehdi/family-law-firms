@@ -43,7 +43,6 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
             <Button type="button" size="lg" className="mt-6 w-full" onClick={openBooking}>
               {site.ctaLabel}
             </Button>
-            <p className="mt-3 text-xs text-ivory/50">{closingConversion.booking.demoNote}</p>
           </div>
 
           {/* Option 2 — Contact request */}

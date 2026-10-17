@@ -56,7 +56,7 @@ export function Hero() {
             />
             <div className="absolute right-5 bottom-5 left-5">
               <p className="font-serif text-2xl text-navy">New York</p>
-              <p className="mt-1 text-sm text-muted">Family law · Sample visual</p>
+              <p className="mt-1 text-sm text-muted">Family law</p>
             </div>
           </div>
         </div>

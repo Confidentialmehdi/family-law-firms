@@ -11,8 +11,7 @@ export function NotFoundPage() {
       <div className="mx-auto max-w-[1200px] px-5 py-24 md:px-8 md:py-32">
         <PageHeading>Page not found</PageHeading>
         <p className="mt-4 max-w-lg text-lg text-muted">
-          That address is not part of this prototype. Return home to continue exploring Whitfield
-          Law Group.
+          That page could not be found. Return home to continue exploring Whitfield Law Group.
         </p>
         <Link
           to="/"

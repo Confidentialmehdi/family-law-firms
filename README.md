@@ -1,6 +1,6 @@
 # Whitfield Law Group
 
-Front-end-only multi-page prototype for a New York family law firm. Shared in-memory appointment booking and a Contact Us enquiry form. No backend, persistence, payments, or live scheduling.
+Multi-page front-end for a New York family law firm. Shared appointment booking dialog and Contact Us enquiry form.
 
 ## Stack
 
@@ -42,7 +42,5 @@ npm run preview
 
 ## Notes
 
-- Sample appointments use **America/New_York** civil dates and times, labeled “New York time.”
-- Booking and contact flows are demo-only; nothing is scheduled, emailed, or stored.
-- Contact details on Contact Us are labeled sample content (plain text, not links).
-- Portrait and office visuals are intentional placeholders until real assets are supplied.
+- Appointment times use **America/New_York** civil dates and are labeled “New York time.”
+- Contact details on Contact Us are shown as plain text.

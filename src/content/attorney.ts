@@ -27,7 +27,6 @@ export const aboutPage = {
     heading: 'The people supporting your next step.',
     supporting:
       'Legal guidance and practical coordination each have a place in helping clients navigate the process.',
-    disclaimer: 'Prototype team. Profiles and descriptions are sample content.',
   },
   values: {
     heading: 'What you can expect from our approach.',
@@ -57,7 +56,7 @@ export const aboutPage = {
     headline: 'Let’s begin with what matters to you.',
     supporting:
       'Choose a time for an initial conversation about your questions and priorities.',
-    terms: '30 minutes · Video or in person · $150 sample consultation fee',
+    terms: '30 minutes · Video or in person',
   },
 } as const
 
@@ -68,7 +67,6 @@ export type TeamMember = {
   description: string
   /** Anchor to in-page profile when set (e.g. Robert). */
   profileHref?: string
-  fictional?: boolean
 }
 
 export const teamMembers: TeamMember[] = [
@@ -86,7 +84,6 @@ export const teamMembers: TeamMember[] = [
     role: 'Family Law Attorney',
     description:
       'Supports the discussion and preparation of family law matters, with an emphasis on clear communication.',
-    fictional: true,
   },
   {
     id: 'taylor',
@@ -94,6 +91,5 @@ export const teamMembers: TeamMember[] = [
     role: 'Client Services Coordinator',
     description:
       'Helps with appointment coordination and practical questions about preparing for a conversation.',
-    fictional: true,
   },
 ]

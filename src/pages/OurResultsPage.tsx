@@ -26,7 +26,6 @@ export function OurResultsPage() {
           <div>
             <div className="mb-5 h-px w-14 bg-brass" aria-hidden="true" />
             <p className="max-w-sm text-lg text-ivory/70">{resultsPage.supporting}</p>
-            <p className="mt-4 text-sm text-ivory/50">{resultsPage.disclosure}</p>
           </div>
         </div>
       </section>
