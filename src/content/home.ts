@@ -70,20 +70,19 @@ export const homeConcerns = {
   items: [
     {
       id: 'service',
-      question: 'Do I need to know which service I need?',
-      answer: 'No. Choose “Not sure” in the booking form.',
+      statement: 'You don’t need to know the practice area.',
+      detail: 'Choose “Not sure” when you book—sorting that out can be part of the conversation.',
     },
     {
       id: 'prepare',
-      question: 'What should I prepare?',
-      answer:
-        'Start with your questions and any information you want to discuss. You do not need to upload documents to book.',
+      statement: 'Bring questions, not a finished file.',
+      detail:
+        'A short list of concerns is enough. You do not need documents to schedule the first consultation.',
     },
     {
       id: 'cost',
-      question: 'What does the appointment cost?',
-      answer:
-        'Fees are discussed when you book so you know what to expect before confirming a consultation.',
+      statement: 'Fees are clear before you confirm.',
+      detail: 'We’ll discuss cost when you book so you know what to expect before confirming a time.',
     },
   ],
 } as const

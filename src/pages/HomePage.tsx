@@ -181,26 +181,42 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 6. Booking concerns */}
+      {/* 6. Booking reassurances */}
       <section className="border-b border-border/60" aria-labelledby="home-concerns-heading">
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
           <h2
             id="home-concerns-heading"
-            className="font-serif text-3xl text-navy md:text-4xl"
+            className="max-w-2xl font-serif text-3xl text-navy md:text-4xl"
           >
             {homeConcerns.heading}
           </h2>
-          <ul className="mt-10 max-w-3xl divide-y divide-border border-y border-border">
-            {homeConcerns.items.map((item) => (
-              <li key={item.id} className="grid gap-2 py-5 sm:grid-cols-[minmax(0,0.45fr)_1fr] sm:gap-8">
-                <p className="font-serif text-lg text-navy">{item.question}</p>
-                <p className="text-base text-muted">{item.answer}</p>
+
+          <ul className="mt-12 max-w-2xl space-y-0">
+            {homeConcerns.items.map((item, index) => (
+              <li
+                key={item.id}
+                className="animate-fade-up border-t border-brass/25 py-8 first:border-t-0 first:pt-0 last:pb-0"
+                style={{ animationDelay: `${60 + index * 90}ms` }}
+              >
+                <div className="flex gap-4">
+                  <span
+                    className="mt-2.5 size-1.5 shrink-0 rounded-full bg-brass"
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <p className="font-serif text-xl leading-snug text-navy md:text-[1.35rem]">
+                      {item.statement}
+                    </p>
+                    <p className="mt-2 text-base leading-relaxed text-muted">{item.detail}</p>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>
+
           <Link
             to="/faq"
-            className="mt-8 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
+            className="mt-10 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
           >
             {homeConcerns.linkLabel}
           </Link>
