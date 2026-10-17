@@ -35,22 +35,22 @@ export function Hero() {
             <Button asChild size="lg">
               <Link to="/book-consultation">{site.ctaLabel}</Link>
             </Button>
-            <ul className="mt-6 grid grid-cols-1 gap-4 text-sm text-muted sm:grid-cols-3 sm:gap-0 md:text-[0.95rem]">
+            <ul className="mt-6 grid grid-cols-1 gap-4 text-sm text-muted sm:grid-cols-3 sm:gap-x-0 md:text-[0.95rem]">
               {homeHero.points.map((point) => {
                 const Icon = heroPointIcons[point.id]
                 return (
                   <li
                     key={point.id}
-                    className="flex h-full items-center gap-2.5 sm:px-5 sm:first:pl-0 sm:last:pr-0 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:border-border"
+                    className="flex h-full items-center gap-2.5 sm:pr-6 sm:pl-5 sm:first:pl-0 sm:last:pr-0 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:border-border sm:[&:not(:first-child)]:pl-6"
                   >
                     <Icon
                       className="size-6 shrink-0 text-brass md:size-7"
                       strokeWidth={1.5}
                       aria-hidden="true"
                     />
-                    <span className="min-h-[2.5em] leading-snug">
-                      <span className="block whitespace-nowrap">{point.lines[0]}</span>
-                      <span className="block whitespace-nowrap">{point.lines[1]}</span>
+                    <span className="min-h-[2.5em] min-w-0 leading-snug">
+                      <span className="block">{point.lines[0]}</span>
+                      <span className="block">{point.lines[1]}</span>
                     </span>
                   </li>
                 )
