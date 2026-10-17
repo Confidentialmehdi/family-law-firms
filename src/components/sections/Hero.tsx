@@ -1,9 +1,16 @@
+import { Clock3, Lock, MessageCircle, type LucideIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
 import { attorney } from '@/content/attorney'
 import { homeHero } from '@/content/home'
 import { site } from '@/content/site'
+
+const heroPointIcons: Record<(typeof homeHero.points)[number]['id'], LucideIcon> = {
+  confidential: Lock,
+  options: MessageCircle,
+  format: Clock3,
+}
 
 /** Home hero — provides the page’s sole h1 (id=page-heading). */
 export function Hero() {
@@ -28,16 +35,26 @@ export function Hero() {
             <Button asChild size="lg">
               <Link to="/book-consultation">{site.ctaLabel}</Link>
             </Button>
-            <ul className="mt-5 max-w-md space-y-2 text-sm text-muted md:text-base">
-              {homeHero.points.map((point) => (
-                <li key={point} className="flex gap-3">
-                  <span
-                    className="mt-2.5 h-px w-3 shrink-0 bg-brass/70"
-                    aria-hidden="true"
-                  />
-                  <span>{point}</span>
-                </li>
-              ))}
+            <ul className="mt-6 flex max-w-xl flex-wrap items-start gap-y-3 text-sm text-muted md:flex-nowrap md:gap-0 md:text-[0.95rem]">
+              {homeHero.points.map((point, index) => {
+                const Icon = heroPointIcons[point.id]
+                return (
+                  <li
+                    key={point.id}
+                    className="flex min-w-0 flex-1 items-start gap-2.5 md:px-3 md:first:pl-0 md:last:pr-0 md:[&:not(:first-child)]:border-l md:[&:not(:first-child)]:border-border"
+                  >
+                    <Icon
+                      className="mt-0.5 size-4 shrink-0 text-brass"
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
+                    <span className="leading-snug">{point.label}</span>
+                    <span className="sr-only">
+                      {index < homeHero.points.length - 1 ? '|' : ''}
+                    </span>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>

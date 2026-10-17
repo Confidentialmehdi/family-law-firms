@@ -3,9 +3,18 @@ export const homeHero = {
   supporting:
     'Guidance through divorce, parenting arrangements, and financial decisions with attorney Robert Whitfield.',
   points: [
-    'Confidential conversation about your priorities',
-    'Plain-language options before you decide',
-    '30 minutes · video or in person',
+    {
+      id: 'confidential',
+      label: 'Confidential priorities',
+    },
+    {
+      id: 'options',
+      label: 'Plain-language options',
+    },
+    {
+      id: 'format',
+      label: '30 min · video or in person',
+    },
   ],
 } as const
 
