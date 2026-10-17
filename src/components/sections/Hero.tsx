@@ -12,6 +12,28 @@ const heroPointIcons: Record<(typeof homeHero.points)[number]['id'], LucideIcon>
   rating: Star,
 }
 
+function AttorneyPortrait({ className }: { className?: string }) {
+  return (
+    <figure className={className}>
+      <img
+        src={attorney.imageSrc}
+        alt={attorney.imageAlt}
+        className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
+        loading="eager"
+        decoding="async"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/25 to-transparent"
+        aria-hidden="true"
+      />
+      <figcaption className="absolute right-5 bottom-5 left-5 md:right-6 md:bottom-6 md:left-6">
+        <p className="font-serif text-2xl text-navy md:text-3xl lg:text-4xl">{attorney.name}</p>
+        <p className="mt-1 text-sm text-muted md:mt-1.5 md:text-base">{attorney.role}</p>
+      </figcaption>
+    </figure>
+  )
+}
+
 /** Home hero — provides the page’s sole h1 (id=page-heading). */
 export function Hero() {
   return (
@@ -32,6 +54,10 @@ export function Hero() {
             <p className="mt-8 max-w-xl text-lg text-muted md:mt-9 md:text-xl lg:text-[1.4rem] lg:leading-relaxed">
               {homeHero.supporting}
             </p>
+            {/* Mobile: portrait between copy and CTA */}
+            <div className="relative mt-10 min-h-[22rem] sm:min-h-[26rem] md:hidden">
+              <AttorneyPortrait className="relative h-full min-h-[22rem] overflow-hidden border border-border/70 bg-[#ebe6de] sm:min-h-[26rem]" />
+            </div>
             <div className="mt-10 md:mt-12">
               <Button asChild size="lg">
                 <Link to="/book-consultation">{site.ctaLabel}</Link>
@@ -65,29 +91,12 @@ export function Hero() {
           </ul>
         </div>
 
+        {/* Desktop: portrait in right column */}
         <div
-          className="animate-fade-in relative min-h-[22rem] sm:min-h-[26rem] md:min-h-[32rem] lg:min-h-[36rem]"
+          className="animate-fade-in relative hidden min-h-[32rem] md:block lg:min-h-[36rem]"
           style={{ animationDelay: '120ms' }}
         >
-          <figure className="relative h-full min-h-[22rem] overflow-hidden border border-border/70 bg-[#ebe6de] sm:min-h-[26rem] md:min-h-[32rem] lg:min-h-[36rem]">
-            <img
-              src={attorney.imageSrc}
-              alt={attorney.imageAlt}
-              className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
-              loading="eager"
-              decoding="async"
-            />
-            <div
-              className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/25 to-transparent"
-              aria-hidden="true"
-            />
-            <figcaption className="absolute right-5 bottom-5 left-5 md:right-6 md:bottom-6 md:left-6">
-              <p className="font-serif text-2xl text-navy md:text-3xl lg:text-4xl">
-                {attorney.name}
-              </p>
-              <p className="mt-1 text-sm text-muted md:mt-1.5 md:text-base">{attorney.role}</p>
-            </figcaption>
-          </figure>
+          <AttorneyPortrait className="relative h-full min-h-[32rem] overflow-hidden border border-border/70 bg-[#ebe6de] lg:min-h-[36rem]" />
         </div>
       </div>
     </section>
