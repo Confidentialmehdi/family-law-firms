@@ -103,15 +103,8 @@ function ServiceSection({
       )}
       aria-labelledby={`${area.id}-heading`}
     >
-      <div className="relative mx-auto max-w-[1200px] overflow-hidden px-5 py-16 md:px-8 md:py-20">
-        <span
-          className="pointer-events-none absolute top-8 right-4 select-none font-serif text-[7rem] leading-none text-navy/[0.04] md:top-6 md:right-8 md:text-[10rem]"
-          aria-hidden="true"
-        >
-          {number}
-        </span>
-
-        <div className="relative">
+      <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
+        <div>
           <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
             {number} / {area.title}
           </p>
