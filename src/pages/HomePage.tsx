@@ -10,7 +10,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Button } from '@/components/ui/button'
 import { attorney } from '@/content/attorney'
 import {
   homeAppointment,
@@ -118,17 +117,22 @@ export function HomePage() {
               {homeExperience.heading}
             </h2>
           </div>
-          <ul className="mx-auto mt-10 grid w-full max-w-[80%] grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
-            {featuredStories.map((story) => (
-              <li key={story.id} className="flex min-w-0">
-                <StoryCard story={story} variant="compact" />
-              </li>
-            ))}
-          </ul>
-          <div className="mt-10">
-            <Button asChild size="lg">
-              <Link to="/our-results">{homeExperience.buttonLabel}</Link>
-            </Button>
+          <div className="mx-auto mt-10 w-full max-w-[80%]">
+            <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
+              {featuredStories.map((story) => (
+                <li key={story.id} className="flex min-w-0">
+                  <StoryCard story={story} variant="compact" />
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex justify-center">
+              <Link
+                to="/our-results"
+                className="text-sm font-medium text-teal underline-offset-4 hover:underline"
+              >
+                {homeExperience.buttonLabel}
+              </Link>
+            </div>
           </div>
         </div>
       </section>
