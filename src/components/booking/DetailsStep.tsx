@@ -2,6 +2,7 @@ import { practiceAreaOptions } from '@/content/practiceAreas'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { formatUsPhone, toInitialCaps } from '@/lib/inputFormat'
 import { cn } from '@/lib/utils'
 
 import { useBooking } from './BookingContext'
@@ -33,11 +34,12 @@ export function DetailsStep() {
             id="booking-name"
             name="name"
             autoComplete="name"
+            autoCapitalize="words"
             value={draft.name}
             aria-invalid={Boolean(detailsErrors.name)}
             aria-describedby={detailsErrors.name ? 'name-error' : undefined}
             onChange={(event) => {
-              updateDraft({ name: event.target.value })
+              updateDraft({ name: toInitialCaps(event.target.value) })
               clearDetailsErrors()
             }}
           />
@@ -57,11 +59,13 @@ export function DetailsStep() {
             name="email"
             type="email"
             autoComplete="email"
+            inputMode="email"
+            placeholder="name@example.com"
             value={draft.email}
             aria-invalid={Boolean(detailsErrors.email)}
             aria-describedby={detailsErrors.email ? 'email-error' : undefined}
             onChange={(event) => {
-              updateDraft({ email: event.target.value })
+              updateDraft({ email: toInitialCaps(event.target.value) })
               clearDetailsErrors()
             }}
           />
@@ -81,11 +85,13 @@ export function DetailsStep() {
             name="phone"
             type="tel"
             autoComplete="tel"
+            inputMode="numeric"
+            placeholder="(555) 123-4567"
             value={draft.phone}
             aria-invalid={Boolean(detailsErrors.phone)}
             aria-describedby={detailsErrors.phone ? 'phone-error' : undefined}
             onChange={(event) => {
-              updateDraft({ phone: event.target.value })
+              updateDraft({ phone: formatUsPhone(event.target.value) })
               clearDetailsErrors()
             }}
           />

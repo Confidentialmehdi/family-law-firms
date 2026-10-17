@@ -7,6 +7,7 @@ import {
   type TimeSlot,
 } from '@/content/booking'
 import { practiceAreaOptions } from '@/content/practiceAreas'
+import { isValidEmailAddress, isValidUsPhone } from '@/lib/inputFormat'
 
 export type BookingStep = 'appointment' | 'details' | 'review' | 'complete'
 
