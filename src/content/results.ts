@@ -112,7 +112,7 @@ export const clientStories: ClientStory[] = [
     practiceArea: 'Prenuptial & Postnuptial Agreements',
     title: 'Starting an important conversation.',
     caption:
-      'Jordan and their partner wanted to discuss financial expectations before marriage. The appointment focused on naming topics openly—assets, debts, and shared goals—without treating the meeting as a finished negotiation. They left with a list of subjects to revisit together.',
+      'Jordan and their partner wanted to discuss financial expectations before marriage. The consultation focused on naming topics openly—assets, debts, and shared goals—without treating the meeting as a finished negotiation. They left with a list of subjects to revisit together.',
     imageSrc: '/images/stories/jordan.jpg',
     imageAlt: 'Couple talking closely in warm indoor light',
   },

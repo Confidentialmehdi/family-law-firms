@@ -13,7 +13,7 @@ export const whatToExpectPage = {
 export const whatToExpect = [
   {
     step: 1,
-    title: 'Choose an appointment',
+    title: 'Choose a consultation',
     description:
       'Pick a date, time, and whether you prefer video or an in-person meeting. Times are shown in New York time.',
   },

@@ -6,14 +6,14 @@ import { cn } from '@/lib/utils'
 
 import { useBooking } from './BookingContext'
 
-export function AppointmentStep() {
+export function ConsultationStep() {
   const {
     slots,
     draft,
     updateDraft,
-    appointmentErrors,
-    clearAppointmentErrors,
-    validateAppointment,
+    consultationErrors,
+    clearConsultationErrors,
+    validateConsultation,
     setStep,
     dateStale,
     clearDateStale,
@@ -25,7 +25,7 @@ export function AppointmentStep() {
     : []
 
   function handleContinue() {
-    if (validateAppointment()) {
+    if (validateConsultation()) {
       setStep('details')
     }
   }
@@ -46,7 +46,7 @@ export function AppointmentStep() {
             value={draft.meetingType ?? ''}
             onValueChange={(value) => {
               updateDraft({ meetingType: value as 'video' | 'in-person' })
-              clearAppointmentErrors()
+              clearConsultationErrors()
             }}
             className="grid gap-2 sm:grid-cols-2"
           >
@@ -67,9 +67,9 @@ export function AppointmentStep() {
               </label>
             ))}
           </RadioGroup>
-          {appointmentErrors.meetingType ? (
+          {consultationErrors.meetingType ? (
             <p className="text-sm text-red-800" role="alert">
-              {appointmentErrors.meetingType}
+              {consultationErrors.meetingType}
             </p>
           ) : null}
         </div>
@@ -85,7 +85,7 @@ export function AppointmentStep() {
                   type="button"
                   onClick={() => {
                     updateDraft({ dateKey: group.dateKey, slotId: null })
-                    clearAppointmentErrors()
+                    clearConsultationErrors()
                     clearDateStale()
                   }}
                   aria-pressed={selected}
@@ -106,9 +106,9 @@ export function AppointmentStep() {
               )
             })}
           </div>
-          {appointmentErrors.date ? (
+          {consultationErrors.date ? (
             <p className="mt-2 text-sm text-red-800" role="alert">
-              {appointmentErrors.date}
+              {consultationErrors.date}
             </p>
           ) : null}
         </fieldset>
@@ -126,7 +126,7 @@ export function AppointmentStep() {
                     type="button"
                     onClick={() => {
                       updateDraft({ slotId: slot.id })
-                      clearAppointmentErrors()
+                      clearConsultationErrors()
                     }}
                     aria-pressed={selected}
                     className={cn(
@@ -144,9 +144,9 @@ export function AppointmentStep() {
           ) : (
             <p className="text-sm text-muted">{bookingPage.selectDateForTimes}</p>
           )}
-          {appointmentErrors.slot ? (
+          {consultationErrors.slot ? (
             <p className="mt-2 text-sm text-red-800" role="alert">
-              {appointmentErrors.slot}
+              {consultationErrors.slot}
             </p>
           ) : null}
         </fieldset>

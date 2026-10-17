@@ -56,15 +56,15 @@ export const homeMeet = {
 
 export const homeExperience = {
   heading: 'How a first conversation can help organize priorities.',
-  buttonLabel: 'See illustrative stories',
+  buttonLabel: 'See More Results',
   /** Four stories featured on the homepage; full set lives on Our Results. */
   storyIds: ['michael', 'sarah', 'dana', 'james'] as const,
 } as const
 
-export const homeAppointment = {
+export const homeConsultation = {
   heading: 'What the first consultation includes.',
   feeNote: '30 minutes · Video or in person · $150',
-  linkLabel: 'Read the full appointment guide',
+  linkLabel: 'Read the full consultation guide',
   steps: [
     {
       step: 1,
@@ -107,7 +107,7 @@ export const homeConcerns = {
     },
     {
       id: 'cost',
-      question: 'What does the appointment cost?',
+      question: 'What does the consultation cost?',
       answer:
         'The consultation fee is $150 for 30 minutes. Fees are confirmed when you book.',
     },

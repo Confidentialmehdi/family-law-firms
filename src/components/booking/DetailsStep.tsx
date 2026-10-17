@@ -127,7 +127,7 @@ export function DetailsStep() {
       </div>
 
       <div className="mt-6 flex flex-col-reverse gap-2 border-t border-border pt-4 sm:flex-row sm:justify-between">
-        <Button type="button" variant="outline" onClick={() => setStep('appointment')}>
+        <Button type="button" variant="outline" onClick={() => setStep('consultation')}>
           Back
         </Button>
         <Button type="button" onClick={handleContinue}>

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 
-import { AppointmentStep } from '@/components/booking/AppointmentStep'
+import { ConsultationStep } from '@/components/booking/ConsultationStep'
 import { useBooking } from '@/components/booking/BookingContext'
 import { CompleteStep } from '@/components/booking/CompleteStep'
 import { ConsultationSummary } from '@/components/booking/ConsultationSummary'
@@ -64,7 +64,7 @@ export function BookConsultationPage() {
                 {bookingPage.headline}
               </h1>
               <p className="mt-2 text-base text-muted md:text-lg">{bookingPage.supporting}</p>
-              <p className="mt-2 text-sm text-muted">{bookingPage.appointmentDetails}</p>
+              <p className="mt-2 text-sm text-muted">{bookingPage.consultationDetails}</p>
             </div>
 
             <div className="mt-6 md:mt-8">
@@ -112,7 +112,7 @@ export function BookConsultationPage() {
                     {progressSteps.find((item) => item.id === step)?.label}
                   </h2>
 
-                  {step === 'appointment' ? <AppointmentStep /> : null}
+                  {step === 'consultation' ? <ConsultationStep /> : null}
                   {step === 'details' ? <DetailsStep /> : null}
                   {step === 'review' ? <ReviewStep /> : null}
                 </div>

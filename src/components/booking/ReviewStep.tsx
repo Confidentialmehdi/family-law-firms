@@ -33,7 +33,7 @@ export function ReviewStep() {
             type="button"
             variant="link"
             className="h-auto p-0 text-sm"
-            onClick={() => setStep('appointment')}
+            onClick={() => setStep('consultation')}
           >
             Edit
           </Button>
@@ -56,7 +56,7 @@ export function ReviewStep() {
             type="button"
             variant="link"
             className="h-auto p-0 text-sm"
-            onClick={() => setStep('appointment')}
+            onClick={() => setStep('consultation')}
           >
             Edit
           </Button>
@@ -71,7 +71,7 @@ export function ReviewStep() {
             type="button"
             variant="link"
             className="h-auto p-0 text-sm"
-            onClick={() => setStep('appointment')}
+            onClick={() => setStep('consultation')}
           >
             Edit
           </Button>

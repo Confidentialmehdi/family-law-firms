@@ -25,7 +25,7 @@ export const stories: Story[] = [
     conversation:
       'Rather than covering every account, they mapped categories of questions and talked through how property discussions often begin.',
     nextStep:
-      'They prepared an organized set of questions and a simple inventory checklist for a later appointment.',
+      'They prepared an organized set of questions and a simple inventory checklist for a later consultation.',
   },
   {
     id: 'couple',

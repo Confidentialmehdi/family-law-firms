@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/accordion'
 import { attorney } from '@/content/attorney'
 import {
-  homeAppointment,
+  homeConsultation,
   homeConcerns,
   homeExperience,
   homeMeet,
@@ -170,27 +170,27 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 5. First appointment — editorial timeline */}
+      {/* 5. First consultation — editorial timeline */}
       <section
         className="border-b border-border/60 bg-surface/40"
-        aria-labelledby="home-appointment-heading"
+        aria-labelledby="home-consultation-heading"
       >
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
           <div className="grid gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:items-start md:gap-16 lg:gap-20">
             <div className="order-1 md:order-2 md:pt-1">
               <h2
-                id="home-appointment-heading"
+                id="home-consultation-heading"
                 className="font-serif text-3xl leading-[1.15] text-navy md:text-4xl lg:text-[2.75rem]"
               >
-                {homeAppointment.heading}
+                {homeConsultation.heading}
               </h2>
-              <p className="mt-4 text-base text-muted">{homeAppointment.feeNote}</p>
+              <p className="mt-4 text-base text-muted">{homeConsultation.feeNote}</p>
               <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
               <Link
                 to="/what-to-expect"
                 className="mt-8 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
               >
-                {homeAppointment.linkLabel}
+                {homeConsultation.linkLabel}
               </Link>
             </div>
 
@@ -199,7 +199,7 @@ export function HomePage() {
                 className="absolute top-2 bottom-2 left-[0.4375rem] w-px bg-brass/45"
                 aria-hidden="true"
               />
-              {homeAppointment.steps.map((item, index) => (
+              {homeConsultation.steps.map((item, index) => (
                 <li
                   key={item.step}
                   className="animate-fade-up relative flex gap-5 pb-10 last:pb-0"

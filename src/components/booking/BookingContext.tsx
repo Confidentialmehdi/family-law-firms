@@ -10,7 +10,7 @@ import {
 import { practiceAreaOptions } from '@/content/practiceAreas'
 import { isValidEmailAddress, isValidUsPhone } from '@/lib/inputFormat'
 
-export type BookingStep = 'appointment' | 'details' | 'review' | 'complete'
+export type BookingStep = 'consultation' | 'details' | 'review' | 'complete'
 
 export type BookingDraft = {
   dateKey: string | null
@@ -36,11 +36,11 @@ type BookingContextValue = {
   refreshAvailability: () => void
   dateStale: boolean
   clearDateStale: () => void
-  appointmentErrors: { date?: string; slot?: string; meetingType?: string }
+  consultationErrors: { date?: string; slot?: string; meetingType?: string }
   detailsErrors: { name?: string; email?: string; phone?: string }
-  validateAppointment: () => boolean
+  validateConsultation: () => boolean
   validateDetails: () => boolean
-  clearAppointmentErrors: () => void
+  clearConsultationErrors: () => void
   clearDetailsErrors: () => void
 }
 
@@ -57,11 +57,11 @@ const emptyDraft: BookingDraft = {
 const BookingContext = React.createContext<BookingContextValue | null>(null)
 
 export function BookingProvider({ children }: { children: React.ReactNode }) {
-  const [step, setStep] = React.useState<BookingStep>('appointment')
+  const [step, setStep] = React.useState<BookingStep>('consultation')
   const [draft, setDraft] = React.useState<BookingDraft>(emptyDraft)
   const [slotVersion, setSlotVersion] = React.useState(0)
   const [dateStale, setDateStale] = React.useState(false)
-  const [appointmentErrors, setAppointmentErrors] = React.useState<{
+  const [consultationErrors, setConsultationErrors] = React.useState<{
     date?: string
     slot?: string
     meetingType?: string
@@ -92,8 +92,8 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
 
   const resetBooking = React.useCallback(() => {
     setDraft(emptyDraft)
-    setStep('appointment')
-    setAppointmentErrors({})
+    setStep('consultation')
+    setConsultationErrors({})
     setDetailsErrors({})
     setDateStale(false)
     setSlotVersion((version) => version + 1)
@@ -126,12 +126,12 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     })
   }, [])
 
-  const validateAppointment = React.useCallback(() => {
+  const validateConsultation = React.useCallback(() => {
     const next: { date?: string; slot?: string; meetingType?: string } = {}
     if (!draft.meetingType) next.meetingType = bookingPage.validation.meetingType
     if (!draft.dateKey) next.date = bookingPage.validation.date
     if (!draft.slotId) next.slot = bookingPage.validation.slot
-    setAppointmentErrors(next)
+    setConsultationErrors(next)
     return Object.keys(next).length === 0
   }, [draft.dateKey, draft.meetingType, draft.slotId])
 
@@ -168,11 +168,11 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     refreshAvailability,
     dateStale,
     clearDateStale: () => setDateStale(false),
-    appointmentErrors,
+    consultationErrors,
     detailsErrors,
-    validateAppointment,
+    validateConsultation,
     validateDetails,
-    clearAppointmentErrors: () => setAppointmentErrors({}),
+    clearConsultationErrors: () => setConsultationErrors({}),
     clearDetailsErrors: () => setDetailsErrors({}),
   }
 

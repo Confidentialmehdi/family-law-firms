@@ -28,7 +28,7 @@ export const aboutPage = {
   },
   values: {
     heading: 'How we approach the work.',
-    linkLabel: 'What happens at the first appointment?',
+    linkLabel: 'What happens at the first consultation?',
     items: [
       {
         number: '01',
@@ -88,7 +88,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Taylor Reed',
     role: 'Client Services Coordinator',
     description:
-      'Coordinates appointments and answers practical questions about preparing for a consultation.',
+      'Coordinates consultations and answers practical questions about preparing for a meeting.',
     imageSrc: '/images/portraits/taylor.jpg',
     imageAlt: 'Portrait of Taylor Reed',
   },

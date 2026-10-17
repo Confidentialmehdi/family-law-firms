@@ -1,4 +1,4 @@
-/** Wall-clock helpers anchored to America/New_York for appointment availability. */
+/** Wall-clock helpers anchored to America/New_York for consultation availability. */
 
 export const NY_TIME_ZONE = 'America/New_York'
 

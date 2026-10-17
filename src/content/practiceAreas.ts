@@ -172,7 +172,7 @@ export const practicePage = {
   unsure: {
     heading: 'Not sure where your situation fits?',
     copy: 'You do not need to choose a legal category before speaking with us. Family matters often involve several connected questions. Select “Not sure” when you book and start with what you want to discuss.',
-    linkLabel: 'What to expect at your appointment',
+    linkLabel: 'What to expect at your consultation',
   },
   closing: {
     headline: 'Talk through the questions that matter to you.',

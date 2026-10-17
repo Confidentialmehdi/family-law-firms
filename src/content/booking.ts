@@ -106,9 +106,9 @@ export const bookingPage = {
   headline: 'Book a consultation with Robert Whitfield.',
   supporting:
     'Choose a format, date, and time for a 30-minute conversation about your questions and priorities.',
-  appointmentDetails: '30 minutes · Video or in person · $150',
+  consultationDetails: '30 minutes · Video or in person · $150',
   progress: [
-    { id: 'appointment', label: 'Consultation' },
+    { id: 'consultation', label: 'Consultation' },
     { id: 'details', label: 'Your details' },
     { id: 'review', label: 'Review' },
   ] as const,

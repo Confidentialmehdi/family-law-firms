@@ -1,6 +1,6 @@
 # Whitfield Law Group
 
-Multi-page front-end for a New York family law firm. Shared appointment booking dialog and Contact Us enquiry form.
+Multi-page front-end for a New York family law firm. Shared consultation booking flow and Contact Us enquiry form.
 
 ## Stack
 
@@ -46,7 +46,7 @@ npm run preview
 
 ## Notes
 
-- Appointment times use **America/New_York** civil dates and are labeled “New York time.”
+- Consultation times use **America/New_York** civil dates and are labeled “New York time.”
 - Contact details on Contact Us are shown as plain text.
 - Portrait, story, and hero photos in `public/images/` are editorial **Unsplash** samples—not firm photography.
 - Booking and contact confirmation screens note that nothing was scheduled or sent.
