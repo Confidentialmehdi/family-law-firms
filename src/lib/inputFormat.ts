@@ -1,8 +1,14 @@
-/** Capitalize the first letter of each alphabetic run (initial caps). */
+/** Capitalize the first letter of each alphabetic run (title-style initial caps). */
 export function toInitialCaps(value: string): string {
   return value.replace(/(^|[^A-Za-z])([A-Za-z])/g, (_, sep: string, char: string) => {
     return `${sep}${char.toUpperCase()}`
   })
+}
+
+/** Capitalize only the first letter of the whole string; leave the rest unchanged. */
+export function capitalizeFirstOnly(value: string): string {
+  if (!value) return value
+  return value.charAt(0).toUpperCase() + value.slice(1)
 }
 
 /**
