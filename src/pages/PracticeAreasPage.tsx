@@ -27,60 +27,39 @@ const practiceIcons: Record<string, LucideIcon> = {
   prenup: FilePenLine,
 }
 
-function HeroArtwork() {
+function HeroPracticeIndex() {
   return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full"
-      viewBox="0 0 480 420"
-      fill="none"
-      aria-hidden="true"
-    >
-      <rect
-        x="48"
-        y="36"
-        width="280"
-        height="320"
-        stroke="currentColor"
-        strokeWidth="1"
-        className="text-brass/35"
-      />
-      <rect
-        x="120"
-        y="72"
-        width="280"
-        height="280"
-        stroke="currentColor"
-        strokeWidth="1"
-        className="text-ivory/20"
-      />
-      <line
-        x1="48"
-        y1="200"
-        x2="400"
-        y2="200"
-        stroke="currentColor"
-        strokeWidth="1"
-        className="text-brass/25"
-      />
-      <line
-        x1="220"
-        y1="36"
-        x2="220"
-        y2="352"
-        stroke="currentColor"
-        strokeWidth="1"
-        className="text-ivory/15"
-      />
-      <rect
-        x="300"
-        y="140"
-        width="100"
-        height="100"
-        stroke="currentColor"
-        strokeWidth="1"
-        className="text-brass/40"
-      />
-    </svg>
+    <nav aria-label="Jump to a practice area">
+      <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+        Jump to a topic
+      </p>
+      <ul className="mt-4 divide-y divide-ivory/15 border-y border-ivory/15">
+        {practiceAreas.map((area) => {
+          const Icon = practiceIcons[area.id] ?? Scale
+          return (
+            <li key={area.id}>
+              <a
+                href={`#${area.id}`}
+                className="group flex items-center gap-3 py-3 text-ivory/85 transition-colors hover:text-ivory"
+              >
+                <Icon
+                  className="size-4 shrink-0 text-brass transition-colors group-hover:text-brass-muted"
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                />
+                <span className="min-w-0 flex-1 font-serif text-base leading-snug">
+                  {area.title}
+                </span>
+                <ArrowUpRight
+                  className="size-3.5 shrink-0 text-ivory/35 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brass"
+                  aria-hidden="true"
+                />
+              </a>
+            </li>
+          )
+        })}
+      </ul>
+    </nav>
   )
 }
 
@@ -225,8 +204,8 @@ export function PracticeAreasPage() {
             </div>
           </div>
 
-          <div className="relative hidden h-64 md:block lg:h-80">
-            <HeroArtwork />
+          <div className="relative hidden md:block">
+            <HeroPracticeIndex />
           </div>
         </div>
 
