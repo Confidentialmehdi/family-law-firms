@@ -25,6 +25,7 @@ export const contactForm = {
   selectOption: 'Select an option',
   startAgain: 'Start again',
   submitLabel: 'Request contact',
+  submittingLabel: 'Submitting…',
   completeHeading: 'Contact request received',
   completeCopy: 'Thank you for sharing how we can reach you.',
   completeDemoNotice: 'Demo only. Your contact request was not sent. Nothing was stored.',

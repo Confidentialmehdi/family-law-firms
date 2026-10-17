@@ -52,6 +52,14 @@ export function ContactRequestForm({
   const [form, setForm] = React.useState<FormState>(emptyForm)
   const [errors, setErrors] = React.useState<Partial<Record<keyof FormState, string>>>({})
   const [completed, setCompleted] = React.useState(false)
+  const [submitting, setSubmitting] = React.useState(false)
+  const submitTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  React.useEffect(() => {
+    return () => {
+      if (submitTimeoutRef.current) clearTimeout(submitTimeoutRef.current)
+    }
+  }, [])
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }))
@@ -76,13 +84,24 @@ export function ContactRequestForm({
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
+    if (submitting) return
     if (!validate()) return
-    setCompleted(true)
+    setSubmitting(true)
+    submitTimeoutRef.current = setTimeout(() => {
+      submitTimeoutRef.current = null
+      setSubmitting(false)
+      setCompleted(true)
+    }, 2000)
   }
 
   function handleReset() {
+    if (submitTimeoutRef.current) {
+      clearTimeout(submitTimeoutRef.current)
+      submitTimeoutRef.current = null
+    }
     setForm(emptyForm)
     setErrors({})
+    setSubmitting(false)
     setCompleted(false)
   }
 
@@ -256,8 +275,14 @@ export function ContactRequestForm({
         </>
       ) : null}
 
-      <Button type="submit" variant={compact ? 'outline' : 'default'} className="w-full sm:w-auto">
-        {contactForm.submitLabel}
+      <Button
+        type="submit"
+        variant={compact ? 'outline' : 'default'}
+        className="w-full sm:w-auto"
+        disabled={submitting}
+        aria-busy={submitting}
+      >
+        {submitting ? contactForm.submittingLabel : contactForm.submitLabel}
       </Button>
     </form>
   )
