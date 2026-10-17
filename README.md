@@ -21,6 +21,9 @@ Multi-page front-end for a New York family law firm. Shared appointment booking 
 | `/our-results` | Our Results |
 | `/what-to-expect` | What to Expect |
 | `/faq` | FAQ |
+| `/privacy` | Privacy Policy |
+| `/terms` | Terms of Use |
+| `/disclaimer` | Disclaimer |
 
 `/meet-robert` redirects to `/about-us`.
 

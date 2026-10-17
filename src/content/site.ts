@@ -38,6 +38,7 @@ export const headerNav = [
   { to: '/our-results', label: 'Our Results' },
 ] as const
 
+/** Site pages — shown in a two-column footer grid. */
 export const footerNav = [
   { to: '/', label: 'Home' },
   { to: '/practice-areas', label: 'Practice Areas' },
@@ -46,6 +47,13 @@ export const footerNav = [
   { to: '/our-results', label: 'Our Results' },
   { to: '/what-to-expect', label: 'What to Expect' },
   { to: '/faq', label: 'FAQ' },
+] as const
+
+/** Legal links — footer column. */
+export const footerLegal = [
+  { to: '/privacy', label: 'Privacy Policy' },
+  { to: '/terms', label: 'Terms of Use' },
+  { to: '/disclaimer', label: 'Disclaimer' },
 ] as const
 
 /** Firm contact details — display as plain text. */
