@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  /* Porcelain background */
-  --color-ivory: #faf7f4;
-  /* Dark plum — main text and dark chrome */
-  --color-navy: #352536;
-  /* Aubergine — primary CTAs (token name kept for existing classes) */
-  --color-teal: #623d59;
-  --color-teal-hover: #4f3148;
-  /* Dusty rose — decorative accent */
-  --color-brass: #b99a9b;
-  --color-brass-muted: #d0b8b9;
-  --color-surface: #fffbf9;
-  --color-border: #e6dfdb;
-  --color-muted: #6b5c6a;
+  /* Cool white background */
+  --color-ivory: #f5f6f8;
+  /* Midnight — main text and dark chrome */
+  --color-navy: #192738;
+  /* Slate blue — primary CTAs (token name kept for existing classes) */
+  --color-teal: #315477;
+  --color-teal-hover: #274560;
+  /* Copper — decorative accent */
+  --color-brass: #aa795d;
+  --color-brass-muted: #c9a48c;
+  --color-surface: #fcfcfd;
+  --color-border: #dde1e6;
+  --color-muted: #5a6570;
 
   --font-serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman",
     serif;
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
 
-  --shadow-soft: 0 1px 2px rgb(53 37 54 / 0.06);
+  --shadow-soft: 0 1px 2px rgb(25 39 56 / 0.06);
 }
 
 @layer base {
@@ -87,7 +87,7 @@
     background-image:
       radial-gradient(
         ellipse 80% 50% at 50% -10%,
-        rgb(185 154 155 / 0.1),
+        rgb(170 121 93 / 0.1),
         transparent 55%
       ),
       url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");

@@ -51,7 +51,7 @@ export function AboutUsPage() {
 
       {/* Team roster */}
       <section
-        className="border-b border-border bg-[#f0e9e8]/50"
+        className="border-b border-border bg-[#eef0f3]/60"
         aria-labelledby="team-heading"
       >
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
