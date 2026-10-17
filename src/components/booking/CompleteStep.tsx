@@ -17,12 +17,12 @@ export function CompleteStep() {
 
   return (
     <div className="text-center" role="status" aria-live="polite">
-      <h2 className="font-serif text-3xl text-navy md:text-4xl">
+      <h2 className="font-serif text-2xl text-navy md:text-3xl">
         {bookingPage.completeHeading}
       </h2>
-      <p className="mt-3 text-lg text-muted">{bookingPage.completeCopy}</p>
+      <p className="mt-2 text-base text-muted">{bookingPage.completeCopy}</p>
 
-      <div className="mx-auto mt-10 max-w-md rounded-sm border border-border bg-surface px-6 py-6 text-left">
+      <div className="mx-auto mt-6 max-w-md rounded-sm border border-border bg-ivory px-5 py-5 text-left">
         <p className="text-[0.7rem] tracking-[0.14em] text-brass uppercase">
           {bookingPage.summaryHeading}
         </p>
@@ -68,7 +68,7 @@ export function CompleteStep() {
         </dl>
       </div>
 
-      <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <Button type="button" variant="outline" onClick={resetBooking}>
           {bookingPage.startAgainLabel}
         </Button>

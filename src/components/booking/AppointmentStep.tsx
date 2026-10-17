@@ -76,7 +76,7 @@ export function AppointmentStep() {
 
         <fieldset>
           <legend className="mb-3 text-sm font-medium text-navy">Date</legend>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
             {grouped.map((group) => {
               const selected = draft.dateKey === group.dateKey
               return (
@@ -90,7 +90,7 @@ export function AppointmentStep() {
                   }}
                   aria-pressed={selected}
                   className={cn(
-                    'min-h-11 rounded-sm border px-4 py-4 text-left transition-colors',
+                    'min-h-11 rounded-sm border px-3 py-3 text-left transition-colors',
                     selected
                       ? 'border-teal bg-teal/10 ring-2 ring-teal/25'
                       : 'border-border bg-surface hover:border-teal/40',
@@ -99,7 +99,7 @@ export function AppointmentStep() {
                   <span className="block text-xs tracking-wide text-brass uppercase">
                     {group.weekdayLabel}
                   </span>
-                  <span className="mt-1 block font-serif text-xl text-navy">
+                  <span className="mt-0.5 block font-serif text-lg text-navy">
                     {group.monthDayLabel}
                   </span>
                 </button>
@@ -153,7 +153,7 @@ export function AppointmentStep() {
         </fieldset>
       </div>
 
-      <div className="mt-10 flex justify-end border-t border-border pt-6">
+      <div className="mt-6 flex justify-end border-t border-border pt-4">
         <Button type="button" onClick={handleContinue}>
           Continue
         </Button>
