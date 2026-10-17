@@ -32,14 +32,14 @@ export function AppointmentStep() {
 
   return (
     <div className="flex flex-col">
-      <div className="space-y-8">
+      <div className="space-y-5">
         {dateStale ? (
           <p className="rounded-sm bg-brass/15 px-3 py-2 text-sm text-navy" role="status">
             {bookingPage.dateStaleNotice}
           </p>
         ) : null}
 
-        <div className="space-y-3">
+        <div className="space-y-2">
           <Label id="meeting-type-label">Meeting format</Label>
           <RadioGroup
             aria-labelledby="meeting-type-label"

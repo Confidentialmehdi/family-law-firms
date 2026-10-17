@@ -40,13 +40,13 @@ export function ConsultationSummary({ variant = 'panel' }: ConsultationSummaryPr
   }
 
   return (
-    <aside className="rounded-sm bg-navy px-6 py-7 text-ivory lg:sticky lg:top-28">
+    <aside className="rounded-sm bg-navy px-5 py-5 text-ivory lg:sticky lg:top-24">
       <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
         {bookingPage.summaryHeading}
       </p>
-      <h2 className="mt-3 font-serif text-2xl text-ivory">{bookingPage.attorneyName}</h2>
+      <h2 className="mt-2 font-serif text-xl text-ivory">{bookingPage.attorneyName}</h2>
 
-      <dl className="mt-8 space-y-5 border-t border-ivory/15 pt-6 text-sm">
+      <dl className="mt-5 space-y-3.5 border-t border-ivory/15 pt-4 text-sm">
         <div>
           <dt className="text-ivory/55">Duration</dt>
           <dd className="mt-1 text-base text-ivory">{bookingPage.duration}</dd>
