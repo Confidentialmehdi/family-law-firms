@@ -20,43 +20,49 @@ export function Hero() {
       aria-labelledby="page-heading"
     >
       <div className="mx-auto grid w-full max-w-[1200px] flex-1 content-center gap-14 px-5 py-20 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:items-center md:gap-16 md:px-8 md:py-24 lg:gap-20 lg:py-28">
-        <div className="animate-fade-up max-w-2xl">
-          <h1
-            id="page-heading"
-            tabIndex={-1}
-            className="font-serif text-[3rem] leading-[1.08] text-navy outline-none md:text-5xl lg:text-[4rem]"
-          >
-            {homeHero.headline}
-          </h1>
-          <p className="mt-8 max-w-xl text-lg text-muted md:mt-9 md:text-xl lg:text-[1.4rem] lg:leading-relaxed">
-            {homeHero.supporting}
-          </p>
-          <div className="mt-10 md:mt-12">
-            <Button asChild size="lg">
-              <Link to="/book-consultation">{site.ctaLabel}</Link>
-            </Button>
-            <ul className="mt-6 grid grid-cols-1 gap-4 text-sm text-muted sm:grid-cols-3 sm:gap-x-0 md:text-[0.95rem]">
-              {homeHero.points.map((point) => {
-                const Icon = heroPointIcons[point.id]
-                return (
-                  <li
-                    key={point.id}
-                    className="flex h-full items-center gap-2.5 sm:pr-6 sm:pl-5 sm:first:pl-0 sm:last:pr-0 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:border-border sm:[&:not(:first-child)]:pl-6"
-                  >
-                    <Icon
-                      className="size-6 shrink-0 text-brass md:size-7"
-                      strokeWidth={1.5}
-                      aria-hidden="true"
-                    />
-                    <span className="min-h-[2.5em] min-w-0 leading-snug">
-                      <span className="block">{point.lines[0]}</span>
-                      <span className="block">{point.lines[1]}</span>
-                    </span>
-                  </li>
-                )
-              })}
-            </ul>
+        <div className="animate-fade-up">
+          <div className="max-w-2xl">
+            <h1
+              id="page-heading"
+              tabIndex={-1}
+              className="font-serif text-[3rem] leading-[1.08] text-navy outline-none md:text-5xl lg:text-[4rem]"
+            >
+              {homeHero.headline}
+            </h1>
+            <p className="mt-8 max-w-xl text-lg text-muted md:mt-9 md:text-xl lg:text-[1.4rem] lg:leading-relaxed">
+              {homeHero.supporting}
+            </p>
+            <div className="mt-10 md:mt-12">
+              <Button asChild size="lg">
+                <Link to="/book-consultation">{site.ctaLabel}</Link>
+              </Button>
+            </div>
           </div>
+          <ul className="mt-6 flex flex-wrap items-center gap-y-4 text-sm text-muted md:text-[0.95rem]">
+            {homeHero.points.map((point, index) => {
+              const Icon = heroPointIcons[point.id]
+              return (
+                <li
+                  key={point.id}
+                  className={
+                    index === 0
+                      ? 'flex items-center gap-2.5 pr-5'
+                      : 'flex items-center gap-2.5 border-l border-border pr-5 pl-5 last:pr-0'
+                  }
+                >
+                  <Icon
+                    className="size-6 shrink-0 text-brass md:size-7"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                  <span className="leading-snug">
+                    <span className="block whitespace-nowrap">{point.lines[0]}</span>
+                    <span className="block whitespace-nowrap">{point.lines[1]}</span>
+                  </span>
+                </li>
+              )
+            })}
+          </ul>
         </div>
 
         <div
