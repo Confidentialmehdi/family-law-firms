@@ -27,10 +27,10 @@ export function BookConsultationPage() {
   React.useEffect(() => {
     window.scrollTo(0, 0)
     const frame = requestAnimationFrame(() => {
-      workspaceRef.current?.scrollIntoView({ block: 'center', behavior: 'auto' })
       if (step === 'complete') {
         document.getElementById('page-heading')?.focus({ preventScroll: true })
       } else {
+        workspaceRef.current?.scrollIntoView({ block: 'center', behavior: 'auto' })
         stepHeadingRef.current?.focus({ preventScroll: true })
       }
     })
@@ -38,11 +38,17 @@ export function BookConsultationPage() {
   }, [step])
 
   const activeIndex = progressSteps.findIndex((item) => item.id === step)
+  const isComplete = step === 'complete'
 
   return (
     <main id="main" className="flex min-h-[calc(100dvh-4.5rem)] flex-col bg-ivory">
-      <div className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-center px-5 py-6 md:px-8 md:py-8">
-        {step === 'complete' ? (
+      <div
+        className={cn(
+          'mx-auto flex w-full max-w-[1200px] flex-1 flex-col px-5 py-6 md:px-8 md:py-8',
+          isComplete ? 'justify-start' : 'justify-center',
+        )}
+      >
+        {isComplete ? (
           <div
             ref={workspaceRef}
             className="mx-auto w-full max-w-xl rounded-sm border border-border bg-surface px-5 py-8 md:px-8 md:py-10"
