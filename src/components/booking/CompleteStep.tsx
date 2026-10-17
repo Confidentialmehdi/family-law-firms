@@ -1,3 +1,5 @@
+import { CircleCheck } from 'lucide-react'
+
 import { bookingPage } from '@/content/booking'
 import { site } from '@/content/site'
 
@@ -13,14 +15,21 @@ export function CompleteStep() {
 
   return (
     <div className="text-center" role="status" aria-live="polite">
-      <h1
-        id="page-heading"
-        tabIndex={-1}
-        className="font-serif text-2xl text-navy outline-none md:text-3xl"
-      >
-        {bookingPage.completeHeading}
-      </h1>
-      <p className="mt-2 text-base text-muted">{bookingPage.completeCopy}</p>
+      <div className="flex flex-col items-center">
+        <CircleCheck
+          className="size-12 text-teal"
+          strokeWidth={1.5}
+          aria-hidden
+        />
+        <h1
+          id="page-heading"
+          tabIndex={-1}
+          className="mt-4 font-serif text-2xl text-navy outline-none md:text-3xl"
+        >
+          {bookingPage.completeHeading}
+        </h1>
+        <p className="mt-2 text-base text-muted">{bookingPage.completeCopy}</p>
+      </div>
 
       <div className="mx-auto mt-6 max-w-md rounded-sm border border-border bg-ivory px-5 py-5 text-left">
         <p className="text-[0.7rem] tracking-[0.14em] text-brass uppercase">
@@ -67,6 +76,8 @@ export function CompleteStep() {
           </div>
         </dl>
       </div>
+
+      <p className="mt-6 text-sm text-muted">{bookingPage.completeDemoNotice}</p>
     </div>
   )
 }

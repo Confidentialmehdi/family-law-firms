@@ -122,8 +122,9 @@ export const bookingPage = {
   summaryHeading: 'Your consultation',
   summaryEmpty: 'Choose a date and time.',
   reviewDemoNotice: 'This is a demonstration. Nothing will be scheduled or charged.',
-  completeHeading: 'Demo complete.',
-  completeCopy: 'No consultation has been scheduled.',
+  completeHeading: 'Consultation confirmed.',
+  completeCopy: 'Your initial consultation details are below.',
+  completeDemoNotice: 'This is a demo. No consultation has been scheduled.',
   reassurance: {
     heading: 'A few things before we speak.',
     items: [
