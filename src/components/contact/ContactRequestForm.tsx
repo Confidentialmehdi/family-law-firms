@@ -39,7 +39,17 @@ function isValidPhone(value: string) {
   return digits.length >= 10
 }
 
-export function ContactRequestForm() {
+type ContactRequestFormProps = {
+  /** Compact closing-section form omits message and preferred time. */
+  variant?: 'full' | 'compact'
+  idPrefix?: string
+}
+
+export function ContactRequestForm({
+  variant = 'full',
+  idPrefix = 'contact',
+}: ContactRequestFormProps) {
+  const compact = variant === 'compact'
   const [form, setForm] = React.useState<FormState>(emptyForm)
   const [errors, setErrors] = React.useState<Partial<Record<keyof FormState, string>>>({})
   const [completed, setCompleted] = React.useState(false)
@@ -82,41 +92,36 @@ export function ContactRequestForm() {
 
   if (completed) {
     return (
-      <div className="rounded-sm border border-border bg-surface px-5 py-8 text-center">
-        <p className="font-serif text-xl text-navy" role="status">
-          {site.contactDemoComplete}
-        </p>
-        <p className="mt-3 text-sm text-muted">
-          Nothing was emailed, stored, or forwarded. You can reset the form to try again.
-        </p>
-        <Button type="button" variant="outline" className="mt-6" onClick={handleReset}>
-          Reset form
+      <div className="rounded-sm border border-border bg-surface px-4 py-6 text-center" role="status" aria-live="polite">
+        <p className="font-serif text-lg text-navy">{site.contactDemoComplete}</p>
+        <Button type="button" variant="outline" className="mt-5" onClick={handleReset}>
+          Start again
         </Button>
       </div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-5">
+    <form onSubmit={handleSubmit} noValidate className={cn('space-y-4', compact && 'space-y-3.5')}>
       <p className="rounded-sm bg-brass/10 px-3 py-2 text-sm text-navy/80">
         {site.contactDemoBanner}
       </p>
 
       <div className="space-y-2">
-        <Label htmlFor="contact-name">
+        <Label htmlFor={`${idPrefix}-name`}>
           Full name <span className="text-muted">(required)</span>
         </Label>
         <Input
-          id="contact-name"
+          id={`${idPrefix}-name`}
           name="name"
           autoComplete="name"
           value={form.name}
           aria-invalid={Boolean(errors.name)}
-          aria-describedby={errors.name ? 'contact-name-error' : undefined}
+          aria-describedby={errors.name ? `${idPrefix}-name-error` : undefined}
           onChange={(event) => update('name', event.target.value)}
         />
         {errors.name ? (
-          <p id="contact-name-error" className="text-sm text-red-800" role="alert">
+          <p id={`${idPrefix}-name-error`} className="text-sm text-red-800" role="alert">
             {errors.name}
           </p>
         ) : null}
@@ -141,7 +146,7 @@ export function ContactRequestForm() {
               key={option.value}
               className="flex min-h-11 cursor-pointer items-center gap-3 rounded-sm border border-border bg-surface px-3 py-2 transition-colors has-[[data-state=checked]]:border-teal has-[[data-state=checked]]:bg-teal/5"
             >
-              <RadioGroupItem value={option.value} id={`contact-method-${option.value}`} />
+              <RadioGroupItem value={option.value} id={`${idPrefix}-method-${option.value}`} />
               <span className="text-base text-navy">{option.label}</span>
             </label>
           ))}
@@ -150,42 +155,42 @@ export function ContactRequestForm() {
 
       {form.method === 'email' ? (
         <div className="space-y-2">
-          <Label htmlFor="contact-email">
+          <Label htmlFor={`${idPrefix}-email`}>
             Email address <span className="text-muted">(required)</span>
           </Label>
           <Input
-            id="contact-email"
+            id={`${idPrefix}-email`}
             name="email"
             type="email"
             autoComplete="email"
             value={form.email}
             aria-invalid={Boolean(errors.email)}
-            aria-describedby={errors.email ? 'contact-email-error' : undefined}
+            aria-describedby={errors.email ? `${idPrefix}-email-error` : undefined}
             onChange={(event) => update('email', event.target.value)}
           />
           {errors.email ? (
-            <p id="contact-email-error" className="text-sm text-red-800" role="alert">
+            <p id={`${idPrefix}-email-error`} className="text-sm text-red-800" role="alert">
               {errors.email}
             </p>
           ) : null}
         </div>
       ) : (
         <div className="space-y-2">
-          <Label htmlFor="contact-phone">
+          <Label htmlFor={`${idPrefix}-phone`}>
             Phone number <span className="text-muted">(required)</span>
           </Label>
           <Input
-            id="contact-phone"
+            id={`${idPrefix}-phone`}
             name="phone"
             type="tel"
             autoComplete="tel"
             value={form.phone}
             aria-invalid={Boolean(errors.phone)}
-            aria-describedby={errors.phone ? 'contact-phone-error' : undefined}
+            aria-describedby={errors.phone ? `${idPrefix}-phone-error` : undefined}
             onChange={(event) => update('phone', event.target.value)}
           />
           {errors.phone ? (
-            <p id="contact-phone-error" className="text-sm text-red-800" role="alert">
+            <p id={`${idPrefix}-phone-error`} className="text-sm text-red-800" role="alert">
               {errors.phone}
             </p>
           ) : null}
@@ -193,11 +198,11 @@ export function ContactRequestForm() {
       )}
 
       <div className="space-y-2">
-        <Label htmlFor="contact-practice-area">
+        <Label htmlFor={`${idPrefix}-practice-area`}>
           Practice area <span className="text-muted">(optional)</span>
         </Label>
         <select
-          id="contact-practice-area"
+          id={`${idPrefix}-practice-area`}
           name="practiceArea"
           value={form.practiceArea}
           onChange={(event) => update('practiceArea', event.target.value)}
@@ -214,38 +219,44 @@ export function ContactRequestForm() {
         </select>
       </div>
 
-      <div className="space-y-2">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-          <Label htmlFor="contact-message">
-            Brief message <span className="text-muted">(optional)</span>
-          </Label>
-          <p className="text-sm text-muted">Please avoid including sensitive case details.</p>
-        </div>
-        <textarea
-          id="contact-message"
-          name="message"
-          rows={4}
-          value={form.message}
-          onChange={(event) => update('message', event.target.value)}
-          className="flex w-full rounded-sm border border-border bg-surface px-3 py-2 text-base text-navy shadow-soft focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25"
-        />
-      </div>
+      {!compact ? (
+        <>
+          <div className="space-y-2">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+              <Label htmlFor={`${idPrefix}-message`}>
+                Brief message <span className="text-muted">(optional)</span>
+              </Label>
+              <p className="text-sm text-muted">Please avoid including sensitive case details.</p>
+            </div>
+            <textarea
+              id={`${idPrefix}-message`}
+              name="message"
+              rows={4}
+              value={form.message}
+              onChange={(event) => update('message', event.target.value)}
+              className="flex w-full rounded-sm border border-border bg-surface px-3 py-2 text-base text-navy shadow-soft focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25"
+            />
+          </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="contact-preferred-time">
-          Preferred contact time <span className="text-muted">(optional)</span>
-        </Label>
-        <Input
-          id="contact-preferred-time"
-          name="preferredTime"
-          autoComplete="off"
-          placeholder="e.g. Weekday mornings"
-          value={form.preferredTime}
-          onChange={(event) => update('preferredTime', event.target.value)}
-        />
-      </div>
+          <div className="space-y-2">
+            <Label htmlFor={`${idPrefix}-preferred-time`}>
+              Preferred contact time <span className="text-muted">(optional)</span>
+            </Label>
+            <Input
+              id={`${idPrefix}-preferred-time`}
+              name="preferredTime"
+              autoComplete="off"
+              placeholder="e.g. Weekday mornings"
+              value={form.preferredTime}
+              onChange={(event) => update('preferredTime', event.target.value)}
+            />
+          </div>
+        </>
+      ) : null}
 
-      <Button type="submit">{'Request contact'}</Button>
+      <Button type="submit" variant={compact ? 'outline' : 'default'} className="w-full sm:w-auto">
+        Request contact
+      </Button>
     </form>
   )
 }

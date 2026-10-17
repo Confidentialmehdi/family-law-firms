@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom'
 
 import { ImageFallback } from '@/components/ImageFallback'
-import { ClosingCta } from '@/components/sections/ClosingCta'
+import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { Hero } from '@/components/sections/Hero'
 import { attorney } from '@/content/attorney'
 import {
   homeAppointment,
-  homeClosing,
   homeConcerns,
   homeExperience,
   homeMeet,

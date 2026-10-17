@@ -7,7 +7,7 @@ export type FaqItem = {
 export const faqItems: FaqItem[] = [
   {
     id: 'first',
-    question: 'What happens during the first appointment?',
+    question: 'What happens during the first consultation?',
     answer:
       'You share what brought you here and what matters most. The conversation focuses on clarifying options and outlining possible next steps—not on making every decision in one sitting.',
   },
@@ -15,7 +15,7 @@ export const faqItems: FaqItem[] = [
     id: 'length',
     question: 'How long is it?',
     answer:
-      'Sample appointments are scheduled for 30 minutes. That is usually enough time to cover priorities and leave with a clearer sense of direction.',
+      'Sample consultations are scheduled for 30 minutes. That is usually enough time to cover priorities and leave with a clearer sense of direction.',
   },
   {
     id: 'cost',
@@ -27,13 +27,13 @@ export const faqItems: FaqItem[] = [
     id: 'remote',
     question: 'Can I meet remotely?',
     answer:
-      'Yes. When booking, you can choose Video or In person. Both are sample options for this demonstration.',
+      'Yes. When booking a consultation, you can choose Video or In person. Both are sample options for this demonstration.',
   },
   {
     id: 'prepare',
     question: 'What should I prepare?',
     answer:
-      'A short list of questions or concerns is enough. You do not need documents for this demo appointment.',
+      'A short list of questions or concerns is enough. You do not need documents for this demo consultation.',
   },
   {
     id: 'area',
@@ -51,13 +51,13 @@ export const faqItems: FaqItem[] = [
     id: 'contact',
     question: 'How can I contact the firm?',
     answer:
-      'Visit the Contact Us page to see sample contact details or use the demo contact-request form. In this prototype, neither path sends a real message.',
+      'Visit the Contact Us page to see sample contact details, or use the contact-request option in the closing section on most pages. In this prototype, neither path sends a real message.',
   },
   {
     id: 'demo',
     question:
-      'Does this demo schedule a real appointment or send a contact request?',
+      'Does this demo schedule a real consultation or send a contact request?',
     answer:
-      'No. Completing the booking dialog or the contact form does not schedule a meeting, send email, store your information, or trigger a response from the firm. Both flows are front-end demonstrations only.',
+      'No. Completing the booking dialog or the contact form does not schedule a consultation, send email, store your information, or trigger a response from the firm. Both flows are front-end demonstrations only.',
   },
 ]

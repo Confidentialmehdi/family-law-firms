@@ -18,7 +18,7 @@ const stepCopy: Record<
   { title: string; description: string }
 > = {
   appointment: {
-    title: 'Choose an appointment',
+    title: 'Book your consultation.',
     description: 'Select a sample date, time, and meeting type.',
   },
   details: {

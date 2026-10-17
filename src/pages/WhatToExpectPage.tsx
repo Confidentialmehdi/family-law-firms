@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { PageHeading } from '@/components/PageHeading'
-import { ClosingCta } from '@/components/sections/ClosingCta'
+import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { concerns } from '@/content/concerns'
 import { site } from '@/content/site'
 import { whatToExpect } from '@/content/whatToExpect'
@@ -16,7 +16,7 @@ export function WhatToExpectPage() {
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
           <PageHeading>What to Expect</PageHeading>
           <p className="mt-4 max-w-2xl text-lg text-muted">
-            A straightforward look at the initial appointment—from choosing a time to
+            A straightforward look at the initial consultation—from choosing a time to
             understanding possible next steps.
           </p>
           <p className="mt-3 text-sm text-muted">
@@ -42,7 +42,7 @@ export function WhatToExpectPage() {
             </h2>
             <p className="mt-3 text-base text-muted">
               A short list of questions or priorities is enough. You do not need documents or a
-              finished plan for a sample first appointment. Bring what helps you explain what
+              finished plan for a sample first consultation. Bring what helps you explain what
               matters most right now.
             </p>
           </section>
@@ -70,7 +70,7 @@ export function WhatToExpectPage() {
           </p>
         </div>
       </div>
-      <ClosingCta />
+      <ClosingConversion formIdPrefix="expect-closing" />
     </main>
   )
 }

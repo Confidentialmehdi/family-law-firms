@@ -3,19 +3,40 @@ export const site = {
   location: 'New York, NY',
   tagline: 'New York family law',
   ctaLabel: 'Book a consultation',
-  demoBanner: 'Demo booking — no appointment will be scheduled.',
-  demoComplete: 'Demo complete. No appointment has been scheduled.',
-  contactDemoBanner: 'Demo form — your request will not be sent.',
-  contactDemoComplete: 'Demo complete. Your request has not been sent.',
-  consultationNote: '30 minutes · $150 sample consultation fee',
+  demoBanner: 'Demo booking — no consultation will be scheduled.',
+  demoComplete: 'Demo complete. No consultation has been scheduled.',
+  contactDemoBanner: 'Demo form. Your details will not be sent.',
+  contactDemoComplete: 'Demo complete. Your contact request has not been sent.',
+  consultationNote: '30-minute consultation · $150 sample consultation fee',
   timeZoneLabel: 'New York time',
   footerDisclaimer:
-    'Prototype. Sample content and appointments are for demonstration.',
+    'Prototype. Sample content and consultations are for demonstration.',
   fictionalLabel: 'Fictional examples for demonstration.',
   illustrativeLabel: 'Illustrative experiences, not legal case results.',
   sampleImageryLabel: 'Sample imagery',
   resultsDisclosure:
     'Fictional examples for demonstration. These are not actual client testimonials or legal case results.',
+} as const
+
+export const closingConversion = {
+  label: 'Your next step',
+  headline: 'Let’s start with a conversation.',
+  supporting:
+    'Choose a consultation time, or leave your details and request contact.',
+  booking: {
+    heading: 'Ready to speak with us?',
+    copy: 'Choose a time for an initial conversation about your questions and priorities.',
+    details: [
+      '30-minute consultation',
+      'Video or in person',
+      '$150 sample consultation fee',
+    ],
+    demoNote: 'Demo booking. No consultation will be scheduled.',
+  },
+  contact: {
+    heading: 'Prefer us to contact you?',
+    copy: 'Leave your preferred contact details.',
+  },
 } as const
 
 /** Primary header navigation — What to Expect and FAQ are footer-only. */

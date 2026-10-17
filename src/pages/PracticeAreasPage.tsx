@@ -299,34 +299,7 @@ export function PracticeAreasPage() {
         </div>
       </section>
 
-      {/* 6. Closing — navy finish, separated from footer */}
-      <section
-        className="border-b border-brass/30 bg-navy text-ivory"
-        aria-labelledby="closing-heading"
-      >
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-8 px-5 py-16 md:flex-row md:items-end md:justify-between md:gap-12 md:px-8 md:py-20">
-          <div className="max-w-2xl">
-            <h2
-              id="closing-heading"
-              className="font-serif text-[2rem] leading-[1.15] text-ivory md:text-[2.75rem] lg:text-[3.25rem]"
-            >
-              {practicePage.closing.headline}
-            </h2>
-            <p className="mt-5 max-w-md text-lg text-ivory/70">
-              {practicePage.closing.supporting}
-            </p>
-            <p className="mt-4 text-sm text-ivory/55">{practicePage.closing.terms}</p>
-          </div>
-          <div className="shrink-0">
-            <Button type="button" size="lg" onClick={openBooking}>
-              {site.ctaLabel}
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Ivory band so the navy CTA does not run into the navy footer */}
-      <div className="h-6 bg-ivory md:h-8" aria-hidden="true" />
+      <ClosingConversion formIdPrefix="practice-closing" />
     </main>
   )
 }
