@@ -19,30 +19,23 @@ export function StoryCard({ story, variant = 'full' }: StoryCardProps) {
       <div
         className={cn(
           'flex items-center',
-          compact ? 'gap-2 px-3 pt-3 pb-2' : 'gap-3 px-4 pt-4 pb-3',
+          compact ? 'gap-2.5 px-3.5 pt-3.5 pb-2.5' : 'gap-3 px-4 pt-4 pb-3',
         )}
       >
         <div
           className={cn(
             'flex shrink-0 items-center justify-center rounded-full bg-[#e8e2d8] font-serif tracking-wide text-navy',
-            compact ? 'size-8 text-[0.65rem]' : 'size-10 text-xs',
+            compact ? 'size-9 text-[0.7rem]' : 'size-10 text-xs',
           )}
           aria-hidden="true"
         >
           {story.initials}
         </div>
         <div className="min-w-0">
-          <p
-            className={cn(
-              'truncate font-medium text-navy',
-              compact ? 'text-xs' : 'text-sm',
-            )}
-          >
+          <p className={cn('truncate font-medium text-navy', compact ? 'text-sm' : 'text-sm')}>
             {story.name}
           </p>
-          <p className={cn('truncate text-muted', compact ? 'text-[0.7rem]' : 'text-xs')}>
-            {story.city}
-          </p>
+          <p className="truncate text-xs text-muted">{story.city}</p>
         </div>
       </div>
 
@@ -69,39 +62,27 @@ export function StoryCard({ story, variant = 'full' }: StoryCardProps) {
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 p-3 text-center">
-          <span
-            className={cn(
-              'font-serif text-navy/55',
-              compact ? 'text-sm' : 'text-base',
-            )}
-          >
-            {story.practiceArea}
-          </span>
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 p-4 text-center">
+          <span className="font-serif text-base text-navy/55">{story.practiceArea}</span>
         </div>
       </div>
 
-      <div
-        className={cn(
-          'flex flex-1 flex-col',
-          compact ? 'px-3 pt-2.5 pb-3' : 'px-4 pt-4 pb-5',
-        )}
-      >
+      <div className={cn('flex flex-1 flex-col', compact ? 'px-3.5 pt-3 pb-4' : 'px-4 pt-4 pb-5')}>
         <p className="text-[0.65rem] tracking-[0.14em] text-brass uppercase">
           {story.practiceArea}
         </p>
         <h3
           className={cn(
-            'mt-1.5 font-serif leading-snug text-navy',
-            compact ? 'text-base' : 'text-xl',
+            'mt-2 font-serif leading-snug text-navy',
+            compact ? 'text-lg' : 'text-xl',
           )}
         >
           {story.title}
         </h3>
         <p
           className={cn(
-            'mt-1.5 flex-1 leading-relaxed text-muted',
-            compact ? 'line-clamp-2 text-sm' : 'mt-2 text-base',
+            'mt-2 flex-1 leading-relaxed text-muted',
+            compact ? 'line-clamp-2 text-sm' : 'text-base',
           )}
         >
           {story.caption}
