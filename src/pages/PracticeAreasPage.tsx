@@ -172,15 +172,21 @@ function ServiceSection({
     .filter((item): item is (typeof practiceAreas)[number] => Boolean(item))
 
   return (
-    <section
+    <article
       id={area.id}
       className={cn(
-        'scroll-mt-28 border-b border-border',
+        'scroll-mt-28',
+        index > 0 && 'border-t border-border',
         tinted ? 'bg-[#f0ebe3]/40' : 'bg-ivory',
       )}
       aria-labelledby={`${area.id}-heading`}
     >
-      <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
+      <div
+        className={cn(
+          'mx-auto max-w-[1200px] px-5 md:px-8',
+          index === 0 ? 'pb-16 pt-10 md:pb-20 md:pt-12' : 'py-16 md:py-20',
+        )}
+      >
         <Icon
           className="size-6 text-brass md:size-7"
           strokeWidth={1.25}
@@ -248,7 +254,7 @@ function ServiceSection({
           </div>
         ) : null}
       </div>
-    </section>
+    </article>
   )
 }
 
@@ -295,12 +301,12 @@ export function PracticeAreasPage() {
         </div>
       </section>
 
-      {/* 2. Service index */}
+      {/* 2. Practice areas — index header + detail articles */}
       <section
         className="border-b border-border bg-ivory"
         aria-labelledby="practice-nav-heading"
       >
-        <div className="mx-auto max-w-[1200px] px-5 py-12 md:px-8 md:py-14">
+        <header className="mx-auto max-w-[1200px] px-5 pt-12 pb-2 md:px-8 md:pt-14">
           <h2
             id="practice-nav-heading"
             className="font-serif text-2xl text-navy md:text-3xl"
@@ -335,13 +341,12 @@ export function PracticeAreasPage() {
               ))}
             </ol>
           </nav>
-        </div>
-      </section>
+        </header>
 
-      {/* Service sections — shared three-column layout */}
-      {practiceAreas.map((area, index) => (
-        <ServiceSection key={area.id} area={area} index={index} />
-      ))}
+        {practiceAreas.map((area, index) => (
+          <ServiceSection key={area.id} area={area} index={index} />
+        ))}
+      </section>
 
       {/* Unsure — calm pause */}
       <section
