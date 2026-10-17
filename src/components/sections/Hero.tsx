@@ -66,10 +66,10 @@ export function Hero() {
         </div>
 
         <div
-          className="animate-fade-in relative hidden min-h-[32rem] md:block lg:min-h-[36rem]"
+          className="animate-fade-in relative min-h-[22rem] sm:min-h-[26rem] md:min-h-[32rem] lg:min-h-[36rem]"
           style={{ animationDelay: '120ms' }}
         >
-          <figure className="relative h-full min-h-[32rem] overflow-hidden border border-border/70 bg-[#ebe6de] lg:min-h-[36rem]">
+          <figure className="relative h-full min-h-[22rem] overflow-hidden border border-border/70 bg-[#ebe6de] sm:min-h-[26rem] md:min-h-[32rem] lg:min-h-[36rem]">
             <img
               src={attorney.imageSrc}
               alt={attorney.imageAlt}
@@ -81,9 +81,11 @@ export function Hero() {
               className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/25 to-transparent"
               aria-hidden="true"
             />
-            <figcaption className="absolute right-6 bottom-6 left-6">
-              <p className="font-serif text-3xl text-navy lg:text-4xl">{attorney.name}</p>
-              <p className="mt-1.5 text-base text-muted">{attorney.role}</p>
+            <figcaption className="absolute right-5 bottom-5 left-5 md:right-6 md:bottom-6 md:left-6">
+              <p className="font-serif text-2xl text-navy md:text-3xl lg:text-4xl">
+                {attorney.name}
+              </p>
+              <p className="mt-1 text-sm text-muted md:mt-1.5 md:text-base">{attorney.role}</p>
             </figcaption>
           </figure>
         </div>
