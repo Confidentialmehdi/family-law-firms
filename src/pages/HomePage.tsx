@@ -127,38 +127,57 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 5. First appointment */}
+      {/* 5. First appointment — editorial timeline */}
       <section
         className="border-b border-border/60 bg-surface/40"
         aria-labelledby="home-appointment-heading"
       >
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
-          <div className="max-w-2xl">
-            <h2
-              id="home-appointment-heading"
-              className="font-serif text-3xl text-navy md:text-4xl"
-            >
-              {homeAppointment.heading}
-            </h2>
-            <p className="mt-3 text-sm text-muted">{homeAppointment.feeNote}</p>
+          <div className="grid gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:items-start md:gap-16 lg:gap-20">
+            <div className="order-1 md:order-2 md:pt-1">
+              <h2
+                id="home-appointment-heading"
+                className="font-serif text-3xl leading-[1.15] text-navy md:text-4xl lg:text-[2.75rem]"
+              >
+                {homeAppointment.heading}
+              </h2>
+              <p className="mt-4 text-base text-muted">{homeAppointment.feeNote}</p>
+              <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
+              <Link
+                to="/what-to-expect"
+                className="mt-8 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
+              >
+                {homeAppointment.linkLabel}
+              </Link>
+            </div>
+
+            <ol className="order-2 relative md:order-1">
+              <div
+                className="absolute top-2 bottom-2 left-[0.4375rem] w-px bg-brass/45"
+                aria-hidden="true"
+              />
+              {homeAppointment.steps.map((item, index) => (
+                <li
+                  key={item.step}
+                  className="animate-fade-up relative flex gap-5 pb-10 last:pb-0"
+                  style={{ animationDelay: `${80 + index * 100}ms` }}
+                >
+                  <span
+                    className="relative z-10 mt-1.5 size-3.5 shrink-0 rounded-full border-[1.5px] border-brass bg-ivory"
+                    aria-hidden="true"
+                  />
+                  <div className="min-w-0 pt-0.5">
+                    <h3 className="font-serif text-xl text-navy md:text-[1.35rem]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 max-w-md text-base leading-relaxed text-muted">
+                      {item.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
-          <ol className="mt-12 grid gap-8 md:grid-cols-3 md:gap-10">
-            {homeAppointment.steps.map((item) => (
-              <li key={item.step}>
-                <span className="font-serif text-5xl text-brass/40" aria-hidden="true">
-                  {String(item.step).padStart(2, '0')}
-                </span>
-                <h3 className="mt-3 font-serif text-xl text-navy">{item.title}</h3>
-                <p className="mt-3 text-base text-muted">{item.description}</p>
-              </li>
-            ))}
-          </ol>
-          <Link
-            to="/what-to-expect"
-            className="mt-10 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
-          >
-            {homeAppointment.linkLabel}
-          </Link>
         </div>
       </section>
 
