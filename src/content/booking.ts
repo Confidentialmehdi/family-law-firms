@@ -125,9 +125,9 @@ export const bookingPage = {
   summaryEmpty: 'Choose a date and time.',
   reviewDemoNotice:
     'This is a demonstration. Nothing will be scheduled, charged, or emailed.',
-  completeHeading: 'Demo complete.',
-  completeCopy: 'The details below show what a consultation summary can look like.',
-  completeDemoNotice: 'No consultation has been scheduled. Nothing was sent or stored.',
+  completeHeading: 'Consultation confirmed',
+  completeCopy: 'Here is a summary of the details you selected.',
+  completeDemoNotice: 'Demo only. No consultation has been scheduled. Nothing was sent or stored.',
   validation: {
     meetingType: 'Choose video or in person.',
     date: 'Select a date.',
