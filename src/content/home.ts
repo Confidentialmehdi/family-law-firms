@@ -2,7 +2,11 @@ export const homeHero = {
   headline: 'New York family law. A clear next step.',
   supporting:
     'Guidance through divorce, parenting arrangements, and financial decisions with attorney Robert Whitfield.',
-  terms: '30-minute consultation · Video or in person',
+  points: [
+    'Confidential conversation about your priorities',
+    'Plain-language options before you decide',
+    '30 minutes · video or in person',
+  ],
 } as const
 
 export const homePractice = {

@@ -28,7 +28,17 @@ export function Hero() {
             <Button asChild size="lg">
               <Link to="/book-consultation">{site.ctaLabel}</Link>
             </Button>
-            <p className="mt-4 text-sm text-muted md:text-base">{homeHero.terms}</p>
+            <ul className="mt-5 max-w-md space-y-2 text-sm text-muted md:text-base">
+              {homeHero.points.map((point) => (
+                <li key={point} className="flex gap-3">
+                  <span
+                    className="mt-2.5 h-px w-3 shrink-0 bg-brass/70"
+                    aria-hidden="true"
+                  />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
