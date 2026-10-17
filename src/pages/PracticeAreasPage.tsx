@@ -185,7 +185,7 @@ export function PracticeAreasPage() {
         className="relative overflow-hidden bg-navy text-ivory"
         aria-labelledby="page-heading"
       >
-        <div className="relative mx-auto grid max-w-[1200px] gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] md:items-end md:gap-8 md:px-8 md:py-16 lg:py-20">
+        <div className="relative mx-auto grid max-w-[1200px] gap-10 px-5 py-14 md:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] md:items-start md:gap-10 md:px-8 md:py-16 lg:gap-14 lg:py-20">
           <div className="relative z-10 max-w-3xl">
             <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
               Whitfield Law Group / Practice Areas
