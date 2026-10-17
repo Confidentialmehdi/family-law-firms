@@ -32,32 +32,26 @@ export function Hero() {
         </div>
 
         <div
-          className="animate-fade-in relative hidden h-full min-h-[28rem] md:block lg:min-h-[32rem]"
+          className="animate-fade-in relative hidden min-h-[28rem] md:block lg:min-h-[32rem]"
           style={{ animationDelay: '120ms' }}
         >
-          <div className="relative h-full min-h-[28rem] overflow-hidden border border-border/70 bg-[#ebe4da] lg:min-h-[32rem]">
+          <figure className="relative h-full min-h-[28rem] overflow-hidden border border-border/70 bg-[#ebe4da] lg:min-h-[32rem]">
+            <img
+              src="/images/hero/new-york.jpg"
+              alt="New York City skyline in soft daylight"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+              loading="eager"
+              decoding="async"
+            />
             <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `
-                  linear-gradient(180deg, transparent 55%, rgb(247 244 239 / 0.85) 100%),
-                  linear-gradient(135deg, rgb(24 92 88 / 0.12), transparent 50%),
-                  repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 24px,
-                    rgb(165 139 96 / 0.05) 24px,
-                    rgb(165 139 96 / 0.05) 25px
-                  )
-                `,
-              }}
+              className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/20 to-transparent"
               aria-hidden="true"
             />
-            <div className="absolute right-6 bottom-6 left-6">
+            <figcaption className="absolute right-6 bottom-6 left-6">
               <p className="font-serif text-3xl text-navy lg:text-4xl">New York</p>
               <p className="mt-1.5 text-base text-muted">Family law</p>
-            </div>
-          </div>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

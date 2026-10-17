@@ -48,3 +48,4 @@ npm run preview
 
 - Appointment times use **America/New_York** civil dates and are labeled “New York time.”
 - Contact details on Contact Us are shown as plain text.
+- Portrait, story, and hero photos in `public/images/` are editorial **Unsplash** samples for the prototype—not firm photography.

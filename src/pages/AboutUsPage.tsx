@@ -20,7 +20,8 @@ export function AboutUsPage() {
       >
         <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] md:items-start md:gap-14 md:px-8 md:py-20 lg:gap-16">
           <ImageFallback
-            label="Portrait"
+            src={attorney.imageSrc}
+            alt={attorney.imageAlt}
             className="w-full max-w-md border border-border md:max-w-none"
           />
 
@@ -68,7 +69,8 @@ export function AboutUsPage() {
             {teamMembers.map((member) => (
               <li key={member.id} className="border-t border-border pt-6">
                 <ImageFallback
-                  label="Portrait"
+                  src={member.imageSrc}
+                  alt={member.imageAlt}
                   aspect="square"
                   className="w-full border border-border"
                 />

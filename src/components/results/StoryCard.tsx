@@ -24,12 +24,18 @@ export function StoryCard({ story, variant = 'full' }: StoryCardProps) {
       >
         <div
           className={cn(
-            'flex shrink-0 items-center justify-center rounded-full bg-[#e8e2d8] font-serif tracking-wide text-navy',
+            'flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#e8e2d8] font-serif tracking-wide text-navy',
             compact ? 'size-9 text-[0.7rem]' : 'size-10 text-xs',
           )}
           aria-hidden="true"
         >
-          {story.initials}
+          <img
+            src={story.imageSrc}
+            alt=""
+            className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <div className="min-w-0">
           <p className={cn('truncate font-medium text-navy', compact ? 'text-sm' : 'text-sm')}>
@@ -41,30 +47,24 @@ export function StoryCard({ story, variant = 'full' }: StoryCardProps) {
 
       <div
         className={cn(
-          'relative w-full bg-[#ebe4da]',
+          'relative w-full overflow-hidden bg-[#ebe4da]',
           compact ? 'aspect-[3/4]' : 'aspect-[4/5]',
         )}
       >
+        <img
+          src={story.imageSrc}
+          alt={story.imageAlt}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          loading="lazy"
+          decoding="async"
+        />
         <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(165deg, rgb(23 43 58 / 0.06) 0%, transparent 50%),
-              linear-gradient(0deg, rgb(165 139 96 / 0.1), transparent 45%),
-              repeating-linear-gradient(
-                -8deg,
-                transparent,
-                transparent 14px,
-                rgb(165 139 96 / 0.04) 14px,
-                rgb(165 139 96 / 0.04) 15px
-              )
-            `,
-          }}
+          className="absolute inset-0 bg-gradient-to-t from-navy/35 via-transparent to-transparent"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 p-4 text-center">
-          <span className="font-serif text-base text-navy/55">{story.practiceArea}</span>
-        </div>
+        <p className="absolute right-3 bottom-3 left-3 font-serif text-sm text-ivory/95">
+          {story.practiceArea}
+        </p>
       </div>
 
       <div className={cn('flex flex-1 flex-col', compact ? 'px-3.5 pt-3 pb-4' : 'px-4 pt-4 pb-5')}>

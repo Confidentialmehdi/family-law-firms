@@ -2,6 +2,9 @@ export const attorney = {
   name: 'Robert Whitfield',
   role: 'Lead Attorney',
   firm: 'Whitfield Law Group',
+  /** Editorial sample portrait for the prototype (Unsplash). */
+  imageSrc: '/images/portraits/robert.jpg',
+  imageAlt: 'Portrait of attorney Robert Whitfield',
   firmIntro:
     'Whitfield Law Group is a New York family law practice focused on helping people navigate divorce, parenting arrangements, and financial matters with clarity and care.',
   bio: `Robert Whitfield’s approach begins with understanding what matters most to the person across the table. Questions about family, finances, and the future often arrive together. He focuses on making those conversations easier to navigate through careful listening and clear explanations.
@@ -54,6 +57,8 @@ export type TeamMember = {
   name: string
   role: string
   description: string
+  imageSrc: string
+  imageAlt: string
   /** Anchor to in-page profile when set (e.g. Robert). */
   profileHref?: string
 }
@@ -65,6 +70,8 @@ export const teamMembers: TeamMember[] = [
     role: 'Lead Attorney',
     description:
       'Leads conversations about client priorities, family law questions, and possible next steps.',
+    imageSrc: '/images/portraits/robert.jpg',
+    imageAlt: 'Portrait of Robert Whitfield',
     profileHref: '#robert-whitfield',
   },
   {
@@ -73,6 +80,8 @@ export const teamMembers: TeamMember[] = [
     role: 'Family Law Attorney',
     description:
       'Supports the discussion and preparation of family law matters, with an emphasis on clear communication.',
+    imageSrc: '/images/portraits/avery.jpg',
+    imageAlt: 'Portrait of Avery Morgan',
   },
   {
     id: 'taylor',
@@ -80,5 +89,7 @@ export const teamMembers: TeamMember[] = [
     role: 'Client Services Coordinator',
     description:
       'Helps with appointment coordination and practical questions about preparing for a conversation.',
+    imageSrc: '/images/portraits/taylor.jpg',
+    imageAlt: 'Portrait of Taylor Reed',
   },
 ]

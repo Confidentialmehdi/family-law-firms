@@ -115,7 +115,11 @@ export function HomePage() {
         aria-labelledby="home-meet-heading"
       >
         <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-center md:gap-14 md:px-8 md:py-20">
-          <ImageFallback label="Portrait" className="w-full max-w-sm" />
+          <ImageFallback
+            src={attorney.imageSrc}
+            alt={attorney.imageAlt}
+            className="w-full max-w-sm border border-border"
+          />
           <div>
             <h2 id="home-meet-heading" className="font-serif text-3xl text-navy md:text-4xl">
               {homeMeet.heading}
