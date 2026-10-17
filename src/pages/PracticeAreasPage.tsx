@@ -1,4 +1,13 @@
-import { ArrowUpRight } from 'lucide-react'
+import {
+  ArrowUpRight,
+  FilePenLine,
+  Handshake,
+  HeartHandshake,
+  Home,
+  Scale,
+  Users,
+  type LucideIcon,
+} from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { PageHeading } from '@/components/PageHeading'
@@ -9,6 +18,15 @@ import { practiceAreas, practicePage } from '@/content/practiceAreas'
 import { site } from '@/content/site'
 import { cn } from '@/lib/utils'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
+
+const practiceIcons: Record<string, LucideIcon> = {
+  divorce: Scale,
+  custody: Users,
+  'child-support': HeartHandshake,
+  'spousal-support': Handshake,
+  property: Home,
+  prenup: FilePenLine,
+}
 
 function HeroArtwork() {
   return (
@@ -91,8 +109,8 @@ function ServiceSection({
   area: (typeof practiceAreas)[number]
   index: number
 }) {
-  const number = String(index + 1).padStart(2, '0')
   const tinted = index % 2 === 1
+  const Icon = practiceIcons[area.id] ?? Scale
 
   return (
     <section
@@ -105,12 +123,14 @@ function ServiceSection({
     >
       <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
         <div>
-          <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-            {number} / {area.title}
-          </p>
+          <Icon
+            className="size-6 text-brass md:size-7"
+            strokeWidth={1.25}
+            aria-hidden="true"
+          />
           <h2
             id={`${area.id}-heading`}
-            className="mt-3 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem] lg:text-[2.75rem]"
+            className="mt-4 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem] lg:text-[2.75rem]"
           >
             {area.title}
           </h2>
