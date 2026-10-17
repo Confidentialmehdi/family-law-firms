@@ -42,7 +42,7 @@ function SiteChrome() {
       <NavigationEffects />
       <ClearCompletedOnLeave />
       <Header />
-      <div className="flex-1">
+      <div className="flex flex-1 flex-col">
         <Outlet />
       </div>
       <Footer />

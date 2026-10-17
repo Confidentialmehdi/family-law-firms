@@ -39,10 +39,18 @@ export function BookConsultationPage() {
   const isComplete = step === 'complete'
 
   return (
-    <main id="main" className="bg-ivory">
-      <div className="mx-auto w-full max-w-[1200px] px-5 py-6 md:px-8 md:py-8">
+    <main
+      id="main"
+      className={cn('bg-ivory', isComplete && 'flex flex-1 flex-col justify-center')}
+    >
+      <div
+        className={cn(
+          'mx-auto w-full max-w-[1200px] px-5 md:px-8',
+          isComplete ? 'py-16 md:py-24' : 'py-6 md:py-8',
+        )}
+      >
         {isComplete ? (
-          <div className="mx-auto w-full max-w-xl rounded-sm border border-border bg-surface px-5 py-8 md:px-8 md:py-10">
+          <div className="mx-auto w-full max-w-xl rounded-sm border border-border bg-surface px-5 py-10 md:px-8 md:py-12">
             <CompleteStep />
           </div>
         ) : (
