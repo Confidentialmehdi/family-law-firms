@@ -12,7 +12,7 @@ export function AboutUsPage() {
 
   return (
     <main id="main">
-      {/* Robert Whitfield — main profile */}
+      {/* Robert J. Whitfield Esq. — main profile */}
       <section
         id="robert-whitfield"
         className="scroll-mt-28 border-b border-border bg-ivory"
