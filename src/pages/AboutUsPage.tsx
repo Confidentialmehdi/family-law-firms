@@ -18,11 +18,11 @@ export function AboutUsPage() {
         className="scroll-mt-28 border-b border-border bg-ivory"
         aria-labelledby="page-heading"
       >
-        <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] md:items-start md:gap-14 md:px-8 md:py-20 lg:gap-16">
+        <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-16 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-start md:gap-14 md:px-8 md:py-20 lg:gap-16">
           <ImageFallback
             src={attorney.imageSrc}
             alt={attorney.imageAlt}
-            className="w-full max-w-md border border-border md:max-w-none"
+            className="w-full max-w-sm border border-border md:max-w-none"
           />
 
           <div>
@@ -32,19 +32,30 @@ export function AboutUsPage() {
             <PageHeading className="mt-3 text-[2rem] leading-[1.15] text-navy md:text-[2.75rem] lg:text-[3rem]">
               {attorney.name}
             </PageHeading>
-            <p className="mt-2 text-lg text-muted">{attorney.role}</p>
+            <p className="mt-2 text-lg text-muted">{attorney.firm}</p>
+            <div className="mt-5 h-px w-14 bg-brass" aria-hidden="true" />
 
-            <div className="mt-8 space-y-5 text-lg text-muted">
+            <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted">
               {attorney.bio.split('\n\n').map((paragraph) => (
                 <p key={paragraph.slice(0, 32)}>{paragraph}</p>
               ))}
             </div>
 
-            <blockquote className="mt-10 border-l border-brass pl-5">
+            <blockquote className="mt-10 border-l-2 border-brass pl-5">
               <p className="font-serif text-2xl leading-snug text-navy md:text-[1.85rem]">
                 {attorney.approachStatement}
               </p>
             </blockquote>
+
+            <p className="mt-8 text-sm text-muted">
+              {aboutPage.profileSoftNextPrompt}{' '}
+              <Link
+                to={aboutPage.profileSoftNextTo}
+                className="font-medium text-teal underline-offset-4 hover:underline"
+              >
+                {aboutPage.profileSoftNextLabel}
+              </Link>
+            </p>
           </div>
         </div>
       </section>

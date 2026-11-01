@@ -21,6 +21,9 @@ At Whitfield Law Group, the initial consultation is a defined first step: organi
 } as const
 
 export const aboutPage = {
+  profileSoftNextPrompt: 'Ready for a defined first conversation?',
+  profileSoftNextLabel: 'What to expect at a consultation',
+  profileSoftNextTo: '/what-to-expect',
   team: {
     heading: 'The people you may work with.',
     supporting:
