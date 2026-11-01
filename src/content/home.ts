@@ -88,7 +88,7 @@ export const homeConsultation = {
 
 export const homeConcerns = {
   eyebrow: 'Before you book',
-  heading: 'Common questions about the consultation.',
+  heading: 'Frequently Asked Questions',
   supporting:
     'Direct answers about preparation, fit, cost, booking, and how to get in touch.',
 } as const
