@@ -30,18 +30,28 @@ export const homeHeroForm = {
   phonePlaceholder: 'Phone number',
   zipPlaceholder: 'ZIP code',
   emailPlaceholder: 'Email',
-  caseTypePlaceholder: '- Practice area -',
+  caseTypePlaceholder: '- What is most on your mind? -',
+  /** Hero-specific labels; values match practice-area ids used elsewhere. */
+  practiceTopics: [
+    { value: 'divorce', label: 'Divorce or separation' },
+    { value: 'custody', label: 'Parenting time and custody' },
+    { value: 'child-support', label: 'Child support' },
+    { value: 'spousal-support', label: 'Spousal support' },
+    { value: 'property', label: 'Property and finances' },
+    { value: 'prenup', label: 'Prenup or postnup agreement' },
+    { value: 'not-sure', label: 'Several connected questions' },
+  ] as const,
   formatLabel: 'Preferred format',
   formats: [
     { value: 'video', label: 'Online' },
     { value: 'in-person', label: 'In person' },
   ] as const,
-  contactWindowPlaceholder: '- When should we call? (New York time) -',
+  contactWindowPlaceholder: '- When may we reach you? -',
   contactWindows: [
-    { value: 'asap', label: 'At the earliest opportunity' },
-    { value: '9-12', label: 'Morning, 9:00 AM–12:00 PM' },
-    { value: '12-15', label: 'Midday, 12:00–3:00 PM' },
-    { value: '15-18', label: 'Afternoon, 3:00–6:00 PM' },
+    { value: 'asap', label: 'As soon as you’re available to talk' },
+    { value: '9-12', label: 'Weekday morning · 9:00 AM–12:00 PM ET' },
+    { value: '12-15', label: 'Weekday midday · 12:00–3:00 PM ET' },
+    { value: '15-18', label: 'Weekday afternoon · 3:00–6:00 PM ET' },
   ] as const,
   detailsPlaceholder: 'Optional: a few words about your questions',
   consultationNote: '30-minute consultation · Online or in person',
@@ -67,7 +77,7 @@ export const homeHeroForm = {
     zipInvalid: 'Enter a valid US ZIP code.',
     email: 'Enter your email address.',
     emailInvalid: 'Enter a valid email (for example, name@example.com).',
-    caseType: 'Select a practice area.',
+    caseType: 'Choose the topic closest to your situation.',
   },
 } as const
 
