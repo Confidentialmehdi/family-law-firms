@@ -43,7 +43,7 @@ export const closingConversion = {
   label: 'First step',
   headline: 'Begin with a 30-minute consultation.',
   supporting:
-    'Book a time to discuss your questions with Robert J. Whitfield Esq., or leave your details and request contact.',
+    'Book a time to discuss your questions with Robert J. Whitfield, Esq., or leave your details and request contact.',
   booking: {
     heading: 'Book a consultation',
     copy: 'Choose video or in person, pick a time, and review your details before you confirm.',

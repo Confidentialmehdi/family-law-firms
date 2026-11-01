@@ -9,7 +9,7 @@ export const faqItems: FaqItem[] = [
     id: 'first',
     question: 'What happens during the first consultation?',
     answer:
-      'You share what brought you here and what you want to discuss. Robert J. Whitfield Esq. focuses on listening, explaining options, and outlining possible next steps—not on making every decision in one sitting.',
+      'You share what brought you here and what you want to discuss. Robert J. Whitfield, Esq. focuses on listening, explaining options, and outlining possible next steps—not on making every decision in one sitting.',
   },
   {
     id: 'length',

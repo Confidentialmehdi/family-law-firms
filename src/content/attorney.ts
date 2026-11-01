@@ -1,13 +1,13 @@
 export const attorney = {
-  name: 'Robert J. Whitfield Esq.',
+  name: 'Robert J. Whitfield, Esq.',
   role: 'Lead Attorney',
   firm: 'Whitfield Law Group',
   /** Editorial sample portrait for the prototype (Unsplash). */
   imageSrc: '/images/portraits/robert.jpg',
-  imageAlt: 'Portrait of attorney Robert J. Whitfield Esq.',
+  imageAlt: 'Portrait of attorney Robert J. Whitfield, Esq.',
   firmIntro:
     'Whitfield Law Group is a New York family law practice. We work with people who have questions about divorce, parenting arrangements, financial support, property, and agreements before or during marriage.',
-  bio: `Robert J. Whitfield Esq. begins with what you want to discuss. Family, finances, and timing often arrive together. He listens carefully, explains options in plain language, and helps you separate questions that need attention now from those that can wait.
+  bio: `Robert J. Whitfield, Esq. begins with what you want to discuss. Family, finances, and timing often arrive together. He listens carefully, explains options in plain language, and helps you separate questions that need attention now from those that can wait.
 
 At Whitfield Law Group, the initial consultation is a defined first step: organize your priorities, understand possible paths, and decide—at your own pace—what you want to do next.`,
   approachStatement: 'A useful first conversation starts with your questions.',
@@ -17,7 +17,7 @@ At Whitfield Law Group, the initial consultation is a defined first step: organi
     'Preparing realistic next steps—not pressure to hire the firm or choose a path today.',
   ],
   homePreview:
-    'Robert J. Whitfield Esq. leads Whitfield Law Group. He focuses on careful listening, plain explanations, and practical next steps.',
+    'Robert J. Whitfield, Esq. leads Whitfield Law Group. He focuses on careful listening, plain explanations, and practical next steps.',
 } as const
 
 export const aboutPage = {
@@ -66,12 +66,12 @@ export type TeamMember = {
 export const teamMembers: TeamMember[] = [
   {
     id: 'robert',
-    name: 'Robert J. Whitfield Esq.',
+    name: 'Robert J. Whitfield, Esq.',
     role: 'Lead Attorney',
     description:
       'Leads consultations about client priorities, family law questions, and possible next steps.',
     imageSrc: '/images/portraits/robert.jpg',
-    imageAlt: 'Portrait of Robert J. Whitfield Esq.',
+    imageAlt: 'Portrait of Robert J. Whitfield, Esq.',
     profileHref: '#robert-whitfield',
   },
   {

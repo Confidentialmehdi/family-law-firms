@@ -27,7 +27,7 @@ export const resultsPage = {
     copy: 'The questions in these stories may feel familiar, but your priorities are your own. You may be thinking about your children, your finances, your relationship, or several connected decisions.',
     followUp:
       'You do not need to match someone else’s story before booking a consultation.',
-    linkLabel: 'Meet Robert J. Whitfield Esq. and the team',
+    linkLabel: 'Meet Robert J. Whitfield, Esq. and the team',
   },
 } as const
 
