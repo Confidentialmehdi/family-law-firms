@@ -32,7 +32,7 @@ export const homeHeroForm = {
   emailPlaceholder: 'Email',
   caseTypePlaceholder: '- Practice area -',
   detailsPlaceholder: 'What would you like to discuss? (optional detail)',
-  submitLabel: 'Book a consultation',
+  submitLabel: 'Request a consultation',
   submittingLabel: 'Submitting…',
   termsLead: 'By submitting this form, you agree to our',
   termsLinkLabel: 'Terms',
