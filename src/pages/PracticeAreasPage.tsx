@@ -186,6 +186,15 @@ function ServiceSection({
             <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
               {area.description}
             </p>
+            <p className="mt-8 max-w-md text-sm text-muted">
+              {practicePage.softNextPrompt}{' '}
+              <Link
+                to={practicePage.softNextTo}
+                className="font-medium text-teal underline-offset-4 hover:underline"
+              >
+                {practicePage.softNextLabel}
+              </Link>
+            </p>
           </div>
 
           <div className="min-w-0">

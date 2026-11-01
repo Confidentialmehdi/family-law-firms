@@ -170,6 +170,10 @@ export const practicePage = {
   approachLabel: 'How we approach this',
   relatedLabel: 'Related areas',
   questionsNote: 'Bring whichever of these you want to cover first.',
+  /** Quiet next step under each area intro — text link, not a repeated button. */
+  softNextPrompt: 'Ready to talk this through?',
+  softNextLabel: 'What to expect at a consultation',
+  softNextTo: '/what-to-expect',
   unsure: {
     heading: 'Not sure where your situation fits?',
     copy: 'You do not need to choose a legal category before speaking with us. Family matters often involve several connected questions. Select “Not sure” when you book and start with what you want to discuss.',
