@@ -77,7 +77,7 @@ export const homeHeroForm = {
     zipInvalid: 'Enter a valid US ZIP code.',
     email: 'Enter your email address.',
     emailInvalid: 'Enter a valid email (for example, name@example.com).',
-    caseType: 'Select a practice area.',
+    caseType: 'Choose the topic closest to your situation.',
   },
 } as const
 
