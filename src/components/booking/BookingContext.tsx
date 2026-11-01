@@ -38,7 +38,13 @@ type BookingContextValue = {
   dateStale: boolean
   clearDateStale: () => void
   consultationErrors: { date?: string; slot?: string; meetingType?: string }
-  detailsErrors: { name?: string; email?: string; phone?: string }
+  detailsErrors: {
+    firstName?: string
+    lastName?: string
+    email?: string
+    phone?: string
+    practiceArea?: string
+  }
   validateConsultation: () => boolean
   validateDetails: () => boolean
   clearConsultationErrors: () => void
@@ -49,7 +55,8 @@ const emptyDraft: BookingDraft = {
   dateKey: null,
   slotId: null,
   meetingType: null,
-  name: '',
+  firstName: '',
+  lastName: '',
   email: '',
   phone: '',
   practiceArea: '',
@@ -68,9 +75,11 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     meetingType?: string
   }>({})
   const [detailsErrors, setDetailsErrors] = React.useState<{
-    name?: string
+    firstName?: string
+    lastName?: string
     email?: string
     phone?: string
+    practiceArea?: string
   }>({})
 
   const slots = React.useMemo(() => generateAvailabilitySlots(), [slotVersion])
@@ -137,8 +146,15 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   }, [draft.dateKey, draft.meetingType, draft.slotId])
 
   const validateDetails = React.useCallback(() => {
-    const next: { name?: string; email?: string; phone?: string } = {}
-    if (!draft.name.trim()) next.name = bookingPage.validation.name
+    const next: {
+      firstName?: string
+      lastName?: string
+      email?: string
+      phone?: string
+      practiceArea?: string
+    } = {}
+    if (!draft.firstName.trim()) next.firstName = bookingPage.validation.firstName
+    if (!draft.lastName.trim()) next.lastName = bookingPage.validation.lastName
     if (!draft.email.trim()) next.email = bookingPage.validation.email
     else if (!isValidEmailAddress(draft.email)) {
       next.email = bookingPage.validation.emailInvalid
@@ -147,9 +163,16 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     else if (!isValidUsPhone(draft.phone)) {
       next.phone = bookingPage.validation.phoneInvalid
     }
+    if (!draft.practiceArea) next.practiceArea = bookingPage.validation.practiceArea
     setDetailsErrors(next)
     return Object.keys(next).length === 0
-  }, [draft.email, draft.name, draft.phone])
+  }, [
+    draft.email,
+    draft.firstName,
+    draft.lastName,
+    draft.phone,
+    draft.practiceArea,
+  ])
 
   const completeBooking = React.useCallback(() => {
     setStep('complete')
