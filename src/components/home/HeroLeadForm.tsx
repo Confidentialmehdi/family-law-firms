@@ -44,20 +44,31 @@ const emptyForm: FormState = {
 const fieldClass =
   'flex h-10 w-full rounded-sm border border-border bg-surface px-3 py-2 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25 sm:text-base'
 
+const selectChevron = {
+  backgroundColor: 'var(--color-surface)',
+  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f6165' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'right 0.85rem center',
+  backgroundSize: '1rem',
+} as const
+
 type HeroLeadFormProps = {
   className?: string
+  /** Prefix for field ids when the form appears more than once on a page. */
+  idPrefix?: string
 }
 
 /**
- * Hero intake panel — same field layout as the lead form, styled in the
- * Whitfield charcoal / ivory / burgundy theme.
+ * Consultation request intake — same field layout as the hero lead panel.
  */
-export function HeroLeadForm({ className }: HeroLeadFormProps) {
+export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps) {
   const [form, setForm] = React.useState<FormState>(emptyForm)
   const [errors, setErrors] = React.useState<Partial<Record<FieldKey, string>>>({})
   const [completed, setCompleted] = React.useState(false)
   const [submitting, setSubmitting] = React.useState(false)
   const submitTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const id = React.useCallback((name: string) => `${idPrefix}-${name}`, [idPrefix])
 
   React.useEffect(() => {
     return () => {
@@ -116,7 +127,7 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
   if (completed) {
     return (
       <div
-        id="hero-form"
+        id={id('form')}
         className={cn(
           'flex h-full flex-col justify-center rounded-sm border border-brass/35 bg-navy px-5 py-8 text-center sm:px-6 sm:py-10',
           className,
@@ -137,7 +148,7 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
 
   return (
     <div
-      id="hero-form"
+      id={id('form')}
       className={cn(
         'flex h-full min-h-0 flex-col rounded-sm border border-brass/35 bg-navy px-3.5 py-3.5 sm:px-4 sm:py-4',
         className,
@@ -154,45 +165,45 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
       >
         <div className="grid shrink-0 grid-cols-2 gap-3">
           <div>
-            <label htmlFor="hero-first-name" className="sr-only">
+            <label htmlFor={id('first-name')} className="sr-only">
               {homeHeroForm.firstNamePlaceholder}
             </label>
             <input
-              id="hero-first-name"
+              id={id('first-name')}
               name="firstName"
               autoComplete="given-name"
               autoCapitalize="words"
               placeholder={homeHeroForm.firstNamePlaceholder}
               value={form.firstName}
               aria-invalid={Boolean(errors.firstName)}
-              aria-describedby={errors.firstName ? 'hero-first-name-error' : undefined}
+              aria-describedby={errors.firstName ? id('first-name-error') : undefined}
               onChange={(event) => update('firstName', toInitialCaps(event.target.value))}
               className={fieldClass}
             />
             {errors.firstName ? (
-              <p id="hero-first-name-error" className="mt-1 text-sm text-red-300" role="alert">
+              <p id={id('first-name-error')} className="mt-1 text-sm text-red-300" role="alert">
                 {errors.firstName}
               </p>
             ) : null}
           </div>
           <div>
-            <label htmlFor="hero-last-name" className="sr-only">
+            <label htmlFor={id('last-name')} className="sr-only">
               {homeHeroForm.lastNamePlaceholder}
             </label>
             <input
-              id="hero-last-name"
+              id={id('last-name')}
               name="lastName"
               autoComplete="family-name"
               autoCapitalize="words"
               placeholder={homeHeroForm.lastNamePlaceholder}
               value={form.lastName}
               aria-invalid={Boolean(errors.lastName)}
-              aria-describedby={errors.lastName ? 'hero-last-name-error' : undefined}
+              aria-describedby={errors.lastName ? id('last-name-error') : undefined}
               onChange={(event) => update('lastName', toInitialCaps(event.target.value))}
               className={fieldClass}
             />
             {errors.lastName ? (
-              <p id="hero-last-name-error" className="mt-1 text-sm text-red-300" role="alert">
+              <p id={id('last-name-error')} className="mt-1 text-sm text-red-300" role="alert">
                 {errors.lastName}
               </p>
             ) : null}
@@ -201,11 +212,11 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
 
         <div className="grid shrink-0 grid-cols-2 gap-3">
           <div>
-            <label htmlFor="hero-phone" className="sr-only">
+            <label htmlFor={id('phone')} className="sr-only">
               {homeHeroForm.phonePlaceholder}
             </label>
             <input
-              id="hero-phone"
+              id={id('phone')}
               name="phone"
               type="tel"
               autoComplete="tel"
@@ -213,34 +224,34 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
               placeholder={homeHeroForm.phonePlaceholder}
               value={form.phone}
               aria-invalid={Boolean(errors.phone)}
-              aria-describedby={errors.phone ? 'hero-phone-error' : undefined}
+              aria-describedby={errors.phone ? id('phone-error') : undefined}
               onChange={(event) => update('phone', formatUsPhone(event.target.value))}
               className={fieldClass}
             />
             {errors.phone ? (
-              <p id="hero-phone-error" className="mt-1 text-sm text-red-300" role="alert">
+              <p id={id('phone-error')} className="mt-1 text-sm text-red-300" role="alert">
                 {errors.phone}
               </p>
             ) : null}
           </div>
           <div>
-            <label htmlFor="hero-zip" className="sr-only">
+            <label htmlFor={id('zip')} className="sr-only">
               {homeHeroForm.zipPlaceholder}
             </label>
             <input
-              id="hero-zip"
+              id={id('zip')}
               name="zip"
               autoComplete="postal-code"
               inputMode="numeric"
               placeholder={homeHeroForm.zipPlaceholder}
               value={form.zip}
               aria-invalid={Boolean(errors.zip)}
-              aria-describedby={errors.zip ? 'hero-zip-error' : undefined}
+              aria-describedby={errors.zip ? id('zip-error') : undefined}
               onChange={(event) => update('zip', formatUsZip(event.target.value))}
               className={fieldClass}
             />
             {errors.zip ? (
-              <p id="hero-zip-error" className="mt-1 text-sm text-red-300" role="alert">
+              <p id={id('zip-error')} className="mt-1 text-sm text-red-300" role="alert">
                 {errors.zip}
               </p>
             ) : null}
@@ -248,11 +259,11 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
         </div>
 
         <div className="shrink-0">
-          <label htmlFor="hero-email" className="sr-only">
+          <label htmlFor={id('email')} className="sr-only">
             {homeHeroForm.emailPlaceholder}
           </label>
           <input
-            id="hero-email"
+            id={id('email')}
             name="email"
             type="email"
             autoComplete="email"
@@ -260,40 +271,34 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
             placeholder={homeHeroForm.emailPlaceholder}
             value={form.email}
             aria-invalid={Boolean(errors.email)}
-            aria-describedby={errors.email ? 'hero-email-error' : undefined}
+            aria-describedby={errors.email ? id('email-error') : undefined}
             onChange={(event) => update('email', capitalizeFirstOnly(event.target.value))}
             className={fieldClass}
           />
           {errors.email ? (
-            <p id="hero-email-error" className="mt-1 text-sm text-red-300" role="alert">
+            <p id={id('email-error')} className="mt-1 text-sm text-red-300" role="alert">
               {errors.email}
             </p>
           ) : null}
         </div>
 
         <div className="shrink-0">
-          <label htmlFor="hero-case-type" className="sr-only">
+          <label htmlFor={id('case-type')} className="sr-only">
             Practice area
           </label>
           <select
-            id="hero-case-type"
+            id={id('case-type')}
             name="caseType"
             value={form.caseType}
             aria-invalid={Boolean(errors.caseType)}
-            aria-describedby={errors.caseType ? 'hero-case-type-error' : undefined}
+            aria-describedby={errors.caseType ? id('case-type-error') : undefined}
             onChange={(event) => update('caseType', event.target.value)}
             className={cn(
               fieldClass,
               'appearance-none pr-10 [color-scheme:light]',
               !form.caseType && 'text-muted',
             )}
-            style={{
-              backgroundColor: 'var(--color-surface)',
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f6165' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'right 0.85rem center',
-              backgroundSize: '1rem',
-            }}
+            style={selectChevron}
           >
             <option value="">{homeHeroForm.caseTypePlaceholder}</option>
             {homeHeroForm.practiceTopics.map((option) => (
@@ -303,7 +308,7 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
             ))}
           </select>
           {errors.caseType ? (
-            <p id="hero-case-type-error" className="mt-1 text-sm text-red-300" role="alert">
+            <p id={id('case-type-error')} className="mt-1 text-sm text-red-300" role="alert">
               {errors.caseType}
             </p>
           ) : null}
@@ -337,11 +342,11 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
         </fieldset>
 
         <div className="shrink-0">
-          <label htmlFor="hero-contact-window" className="sr-only">
+          <label htmlFor={id('contact-window')} className="sr-only">
             Best time to reach you
           </label>
           <select
-            id="hero-contact-window"
+            id={id('contact-window')}
             name="contactWindow"
             value={form.contactWindow}
             onChange={(event) => update('contactWindow', event.target.value)}
@@ -350,13 +355,7 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
               'appearance-none pr-10 [color-scheme:light]',
               !form.contactWindow && 'text-muted',
             )}
-            style={{
-              backgroundColor: 'var(--color-surface)',
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f6165' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'right 0.85rem center',
-              backgroundSize: '1rem',
-            }}
+            style={selectChevron}
           >
             <option value="">{homeHeroForm.contactWindowPlaceholder}</option>
             {homeHeroForm.contactWindows.map((option) => (
@@ -368,11 +367,11 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
         </div>
 
         <div className="flex min-h-0 flex-1 flex-col">
-          <label htmlFor="hero-details" className="sr-only">
+          <label htmlFor={id('details')} className="sr-only">
             What you would like to discuss
           </label>
           <textarea
-            id="hero-details"
+            id={id('details')}
             name="details"
             rows={3}
             placeholder={homeHeroForm.detailsPlaceholder}

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import { ContactRequestForm } from '@/components/contact/ContactRequestForm'
+import { HeroLeadForm } from '@/components/home/HeroLeadForm'
 import { Button } from '@/components/ui/button'
 import { closingConversion, site } from '@/content/site'
 
@@ -27,7 +27,7 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
         </h2>
         <p className="mt-4 max-w-xl text-lg text-muted">{closingConversion.supporting}</p>
 
-        <div className="mt-10 grid overflow-hidden rounded-sm border border-border lg:grid-cols-[minmax(0,0.45fr)_minmax(0,0.55fr)]">
+        <div className="mt-10 grid overflow-hidden rounded-sm border border-border lg:grid-cols-[minmax(0,0.45fr)_minmax(0,0.55fr)] lg:items-stretch">
           <div className="bg-navy px-6 py-8 text-ivory md:px-8 md:py-9">
             <h3 className="font-serif text-xl text-ivory md:text-2xl">
               {closingConversion.booking.heading}
@@ -43,14 +43,11 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
             </Button>
           </div>
 
-          <div className="border-t border-border bg-surface px-6 py-8 md:px-8 md:py-9 lg:border-t-0 lg:border-l">
-            <h3 className="font-serif text-xl text-navy md:text-2xl">
-              {closingConversion.contact.heading}
-            </h3>
-            <p className="mt-3 text-base text-muted">{closingConversion.contact.copy}</p>
-            <div className="mt-6">
-              <ContactRequestForm variant="compact" idPrefix={formIdPrefix} />
-            </div>
+          <div className="border-t border-border lg:border-t-0 lg:border-l">
+            <HeroLeadForm
+              idPrefix={formIdPrefix}
+              className="h-full rounded-none border-0 sm:px-6 sm:py-8"
+            />
           </div>
         </div>
       </div>
