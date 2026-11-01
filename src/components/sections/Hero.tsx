@@ -16,15 +16,15 @@ function AttorneyPortrait({ className }: { className?: string }) {
       <img
         src={attorney.imageSrc}
         alt={attorney.imageAlt}
-        className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
+        className="absolute inset-0 h-full w-full object-cover object-[center_18%]"
         loading="eager"
         decoding="async"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/25 to-transparent"
+        className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/20 to-transparent"
         aria-hidden="true"
       />
-      <figcaption className="absolute right-4 bottom-4 left-4">
+      <figcaption className="absolute right-4 bottom-4 left-4 md:right-5 md:bottom-5 md:left-5">
         <p className="font-serif text-xl text-navy md:text-2xl">{attorney.name}</p>
         <p className="mt-0.5 text-sm text-muted">{attorney.role}</p>
       </figcaption>
@@ -33,7 +33,8 @@ function AttorneyPortrait({ className }: { className?: string }) {
 }
 
 /**
- * Home hero — compact left stack (headline + square portrait) beside the intake form.
+ * Home hero sized like a compact law-firm lead block (~1140×826):
+ * left copy + media + trust, right thin tall form.
  */
 export function Hero() {
   return (
@@ -41,55 +42,56 @@ export function Hero() {
       className="texture-paper relative overflow-hidden border-b border-border/60"
       aria-labelledby="page-heading"
     >
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-6 px-5 py-10 md:gap-8 md:px-8 md:py-12 lg:py-14">
-        <div className="animate-fade-in grid grid-cols-1 items-stretch gap-5 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:gap-6 lg:gap-7">
-          <div className="animate-fade-up flex min-h-0 flex-col gap-4 md:gap-5">
+      <div className="mx-auto w-full max-w-[1140px] px-5 py-10 md:px-6 md:py-12">
+        <div className="animate-fade-in grid grid-cols-1 items-stretch gap-6 md:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] md:gap-8 lg:gap-10">
+          <div className="animate-fade-up flex min-h-0 flex-col gap-5 md:gap-6">
             <div className="shrink-0">
               <h1
                 id="page-heading"
                 tabIndex={-1}
-                className="font-serif text-[2rem] leading-[1.1] text-navy outline-none md:text-[2.35rem] lg:text-[2.75rem]"
+                className="max-w-xl font-serif text-[2.15rem] leading-[1.08] text-navy outline-none md:text-[2.5rem] lg:text-[2.85rem]"
               >
                 {homeHero.headline}
               </h1>
-              <p className="mt-3 max-w-xl text-base text-muted md:mt-3.5 md:text-lg">
+              <p className="mt-3 max-w-lg text-base text-muted md:mt-4 md:text-lg">
                 {homeHero.supporting}
               </p>
             </div>
 
-            <AttorneyPortrait className="relative aspect-square w-full max-w-[18rem] overflow-hidden border border-border/70 bg-[#ebe6de] sm:max-w-[20rem] md:max-w-[22rem]" />
+            {/* Landscape media panel — similar footprint to a hero video thumbnail */}
+            <AttorneyPortrait className="relative aspect-[16/10] w-full overflow-hidden border border-border/70 bg-[#ebe6de]" />
+
+            <ul className="mt-auto flex flex-col gap-3 pt-1 text-sm text-muted sm:flex-row sm:flex-wrap sm:items-center sm:gap-0">
+              {homeHero.points.map((point, index) => {
+                const Icon = heroPointIcons[point.id]
+                return (
+                  <li
+                    key={point.id}
+                    className={
+                      index === 0
+                        ? 'flex shrink-0 items-center gap-2 sm:pr-4'
+                        : 'flex shrink-0 items-center gap-2 sm:border-l sm:border-border sm:px-4 sm:last:pr-0'
+                    }
+                  >
+                    <Icon
+                      className="size-5 shrink-0 text-brass"
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
+                    <span className="leading-snug">
+                      <span className="block whitespace-nowrap">{point.lines[0]}</span>
+                      <span className="block whitespace-nowrap">{point.lines[1]}</span>
+                    </span>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
 
-          <div className="flex min-h-0 flex-col">
-            <HeroLeadForm className="h-full" />
+          <div className="flex min-h-0 md:min-h-[34rem] lg:min-h-[36rem]">
+            <HeroLeadForm className="h-full w-full" />
           </div>
         </div>
-
-        <ul className="animate-fade-up flex flex-col gap-3 text-sm text-muted md:flex-row md:flex-nowrap md:items-center md:gap-0">
-          {homeHero.points.map((point, index) => {
-            const Icon = heroPointIcons[point.id]
-            return (
-              <li
-                key={point.id}
-                className={
-                  index === 0
-                    ? 'flex shrink-0 items-center gap-2 md:pr-4'
-                    : 'flex shrink-0 items-center gap-2 md:border-l md:border-border md:px-4 md:last:pr-0'
-                }
-              >
-                <Icon
-                  className="size-5 shrink-0 text-brass"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                />
-                <span className="leading-snug">
-                  <span className="block whitespace-nowrap">{point.lines[0]}</span>
-                  <span className="block whitespace-nowrap">{point.lines[1]}</span>
-                </span>
-              </li>
-            )
-          })}
-        </ul>
       </div>
     </section>
   )
