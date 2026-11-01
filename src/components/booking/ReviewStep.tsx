@@ -108,7 +108,9 @@ export function ReviewStep() {
           <div>
             <dt className="text-sm text-muted">Your details</dt>
             <dd className="mt-1 text-navy">
-              <span className="block">{draft.name}</span>
+              <span className="block">
+                {draft.firstName} {draft.lastName}
+              </span>
               <span className="block">{draft.email}</span>
               <span className="block">{draft.phone}</span>
               {practiceAreaLabel ? (

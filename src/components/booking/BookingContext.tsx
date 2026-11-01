@@ -16,7 +16,8 @@ export type BookingDraft = {
   dateKey: string | null
   slotId: string | null
   meetingType: MeetingType | null
-  name: string
+  firstName: string
+  lastName: string
   email: string
   phone: string
   practiceArea: string

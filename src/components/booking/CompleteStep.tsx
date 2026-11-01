@@ -66,7 +66,7 @@ export function CompleteStep() {
           <div>
             <dt className="text-sm text-muted">Contact</dt>
             <dd>
-              {draft.name}
+              {draft.firstName} {draft.lastName}
               <span className="block text-muted">{draft.email}</span>
               <span className="block text-muted">{draft.phone}</span>
               {practiceAreaLabel ? (
