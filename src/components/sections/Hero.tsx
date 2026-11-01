@@ -1,6 +1,7 @@
 import { BriefcaseBusiness, FolderCheck, Star, type LucideIcon } from 'lucide-react'
 
 import { HeroLeadForm } from '@/components/home/HeroLeadForm'
+import { attorney } from '@/content/attorney'
 import { homeHero } from '@/content/home'
 
 const heroPointIcons: Record<(typeof homeHero.points)[number]['id'], LucideIcon> = {
@@ -9,7 +10,29 @@ const heroPointIcons: Record<(typeof homeHero.points)[number]['id'], LucideIcon>
   rating: Star,
 }
 
-/** Home hero — page h1 plus themed lead-capture form (intake panel on the right). */
+function AttorneyPortrait({ className }: { className?: string }) {
+  return (
+    <figure className={className}>
+      <img
+        src={attorney.imageSrc}
+        alt={attorney.imageAlt}
+        className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
+        loading="eager"
+        decoding="async"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/25 to-transparent"
+        aria-hidden="true"
+      />
+      <figcaption className="absolute right-5 bottom-5 left-5 md:right-6 md:bottom-6 md:left-6">
+        <p className="font-serif text-2xl text-navy md:text-3xl">{attorney.name}</p>
+        <p className="mt-1 text-sm text-muted md:mt-1.5 md:text-base">{attorney.role}</p>
+      </figcaption>
+    </figure>
+  )
+}
+
+/** Home hero — page h1, attorney portrait, and themed lead-capture form. */
 export function Hero() {
   return (
     <section
@@ -28,6 +51,8 @@ export function Hero() {
           <p className="mt-6 max-w-xl text-lg text-muted md:mt-8 md:text-xl lg:text-[1.35rem] lg:leading-relaxed">
             {homeHero.supporting}
           </p>
+
+          <AttorneyPortrait className="relative mt-8 aspect-[4/5] w-full max-w-md overflow-hidden border border-border/70 bg-[#ebe6de] md:mt-10 md:max-w-lg" />
         </div>
 
         <div
