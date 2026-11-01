@@ -53,6 +53,15 @@ export const closingConversion = {
       '$150',
       'New York time',
     ],
+    valueHeading: 'You can leave with',
+    valuePoints: [
+      'Clearer priorities for family, finances, and timing',
+      'A practical sense of options in ordinary language',
+      'Notes on what information may help a next discussion',
+      'No pressure to decide everything in one sitting',
+    ],
+    guideLabel: 'Read the full consultation guide',
+    guideTo: '/what-to-expect',
   },
   contact: {
     heading: 'Request contact',

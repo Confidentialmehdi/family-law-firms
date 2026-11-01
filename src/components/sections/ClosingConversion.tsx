@@ -38,7 +38,31 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <div className="mt-auto pt-8">
+
+            <div className="mt-8 flex-1">
+              <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+                {closingConversion.booking.valueHeading}
+              </p>
+              <ul className="mt-4 space-y-3">
+                {closingConversion.booking.valuePoints.map((point) => (
+                  <li key={point} className="flex gap-3 text-sm leading-relaxed text-ivory/80">
+                    <span
+                      className="mt-2 h-px w-3 shrink-0 bg-brass/70"
+                      aria-hidden="true"
+                    />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to={closingConversion.booking.guideTo}
+                className="mt-6 inline-block text-sm font-medium text-brass-muted underline-offset-4 hover:text-brass hover:underline"
+              >
+                {closingConversion.booking.guideLabel}
+              </Link>
+            </div>
+
+            <div className="mt-8 pt-2">
               <Button asChild size="lg" className="w-full">
                 <Link to="/book-consultation">{site.ctaLabel}</Link>
               </Button>
