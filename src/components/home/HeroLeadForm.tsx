@@ -410,10 +410,9 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
           {submitting ? homeHeroForm.submittingLabel : homeHeroForm.submitLabel}
         </Button>
 
-        <div className="shrink-0 space-y-1 text-center text-[0.65rem] leading-relaxed text-ivory/55 sm:text-[0.7rem]">
-          <p>{homeHeroForm.resultsDisclaimer}</p>
-          <p>{homeHeroForm.copyright}</p>
-        </div>
+        <p className="shrink-0 text-center text-[0.65rem] leading-snug text-ivory/55 sm:text-[0.7rem]">
+          {homeHeroForm.footerLine}
+        </p>
       </form>
     </div>
   )
