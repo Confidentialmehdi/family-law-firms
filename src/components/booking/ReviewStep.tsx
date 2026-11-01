@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { bookingPage } from '@/content/booking'
 import { site } from '@/content/site'
 import { Button } from '@/components/ui/button'
@@ -13,6 +15,23 @@ export function ReviewStep() {
     setStep,
     completeBooking,
   } = useBooking()
+  const [submitting, setSubmitting] = React.useState(false)
+  const submitTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  React.useEffect(() => {
+    return () => {
+      if (submitTimeoutRef.current) clearTimeout(submitTimeoutRef.current)
+    }
+  }, [])
+
+  function handleConfirm() {
+    if (submitting) return
+    setSubmitting(true)
+    submitTimeoutRef.current = setTimeout(() => {
+      submitTimeoutRef.current = null
+      completeBooking()
+    }, 3000)
+  }
 
   return (
     <div className="flex flex-col">
@@ -33,6 +52,7 @@ export function ReviewStep() {
             type="button"
             variant="link"
             className="h-auto p-0 text-sm"
+            disabled={submitting}
             onClick={() => setStep('consultation')}
           >
             Edit
@@ -56,6 +76,7 @@ export function ReviewStep() {
             type="button"
             variant="link"
             className="h-auto p-0 text-sm"
+            disabled={submitting}
             onClick={() => setStep('consultation')}
           >
             Edit
@@ -71,6 +92,7 @@ export function ReviewStep() {
             type="button"
             variant="link"
             className="h-auto p-0 text-sm"
+            disabled={submitting}
             onClick={() => setStep('consultation')}
           >
             Edit
@@ -98,6 +120,7 @@ export function ReviewStep() {
             type="button"
             variant="link"
             className="h-auto p-0 text-sm"
+            disabled={submitting}
             onClick={() => setStep('details')}
           >
             Edit
@@ -106,11 +129,21 @@ export function ReviewStep() {
       </dl>
 
       <div className="mt-6 flex flex-col-reverse gap-2 border-t border-border pt-4 sm:flex-row sm:justify-between">
-        <Button type="button" variant="outline" onClick={() => setStep('details')}>
+        <Button
+          type="button"
+          variant="outline"
+          disabled={submitting}
+          onClick={() => setStep('details')}
+        >
           Back
         </Button>
-        <Button type="button" onClick={completeBooking}>
-          {site.ctaLabel}
+        <Button
+          type="button"
+          disabled={submitting}
+          aria-busy={submitting}
+          onClick={handleConfirm}
+        >
+          {submitting ? bookingPage.submittingLabel : bookingPage.confirmLabel}
         </Button>
       </div>
     </div>

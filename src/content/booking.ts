@@ -120,6 +120,8 @@ export const bookingPage = {
   duration: 'Consultation',
   summaryHeading: 'Your consultation',
   summaryEmpty: 'Choose a date and time.',
+  confirmLabel: 'Book a consultation',
+  submittingLabel: 'Submitting',
   completeHeading: 'Consultation confirmed',
   completeCopy: 'Here is a summary of the details you selected.',
   completeDemoNotice: 'Demo only. No consultation has been scheduled. Nothing was sent or stored.',
