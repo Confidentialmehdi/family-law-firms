@@ -359,28 +359,37 @@ export function PracticeAreasPage() {
         ))}
       </section>
 
-      {/* Unsure — calm pause */}
+      {/* Unsure — reassurance + dual paths */}
       <section
-        className="border-b border-border bg-ivory"
+        className="border-b border-border bg-surface/40"
         aria-labelledby="unsure-heading"
       >
-        <div className="mx-auto max-w-[1200px] px-5 py-20 md:px-8 md:py-24">
-          <div className="max-w-2xl">
-            <h2
-              id="unsure-heading"
-              className="font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
-            >
-              {practicePage.unsure.heading}
-            </h2>
-            <div className="mt-6 h-px w-20 bg-brass" aria-hidden="true" />
-            <p className="mt-6 text-lg text-muted">{practicePage.unsure.copy}</p>
-            <Link
-              to="/what-to-expect"
-              className="mt-8 inline-flex items-center gap-2 text-base text-teal underline-offset-4 hover:underline"
-            >
-              {practicePage.unsure.linkLabel}
-              <ArrowUpRight className="size-4" aria-hidden="true" />
-            </Link>
+        <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
+          <div className="grid gap-10 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:items-end md:gap-16 lg:gap-20">
+            <div className="min-w-0">
+              <h2
+                id="unsure-heading"
+                className="font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
+              >
+                {practicePage.unsure.heading}
+              </h2>
+              <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+                {practicePage.unsure.copy}
+              </p>
+              <p className="mt-4 max-w-xl text-base text-muted">
+                {practicePage.unsure.bookingNote}
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:items-start md:items-stretch">
+              <Button asChild size="lg" className="w-full sm:w-auto md:w-full">
+                <Link to="/book-consultation">{practicePage.unsure.bookLabel}</Link>
+              </Button>
+              <Button asChild variant="outline" size="sm" className="w-full sm:w-auto md:w-full">
+                <Link to="/what-to-expect">{practicePage.unsure.linkLabel}</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
