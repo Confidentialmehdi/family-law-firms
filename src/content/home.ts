@@ -18,16 +18,20 @@ export const homeHero = {
   ],
 } as const
 
-/** Hero lead-capture form — layout mirrors common law-firm intake panels. */
+/**
+ * Hero consultation request form.
+ * Same compact lead-panel layout; copy is written for family-law intake
+ * (priorities and practice area), not personal-injury “what happened” framing.
+ */
 export const homeHeroForm = {
-  heading: "It's Easy to Get Started.",
-  firstNamePlaceholder: 'First Name',
-  lastNamePlaceholder: 'Last Name',
-  phonePlaceholder: 'Phone Number',
-  zipPlaceholder: 'Zip Code',
+  heading: 'Request a consultation.',
+  firstNamePlaceholder: 'First name',
+  lastNamePlaceholder: 'Last name',
+  phonePlaceholder: 'Phone number',
+  zipPlaceholder: 'ZIP code',
   emailPlaceholder: 'Email',
-  caseTypePlaceholder: '- Case Type -',
-  detailsPlaceholder: 'Please describe what happened',
+  caseTypePlaceholder: '- Practice area -',
+  detailsPlaceholder: 'What would you like to discuss? (optional detail)',
   submitLabel: 'Book a consultation',
   submittingLabel: 'Submitting…',
   termsLead: 'By submitting this form, you agree to our',
@@ -35,9 +39,9 @@ export const homeHeroForm = {
   privacyLead: '& acknowledge our',
   privacyLinkLabel: 'privacy policy',
   consentCopy:
-    'By submitting your phone number, you authorize Whitfield Law Group to deliver or cause to be delivered calls using an automatic dialing system, prerecorded and/or artificial voice, and SMS text messages to the number you provided. Consent is not a condition of receiving services. Message and data rates may apply. Message frequency varies.',
+    'By submitting your phone number, you authorize Whitfield Law Group to contact you by phone or SMS at the number you provided, including with an automatic dialing system. Consent is not required to request a consultation. Message and data rates may apply.',
   resultsDisclaimer:
-    'Results may vary depending on your particular facts and legal circumstances.',
+    'Submitting this form requests contact about a consultation. It does not create an attorney-client relationship.',
   copyright: '©2026 Whitfield Law Group. All rights reserved.',
   completeHeading: 'Request received',
   completeCopy: 'Thank you. We will use the details you provided to follow up.',
@@ -52,7 +56,7 @@ export const homeHeroForm = {
     zipInvalid: 'Enter a valid US ZIP code.',
     email: 'Enter your email address.',
     emailInvalid: 'Enter a valid email (for example, name@example.com).',
-    caseType: 'Select a case type.',
+    caseType: 'Select a practice area.',
   },
 } as const
 
