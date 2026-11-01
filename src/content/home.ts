@@ -196,10 +196,24 @@ export const homeMeet = {
 } as const
 
 export const homeExperience = {
+  eyebrow: 'Our results',
   heading: 'How a first conversation can help organize priorities.',
+  supporting:
+    'Short examples of how people clarify what needs attention now—and what can wait.',
   buttonLabel: 'See More Results',
-  /** Four stories featured on the homepage; full set lives on Our Results. */
-  storyIds: ['michael', 'sarah', 'dana', 'james'] as const,
+  /** Two outcome-led stories on Home; full set lives on Our Results. */
+  stories: [
+    {
+      id: 'michael',
+      outcome:
+        'Named what felt urgent and what could wait, then left with topics to prepare for a next discussion.',
+    },
+    {
+      id: 'sarah',
+      outcome:
+        'Sorted immediate concerns from longer-term questions into a focused set of priorities.',
+    },
+  ] as const,
 } as const
 
 export const homeConsultation = {

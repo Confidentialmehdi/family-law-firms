@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 
 import { HomePracticeSection } from '@/components/home/HomePracticeSection'
 import { ImageFallback } from '@/components/ImageFallback'
-import { StoryCard } from '@/components/results/StoryCard'
 import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { Hero } from '@/components/sections/Hero'
 import {
@@ -26,9 +25,16 @@ import { useDocumentTitle } from '@/lib/useDocumentTitle'
 export function HomePage() {
   useDocumentTitle()
 
-  const featuredStories = homeExperience.storyIds
-    .map((id) => clientStories.find((story) => story.id === id))
-    .filter((story): story is (typeof clientStories)[number] => Boolean(story))
+  const featuredStories = homeExperience.stories
+    .map((item) => {
+      const story = clientStories.find((entry) => entry.id === item.id)
+      if (!story) return null
+      return { ...story, outcome: item.outcome }
+    })
+    .filter(
+      (story): story is (typeof clientStories)[number] & { outcome: string } =>
+        Boolean(story),
+    )
 
   return (
     <main id="main">
@@ -79,30 +85,60 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 4. Results preview */}
+      {/* 4. Results preview — outcome-led editorial list */}
       <section className="border-b border-border/60" aria-labelledby="home-experience-heading">
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
-          <div className="max-w-2xl">
-            <h2
-              id="home-experience-heading"
-              className="font-serif text-3xl text-navy md:text-4xl"
-            >
-              {homeExperience.heading}
-            </h2>
-          </div>
-          <div className="mx-auto mt-10 w-full max-w-[80%]">
-            <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
-              {featuredStories.map((story) => (
-                <li key={story.id} className="flex min-w-0">
-                  <StoryCard story={story} variant="compact" />
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 flex justify-center">
-              <Button asChild variant="outline" size="sm">
+          <div className="grid gap-12 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-start md:gap-16 lg:gap-20">
+            <div className="md:sticky md:top-28">
+              <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
+                {homeExperience.eyebrow}
+              </p>
+              <h2
+                id="home-experience-heading"
+                className="mt-4 font-serif text-3xl leading-[1.15] text-navy md:text-4xl lg:text-[2.75rem]"
+              >
+                {homeExperience.heading}
+              </h2>
+              <p className="mt-4 max-w-sm text-lg leading-relaxed text-muted">
+                {homeExperience.supporting}
+              </p>
+              <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
+              <Button asChild variant="outline" size="sm" className="mt-8">
                 <Link to="/our-results">{homeExperience.buttonLabel}</Link>
               </Button>
             </div>
+
+            <ul className="border-t border-border">
+              {featuredStories.map((story) => (
+                <li key={story.id} className="border-b border-border py-6 md:py-7">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#e8e3db]"
+                      aria-hidden="true"
+                    >
+                      <img
+                        src={story.imageSrc}
+                        alt=""
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-medium text-navy">{story.name}</p>
+                      <p className="truncate text-xs text-muted">{story.city}</p>
+                    </div>
+                  </div>
+                  <p className="mt-4 text-[0.65rem] tracking-[0.14em] text-brass uppercase">
+                    {story.practiceArea}
+                  </p>
+                  <h3 className="mt-2 font-serif text-xl leading-snug text-navy md:text-[1.35rem]">
+                    {story.title}
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-muted">{story.outcome}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
