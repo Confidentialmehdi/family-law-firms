@@ -136,18 +136,18 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
     <div
       id="hero-form"
       className={cn(
-        'flex h-full min-h-0 flex-col rounded-sm border border-brass/35 bg-navy px-4 py-4 sm:px-5 sm:py-5',
+        'flex h-full min-h-0 flex-col rounded-sm border border-brass/35 bg-navy px-3.5 py-3.5 sm:px-4 sm:py-4',
         className,
       )}
     >
-      <h2 className="shrink-0 font-serif text-xl leading-tight text-ivory sm:text-[1.5rem]">
+      <h2 className="shrink-0 font-serif text-lg leading-tight text-ivory sm:text-xl">
         {homeHeroForm.heading}
       </h2>
 
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="mt-3 flex min-h-0 flex-1 flex-col gap-2.5 sm:mt-4 sm:gap-3"
+        className="mt-2.5 flex min-h-0 flex-1 flex-col gap-2 sm:mt-3 sm:gap-2.5"
       >
         <div className="grid shrink-0 grid-cols-2 gap-3">
           <div>
