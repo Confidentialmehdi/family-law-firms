@@ -107,6 +107,9 @@ export function AboutUsPage() {
                 </h3>
                 <p className="mt-1 text-sm text-muted">{member.role}</p>
                 <p className="mt-3 text-base text-muted">{member.description}</p>
+                <Button asChild variant="outline" size="sm" className="mt-5">
+                  <Link to={member.profileHref}>{aboutPage.team.learnMoreLabel}</Link>
+                </Button>
               </li>
             ))}
           </ul>
