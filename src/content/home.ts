@@ -83,17 +83,43 @@ export const homeHeroForm = {
 } as const
 
 export const homePractice = {
-  heading: 'How can we help?',
-  introduction: 'Explore the family law matters we handle.',
+  eyebrow: 'Practice areas',
+  heading: 'What are you facing?',
+  introduction:
+    'Choose the situation closest to yours. Each path leads to the practice area we handle.',
   linkLabel: 'Explore all practice areas',
-  /** Flat editorial list — six services, no category containers. */
-  areaIds: [
-    'divorce',
-    'custody',
-    'child-support',
-    'spousal-support',
-    'property',
-    'prenup',
+  /** Situation-led mapping — concern first, practice area second. */
+  concerns: [
+    {
+      areaId: 'divorce',
+      concern: 'Considering separation',
+      outcome: 'Clarify decisions about family, home, and timing.',
+    },
+    {
+      areaId: 'custody',
+      concern: 'Need a parenting schedule',
+      outcome: 'Talk through time with your children and shared responsibilities.',
+    },
+    {
+      areaId: 'child-support',
+      concern: 'Support for your children',
+      outcome: 'Understand contributions toward their ongoing needs.',
+    },
+    {
+      areaId: 'spousal-support',
+      concern: 'Financial support after separation',
+      outcome: 'Discuss needs and responsibilities during or after a split.',
+    },
+    {
+      areaId: 'property',
+      concern: 'Sorting shared assets and debts',
+      outcome: 'Organize property, obligations, and financial priorities.',
+    },
+    {
+      areaId: 'prenup',
+      concern: 'Planning finances around marriage',
+      outcome: 'Set expectations before or during a marriage agreement.',
+    },
   ] as const,
 } as const
 
