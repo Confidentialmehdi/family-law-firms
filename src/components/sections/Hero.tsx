@@ -33,7 +33,7 @@ function AttorneyPortrait({ className }: { className?: string }) {
 }
 
 /**
- * Home hero — headline above an equal-size portrait | form pair.
+ * Home hero — left stack (headline + portrait) matches the expanded form column.
  */
 export function Hero() {
   return (
@@ -42,24 +42,27 @@ export function Hero() {
       aria-labelledby="page-heading"
     >
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-5 py-14 md:gap-10 md:px-8 md:py-16 lg:py-20">
-        <div className="animate-fade-up max-w-3xl">
-          <h1
-            id="page-heading"
-            tabIndex={-1}
-            className="font-serif text-[2.75rem] leading-[1.08] text-navy outline-none md:text-5xl lg:text-[3.75rem]"
-          >
-            {homeHero.headline}
-          </h1>
-          <p className="mt-5 text-lg text-muted md:mt-6 md:text-xl lg:text-[1.35rem] lg:leading-relaxed">
-            {homeHero.supporting}
-          </p>
-        </div>
+        <div className="animate-fade-in grid grid-cols-1 items-stretch gap-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-7 lg:gap-9">
+          {/* One left section: headline above portrait, same overall size as form */}
+          <div className="animate-fade-up flex min-h-0 flex-col gap-6 md:gap-7">
+            <div className="shrink-0">
+              <h1
+                id="page-heading"
+                tabIndex={-1}
+                className="font-serif text-[2.5rem] leading-[1.08] text-navy outline-none md:text-[2.75rem] lg:text-[3.25rem]"
+              >
+                {homeHero.headline}
+              </h1>
+              <p className="mt-4 text-base text-muted md:mt-5 md:text-lg lg:text-xl lg:leading-relaxed">
+                {homeHero.supporting}
+              </p>
+            </div>
 
-        {/* Equal-width, equal-height media + form */}
-        <div className="animate-fade-in grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-8">
-          <AttorneyPortrait className="relative aspect-[4/5] w-full overflow-hidden border border-border/70 bg-[#ebe6de]" />
-          <div className="aspect-[4/5] w-full min-h-0">
-            <HeroLeadForm className="h-full" />
+            <AttorneyPortrait className="relative min-h-[22rem] w-full flex-1 overflow-hidden border border-border/70 bg-[#ebe6de] sm:min-h-[26rem] md:min-h-0" />
+          </div>
+
+          <div className="flex min-h-0 flex-col">
+            <HeroLeadForm className="h-full min-h-[32rem] md:min-h-full" />
           </div>
         </div>
 
