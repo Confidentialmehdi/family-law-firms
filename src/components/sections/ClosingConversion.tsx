@@ -41,19 +41,30 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
 
             <div className="mt-8 flex-1">
               <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-                {closingConversion.booking.valueHeading}
+                {closingConversion.booking.stepsHeading}
               </p>
-              <ul className="mt-4 space-y-3">
-                {closingConversion.booking.valuePoints.map((point) => (
-                  <li key={point} className="flex gap-3 text-sm leading-relaxed text-ivory/80">
+              <ol className="relative mt-5 space-y-5">
+                <div
+                  className="absolute top-2 bottom-2 left-[0.95rem] w-px bg-brass/35"
+                  aria-hidden="true"
+                />
+                {closingConversion.booking.steps.map((item) => (
+                  <li key={item.step} className="relative flex gap-4">
                     <span
-                      className="mt-2 h-px w-3 shrink-0 bg-brass/70"
+                      className="relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full border border-brass/50 bg-navy font-serif text-xs text-brass"
                       aria-hidden="true"
-                    />
-                    <span>{point}</span>
+                    >
+                      {item.step}
+                    </span>
+                    <div className="min-w-0 pt-0.5">
+                      <p className="font-serif text-base text-ivory">{item.title}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-ivory/65">
+                        {item.description}
+                      </p>
+                    </div>
                   </li>
                 ))}
-              </ul>
+              </ol>
               <Link
                 to={closingConversion.booking.guideTo}
                 className="mt-6 inline-block text-sm font-medium text-brass-muted underline-offset-4 hover:text-brass hover:underline"

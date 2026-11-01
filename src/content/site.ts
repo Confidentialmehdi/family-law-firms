@@ -53,12 +53,23 @@ export const closingConversion = {
       '$150',
       'New York time',
     ],
-    valueHeading: 'You can leave with',
-    valuePoints: [
-      'Clearer priorities for family, finances, and timing',
-      'A practical sense of options in ordinary language',
-      'Notes on what information may help a next discussion',
-      'No pressure to decide everything in one sitting',
+    stepsHeading: 'How booking works',
+    steps: [
+      {
+        step: '01',
+        title: 'Choose a time and format',
+        description: 'Select a date and time, then choose online or in person.',
+      },
+      {
+        step: '02',
+        title: 'Discuss your priorities',
+        description: 'Cover family, finances, timing, or several connected questions.',
+      },
+      {
+        step: '03',
+        title: 'Review possible next steps',
+        description: 'Leave with options and what may help a later discussion.',
+      },
     ],
     guideLabel: 'Read the full consultation guide',
     guideTo: '/what-to-expect',
