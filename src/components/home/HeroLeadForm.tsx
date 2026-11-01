@@ -306,18 +306,18 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
           ) : null}
         </div>
 
-        <div className="shrink-0">
+        <div className="flex min-h-0 flex-1 flex-col">
           <label htmlFor="hero-details" className="sr-only">
             What you would like to discuss
           </label>
           <textarea
             id="hero-details"
             name="details"
-            rows={3}
+            rows={4}
             placeholder={homeHeroForm.detailsPlaceholder}
             value={form.details}
             onChange={(event) => update('details', event.target.value)}
-            className="h-20 w-full resize-y rounded-sm border border-border bg-surface px-3 py-2 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25 sm:text-base"
+            className="min-h-[4.5rem] w-full flex-1 resize-none rounded-sm border border-border bg-surface px-3 py-2 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25 sm:text-base"
           />
         </div>
 
