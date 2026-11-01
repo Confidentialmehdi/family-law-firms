@@ -103,7 +103,7 @@ export const meetingTypeLabels: Record<MeetingType, string> = {
 }
 
 export const bookingPage = {
-  headline: 'Book a consultation with Robert J. Whitfield Esq..',
+  headline: 'Book a consultation with Robert J. Whitfield Esq.',
   supporting:
     'Choose a format, date, and time for a 30-minute conversation about your questions and priorities.',
   consultationDetails: '30 minutes · Video or in person · $150',

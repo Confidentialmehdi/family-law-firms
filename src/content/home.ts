@@ -49,7 +49,7 @@ export const homePractice = {
 } as const
 
 export const homeMeet = {
-  heading: 'Meet Robert J. Whitfield Esq..',
+  heading: 'Meet Robert J. Whitfield Esq.',
   body: `Robert J. Whitfield Esq. leads Whitfield Law Group. In a consultation, he listens to your priorities, explains options in ordinary language, and helps you organize what may need attention next—without asking you to decide everything in one sitting.`,
   linkLabel: 'About the firm and team',
 } as const
