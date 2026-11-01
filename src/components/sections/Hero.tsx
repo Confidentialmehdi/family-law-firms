@@ -16,17 +16,17 @@ function AttorneyPortrait({ className }: { className?: string }) {
       <img
         src={attorney.imageSrc}
         alt={attorney.imageAlt}
-        className="absolute inset-0 h-full w-full object-cover object-[center_12%]"
+        className="absolute inset-0 h-full w-full scale-125 object-cover object-[center_8%]"
         loading="eager"
         decoding="async"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/20 to-transparent"
+        className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/25 to-transparent"
         aria-hidden="true"
       />
-      <figcaption className="absolute right-4 bottom-4 left-4 md:right-5 md:bottom-5 md:left-5">
-        <p className="font-serif text-xl text-navy md:text-2xl">{attorney.name}</p>
-        <p className="mt-0.5 text-sm text-muted">{attorney.role}</p>
+      <figcaption className="absolute right-3 bottom-3 left-3">
+        <p className="font-serif text-lg text-navy md:text-xl">{attorney.name}</p>
+        <p className="mt-0.5 text-xs text-muted md:text-sm">{attorney.role}</p>
       </figcaption>
     </figure>
   )
@@ -58,8 +58,7 @@ export function Hero() {
               </p>
             </div>
 
-            {/* Landscape media panel — similar footprint to a hero video thumbnail */}
-            <AttorneyPortrait className="relative aspect-[4/5] w-full overflow-hidden border border-border/70 bg-[#ebe6de]" />
+            <AttorneyPortrait className="relative aspect-square w-full overflow-hidden border border-border/70 bg-[#ebe6de]" />
 
             <ul className="mt-auto flex flex-col gap-3 pt-1 text-sm text-muted sm:flex-row sm:flex-wrap sm:items-center sm:gap-0">
               {homeHero.points.map((point, index) => {
