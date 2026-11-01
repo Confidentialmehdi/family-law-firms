@@ -107,12 +107,9 @@ export function HomePage() {
               </h2>
               <p className="mt-4 text-base text-muted">{homeConsultation.feeNote}</p>
               <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
-              <Link
-                to="/what-to-expect"
-                className="mt-8 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
-              >
-                {homeConsultation.linkLabel}
-              </Link>
+              <Button asChild variant="outline" size="sm" className="mt-8">
+                <Link to="/what-to-expect">{homeConsultation.linkLabel}</Link>
+              </Button>
             </div>
 
             <ol className="order-2 relative md:order-1">
