@@ -28,6 +28,8 @@ export const aboutPage = {
     heading: 'The people you may work with.',
     supporting:
       'Legal guidance and practical coordination each support the consultation and any follow-up conversations.',
+    /** Supporting roster only — Robert is covered in the profile section above. */
+    leadId: 'robert',
   },
   values: {
     heading: 'How we approach the work.',
