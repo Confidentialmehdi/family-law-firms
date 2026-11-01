@@ -45,7 +45,7 @@ export const closingConversion = {
   supporting:
     'Book a time to discuss your questions with Robert J. Whitfield, Esq., or leave your details and request contact.',
   booking: {
-    heading: 'Ready to speak with us?',
+    heading: 'Book a consultation',
     copy: 'Choose video or in person, pick a time, and review your details before you confirm.',
     details: [
       '30-minute consultation',
@@ -55,7 +55,7 @@ export const closingConversion = {
     ],
   },
   contact: {
-    heading: 'Prefer us to contact you?',
+    heading: 'Request contact',
     copy: 'Share how you prefer to be reached. We will use the details you provide to respond.',
   },
 } as const
@@ -75,7 +75,7 @@ export const footerNav = [
   { to: '/contact-us', label: 'Contact Us' },
   { to: '/our-results', label: 'Our Results' },
   { to: '/what-to-expect', label: 'What to Expect' },
-  { to: '/faq', label: 'FAQ' },
+  { to: '/#faq', label: 'FAQ' },
   { to: '/book-consultation', label: 'Book a Consultation' },
 ] as const
 

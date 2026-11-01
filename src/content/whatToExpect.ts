@@ -5,9 +5,9 @@ export const whatToExpectPage = {
   prepareCopy:
     'A short list of questions or priorities is enough. You do not need documents or a finished plan for the first consultation. Bring what helps you explain what you want to discuss.',
   concernsHeading: 'Common concerns',
-  faqLinkLabel: 'FAQ',
-  faqLeadIn: 'More answers are collected on the',
-  faqLeadOut: 'page.',
+  faqLinkLabel: 'common questions',
+  faqLeadIn: 'More answers are in the',
+  faqLeadOut: 'section on the home page.',
 } as const
 
 export const whatToExpect = [
