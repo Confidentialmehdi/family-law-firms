@@ -56,19 +56,27 @@ type HeroLeadFormProps = {
   className?: string
   /** Prefix for field ids when the form appears more than once on a page. */
   idPrefix?: string
+  /** Dark charcoal panel (hero) or white surface panel (closing). */
+  tone?: 'dark' | 'light'
 }
 
 /**
  * Consultation request intake — same field layout as the hero lead panel.
  */
-export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps) {
+export function HeroLeadForm({
+  className,
+  idPrefix = 'hero',
+  tone = 'dark',
+}: HeroLeadFormProps) {
   const [form, setForm] = React.useState<FormState>(emptyForm)
   const [errors, setErrors] = React.useState<Partial<Record<FieldKey, string>>>({})
   const [completed, setCompleted] = React.useState(false)
   const [submitting, setSubmitting] = React.useState(false)
   const submitTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
+  const light = tone === 'light'
 
   const id = React.useCallback((name: string) => `${idPrefix}-${name}`, [idPrefix])
+  const errorClass = light ? 'mt-1 text-sm text-teal' : 'mt-1 text-sm text-red-300'
 
   React.useEffect(() => {
     return () => {
@@ -129,19 +137,33 @@ export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps
       <div
         id={id('form')}
         className={cn(
-          'flex h-full flex-col justify-center rounded-sm border border-brass/35 bg-navy px-5 py-8 text-center sm:px-6 sm:py-10',
+          'flex h-full flex-col justify-center rounded-sm px-5 py-8 text-center sm:px-6 sm:py-10',
+          light
+            ? 'border border-border bg-white'
+            : 'border border-brass/35 bg-navy',
           className,
         )}
         role="status"
         aria-live="polite"
       >
         <CircleCheck className="mx-auto size-12 text-brass" strokeWidth={1.5} aria-hidden />
-        <p className="mt-4 font-serif text-2xl text-ivory">{homeHeroForm.completeHeading}</p>
-        <p className="mt-2 text-base text-ivory/70">{homeHeroForm.completeCopy}</p>
+        <p
+          className={cn(
+            'mt-4 font-serif text-2xl',
+            light ? 'text-navy' : 'text-ivory',
+          )}
+        >
+          {homeHeroForm.completeHeading}
+        </p>
+        <p className={cn('mt-2 text-base', light ? 'text-muted' : 'text-ivory/70')}>
+          {homeHeroForm.completeCopy}
+        </p>
         <Button type="button" className="mt-6 w-full" onClick={handleReset}>
           {homeHeroForm.startAgain}
         </Button>
-        <p className="mt-5 text-sm text-ivory/60">{homeHeroForm.completeDemoNotice}</p>
+        <p className={cn('mt-5 text-sm', light ? 'text-muted' : 'text-ivory/60')}>
+          {homeHeroForm.completeDemoNotice}
+        </p>
       </div>
     )
   }
@@ -150,11 +172,19 @@ export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps
     <div
       id={id('form')}
       className={cn(
-        'flex h-full min-h-0 flex-col rounded-sm border border-brass/35 bg-navy px-3.5 py-3.5 sm:px-4 sm:py-4',
+        'flex h-full min-h-0 flex-col rounded-sm px-3.5 py-3.5 sm:px-4 sm:py-4',
+        light
+          ? 'border border-border bg-white'
+          : 'border border-brass/35 bg-navy',
         className,
       )}
     >
-      <h2 className="shrink-0 font-serif text-lg leading-tight text-ivory sm:text-xl">
+      <h2
+        className={cn(
+          'shrink-0 font-serif text-lg leading-tight sm:text-xl',
+          light ? 'text-navy' : 'text-ivory',
+        )}
+      >
         {homeHeroForm.heading}
       </h2>
 
@@ -181,7 +211,7 @@ export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps
               className={fieldClass}
             />
             {errors.firstName ? (
-              <p id={id('first-name-error')} className="mt-1 text-sm text-red-300" role="alert">
+              <p id={id('first-name-error')} className={errorClass} role="alert">
                 {errors.firstName}
               </p>
             ) : null}
@@ -203,7 +233,7 @@ export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps
               className={fieldClass}
             />
             {errors.lastName ? (
-              <p id={id('last-name-error')} className="mt-1 text-sm text-red-300" role="alert">
+              <p id={id('last-name-error')} className={errorClass} role="alert">
                 {errors.lastName}
               </p>
             ) : null}
@@ -229,7 +259,7 @@ export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps
               className={fieldClass}
             />
             {errors.phone ? (
-              <p id={id('phone-error')} className="mt-1 text-sm text-red-300" role="alert">
+              <p id={id('phone-error')} className={errorClass} role="alert">
                 {errors.phone}
               </p>
             ) : null}
@@ -251,7 +281,7 @@ export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps
               className={fieldClass}
             />
             {errors.zip ? (
-              <p id={id('zip-error')} className="mt-1 text-sm text-red-300" role="alert">
+              <p id={id('zip-error')} className={errorClass} role="alert">
                 {errors.zip}
               </p>
             ) : null}
@@ -276,7 +306,7 @@ export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps
             className={fieldClass}
           />
           {errors.email ? (
-            <p id={id('email-error')} className="mt-1 text-sm text-red-300" role="alert">
+            <p id={id('email-error')} className={errorClass} role="alert">
               {errors.email}
             </p>
           ) : null}
@@ -308,14 +338,19 @@ export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps
             ))}
           </select>
           {errors.caseType ? (
-            <p id={id('case-type-error')} className="mt-1 text-sm text-red-300" role="alert">
+            <p id={id('case-type-error')} className={errorClass} role="alert">
               {errors.caseType}
             </p>
           ) : null}
         </div>
 
         <fieldset className="shrink-0">
-          <legend className="mb-2 text-xs tracking-wide text-ivory/65 uppercase">
+          <legend
+            className={cn(
+              'mb-2 text-xs tracking-wide uppercase',
+              light ? 'text-muted' : 'text-ivory/65',
+            )}
+          >
             {homeHeroForm.formatLabel}
           </legend>
           <div className="grid grid-cols-3 gap-2">
@@ -330,8 +365,12 @@ export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps
                   className={cn(
                     'flex min-h-10 items-center justify-center rounded-sm border px-2 py-2 text-sm font-medium transition-colors',
                     selected
-                      ? 'border-brass bg-ivory/10 text-ivory ring-1 ring-brass/40'
-                      : 'border-border/40 bg-surface text-navy hover:border-brass/50',
+                      ? light
+                        ? 'border-teal bg-teal/10 text-navy ring-1 ring-teal/30'
+                        : 'border-brass bg-ivory/10 text-ivory ring-1 ring-brass/40'
+                      : light
+                        ? 'border-border bg-surface text-navy hover:border-navy/30'
+                        : 'border-border/40 bg-surface text-navy hover:border-brass/50',
                   )}
                 >
                   {option.label}
@@ -381,16 +420,40 @@ export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps
           />
         </div>
 
-        <p className="shrink-0 text-xs text-brass-muted">{homeHeroForm.consultationNote}</p>
+        <p
+          className={cn(
+            'shrink-0 text-xs',
+            light ? 'text-muted' : 'text-brass-muted',
+          )}
+        >
+          {homeHeroForm.consultationNote}
+        </p>
 
-        <div className="shrink-0 space-y-2 text-[0.65rem] leading-relaxed text-ivory/70 sm:text-[0.7rem]">
+        <div
+          className={cn(
+            'shrink-0 space-y-2 text-[0.65rem] leading-relaxed sm:text-[0.7rem]',
+            light ? 'text-muted' : 'text-ivory/70',
+          )}
+        >
           <p>
             {homeHeroForm.termsLead}{' '}
-            <Link to="/terms" className="text-brass-muted underline underline-offset-2 hover:text-brass">
+            <Link
+              to="/terms"
+              className={cn(
+                'underline underline-offset-2',
+                light ? 'text-teal hover:text-teal-hover' : 'text-brass-muted hover:text-brass',
+              )}
+            >
               {homeHeroForm.termsLinkLabel}
             </Link>{' '}
             {homeHeroForm.privacyLead}{' '}
-            <Link to="/privacy" className="text-brass-muted underline underline-offset-2 hover:text-brass">
+            <Link
+              to="/privacy"
+              className={cn(
+                'underline underline-offset-2',
+                light ? 'text-teal hover:text-teal-hover' : 'text-brass-muted hover:text-brass',
+              )}
+            >
               {homeHeroForm.privacyLinkLabel}
             </Link>
             .
@@ -408,7 +471,12 @@ export function HeroLeadForm({ className, idPrefix = 'hero' }: HeroLeadFormProps
           {submitting ? homeHeroForm.submittingLabel : homeHeroForm.submitLabel}
         </Button>
 
-        <p className="shrink-0 text-center text-[0.65rem] leading-snug text-ivory/55 sm:text-[0.7rem]">
+        <p
+          className={cn(
+            'shrink-0 text-center text-[0.65rem] leading-snug sm:text-[0.7rem]',
+            light ? 'text-muted' : 'text-ivory/55',
+          )}
+        >
           {homeHeroForm.footerLine}
         </p>
       </form>

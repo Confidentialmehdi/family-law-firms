@@ -46,6 +46,7 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
           <div className="border-t border-border lg:border-t-0 lg:border-l">
             <HeroLeadForm
               idPrefix={formIdPrefix}
+              tone="light"
               className="h-full rounded-none border-0 sm:px-6 sm:py-8"
             />
           </div>
