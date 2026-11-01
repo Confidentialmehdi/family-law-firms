@@ -41,11 +41,15 @@ const emptyForm: FormState = {
 const fieldClass =
   'flex h-11 w-full rounded-sm border border-border bg-surface px-3.5 py-2 text-base text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25'
 
+type HeroLeadFormProps = {
+  className?: string
+}
+
 /**
  * Hero intake panel — same field layout as the lead form, styled in the
  * Whitfield charcoal / ivory / burgundy theme.
  */
-export function HeroLeadForm() {
+export function HeroLeadForm({ className }: HeroLeadFormProps) {
   const [form, setForm] = React.useState<FormState>(emptyForm)
   const [errors, setErrors] = React.useState<Partial<Record<FieldKey, string>>>({})
   const [completed, setCompleted] = React.useState(false)
@@ -110,7 +114,10 @@ export function HeroLeadForm() {
     return (
       <div
         id="hero-form"
-        className="rounded-sm border border-brass/35 bg-navy px-5 py-8 text-center sm:px-6"
+        className={cn(
+          'flex h-full flex-col justify-center rounded-sm border border-brass/35 bg-navy px-5 py-8 text-center sm:px-6 sm:py-10',
+          className,
+        )}
         role="status"
         aria-live="polite"
       >
@@ -128,14 +135,21 @@ export function HeroLeadForm() {
   return (
     <div
       id="hero-form"
-      className="rounded-sm border border-brass/35 bg-navy px-4 py-5 sm:px-5 sm:py-6"
+      className={cn(
+        'flex h-full min-h-0 flex-col rounded-sm border border-brass/35 bg-navy px-5 py-5 sm:px-6 sm:py-6 lg:px-7 lg:py-7',
+        className,
+      )}
     >
-      <h2 className="font-serif text-[1.65rem] leading-tight text-ivory sm:text-[1.85rem]">
+      <h2 className="shrink-0 font-serif text-[1.65rem] leading-tight text-ivory sm:text-[1.85rem] lg:text-[2rem]">
         {homeHeroForm.heading}
       </h2>
 
-      <form onSubmit={handleSubmit} noValidate className="mt-5 space-y-3">
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        className="mt-4 flex min-h-0 flex-1 flex-col gap-3 sm:mt-5 sm:gap-3.5"
+      >
+        <div className="grid shrink-0 grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <label htmlFor="hero-first-name" className="sr-only">
               {homeHeroForm.firstNamePlaceholder}
@@ -182,7 +196,7 @@ export function HeroLeadForm() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="grid shrink-0 grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <label htmlFor="hero-phone" className="sr-only">
               {homeHeroForm.phonePlaceholder}
@@ -230,7 +244,7 @@ export function HeroLeadForm() {
           </div>
         </div>
 
-        <div>
+        <div className="shrink-0">
           <label htmlFor="hero-email" className="sr-only">
             {homeHeroForm.emailPlaceholder}
           </label>
@@ -254,7 +268,7 @@ export function HeroLeadForm() {
           ) : null}
         </div>
 
-        <div>
+        <div className="shrink-0">
           <label htmlFor="hero-case-type" className="sr-only">
             Case Type
           </label>
@@ -292,7 +306,7 @@ export function HeroLeadForm() {
           ) : null}
         </div>
 
-        <div>
+        <div className="flex min-h-0 flex-1 flex-col">
           <label htmlFor="hero-details" className="sr-only">
             Case details
           </label>
@@ -303,11 +317,11 @@ export function HeroLeadForm() {
             placeholder={homeHeroForm.detailsPlaceholder}
             value={form.details}
             onChange={(event) => update('details', event.target.value)}
-            className="flex min-h-[6.5rem] w-full resize-y rounded-sm border border-border bg-surface px-3.5 py-2.5 text-base text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25"
+            className="min-h-[5.5rem] w-full flex-1 resize-none rounded-sm border border-border bg-surface px-3.5 py-2.5 text-base text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25"
           />
         </div>
 
-        <div className="space-y-3 pt-1 text-[0.7rem] leading-relaxed text-ivory/70 sm:text-xs">
+        <div className="shrink-0 space-y-2.5 text-[0.7rem] leading-relaxed text-ivory/70 sm:text-xs">
           <p>
             {homeHeroForm.termsLead}{' '}
             <Link to="/terms" className="text-brass-muted underline underline-offset-2 hover:text-brass">
@@ -327,12 +341,12 @@ export function HeroLeadForm() {
           size="lg"
           disabled={submitting}
           aria-busy={submitting}
-          className="w-full"
+          className="w-full shrink-0"
         >
           {submitting ? homeHeroForm.submittingLabel : homeHeroForm.submitLabel}
         </Button>
 
-        <div className="space-y-1 pt-1 text-center text-[0.65rem] leading-relaxed text-ivory/55 sm:text-[0.7rem]">
+        <div className="shrink-0 space-y-1 text-center text-[0.65rem] leading-relaxed text-ivory/55 sm:text-[0.7rem]">
           <p>{homeHeroForm.resultsDisclaimer}</p>
           <p>{homeHeroForm.copyright}</p>
         </div>

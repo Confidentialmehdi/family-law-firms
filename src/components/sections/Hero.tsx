@@ -33,7 +33,7 @@ function AttorneyPortrait({ className }: { className?: string }) {
 }
 
 /**
- * Home hero — intro copy, then equal-size portrait + intake form columns.
+ * Home hero — headline above an equal-size portrait | form pair.
  */
 export function Hero() {
   return (
@@ -41,7 +41,7 @@ export function Hero() {
       className="texture-paper relative overflow-hidden border-b border-border/60"
       aria-labelledby="page-heading"
     >
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-10 px-5 py-14 md:gap-12 md:px-8 md:py-16 lg:py-20">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-5 py-14 md:gap-10 md:px-8 md:py-16 lg:py-20">
         <div className="animate-fade-up max-w-3xl">
           <h1
             id="page-heading"
@@ -50,14 +50,17 @@ export function Hero() {
           >
             {homeHero.headline}
           </h1>
-          <p className="mt-6 text-lg text-muted md:mt-7 md:text-xl lg:text-[1.35rem] lg:leading-relaxed">
+          <p className="mt-5 text-lg text-muted md:mt-6 md:text-xl lg:text-[1.35rem] lg:leading-relaxed">
             {homeHero.supporting}
           </p>
         </div>
 
-        <div className="animate-fade-in grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
-          <AttorneyPortrait className="relative min-h-[28rem] w-full overflow-hidden border border-border/70 bg-[#ebe6de] md:min-h-full" />
-          <HeroLeadForm />
+        {/* Equal-width, equal-height media + form */}
+        <div className="animate-fade-in grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-8">
+          <AttorneyPortrait className="relative aspect-[4/5] w-full overflow-hidden border border-border/70 bg-[#ebe6de]" />
+          <div className="aspect-[4/5] w-full min-h-0">
+            <HeroLeadForm className="h-full" />
+          </div>
         </div>
 
         <ul className="animate-fade-up flex flex-col gap-4 text-sm text-muted md:flex-row md:flex-nowrap md:items-center md:gap-0">
