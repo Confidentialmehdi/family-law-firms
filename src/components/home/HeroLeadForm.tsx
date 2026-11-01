@@ -149,7 +149,7 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
         noValidate
         className="mt-4 flex min-h-0 flex-1 flex-col gap-3 sm:mt-5 sm:gap-3.5"
       >
-        <div className="grid shrink-0 grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="grid shrink-0 grid-cols-2 gap-3">
           <div>
             <label htmlFor="hero-first-name" className="sr-only">
               {homeHeroForm.firstNamePlaceholder}
@@ -196,7 +196,7 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
           </div>
         </div>
 
-        <div className="grid shrink-0 grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="grid shrink-0 grid-cols-2 gap-3">
           <div>
             <label htmlFor="hero-phone" className="sr-only">
               {homeHeroForm.phonePlaceholder}
