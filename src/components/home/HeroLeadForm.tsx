@@ -23,6 +23,8 @@ type FormState = {
   zip: string
   email: string
   caseType: string
+  meetingFormat: 'video' | 'in-person' | ''
+  contactWindow: string
   details: string
 }
 
@@ -35,6 +37,8 @@ const emptyForm: FormState = {
   zip: '',
   email: '',
   caseType: '',
+  meetingFormat: '',
+  contactWindow: '',
   details: '',
 }
 
@@ -306,20 +310,80 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
           ) : null}
         </div>
 
-        <div className="flex min-h-0 flex-1 flex-col">
+        <fieldset className="shrink-0">
+          <legend className="mb-2 text-xs tracking-wide text-ivory/65 uppercase">
+            {homeHeroForm.formatLabel}
+          </legend>
+          <div className="grid grid-cols-2 gap-2">
+            {homeHeroForm.formats.map((option) => {
+              const selected = form.meetingFormat === option.value
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => update('meetingFormat', option.value)}
+                  aria-pressed={selected}
+                  className={cn(
+                    'flex min-h-10 items-center justify-center rounded-sm border px-3 py-2 text-sm font-medium transition-colors',
+                    selected
+                      ? 'border-brass bg-ivory/10 text-ivory ring-1 ring-brass/40'
+                      : 'border-border/40 bg-surface text-navy hover:border-brass/50',
+                  )}
+                >
+                  {option.label}
+                </button>
+              )
+            })}
+          </div>
+        </fieldset>
+
+        <div className="shrink-0">
+          <label htmlFor="hero-contact-window" className="sr-only">
+            Best time to reach you
+          </label>
+          <select
+            id="hero-contact-window"
+            name="contactWindow"
+            value={form.contactWindow}
+            onChange={(event) => update('contactWindow', event.target.value)}
+            className={cn(
+              fieldClass,
+              'appearance-none pr-10 [color-scheme:light]',
+              !form.contactWindow && 'text-muted',
+            )}
+            style={{
+              backgroundColor: 'var(--color-surface)',
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f6165' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'right 0.85rem center',
+              backgroundSize: '1rem',
+            }}
+          >
+            <option value="">{homeHeroForm.contactWindowPlaceholder}</option>
+            {homeHeroForm.contactWindows.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="shrink-0">
           <label htmlFor="hero-details" className="sr-only">
             What you would like to discuss
           </label>
           <textarea
             id="hero-details"
             name="details"
-            rows={4}
+            rows={2}
             placeholder={homeHeroForm.detailsPlaceholder}
             value={form.details}
             onChange={(event) => update('details', event.target.value)}
-            className="min-h-[4.5rem] w-full flex-1 resize-none rounded-sm border border-border bg-surface px-3 py-2 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25 sm:text-base"
+            className="h-[4.5rem] w-full resize-y rounded-sm border border-border bg-surface px-3 py-2 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25 sm:text-base"
           />
         </div>
+
+        <p className="shrink-0 text-xs text-brass-muted">{homeHeroForm.consultationNote}</p>
 
         <div className="shrink-0 space-y-2 text-[0.65rem] leading-relaxed text-ivory/70 sm:text-[0.7rem]">
           <p>
