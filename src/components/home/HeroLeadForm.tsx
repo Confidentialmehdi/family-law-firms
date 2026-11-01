@@ -7,10 +7,8 @@ import { homeHeroForm } from '@/content/home'
 import {
   capitalizeFirstOnly,
   formatUsPhone,
-  formatUsZip,
   isValidEmailAddress,
   isValidUsPhone,
-  isValidUsZip,
   toInitialCaps,
 } from '@/lib/inputFormat'
 import { cn } from '@/lib/utils'
@@ -19,7 +17,6 @@ type FormState = {
   firstName: string
   lastName: string
   phone: string
-  zip: string
   email: string
   caseType: string
   contactMethod: 'phone' | 'email' | 'text' | ''
@@ -33,7 +30,6 @@ const emptyForm: FormState = {
   firstName: '',
   lastName: '',
   phone: '',
-  zip: '',
   email: '',
   caseType: '',
   contactMethod: '',
@@ -100,8 +96,6 @@ export function HeroLeadForm({
     if (!form.lastName.trim()) next.lastName = homeHeroForm.validation.lastName
     if (!form.phone.trim()) next.phone = homeHeroForm.validation.phone
     else if (!isValidUsPhone(form.phone)) next.phone = homeHeroForm.validation.phoneInvalid
-    if (!form.zip.trim()) next.zip = homeHeroForm.validation.zip
-    else if (!isValidUsZip(form.zip)) next.zip = homeHeroForm.validation.zipInvalid
     if (!form.email.trim()) next.email = homeHeroForm.validation.email
     else if (!isValidEmailAddress(form.email)) next.email = homeHeroForm.validation.emailInvalid
     if (!form.caseType) next.caseType = homeHeroForm.validation.caseType
@@ -240,52 +234,28 @@ export function HeroLeadForm({
           </div>
         </div>
 
-        <div className="grid shrink-0 grid-cols-2 gap-3">
-          <div>
-            <label htmlFor={id('phone')} className="sr-only">
-              {homeHeroForm.phonePlaceholder}
-            </label>
-            <input
-              id={id('phone')}
-              name="phone"
-              type="tel"
-              autoComplete="tel"
-              inputMode="numeric"
-              placeholder={homeHeroForm.phonePlaceholder}
-              value={form.phone}
-              aria-invalid={Boolean(errors.phone)}
-              aria-describedby={errors.phone ? id('phone-error') : undefined}
-              onChange={(event) => update('phone', formatUsPhone(event.target.value))}
-              className={fieldClass}
-            />
-            {errors.phone ? (
-              <p id={id('phone-error')} className={errorClass} role="alert">
-                {errors.phone}
-              </p>
-            ) : null}
-          </div>
-          <div>
-            <label htmlFor={id('zip')} className="sr-only">
-              {homeHeroForm.zipPlaceholder}
-            </label>
-            <input
-              id={id('zip')}
-              name="zip"
-              autoComplete="postal-code"
-              inputMode="numeric"
-              placeholder={homeHeroForm.zipPlaceholder}
-              value={form.zip}
-              aria-invalid={Boolean(errors.zip)}
-              aria-describedby={errors.zip ? id('zip-error') : undefined}
-              onChange={(event) => update('zip', formatUsZip(event.target.value))}
-              className={fieldClass}
-            />
-            {errors.zip ? (
-              <p id={id('zip-error')} className={errorClass} role="alert">
-                {errors.zip}
-              </p>
-            ) : null}
-          </div>
+        <div className="shrink-0">
+          <label htmlFor={id('phone')} className="sr-only">
+            {homeHeroForm.phonePlaceholder}
+          </label>
+          <input
+            id={id('phone')}
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            inputMode="numeric"
+            placeholder={homeHeroForm.phonePlaceholder}
+            value={form.phone}
+            aria-invalid={Boolean(errors.phone)}
+            aria-describedby={errors.phone ? id('phone-error') : undefined}
+            onChange={(event) => update('phone', formatUsPhone(event.target.value))}
+            className={fieldClass}
+          />
+          {errors.phone ? (
+            <p id={id('phone-error')} className={errorClass} role="alert">
+              {errors.phone}
+            </p>
+          ) : null}
         </div>
 
         <div className="shrink-0">

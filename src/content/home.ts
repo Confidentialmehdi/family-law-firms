@@ -28,7 +28,6 @@ export const homeHeroForm = {
   firstNamePlaceholder: 'First name',
   lastNamePlaceholder: 'Last name',
   phonePlaceholder: 'Phone number',
-  zipPlaceholder: 'ZIP code',
   emailPlaceholder: 'Email',
   caseTypePlaceholder: '- Select a practice area -',
   /** Hero-specific labels; values match practice-area ids used elsewhere. */
@@ -73,8 +72,6 @@ export const homeHeroForm = {
     lastName: 'Enter your last name.',
     phone: 'Enter your phone number.',
     phoneInvalid: 'Enter a 10-digit US phone number.',
-    zip: 'Enter your ZIP code.',
-    zipInvalid: 'Enter a valid US ZIP code.',
     email: 'Enter your email address.',
     emailInvalid: 'Enter a valid email (for example, name@example.com).',
     caseType: 'Choose the topic closest to your situation.',
