@@ -56,12 +56,9 @@ export function HomePage() {
               {attorney.role}, {attorney.firm}
             </p>
             <p className="mt-5 max-w-xl text-lg text-muted">{homeMeet.body}</p>
-            <Link
-              to="/about-us"
-              className="mt-6 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
-            >
-              {homeMeet.linkLabel}
-            </Link>
+            <Button asChild variant="outline" size="sm" className="mt-6">
+              <Link to="/about-us">{homeMeet.linkLabel}</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -86,12 +83,9 @@ export function HomePage() {
               ))}
             </ul>
             <div className="mt-8 flex justify-center">
-              <Link
-                to="/our-results"
-                className="text-sm font-medium text-teal underline-offset-4 hover:underline"
-              >
-                {homeExperience.buttonLabel}
-              </Link>
+              <Button asChild variant="outline" size="sm">
+                <Link to="/our-results">{homeExperience.buttonLabel}</Link>
+              </Button>
             </div>
           </div>
         </div>
