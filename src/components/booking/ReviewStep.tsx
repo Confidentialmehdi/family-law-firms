@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Loader2 } from 'lucide-react'
 
 import { bookingPage } from '@/content/booking'
 import { site } from '@/content/site'
@@ -30,7 +31,7 @@ export function ReviewStep() {
     submitTimeoutRef.current = setTimeout(() => {
       submitTimeoutRef.current = null
       completeBooking()
-    }, 3000)
+    }, 2000)
   }
 
   return (
@@ -145,7 +146,14 @@ export function ReviewStep() {
           aria-busy={submitting}
           onClick={handleConfirm}
         >
-          {submitting ? bookingPage.submittingLabel : bookingPage.confirmLabel}
+          {submitting ? (
+            <>
+              <Loader2 className="animate-spin" aria-hidden="true" />
+              {bookingPage.submittingLabel}
+            </>
+          ) : (
+            bookingPage.confirmLabel
+          )}
         </Button>
       </div>
     </div>
