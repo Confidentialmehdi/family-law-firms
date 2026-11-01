@@ -267,11 +267,15 @@ export function HeroLeadForm() {
             onChange={(event) => update('caseType', event.target.value)}
             className={cn(
               fieldClass,
-              'appearance-none bg-[length:1rem] bg-[right_0.85rem_center] bg-no-repeat pr-10',
+              'appearance-none pr-10 [color-scheme:light]',
               !form.caseType && 'text-muted',
             )}
             style={{
+              backgroundColor: 'var(--color-surface)',
               backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f6165' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'right 0.85rem center',
+              backgroundSize: '1rem',
             }}
           >
             <option value="">{homeHeroForm.caseTypePlaceholder}</option>
