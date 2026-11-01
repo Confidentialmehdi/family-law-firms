@@ -41,10 +41,11 @@ export const homeHeroForm = {
     { value: 'prenup', label: 'Prenup or postnup agreement' },
     { value: 'not-sure', label: 'Several connected questions' },
   ] as const,
-  formatLabel: 'Preferred format',
+  formatLabel: 'Preferred way to reach you',
   formats: [
-    { value: 'video', label: 'Online' },
-    { value: 'in-person', label: 'In person' },
+    { value: 'phone', label: 'Phone' },
+    { value: 'email', label: 'Email' },
+    { value: 'text', label: 'Text' },
   ] as const,
   contactWindowPlaceholder: '- When may we reach you? -',
   contactWindows: [
@@ -54,7 +55,7 @@ export const homeHeroForm = {
     { value: '15-18', label: 'Weekday afternoon · 3:00–6:00 PM' },
   ] as const,
   detailsPlaceholder: 'Optional: a few words about your questions',
-  consultationNote: '30-minute consultation · Online or in person',
+  consultationNote: '30-minute consultation · We’ll follow up using your preferred method',
   submitLabel: 'Request a consultation',
   submittingLabel: 'Submitting…',
   termsLead: 'By submitting this form, you agree to our',

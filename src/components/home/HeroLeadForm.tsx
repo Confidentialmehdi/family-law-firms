@@ -313,17 +313,17 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
           <legend className="mb-2 text-xs tracking-wide text-ivory/65 uppercase">
             {homeHeroForm.formatLabel}
           </legend>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-3 gap-2">
             {homeHeroForm.formats.map((option) => {
-              const selected = form.meetingFormat === option.value
+              const selected = form.contactMethod === option.value
               return (
                 <button
                   key={option.value}
                   type="button"
-                  onClick={() => update('meetingFormat', option.value)}
+                  onClick={() => update('contactMethod', option.value)}
                   aria-pressed={selected}
                   className={cn(
-                    'flex min-h-10 items-center justify-center rounded-sm border px-3 py-2 text-sm font-medium transition-colors',
+                    'flex min-h-10 items-center justify-center rounded-sm border px-2 py-2 text-sm font-medium transition-colors',
                     selected
                       ? 'border-brass bg-ivory/10 text-ivory ring-1 ring-brass/40'
                       : 'border-border/40 bg-surface text-navy hover:border-brass/50',
