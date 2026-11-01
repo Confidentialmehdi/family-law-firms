@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import { HomePracticeSection } from '@/components/home/HomePracticeSection'
 import { ImageFallback } from '@/components/ImageFallback'
-import { VerifiedClientName } from '@/components/results/VerifiedClientName'
+import { StoryClientIdentity } from '@/components/results/VerifiedClientName'
 import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { Hero } from '@/components/sections/Hero'
 import {
@@ -125,10 +125,11 @@ export function HomePage() {
                         decoding="async"
                       />
                     </div>
-                    <div className="min-w-0">
-                      <VerifiedClientName name={story.name} nameClassName="text-sm" />
-                      <p className="truncate text-xs text-muted">{story.city}</p>
-                    </div>
+                    <StoryClientIdentity
+                      name={story.name}
+                      city={story.city}
+                      nameClassName="text-sm"
+                    />
                   </div>
                   <p className="mt-4 text-[0.65rem] tracking-[0.14em] text-brass uppercase">
                     {story.practiceArea}

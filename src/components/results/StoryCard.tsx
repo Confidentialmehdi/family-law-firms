@@ -1,4 +1,4 @@
-import { VerifiedClientName } from '@/components/results/VerifiedClientName'
+import { StoryClientIdentity } from '@/components/results/VerifiedClientName'
 import type { ClientStory } from '@/content/results'
 import { cn } from '@/lib/utils'
 
@@ -38,10 +38,11 @@ export function StoryCard({ story, variant = 'full' }: StoryCardProps) {
             decoding="async"
           />
         </div>
-        <div className="min-w-0">
-          <VerifiedClientName name={story.name} nameClassName="text-sm" />
-          <p className="truncate text-xs text-muted">{story.city}</p>
-        </div>
+        <StoryClientIdentity
+          name={story.name}
+          city={story.city}
+          nameClassName="text-sm"
+        />
       </div>
 
       <div

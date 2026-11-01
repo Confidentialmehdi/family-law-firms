@@ -2,35 +2,37 @@ import { BadgeCheck } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
-type VerifiedClientNameProps = {
+type StoryClientIdentityProps = {
   name: string
+  city: string
   className?: string
-  /** Size of the name text; badge scales with the row. */
   nameClassName?: string
 }
 
-/** Client name with a golden Instagram-style verified badge. */
-export function VerifiedClientName({
+/**
+ * Client identity for illustrative stories: gold check beside the name,
+ * city, then a quiet “Illustrative story” label.
+ */
+export function StoryClientIdentity({
   name,
+  city,
   className,
   nameClassName,
-}: VerifiedClientNameProps) {
+}: StoryClientIdentityProps) {
   return (
-    <span className={cn('inline-flex min-w-0 items-center gap-1.5', className)}>
-      <span className={cn('truncate font-medium text-navy', nameClassName)}>{name}</span>
-      <span
-        className="inline-flex shrink-0 items-center gap-1 text-[#c9a227]"
-        title="Verified"
-      >
+    <div className={cn('min-w-0', className)}>
+      <span className="inline-flex min-w-0 items-center gap-1.5">
+        <span className={cn('truncate font-medium text-navy', nameClassName)}>{name}</span>
         <BadgeCheck
-          className="size-4 fill-[#c9a227] text-white"
+          className="size-4 shrink-0 fill-[#c9a227] text-white"
           strokeWidth={1.75}
           aria-hidden="true"
         />
-        <span className="text-[0.6rem] font-semibold tracking-[0.14em] uppercase">
-          Verified
-        </span>
       </span>
-    </span>
+      <p className="truncate text-xs text-muted">{city}</p>
+      <p className="mt-0.5 text-[0.6rem] font-semibold tracking-[0.12em] text-[#c9a227] uppercase">
+        Illustrative story
+      </p>
+    </div>
   )
 }
