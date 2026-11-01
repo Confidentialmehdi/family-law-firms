@@ -12,20 +12,20 @@ export function OurResultsPage() {
 
   return (
     <main id="main">
-      {/* 1. Hero */}
+      {/* 1. Hero — single-column statement */}
       <section className="bg-navy text-ivory" aria-labelledby="page-heading">
-        <div className="mx-auto grid max-w-[1200px] gap-8 px-5 py-14 md:grid-cols-[minmax(0,1.5fr)_minmax(0,0.9fr)] md:items-end md:gap-12 md:px-8 md:py-16">
-          <div>
+        <div className="mx-auto max-w-[1200px] px-5 py-14 md:px-8 md:py-16 lg:py-20">
+          <div className="max-w-3xl">
             <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
               {resultsPage.eyebrow}
             </p>
             <PageHeading className="mt-4 text-[2.25rem] leading-[1.1] text-ivory md:text-[3.25rem] lg:text-[3.75rem]">
               {resultsPage.headline}
             </PageHeading>
-          </div>
-          <div>
-            <div className="mb-5 h-px w-14 bg-brass" aria-hidden="true" />
-            <p className="max-w-sm text-lg text-ivory/70">{resultsPage.supporting}</p>
+            <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ivory/70">
+              {resultsPage.supporting}
+            </p>
           </div>
         </div>
       </section>
