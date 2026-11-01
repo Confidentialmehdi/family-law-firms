@@ -56,7 +56,23 @@ export function HomePage() {
               {attorney.role}, {attorney.firm}
             </p>
             <p className="mt-5 max-w-xl text-lg text-muted">{homeMeet.body}</p>
-            <Button asChild variant="outline" size="sm" className="mt-6">
+            <ul className="mt-8 max-w-xl space-y-5 border-t border-border pt-6">
+              {homeMeet.commitments.map((item) => (
+                <li key={item.title} className="flex gap-4">
+                  <span
+                    className="mt-2 h-px w-6 shrink-0 bg-brass"
+                    aria-hidden="true"
+                  />
+                  <div className="min-w-0">
+                    <p className="font-serif text-lg text-navy">{item.title}</p>
+                    <p className="mt-1 text-base leading-relaxed text-muted">
+                      {item.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <Button asChild variant="outline" size="sm" className="mt-8">
               <Link to="/about-us">{homeMeet.linkLabel}</Link>
             </Button>
           </div>

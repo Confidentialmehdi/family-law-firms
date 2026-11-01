@@ -176,6 +176,22 @@ export const homePractice = {
 export const homeMeet = {
   heading: 'Meet Robert J. Whitfield, Esq.',
   body: `Robert J. Whitfield, Esq. leads Whitfield Law Group. In a consultation, he listens to your priorities, explains options in ordinary language, and helps you organize what may need attention next—without asking you to decide everything in one sitting.`,
+  /** Specific commitments drawn from the consultation approach above. */
+  commitments: [
+    {
+      title: 'Your priorities come first',
+      description: 'The conversation starts with what matters most to you—family, finances, and timing.',
+    },
+    {
+      title: 'Options in ordinary language',
+      description: 'He explains the landscape in plain terms so you can understand possible paths.',
+    },
+    {
+      title: 'Organize what needs attention next',
+      description:
+        'Leave with a clearer sense of next steps—without pressure to decide everything in one sitting.',
+    },
+  ] as const,
   linkLabel: 'About the firm and team',
 } as const
 
