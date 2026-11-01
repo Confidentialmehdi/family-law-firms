@@ -28,7 +28,7 @@ export const homeHeroForm = {
   emailPlaceholder: 'Email',
   caseTypePlaceholder: '- Case Type -',
   detailsPlaceholder: 'Please describe what happened',
-  submitLabel: 'See if you qualify',
+  submitLabel: 'Book a consultation',
   submittingLabel: 'Submitting…',
   termsLead: 'By submitting this form, you agree to our',
   termsLinkLabel: 'Terms',
