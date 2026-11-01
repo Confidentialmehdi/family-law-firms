@@ -38,12 +38,9 @@ export function HomePracticeSection() {
               {homePractice.introduction}
             </p>
             <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
-            <Link
-              to="/practice-areas"
-              className="mt-8 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
-            >
-              {homePractice.linkLabel}
-            </Link>
+            <Button asChild variant="outline" size="sm" className="mt-8">
+              <Link to="/practice-areas">{homePractice.linkLabel}</Link>
+            </Button>
           </div>
 
           <ul className="border-t border-border">
