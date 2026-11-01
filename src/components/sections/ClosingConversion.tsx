@@ -28,7 +28,7 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
         <p className="mt-4 max-w-xl text-lg text-muted">{closingConversion.supporting}</p>
 
         <div className="mt-10 grid overflow-hidden rounded-sm border border-border lg:grid-cols-[minmax(0,0.45fr)_minmax(0,0.55fr)] lg:items-stretch">
-          <div className="bg-navy px-6 py-8 text-ivory md:px-8 md:py-9">
+          <div className="flex h-full flex-col bg-navy px-6 py-8 text-ivory md:px-8 md:py-9">
             <h3 className="font-serif text-xl text-ivory md:text-2xl">
               {closingConversion.booking.heading}
             </h3>
@@ -38,12 +38,14 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <Button asChild size="lg" className="mt-6 w-full">
-              <Link to="/book-consultation">{site.ctaLabel}</Link>
-            </Button>
+            <div className="mt-auto pt-8">
+              <Button asChild size="lg" className="w-full">
+                <Link to="/book-consultation">{site.ctaLabel}</Link>
+              </Button>
+            </div>
           </div>
 
-          <div className="border-t border-border lg:border-t-0 lg:border-l">
+          <div className="flex h-full min-h-0 flex-col border-t border-border lg:border-t-0 lg:border-l">
             <HeroLeadForm
               idPrefix={formIdPrefix}
               tone="light"
