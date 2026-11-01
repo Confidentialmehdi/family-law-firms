@@ -16,7 +16,7 @@ function AttorneyPortrait({ className }: { className?: string }) {
       <img
         src={attorney.imageSrc}
         alt={attorney.imageAlt}
-        className="absolute inset-0 h-full w-full object-cover object-[center_18%]"
+        className="absolute inset-0 h-full w-full object-cover object-[center_12%]"
         loading="eager"
         decoding="async"
       />
@@ -59,7 +59,7 @@ export function Hero() {
             </div>
 
             {/* Landscape media panel — similar footprint to a hero video thumbnail */}
-            <AttorneyPortrait className="relative aspect-[4/3] w-full overflow-hidden border border-border/70 bg-[#ebe6de]" />
+            <AttorneyPortrait className="relative aspect-[5/6] w-full max-h-[28rem] overflow-hidden border border-border/70 bg-[#ebe6de] md:max-h-[32rem]" />
 
             <ul className="mt-auto flex flex-col gap-3 pt-1 text-sm text-muted sm:flex-row sm:flex-wrap sm:items-center sm:gap-0">
               {homeHero.points.map((point, index) => {
