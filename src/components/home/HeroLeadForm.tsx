@@ -39,7 +39,7 @@ const emptyForm: FormState = {
 }
 
 const fieldClass =
-  'flex h-10 w-full rounded-sm border border-border bg-surface px-3 py-2 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25 sm:text-base'
+  'flex h-9 w-full rounded-sm border border-border bg-surface px-2.5 py-1.5 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25'
 
 type HeroLeadFormProps = {
   className?: string
@@ -136,20 +136,20 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
     <div
       id="hero-form"
       className={cn(
-        'flex h-full min-h-0 flex-col rounded-sm border border-brass/35 bg-navy px-4 py-4 sm:px-5 sm:py-5',
+        'flex h-full min-h-0 flex-col overflow-hidden rounded-sm border border-brass/35 bg-navy px-3.5 py-3.5 sm:px-4 sm:py-4',
         className,
       )}
     >
-      <h2 className="shrink-0 font-serif text-xl leading-tight text-ivory sm:text-[1.5rem]">
+      <h2 className="shrink-0 font-serif text-lg leading-tight text-ivory sm:text-xl">
         {homeHeroForm.heading}
       </h2>
 
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="mt-3 flex min-h-0 flex-1 flex-col gap-2.5 sm:mt-4 sm:gap-3"
+        className="mt-2.5 flex min-h-0 flex-1 flex-col gap-2 sm:mt-3 sm:gap-2.5"
       >
-        <div className="grid shrink-0 grid-cols-2 gap-3">
+        <div className="grid shrink-0 grid-cols-2 gap-2">
           <div>
             <label htmlFor="hero-first-name" className="sr-only">
               {homeHeroForm.firstNamePlaceholder}
@@ -196,7 +196,7 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
           </div>
         </div>
 
-        <div className="grid shrink-0 grid-cols-2 gap-3">
+        <div className="grid shrink-0 grid-cols-2 gap-2">
           <div>
             <label htmlFor="hero-phone" className="sr-only">
               {homeHeroForm.phonePlaceholder}
@@ -317,11 +317,11 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
             placeholder={homeHeroForm.detailsPlaceholder}
             value={form.details}
             onChange={(event) => update('details', event.target.value)}
-            className="min-h-[4.5rem] w-full flex-1 resize-none rounded-sm border border-border bg-surface px-3 py-2 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25 sm:text-base"
+            className="min-h-[3.25rem] w-full flex-1 resize-none rounded-sm border border-border bg-surface px-2.5 py-1.5 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25"
           />
         </div>
 
-        <div className="shrink-0 space-y-2 text-[0.65rem] leading-relaxed text-ivory/70 sm:text-[0.7rem]">
+        <div className="shrink-0 space-y-1.5 text-[0.6rem] leading-snug text-ivory/70 sm:text-[0.65rem]">
           <p>
             {homeHeroForm.termsLead}{' '}
             <Link to="/terms" className="text-brass-muted underline underline-offset-2 hover:text-brass">
@@ -338,14 +338,15 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
 
         <Button
           type="submit"
+          size="sm"
           disabled={submitting}
           aria-busy={submitting}
-          className="w-full shrink-0"
+          className="h-10 w-full shrink-0 text-sm"
         >
           {submitting ? homeHeroForm.submittingLabel : homeHeroForm.submitLabel}
         </Button>
 
-        <div className="shrink-0 space-y-1 text-center text-[0.65rem] leading-relaxed text-ivory/55 sm:text-[0.7rem]">
+        <div className="shrink-0 space-y-0.5 text-center text-[0.58rem] leading-snug text-ivory/55">
           <p>{homeHeroForm.resultsDisclaimer}</p>
           <p>{homeHeroForm.copyright}</p>
         </div>
