@@ -55,7 +55,7 @@ export function WhatToExpectPage() {
 
           <p className="mt-12 text-base text-muted">
             {whatToExpectPage.faqLeadIn}{' '}
-            <Link to="/#faq" className="font-medium text-teal underline-offset-4 hover:underline">
+            <Link to="/faq" className="font-medium text-teal underline-offset-4 hover:underline">
               {whatToExpectPage.faqLinkLabel}
             </Link>{' '}
             {whatToExpectPage.faqLeadOut}

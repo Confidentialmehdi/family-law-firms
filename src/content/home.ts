@@ -1,7 +1,11 @@
+/** Homepage copy and section configuration. */
+
 export const homeHero = {
-  headline: 'New York family law. A defined first conversation.',
+  headlineLine1: 'New York family law.',
+  headlineLine2: 'Personal attention to what comes next.',
   supporting:
-    'Whitfield Law Group helps you discuss divorce, parenting arrangements, and financial questions with attorney Robert J. Whitfield, Esq.—so you can understand your options before deciding what comes next.',
+    'Discuss divorce, parenting arrangements, and financial questions with Robert J. Whitfield, Esq., of Whitfield Law Group.',
+  aboutLinkLabel: 'Meet Robert and the team',
   points: [
     {
       id: 'experience',
@@ -18,77 +22,81 @@ export const homeHero = {
   ],
 } as const
 
+export const homeConsultationStarter = {
+  heading: 'Choose your consultation',
+  formatLabel: 'Meeting format',
+  dateLabel: 'Preferred date',
+  details: '30 minutes · $150 sample consultation fee',
+  buttonLabel: 'Book a consultation',
+  demoNotice: 'Demo booking. No consultation will be scheduled.',
+  formats: [
+    { value: 'video', label: 'Video' },
+    { value: 'in-person', label: 'In person' },
+  ] as const,
+} as const
+
 export const homePractice = {
-  heading: 'Which questions are you bringing?',
-  introduction:
-    'Many people arrive with more than one concern. Use these groups to find the services that match what you want to discuss.',
-  linkLabel: 'View all practice areas',
-  groups: [
-    {
-      id: 'divorce-finances',
-      title: 'Divorce and finances',
-      description:
-        'Ending a marriage, financial support, and shared property—topics that often need to be discussed together.',
-      areaIds: ['divorce', 'spousal-support', 'property'],
-    },
-    {
-      id: 'parenting-support',
-      title: 'Parenting and child support',
-      description:
-        'Schedules, decision-making, and financial contributions toward your children’s needs.',
-      areaIds: ['custody', 'child-support'],
-    },
-    {
-      id: 'planning',
-      title: 'Agreements before or during marriage',
-      description:
-        'Financial expectations, assets, and debts discussed thoughtfully before preparing an agreement.',
-      areaIds: ['prenup'],
-    },
-  ],
+  heading: 'How can we help?',
+  introduction: 'Explore the family law matters we handle.',
+  linkLabel: 'Explore all practice areas',
+  /** Flat editorial list — order matches the homepage brief. */
+  areaIds: [
+    'divorce',
+    'custody',
+    'child-support',
+    'spousal-support',
+    'property',
+    'prenup',
+  ] as const,
 } as const
 
-export const homeMeet = {
-  heading: 'Meet Robert J. Whitfield, Esq.',
-  body: `Robert J. Whitfield, Esq. leads Whitfield Law Group. In a consultation, he listens to your priorities, explains options in ordinary language, and helps you organize what may need attention next—without asking you to decide everything in one sitting.`,
-  linkLabel: 'About the firm and team',
-} as const
-
-export const homeExperience = {
-  heading: 'How a first conversation can help organize priorities.',
-  buttonLabel: 'See More Results',
-  /** Four stories featured on the homepage; full set lives on Our Results. */
-  storyIds: ['michael', 'sarah', 'dana', 'james'] as const,
+export const homeFeaturedStory = {
+  heading: 'A closer look at the first step.',
+  /** Reuse an existing fictional Divorce story. */
+  storyId: 'michael' as const,
+  fictionalLabel: 'Fictional illustrative story',
+  startingConcernLabel: 'Starting concern',
+  discussedLabel: 'What was discussed',
+  clearerLabel: 'What became clearer',
+  startingConcern:
+    'Michael was considering divorce and felt pulled between questions about his children, housing, and finances.',
+  discussed:
+    'He named what felt most urgent and what could wait, without trying to settle every decision at once.',
+  clearer:
+    'He left with a practical overview of the process and a short list of topics to prepare for a next discussion.',
+  linkLabel: 'Explore client stories',
 } as const
 
 export const homeConsultation = {
-  heading: 'What the first consultation includes.',
-  feeNote: '30 minutes · Video or in person · $150',
-  linkLabel: 'Read the full consultation guide',
-  steps: [
+  heading: 'Your first consultation, explained.',
+  introduction:
+    'A conversation to discuss your priorities, ask questions, and explore possible next steps.',
+  feeNote: '30 minutes · Video or in person · $150 sample consultation fee',
+  overview: [
+    'Bring the questions you want to cover.',
+    'Discuss the issues that matter most to you.',
+    'Consider what may need further attention afterward.',
+  ] as const,
+  expectLinkLabel: 'What to expect',
+  faqLinkLabel: 'Read all FAQs',
+  questions: [
     {
-      step: 1,
-      title: 'Choose a time and format',
-      description: 'Select a date and time, then choose video or in person.',
+      id: 'prepare',
+      question: 'What should I prepare?',
+      answer:
+        'Start with your questions and any relevant information you want to discuss. No document uploads are required to book.',
     },
     {
-      step: 2,
-      title: 'Discuss your priorities',
-      description:
-        'Bring the questions you want to cover—family, finances, timing, or several connected topics.',
+      id: 'unsure',
+      question: 'What if I’m unsure which service I need?',
+      answer:
+        'Choose “Not sure” in the booking form. Your situation may involve several connected matters.',
     },
     {
-      step: 3,
-      title: 'Review possible next steps',
-      description:
-        'Leave with a practical sense of options and what information may help a later discussion.',
+      id: 'after',
+      question: 'What happens after the consultation?',
+      answer:
+        'You can consider the discussion and decide whether to explore further work with the firm. Any additional services would be discussed separately.',
     },
-  ],
-} as const
-
-export const homeConcerns = {
-  eyebrow: 'Before you book',
-  heading: 'Frequently Asked Questions',
-  supporting:
-    'Direct answers about preparation, fit, cost, booking, and how to get in touch.',
+  ] as const,
 } as const
