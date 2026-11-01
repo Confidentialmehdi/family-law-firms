@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
 import { homeHeroForm } from '@/content/home'
+import { practiceAreaOptions } from '@/content/practiceAreas'
 import {
   capitalizeFirstOnly,
   formatUsPhone,
