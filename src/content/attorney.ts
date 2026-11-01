@@ -32,6 +32,7 @@ export const aboutPage = {
     heading: 'The people you may work with.',
     supporting:
       'Legal guidance and practical coordination each support the consultation and any follow-up conversations.',
+    learnMoreLabel: 'Learn More',
   },
   values: {
     heading: 'How we approach the work.',

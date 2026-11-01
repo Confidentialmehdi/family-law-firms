@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ImageFallback } from '@/components/ImageFallback'
 import { PageHeading } from '@/components/PageHeading'
 import { ClosingConversion } from '@/components/sections/ClosingConversion'
+import { Button } from '@/components/ui/button'
 import { aboutPage, attorney, teamMembers } from '@/content/attorney'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
