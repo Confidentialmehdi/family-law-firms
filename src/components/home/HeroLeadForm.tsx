@@ -39,11 +39,11 @@ const emptyForm: FormState = {
 }
 
 const fieldClass =
-  'flex h-11 w-full rounded-md border-0 bg-[#dce3ec] px-3.5 py-2 text-base text-navy placeholder:text-navy/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5c518]/65'
+  'flex h-11 w-full rounded-sm border border-border bg-surface px-3.5 py-2 text-base text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25'
 
 /**
- * Dark hero intake panel matching a common law-firm lead form layout:
- * two-up name/phone/zip rows, email, case type, details, consent, yellow CTA.
+ * Hero intake panel — same field layout as the lead form, styled in the
+ * Whitfield charcoal / ivory / burgundy theme.
  */
 export function HeroLeadForm() {
   const [form, setForm] = React.useState<FormState>(emptyForm)
@@ -110,21 +110,17 @@ export function HeroLeadForm() {
     return (
       <div
         id="hero-form"
-        className="rounded-sm border border-[#7eb6d9]/70 bg-[#0c2340] px-5 py-8 text-center sm:px-6"
+        className="rounded-sm border border-brass/35 bg-navy px-5 py-8 text-center sm:px-6"
         role="status"
         aria-live="polite"
       >
-        <CircleCheck className="mx-auto size-12 text-[#f5c518]" strokeWidth={1.5} aria-hidden />
-        <p className="mt-4 font-serif text-2xl text-white">{homeHeroForm.completeHeading}</p>
-        <p className="mt-2 text-base text-white/75">{homeHeroForm.completeCopy}</p>
-        <Button
-          type="button"
-          className="mt-6 w-full bg-[#f5c518] font-bold text-navy hover:bg-[#e6b800]"
-          onClick={handleReset}
-        >
+        <CircleCheck className="mx-auto size-12 text-brass" strokeWidth={1.5} aria-hidden />
+        <p className="mt-4 font-serif text-2xl text-ivory">{homeHeroForm.completeHeading}</p>
+        <p className="mt-2 text-base text-ivory/70">{homeHeroForm.completeCopy}</p>
+        <Button type="button" className="mt-6 w-full" onClick={handleReset}>
           {homeHeroForm.startAgain}
         </Button>
-        <p className="mt-5 text-sm text-white/65">{homeHeroForm.completeDemoNotice}</p>
+        <p className="mt-5 text-sm text-ivory/60">{homeHeroForm.completeDemoNotice}</p>
       </div>
     )
   }
@@ -132,9 +128,9 @@ export function HeroLeadForm() {
   return (
     <div
       id="hero-form"
-      className="rounded-sm border border-[#7eb6d9]/70 bg-[#0c2340] px-4 py-5 sm:px-5 sm:py-6"
+      className="rounded-sm border border-brass/35 bg-navy px-4 py-5 sm:px-5 sm:py-6"
     >
-      <h2 className="text-[1.65rem] leading-tight font-bold text-white sm:text-[1.85rem]">
+      <h2 className="font-serif text-[1.65rem] leading-tight text-ivory sm:text-[1.85rem]">
         {homeHeroForm.heading}
       </h2>
 
@@ -157,7 +153,7 @@ export function HeroLeadForm() {
               className={fieldClass}
             />
             {errors.firstName ? (
-              <p id="hero-first-name-error" className="mt-1 text-sm text-[#ffb4b4]" role="alert">
+              <p id="hero-first-name-error" className="mt-1 text-sm text-red-300" role="alert">
                 {errors.firstName}
               </p>
             ) : null}
@@ -179,7 +175,7 @@ export function HeroLeadForm() {
               className={fieldClass}
             />
             {errors.lastName ? (
-              <p id="hero-last-name-error" className="mt-1 text-sm text-[#ffb4b4]" role="alert">
+              <p id="hero-last-name-error" className="mt-1 text-sm text-red-300" role="alert">
                 {errors.lastName}
               </p>
             ) : null}
@@ -205,7 +201,7 @@ export function HeroLeadForm() {
               className={fieldClass}
             />
             {errors.phone ? (
-              <p id="hero-phone-error" className="mt-1 text-sm text-[#ffb4b4]" role="alert">
+              <p id="hero-phone-error" className="mt-1 text-sm text-red-300" role="alert">
                 {errors.phone}
               </p>
             ) : null}
@@ -227,7 +223,7 @@ export function HeroLeadForm() {
               className={fieldClass}
             />
             {errors.zip ? (
-              <p id="hero-zip-error" className="mt-1 text-sm text-[#ffb4b4]" role="alert">
+              <p id="hero-zip-error" className="mt-1 text-sm text-red-300" role="alert">
                 {errors.zip}
               </p>
             ) : null}
@@ -252,7 +248,7 @@ export function HeroLeadForm() {
             className={fieldClass}
           />
           {errors.email ? (
-            <p id="hero-email-error" className="mt-1 text-sm text-[#ffb4b4]" role="alert">
+            <p id="hero-email-error" className="mt-1 text-sm text-red-300" role="alert">
               {errors.email}
             </p>
           ) : null}
@@ -272,10 +268,10 @@ export function HeroLeadForm() {
             className={cn(
               fieldClass,
               'appearance-none bg-[length:1rem] bg-[right_0.85rem_center] bg-no-repeat pr-10',
-              !form.caseType && 'text-navy/55',
+              !form.caseType && 'text-muted',
             )}
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23252629' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f6165' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
             }}
           >
             <option value="">{homeHeroForm.caseTypePlaceholder}</option>
@@ -286,7 +282,7 @@ export function HeroLeadForm() {
             ))}
           </select>
           {errors.caseType ? (
-            <p id="hero-case-type-error" className="mt-1 text-sm text-[#ffb4b4]" role="alert">
+            <p id="hero-case-type-error" className="mt-1 text-sm text-red-300" role="alert">
               {errors.caseType}
             </p>
           ) : null}
@@ -303,18 +299,18 @@ export function HeroLeadForm() {
             placeholder={homeHeroForm.detailsPlaceholder}
             value={form.details}
             onChange={(event) => update('details', event.target.value)}
-            className="flex min-h-[6.5rem] w-full resize-y rounded-md border-0 bg-[#dce3ec] px-3.5 py-2.5 text-base text-navy placeholder:text-navy/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5c518]/65"
+            className="flex min-h-[6.5rem] w-full resize-y rounded-sm border border-border bg-surface px-3.5 py-2.5 text-base text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25"
           />
         </div>
 
-        <div className="space-y-3 pt-1 text-[0.7rem] leading-relaxed text-white/90 sm:text-xs">
+        <div className="space-y-3 pt-1 text-[0.7rem] leading-relaxed text-ivory/70 sm:text-xs">
           <p>
             {homeHeroForm.termsLead}{' '}
-            <Link to="/terms" className="underline underline-offset-2 hover:text-white">
+            <Link to="/terms" className="text-brass-muted underline underline-offset-2 hover:text-brass">
               {homeHeroForm.termsLinkLabel}
             </Link>{' '}
             {homeHeroForm.privacyLead}{' '}
-            <Link to="/privacy" className="underline underline-offset-2 hover:text-white">
+            <Link to="/privacy" className="text-brass-muted underline underline-offset-2 hover:text-brass">
               {homeHeroForm.privacyLinkLabel}
             </Link>
             .
@@ -322,16 +318,17 @@ export function HeroLeadForm() {
           <p>{homeHeroForm.consentCopy}</p>
         </div>
 
-        <button
+        <Button
           type="submit"
+          size="lg"
           disabled={submitting}
           aria-busy={submitting}
-          className="flex h-12 w-full items-center justify-center rounded-md bg-[#f5c518] text-base font-bold text-navy transition-colors hover:bg-[#e6b800] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5c518] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0c2340] disabled:opacity-60"
+          className="w-full"
         >
           {submitting ? homeHeroForm.submittingLabel : homeHeroForm.submitLabel}
-        </button>
+        </Button>
 
-        <div className="space-y-1 pt-1 text-center text-[0.65rem] leading-relaxed text-white/80 sm:text-[0.7rem]">
+        <div className="space-y-1 pt-1 text-center text-[0.65rem] leading-relaxed text-ivory/55 sm:text-[0.7rem]">
           <p>{homeHeroForm.resultsDisclaimer}</p>
           <p>{homeHeroForm.copyright}</p>
         </div>
