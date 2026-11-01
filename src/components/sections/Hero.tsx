@@ -1,10 +1,7 @@
 import { BriefcaseBusiness, FolderCheck, Star, type LucideIcon } from 'lucide-react'
-import { Link } from 'react-router-dom'
 
 import { HeroLeadForm } from '@/components/home/HeroLeadForm'
-import { Button } from '@/components/ui/button'
 import { homeHero } from '@/content/home'
-import { site } from '@/content/site'
 
 const heroPointIcons: Record<(typeof homeHero.points)[number]['id'], LucideIcon> = {
   experience: BriefcaseBusiness,
@@ -12,7 +9,7 @@ const heroPointIcons: Record<(typeof homeHero.points)[number]['id'], LucideIcon>
   rating: Star,
 }
 
-/** Home hero — page h1 plus dark lead-capture form (intake panel on the right). */
+/** Home hero — page h1 plus themed lead-capture form (intake panel on the right). */
 export function Hero() {
   return (
     <section
@@ -41,11 +38,7 @@ export function Hero() {
         </div>
 
         <div className="animate-fade-up order-3 min-w-0 md:order-2 md:col-start-1">
-          <Button asChild size="lg">
-            <Link to="/book-consultation">{site.ctaLabel}</Link>
-          </Button>
-
-          <ul className="mt-6 flex flex-col gap-4 text-sm text-muted md:flex-row md:flex-nowrap md:items-center md:gap-0">
+          <ul className="flex flex-col gap-4 text-sm text-muted md:flex-row md:flex-nowrap md:items-center md:gap-0">
             {homeHero.points.map((point, index) => {
               const Icon = heroPointIcons[point.id]
               return (
