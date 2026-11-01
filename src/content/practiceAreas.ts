@@ -183,8 +183,8 @@ export const practicePage = {
   },
   closing: {
     headline: 'Talk through the questions that matter to you.',
-    supporting: 'Book a 30-minute consultation with Robert J. Whitfield, Esq.',
-    terms: '30 minutes · Video or in person · $150',
+    supporting: 'Book a consultation with Robert J. Whitfield, Esq.',
+    terms: 'Consultation · Online or in person',
   },
   questionsHeading: 'Questions you may want to discuss.',
 } as const

@@ -21,7 +21,7 @@ export const concerns: Concern[] = [
     id: 'costs',
     question: 'I’m worried about costs.',
     response:
-      'The consultation fee is $150 for 30 minutes. Fees are confirmed when you book so you know what to expect before continuing.',
+      'Fees are confirmed when you book so you know what to expect before continuing.',
   },
   {
     id: 'sensitive',
@@ -33,6 +33,6 @@ export const concerns: Concern[] = [
     id: 'time',
     question: 'I have limited time.',
     response:
-      'Consultations are thirty minutes. Choose a time that fits and come with a few priorities in mind.',
+      'Consultations are focused conversations. Choose a time that fits and come with a few priorities in mind.',
   },
 ]

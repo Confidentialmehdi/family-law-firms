@@ -15,19 +15,19 @@ export const faqItems: FaqItem[] = [
     id: 'length',
     question: 'How long is it?',
     answer:
-      'Consultations are scheduled for 30 minutes. That is usually enough time to cover priorities and leave with a practical sense of direction.',
+      'Consultations are focused conversations. That is usually enough time to cover priorities and leave with a practical sense of direction.',
   },
   {
     id: 'cost',
     question: 'What does it cost?',
     answer:
-      'The consultation fee is $150 for 30 minutes. Fees are confirmed when you book so you know what to expect before you continue.',
+      'Fees are confirmed when you book so you know what to expect before you continue.',
   },
   {
     id: 'remote',
     question: 'Can I meet remotely?',
     answer:
-      'Yes. On the Book a Consultation page, you can choose Video or In person.',
+      'Yes. On the Book a Consultation page, you can choose Online or In person.',
   },
   {
     id: 'prepare',

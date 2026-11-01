@@ -3,7 +3,7 @@ export const site = {
   location: 'New York, NY',
   tagline: 'New York family law',
   ctaLabel: 'Book a consultation',
-  consultationNote: '30-minute consultation · Video or in person · $150',
+  consultationNote: 'Consultation · Online or in person',
   timeZoneLabel: 'New York time',
   footerDisclaimer: 'New York family law practice.',
 } as const
@@ -41,16 +41,15 @@ export const contactForm = {
 
 export const closingConversion = {
   label: 'First step',
-  headline: 'Begin with a 30-minute consultation.',
+  headline: 'Begin with a consultation.',
   supporting:
     'Book a time to discuss your questions with Robert J. Whitfield, Esq., or leave your details and request contact.',
   booking: {
     heading: 'Book a consultation',
-    copy: 'Choose video or in person, pick a time, and review your details before you confirm.',
+    copy: 'Choose online or in person, pick a time, and review your details before you confirm.',
     details: [
-      '30-minute consultation',
-      'Video or in person',
-      '$150',
+      'Consultation',
+      'Online or in person',
       'New York time',
     ],
     concernsHeading: 'Common concerns',

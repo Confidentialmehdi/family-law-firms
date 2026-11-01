@@ -55,7 +55,7 @@ export const homeHeroForm = {
     { value: '15-18', label: 'Weekday afternoon · 3:00–6:00 PM' },
   ] as const,
   detailsPlaceholder: 'Optional: a few words about your questions',
-  consultationNote: '30-minute consultation · We’ll follow up using your preferred method',
+  consultationNote: 'Consultation · We’ll follow up using your preferred method',
   submitLabel: 'Request a consultation',
   submittingLabel: 'Submitting…',
   termsLead: 'By submitting this form, you agree to our',
@@ -218,7 +218,7 @@ export const homeExperience = {
 export const homeConsultation = {
   heading: 'What the first consultation includes.',
   withAttorney: 'with Robert J. Whitfield, Esq.',
-  feeNote: '30 minutes · Video or in person · $150',
+  feeNote: 'Consultation · Online or in person',
   valueLine:
     'Leave with clearer priorities, a practical sense of options, and what may help a next discussion.',
   bookLabel: 'Book a consultation',
@@ -227,7 +227,7 @@ export const homeConsultation = {
     {
       step: 1,
       title: 'Choose a time and format',
-      description: 'Select a date and time, then choose video or in person.',
+      description: 'Select a date and time, then choose online or in person.',
     },
     {
       step: 2,

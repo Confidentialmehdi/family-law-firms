@@ -15,7 +15,7 @@ export const whatToExpect = [
     step: 1,
     title: 'Choose a consultation',
     description:
-      'Pick a date, time, and whether you prefer video or an in-person meeting. Times are shown in New York time.',
+      'Pick a date, time, and whether you prefer an online or in-person meeting. Times are shown in New York time.',
   },
   {
     step: 2,
