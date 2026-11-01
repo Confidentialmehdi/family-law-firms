@@ -35,15 +35,15 @@ export const attorneyProfiles: AttorneyProfile[] = [
     imageSrc: '/images/portraits/robert.jpg',
     imageAlt: 'Portrait of attorney Robert J. Whitfield, Esq.',
     summary:
-      'Leads consultations about client priorities, family law questions, and possible next steps.',
+      'Leads consultations that clarify your priorities, options, and a practical next step.',
     education: [
       { school: 'Columbia Law School', detail: 'J.D.' },
       { school: 'New York University', detail: 'B.A.' },
     ],
     bio: [
-      'Robert J. Whitfield, Esq. begins with what you want to discuss. Family, finances, and timing often arrive together. He listens carefully, explains options in plain language, and helps you separate questions that need attention now from those that can wait.',
-      'At Whitfield Law Group, the initial consultation is a defined first step: organize your priorities, understand possible paths, and decide—at your own pace—what you want to do next.',
-      'He works with people facing divorce, parenting arrangements, support questions, property decisions, and agreements before or during marriage—always starting from the concerns that feel most urgent to them.',
+      'Robert J. Whitfield, Esq. starts with what you need to discuss. Family, finances, and timing often arrive together. He listens carefully, explains options in plain English, and helps you separate what needs attention now from what can wait.',
+      'At Whitfield Law Group, the consultation is a focused first step: clarify your priorities, understand your options, and decide—at your own pace—what comes next.',
+      'He works with people facing divorce, parenting arrangements, support questions, property decisions, and agreements before or during marriage—always beginning with the concerns that feel most urgent.',
     ],
     practiceAreas: [
       'Divorce',
@@ -53,7 +53,7 @@ export const attorneyProfiles: AttorneyProfile[] = [
       'Property Division',
       'Prenuptial & Postnuptial Agreements',
     ],
-    quote: 'A useful first conversation starts with your questions.',
+    quote: 'A useful consultation starts with your questions.',
   },
   {
     id: 'avery',
@@ -66,15 +66,15 @@ export const attorneyProfiles: AttorneyProfile[] = [
     imageSrc: '/images/portraits/avery.jpg',
     imageAlt: 'Portrait of Avery Morgan',
     summary:
-      'Supports discussion and preparation of family law matters, with attention to clear communication.',
+      'Helps clients prepare for clear conversations about family law—and the decisions those conversations unlock.',
     education: [
       { school: 'Fordham University School of Law', detail: 'J.D.' },
       { school: 'Barnard College', detail: 'B.A.' },
     ],
     bio: [
-      'Avery Morgan helps clients prepare for thoughtful conversations about family law questions. She focuses on clear communication so people can name priorities, understand how issues connect, and gather information that will help a next discussion.',
-      'She works closely with Robert J. Whitfield, Esq. on matters involving parenting arrangements, support, and property—translating complex topics into ordinary language without rushing decisions.',
-      'Clients often meet Avery when they need help organizing documents, clarifying questions before a consultation, or following up on topics raised in an earlier conversation.',
+      'Avery Morgan helps clients prepare for thoughtful conversations about family law. She focuses on clear communication so people can name priorities, understand how issues connect, and gather what will help a next discussion.',
+      'She works closely with Robert J. Whitfield, Esq. on parenting arrangements, support, and property—translating complex topics into ordinary language without rushing decisions.',
+      'Clients often meet Avery when they need help organizing documents, clarifying questions before a consultation, or following up on topics raised earlier.',
     ],
     practiceAreas: [
       'Divorce',
@@ -96,13 +96,13 @@ export const attorneyProfiles: AttorneyProfile[] = [
     imageSrc: '/images/portraits/taylor.jpg',
     imageAlt: 'Portrait of Taylor Reed',
     summary:
-      'Coordinates consultations and answers practical questions about preparing for a meeting.',
+      'Coordinates consultations and answers practical questions so you can arrive prepared.',
     education: [
       { school: 'Hunter College', detail: 'B.A.' },
     ],
     bio: [
-      'Taylor Reed coordinates consultations and helps people prepare for a first conversation with the firm. That includes scheduling, format choices (online or in person), and practical questions about what to bring or expect.',
-      'Taylor is often the first person you speak with—answering logistics questions so the consultation itself can focus on your priorities rather than process details.',
+      'Taylor Reed coordinates consultations and helps people prepare for a first conversation with the firm—including scheduling, online or in-person format, and what to bring.',
+      'Taylor is often the first person you speak with, handling logistics so the consultation can focus on your priorities rather than process details.',
       'If you are unsure which practice area fits, Taylor can help you book with “Not sure” selected and start from what you want to discuss.',
     ],
     practiceAreas: [
@@ -122,7 +122,7 @@ export const attorneyProfilePage = {
   practiceAreasLabel: 'Practice areas',
   quoteLabel: 'In their words',
   backLabel: 'Back to About Us',
-  softNextPrompt: 'Ready for a defined first conversation?',
+  softNextPrompt: 'Ready for a focused first conversation?',
   softNextLabel: 'Book a consultation',
   softNextTo: '/book-consultation',
 } as const

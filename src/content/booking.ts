@@ -105,7 +105,7 @@ export const meetingTypeLabels: Record<MeetingType, string> = {
 export const bookingPage = {
   headline: 'Book a consultation with Robert J. Whitfield, Esq.',
   supporting:
-    'Choose a format, date, and time for a consultation about your questions and priorities.',
+    'Choose online or in person, pick a time, and come ready to talk through the questions weighing on you.',
   consultationDetails: 'Consultation · Online or in person',
   progress: [
     { id: 'consultation', label: 'Consultation' },
@@ -122,8 +122,8 @@ export const bookingPage = {
   summaryEmpty: 'Choose a date and time.',
   confirmLabel: 'Book a consultation',
   submittingLabel: 'Submitting',
-  completeHeading: 'Consultation confirmed',
-  completeCopy: 'Here is a summary of the details you selected.',
+  completeHeading: 'Your consultation is booked',
+  completeCopy: 'Here is a summary of what you selected. We look forward to speaking with you.',
   completeDemoNotice: 'Demo only. No consultation has been scheduled. Nothing was sent or stored.',
   validation: {
     meetingType: 'Choose online or in person.',
@@ -138,20 +138,20 @@ export const bookingPage = {
     practiceArea: 'Choose a practice area.',
   },
   reassurance: {
-    heading: 'Before you confirm.',
+    heading: 'Before you confirm',
     items: [
       {
         question: 'Unsure which practice area applies?',
-        answer: 'Select “Not sure.” Begin with the questions that matter to you.',
+        answer: 'Select “Not sure.” Start with the questions that matter most to you.',
       },
       {
         question: 'What should I prepare?',
         answer:
-          'Bring your questions and any notes that help you explain them. No uploads are required to book.',
+          'A short list of questions is enough. You do not need documents or uploads to book.',
       },
       {
         question: 'What does the consultation cost?',
-        answer: 'Fees are confirmed when you book so you know what to expect before you continue.',
+        answer: 'Fees are confirmed when you book, so you know what to expect before you continue.',
       },
     ],
     contactLinkLabel: 'Prefer another way to reach us? Contact us',

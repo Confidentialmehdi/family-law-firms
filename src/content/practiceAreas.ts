@@ -20,22 +20,22 @@ export const practiceAreas: PracticeArea[] = [
     id: 'divorce',
     title: 'Divorce',
     description:
-      'Considering divorce or separation can raise questions about your children, home, finances, and timing. We help you understand the decisions involved, organize your priorities, and discuss what a next step might look like—without asking you to resolve everything in one meeting.',
+      'Thinking about divorce or separation often means facing children, housing, money, and timing all at once. We help you see which decisions need attention soon, how those issues connect, and what a steady next step can look like—without asking you to resolve everything in one meeting.',
     preview:
-      'Discuss the decisions involved in ending a marriage or planning a separation.',
+      'Get clarity on the decisions that come with ending a marriage or planning a separation.',
     oftenInvolves: [
-      'Where to begin and which decisions usually come first',
+      'Where to begin when answers are not ready yet',
       'How parenting, support, and property questions connect',
-      'Timing, living arrangements, and financial priorities',
-      'Information that is useful for a first conversation',
+      'Timing, living arrangements, and financial pressure',
+      'Information that makes a first conversation useful',
     ],
     approachLine:
-      'We start with your questions, then outline options and what may need further discussion.',
+      'We start with your questions, then map options and what may need further discussion.',
     questions: [
-      'Where to begin when considering divorce or separation.',
-      'How parenting, support, and property matters connect.',
-      'What information to prepare for a first consultation.',
-      'Which decisions need attention soon and which can wait.',
+      'Where should I begin if I am considering divorce or separation?',
+      'How do parenting, support, and property issues connect in my situation?',
+      'What information helps before a first consultation?',
+      'Which decisions need attention soon—and which can wait?',
     ],
     relatedIds: ['custody', 'property', 'spousal-support'],
   },
@@ -43,22 +43,22 @@ export const practiceAreas: PracticeArea[] = [
     id: 'custody',
     title: 'Child Custody & Parenting Time',
     description:
-      'Changes in family life can bring questions about parenting schedules, shared responsibilities, and your children’s everyday needs. A consultation can help you name those concerns and the arrangements you want to discuss.',
+      'When family routines change, questions about schedules, school, and shared decisions can feel urgent. A consultation helps you put those concerns into plain language and discuss arrangements that reflect your children’s everyday lives.',
     preview:
-      'Discuss parenting responsibilities and time with your children.',
+      'Talk through parenting time, responsibilities, and decisions that affect your children.',
     oftenInvolves: [
       'Weekday and weekend parenting schedules',
-      'School, activities, and travel routines',
-      'How important decisions are shared',
+      'School, activities, and travel',
+      'How major decisions get shared',
       'Changes when work or home life shifts',
     ],
     approachLine:
-      'We help you put parenting concerns into ordinary language before talking through possible arrangements.',
+      'We help you describe parenting concerns clearly before talking through possible arrangements.',
     questions: [
-      'Parenting schedules and time with your children.',
-      'Responsibilities for important decisions.',
-      'Changes in family circumstances or existing arrangements.',
-      'How everyday routines should be reflected in a plan.',
+      'What parenting schedule fits our children’s real lives?',
+      'How should important decisions be shared?',
+      'What if circumstances or an existing arrangement change?',
+      'How should everyday routines show up in a plan?',
     ],
     relatedIds: ['divorce', 'child-support'],
   },
@@ -66,8 +66,8 @@ export const practiceAreas: PracticeArea[] = [
     id: 'child-support',
     title: 'Child Support',
     description:
-      'Questions about supporting your children often involve income, expenses, and changing circumstances. We discuss the information relevant to your situation and the financial concerns you want to understand.',
-    preview: 'Discuss financial contributions toward your children’s needs.',
+      'Supporting your children after a separation raises questions about income, expenses, and changing circumstances. We help you frame the financial picture that matters and the details worth gathering before a longer discussion.',
+    preview: 'Clarify contributions toward your children’s ongoing needs.',
     oftenInvolves: [
       'Income information to organize',
       'Children’s expenses and ongoing needs',
@@ -75,12 +75,12 @@ export const practiceAreas: PracticeArea[] = [
       'Questions about existing support arrangements',
     ],
     approachLine:
-      'We focus on clarifying the financial picture you want to discuss—not on finishing every calculation in one sitting.',
+      'We focus on clarifying the financial picture you need—not finishing every calculation in one sitting.',
     questions: [
-      'Financial information to prepare.',
-      'Your children’s expenses and needs.',
-      'Questions about existing support arrangements.',
-      'How changing circumstances may affect the conversation.',
+      'What financial information should I prepare?',
+      'How do my children’s expenses factor into support?',
+      'What if I already have a support arrangement?',
+      'How might changing circumstances affect the conversation?',
     ],
     relatedIds: ['custody', 'divorce'],
   },
@@ -88,7 +88,7 @@ export const practiceAreas: PracticeArea[] = [
     id: 'spousal-support',
     title: 'Spousal Support',
     description:
-      'Separation and divorce can create uncertainty about financial needs and responsibilities. We discuss your circumstances and the questions you have about support during or after separation.',
+      'Separation and divorce can leave you unsure how household costs get covered—now and later. We discuss your circumstances and the support questions that matter most during or after a split.',
     preview:
       'Discuss financial support during and after separation.',
     oftenInvolves: [
@@ -98,12 +98,12 @@ export const practiceAreas: PracticeArea[] = [
       'Information useful for a later discussion',
     ],
     approachLine:
-      'We help you identify the support questions that matter most and what details to organize next.',
+      'We help you identify the support questions that matter most and what to organize next.',
     questions: [
-      'Financial needs and income information.',
-      'Support questions during separation.',
-      'Questions about existing arrangements.',
-      'How support connects to property and living expenses.',
+      'What income and expense details matter here?',
+      'How does support work during separation?',
+      'What if an arrangement already exists?',
+      'How does support connect to property and living costs?',
     ],
     relatedIds: ['divorce', 'property'],
   },
@@ -111,7 +111,7 @@ export const practiceAreas: PracticeArea[] = [
     id: 'property',
     title: 'Property Division',
     description:
-      'Shared assets and debts can make financial decisions feel complicated. We help you identify the property, obligations, and priorities that may need closer discussion as you consider next steps.',
+      'Shared homes, accounts, debts, and business interests can make every financial decision feel complicated. We help you identify what needs closer attention and group related questions so a first conversation stays focused.',
     preview: 'Organize shared assets, debts, and financial priorities.',
     oftenInvolves: [
       'Shared assets and household debts',
@@ -122,10 +122,10 @@ export const practiceAreas: PracticeArea[] = [
     approachLine:
       'We group complex financial questions into categories so the conversation is easier to follow.',
     questions: [
-      'Shared assets and debts.',
-      'Property or business interests.',
-      'Financial records to organize.',
-      'Which priorities should lead the next discussion.',
+      'Which shared assets and debts need attention first?',
+      'How do property or business interests fit in?',
+      'What financial records should I organize?',
+      'Which priorities should lead the next discussion?',
     ],
     relatedIds: ['divorce', 'spousal-support'],
   },
@@ -133,9 +133,9 @@ export const practiceAreas: PracticeArea[] = [
     id: 'prenup',
     title: 'Prenuptial & Postnuptial Agreements',
     description:
-      'Planning a marriage—or discussing finances during one—can involve important conversations about expectations, assets, and debts. We explore the subjects you want a potential agreement to address.',
+      'Planning a marriage—or revisiting finances during one—takes careful conversation about expectations, assets, and debts. We help you name what a potential agreement should address before treating the talk as a finished negotiation.',
     preview:
-      'Discuss financial expectations and agreements before or during marriage.',
+      'Set financial expectations clearly before or during marriage.',
     oftenInvolves: [
       'Financial expectations before or during marriage',
       'Assets, debts, and business interests',
@@ -143,12 +143,12 @@ export const practiceAreas: PracticeArea[] = [
       'Topics to revisit before preparing an agreement',
     ],
     approachLine:
-      'We help people name priorities and questions before treating the discussion as a finished negotiation.',
+      'We help you name priorities and questions before treating the discussion as a finished deal.',
     questions: [
-      'Financial expectations and priorities.',
-      'Assets, debts, and business interests.',
-      'Questions to discuss together before preparing an agreement.',
-      'How changed circumstances may reopen the conversation.',
+      'What financial expectations matter most to us?',
+      'How should assets, debts, and business interests be addressed?',
+      'What should we discuss before drafting an agreement?',
+      'What if circumstances change later?',
     ],
     relatedIds: ['property', 'divorce'],
   },
@@ -161,12 +161,12 @@ export const practiceAreaOptions = [
 
 export const practicePage = {
   eyebrow: 'Practice Areas',
-  headline: 'Family law services for the decisions you are facing.',
+  headline: 'Family law help for the decisions in front of you.',
   supporting:
-    'Divorce, parenting arrangements, financial support, property, and agreements before or during marriage—each explained in practical terms.',
-  navHeading: 'Choose a topic to explore.',
+    'Divorce, parenting, support, property, and marriage agreements—explained in practical terms so you know where to begin.',
+  navHeading: 'Choose a topic.',
   oftenInvolvesLabel: 'What this often involves',
-  questionsLabel: 'Questions to explore',
+  questionsLabel: 'Questions people bring',
   approachLabel: 'How we approach this',
   relatedLabel: 'Related areas',
   questionsNote: 'Bring whichever of these you want to cover first.',
@@ -176,13 +176,13 @@ export const practicePage = {
   softNextTo: '/what-to-expect',
   unsure: {
     heading: 'Not sure where your situation fits?',
-    copy: 'You do not need to choose a legal category before speaking with us. Family matters often involve several connected questions.',
+    copy: 'You do not need a legal label before speaking with us. Family matters often involve several connected questions.',
     bookingNote: 'Select “Not sure” when you book and start with what you want to discuss.',
     bookLabel: 'Book a consultation',
     linkLabel: 'What to expect at your consultation',
   },
   closing: {
-    headline: 'Talk through the questions that matter to you.',
+    headline: 'Talk through the questions that matter most.',
     supporting: 'Book a consultation with Robert J. Whitfield, Esq.',
     terms: 'Consultation · Online or in person',
   },

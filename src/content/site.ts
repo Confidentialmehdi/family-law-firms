@@ -9,9 +9,9 @@ export const site = {
 } as const
 
 export const contactPage = {
-  headline: 'Reach Whitfield Law Group.',
+  headline: 'Talk with Whitfield Law Group.',
   supporting:
-    'Call, email, or leave your details below. Choose the option that feels most comfortable—there is no obligation to book.',
+    'Call, email, or leave your details below. Choose whatever feels easiest—there is no obligation to book.',
   directHeading: 'Phone, email, and office hours',
   phoneLabel: 'Phone',
   emailLabel: 'Email',
@@ -21,14 +21,14 @@ export const contactPage = {
 } as const
 
 export const contactForm = {
-  sensitiveNote: 'Please avoid including sensitive case details.',
+  sensitiveNote: 'Please keep sensitive case details for the consultation—not the form.',
   preferredTimePlaceholder: 'e.g. Weekday mornings',
   selectOption: 'Select an option',
   startAgain: 'Start again',
   submitLabel: 'Request contact',
   submittingLabel: 'Submitting…',
-  completeHeading: 'Contact request received',
-  completeCopy: 'Thank you for sharing how we can reach you.',
+  completeHeading: 'We received your message',
+  completeCopy: 'Thank you. We will use the details you provided to follow up.',
   completeDemoNotice: 'Demo only. Your contact request was not sent. Nothing was stored.',
   validation: {
     name: 'Enter your full name.',
@@ -41,12 +41,12 @@ export const contactForm = {
 
 export const closingConversion = {
   label: 'First step',
-  headline: 'Begin with a consultation.',
+  headline: 'Start with a consultation.',
   supporting:
-    'Book a time to discuss your questions with Robert J. Whitfield, Esq., or leave your details and request contact.',
+    'Book a time with Robert J. Whitfield, Esq., or leave your details and we will follow up.',
   booking: {
     heading: 'Book a consultation',
-    copy: 'Choose online or in person, pick a time, and review your details before you confirm.',
+    copy: 'Choose online or in person, pick a time that works, and review your details before you confirm.',
     details: [
       'Consultation',
       'Online or in person',
@@ -56,15 +56,18 @@ export const closingConversion = {
     concerns: [
       {
         title: 'Do I need to know my legal category first?',
-        answer: 'No. Start with the questions on your mind—even if several issues connect.',
+        answer:
+          'No. Start with the questions on your mind—even if several issues connect.',
       },
       {
         title: 'Will I be pressured to hire the firm?',
-        answer: 'No. The consultation is a defined first conversation, not a commitment to retain us.',
+        answer:
+          'No. The consultation is a focused first conversation, not a commitment to retain us.',
       },
       {
-        title: 'What if I’m not ready to decide next steps?',
-        answer: 'That’s expected. Many people leave clarifying priorities before choosing a path.',
+        title: 'What if I am not ready to decide next steps?',
+        answer:
+          'That is common. Many people leave clearer on priorities before choosing a path.',
       },
       {
         title: 'Is this confidential?',
@@ -76,7 +79,7 @@ export const closingConversion = {
   },
   contact: {
     heading: 'Request contact',
-    copy: 'Share how you prefer to be reached. We will use the details you provide to respond.',
+    copy: 'Tell us how to reach you. We will follow up using the details you provide.',
   },
 } as const
 

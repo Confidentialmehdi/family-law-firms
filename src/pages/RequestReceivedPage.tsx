@@ -106,7 +106,7 @@ export function RequestReceivedPage() {
             aria-labelledby="request-next-heading"
           >
             <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
-              After you submit
+              {requestReceivedPage.nextEyebrow}
             </p>
             <h2
               id="request-next-heading"

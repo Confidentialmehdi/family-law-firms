@@ -13,18 +13,18 @@ export type ClientStory = {
 
 export const resultsPage = {
   eyebrow: 'Our Results',
-  headline: 'Illustrative stories from first conversations.',
+  headline: 'How a first conversation helps people move forward.',
   supporting:
-    'These examples show how people organize priorities, understand options, and prepare for a next discussion. They illustrate kinds of conversations and are not promises of results.',
+    'These illustrative stories show how clients clarified priorities and prepared for what came next. They are examples of conversations—not promises of results.',
   stories: {
     heading: 'Different situations. Personal priorities.',
     introduction:
-      'Each story begins with its own questions. Use them to see how a consultation can help sort what needs attention now from what can wait.',
+      'Each story begins with its own pressure points. Use them to see how a consultation can separate what needs attention now from what can wait.',
   },
   personal: {
     label: 'Your circumstances',
-    heading: 'Your situation may look different.',
-    copy: 'The questions in these stories may feel familiar, but your priorities are your own. You may be thinking about your children, your finances, your relationship, or several connected decisions.',
+    heading: 'Your situation will look different.',
+    copy: 'The questions in these stories may feel familiar, but your priorities are your own—children, finances, a relationship ending, or several decisions at once.',
     followUp:
       'You do not need to match someone else’s story before booking a consultation.',
     linkLabel: 'Meet Robert J. Whitfield, Esq. and the team',
@@ -40,7 +40,7 @@ export const clientStories: ClientStory[] = [
     practiceArea: 'Divorce',
     title: 'Finding a place to begin.',
     caption:
-      'Michael was considering divorce and felt pulled between questions about his children, housing, and finances. In conversation, he named what felt most urgent and what could wait. He left with a practical overview of the process and a short list of topics to prepare for a next discussion.',
+      'Michael was considering divorce and felt pulled between questions about his children, housing, and finances. In conversation, he named what felt most urgent and what could wait. He left with a practical overview of the process and a short list of topics to prepare next.',
     imageSrc: '/images/stories/michael.jpg',
     imageAlt: 'Thoughtful man looking toward the camera',
   },
@@ -52,7 +52,7 @@ export const clientStories: ClientStory[] = [
     practiceArea: 'Divorce',
     title: 'Turning questions into priorities.',
     caption:
-      'Sarah was thinking about separation but did not want to decide everything at once. She talked through what she hoped to understand before making further choices. The conversation helped her sort immediate concerns from longer-term questions and leave with a focused set of priorities.',
+      'Sarah was thinking about separation but did not want to decide everything at once. She talked through what she needed to understand first. The conversation helped her sort immediate concerns from longer-term questions—and leave with a focused set of priorities.',
     imageSrc: '/images/stories/sarah.jpg',
     imageAlt: 'Woman in soft light looking thoughtfully ahead',
   },
@@ -64,7 +64,7 @@ export const clientStories: ClientStory[] = [
     practiceArea: 'Child Custody & Parenting Time',
     title: 'Putting parenting questions into words.',
     caption:
-      'Dana wanted to talk about parenting schedules, shared responsibilities, and everyday routines without assuming a finished plan. Together they mapped the questions that mattered most for school, weekends, and decision-making. She left knowing how to describe her priorities more precisely.',
+      'Dana wanted to talk about schedules, shared responsibilities, and everyday routines without assuming a finished plan. Together they mapped what mattered most for school, weekends, and decision-making. She left knowing how to describe her priorities more precisely.',
     imageSrc: '/images/stories/dana.jpg',
     imageAlt: 'Parent walking outdoors with a young child',
   },
@@ -76,7 +76,7 @@ export const clientStories: ClientStory[] = [
     practiceArea: 'Child Support',
     title: 'Preparing the financial picture.',
     caption:
-      'James needed help organizing information about income and his children’s expenses before a longer discussion. The conversation focused on which details were useful to gather and which questions to bring next. He left with a preparation list rather than a finished financial answer.',
+      'James needed help organizing income and his children’s expenses before a longer discussion. The conversation focused on which details were useful to gather and which questions to bring next. He left with a preparation list—not a finished financial answer.',
     imageSrc: '/images/stories/james.jpg',
     imageAlt: 'Professional reviewing notes at a desk',
   },
@@ -88,7 +88,7 @@ export const clientStories: ClientStory[] = [
     practiceArea: 'Spousal Support',
     title: 'Understanding what to ask.',
     caption:
-      'Morgan faced financial uncertainty after separation and was unsure which support questions were worth asking. They talked through income, needs, and how support conversations often begin. Morgan left with clearer language for the next discussion and a sense of what information to organize.',
+      'Morgan faced financial uncertainty after separation and was unsure which support questions were worth asking. They talked through income, needs, and how support conversations usually begin. Morgan left with clearer language for the next discussion and a sense of what to organize.',
     imageSrc: '/images/stories/morgan.jpg',
     imageAlt: 'Close portrait of a person in soft natural light',
   },
@@ -98,9 +98,9 @@ export const clientStories: ClientStory[] = [
     initials: 'AP',
     city: 'White Plains, NY',
     practiceArea: 'Property Division',
-    title: 'Making complex details more manageable.',
+    title: 'Making complex details manageable.',
     caption:
-      'Alex felt overwhelmed by shared property, debts, and a business interest. Instead of covering every account, the conversation grouped questions into categories and noted what documents might help later. Alex left with a more manageable map of priorities and next preparation steps.',
+      'Alex felt overwhelmed by shared property, debts, and a business interest. Instead of covering every account, the conversation grouped questions into categories and noted what documents might help later. Alex left with a clearer map of priorities and next preparation steps.',
     imageSrc: '/images/stories/alex.jpg',
     imageAlt: 'Quiet residential home exterior in soft daylight',
   },

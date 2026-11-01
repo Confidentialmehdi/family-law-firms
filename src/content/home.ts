@@ -1,7 +1,7 @@
 export const homeHero = {
-  headline: 'New York family law. A defined first conversation.',
+  headline: 'Family law questions. A clear place to start.',
   supporting:
-    'Whitfield Law Group helps you discuss divorce, parenting arrangements, and financial questions with attorney Robert J. Whitfield, Esq.—so you can understand your options before deciding what comes next.',
+    'When divorce, parenting, or money feels tangled, Whitfield Law Group helps you sort what matters now—and what can wait—with attorney Robert J. Whitfield, Esq.',
   points: [
     {
       id: 'experience',
@@ -29,7 +29,7 @@ export const homeHeroForm = {
   lastNamePlaceholder: 'Last name',
   phonePlaceholder: 'Phone number',
   emailPlaceholder: 'Email',
-  caseTypePlaceholder: '- Select a practice area -',
+  caseTypePlaceholder: '- What is this mainly about? -',
   /** Hero-specific labels; values match practice-area ids used elsewhere. */
   practiceTopics: [
     { value: 'divorce', label: 'Divorce or separation' },
@@ -48,18 +48,18 @@ export const homeHeroForm = {
   ] as const,
   contactWindowPlaceholder: '- When may we reach you? -',
   contactWindows: [
-    { value: 'asap', label: 'As soon as you’re available to talk' },
+    { value: 'asap', label: 'As soon as you are available' },
     { value: '9-12', label: 'Weekday morning · 9:00 AM–12:00 PM' },
     { value: '12-15', label: 'Weekday midday · 12:00–3:00 PM' },
     { value: '15-18', label: 'Weekday afternoon · 3:00–6:00 PM' },
   ] as const,
-  detailsPlaceholder: 'Optional: a few words about your questions',
-  consultationNote: 'Consultation · We’ll follow up using your preferred method',
+  detailsPlaceholder: 'Optional: the questions weighing on you most',
+  consultationNote: 'Consultation · Online or in person · New York time',
   submitLabel: 'Request a consultation',
   submittingLabel: 'Submitting…',
   termsLead: 'By submitting this form, you agree to our',
   termsLinkLabel: 'Terms',
-  privacyLead: '& acknowledge our',
+  privacyLead: 'and acknowledge our',
   privacyLinkLabel: 'privacy policy',
   consentCopy:
     'By submitting your phone number, you authorize Whitfield Law Group to contact you by phone or SMS at the number you provided, including with an automatic dialing system. Consent is not required to request a consultation. Message and data rates may apply.',
@@ -77,90 +77,90 @@ export const homeHeroForm = {
 
 export const homePractice = {
   eyebrow: 'Practice areas',
-  heading: 'What are you facing?',
+  heading: 'What is weighing on you?',
   introduction:
-    'Choose the situation closest to yours. Open any item to see how we can help—and book a consultation when you are ready.',
-  linkLabel: 'Learn More',
-  dialogCtaLabel: 'Book Consultation',
-  dialogTopicsLabel: 'Common questions we can discuss',
+    'Start with the situation that feels closest. Open any item to see how a consultation can help—then book when you are ready.',
+  linkLabel: 'Learn more',
+  dialogCtaLabel: 'Book a consultation',
+  dialogTopicsLabel: 'What we can cover',
   /** Situation-led mapping — concern first, practice area second. */
   concerns: [
     {
       areaId: 'divorce',
-      concern: 'Considering separation',
-      outcome: 'Clarify decisions about family, home, and timing.',
+      concern: 'Thinking about separation',
+      outcome: 'See which decisions come first—and which can wait.',
       dialogBody:
-        'Thinking about separation often brings uncertainty about children, living arrangements, finances, and when anything needs to happen. A first conversation can help you name what feels most urgent, understand which decisions usually connect, and leave with a clearer sense of options—without requiring you to decide everything at once.',
+        'Separation often raises everything at once: children, housing, money, and timing. A consultation helps you name what feels most urgent, how those issues connect, and what a steady next step could look like—without asking you to resolve every decision today.',
       dialogPoints: [
-        'Where to begin and which questions usually come first',
-        'How parenting, support, and property issues relate',
-        'Timing, living arrangements, and financial priorities',
-        'What information is useful before a next step',
+        'Where to begin when you are not ready for every answer',
+        'How parenting, support, and property questions connect',
+        'Living arrangements, timing, and financial pressure',
+        'What information helps before you take a next step',
       ],
     },
     {
       areaId: 'custody',
-      concern: 'Need a parenting schedule',
-      outcome: 'Talk through time with your children and shared responsibilities.',
+      concern: 'Need a workable parenting plan',
+      outcome: 'Talk through time with your children and shared decisions.',
       dialogBody:
-        'When family routines change, questions about time with your children, school and activities, and who decides what can feel heavy. We help you put those concerns into plain language and talk through arrangements that reflect your children’s everyday needs—so you know what to discuss before anything is finalized.',
+        'When routines change, questions about weekdays, weekends, school, and who decides what can feel heavy. We help you put those concerns into plain language and discuss arrangements that reflect your children’s real lives—so you know what to ask for before anything is finalized.',
       dialogPoints: [
         'Weekday, weekend, and holiday parenting time',
-        'School, activities, and travel routines',
-        'How important decisions are shared',
+        'School, activities, and travel',
+        'How major decisions get shared',
         'Adjustments when work or home life shifts',
       ],
     },
     {
       areaId: 'child-support',
-      concern: 'Support for your children',
-      outcome: 'Understand contributions toward their ongoing needs.',
+      concern: 'Support for your children’s needs',
+      outcome: 'Clarify contributions toward ongoing costs.',
       dialogBody:
-        'Supporting your children after a separation often raises questions about income, expenses, and changing circumstances. We focus on clarifying the financial picture you want to understand and the details worth organizing—not on finishing every calculation in one sitting.',
+        'After a separation, income, expenses, and changing circumstances can make support feel unclear. We help you frame the financial picture you need to understand and the details worth gathering—so the next conversation is grounded, not guesswork.',
       dialogPoints: [
         'Income and expense information to gather',
         'Children’s ongoing needs and costs',
-        'Questions about an existing support arrangement',
-        'How work or household changes may affect the conversation',
+        'Questions about an existing support order',
+        'How job or household changes may affect support',
       ],
     },
     {
       areaId: 'spousal-support',
-      concern: 'Financial support after separation',
-      outcome: 'Discuss needs and responsibilities during or after a split.',
+      concern: 'Financial footing after a split',
+      outcome: 'Discuss needs and responsibilities during or after separation.',
       dialogBody:
-        'Separation can create uncertainty about meeting household needs and longer-term financial responsibilities. In a consultation, we discuss your circumstances, the support questions that matter most to you, and what details help a later, more focused discussion.',
+        'Separation can leave you unsure how household costs get covered—now and later. In a consultation, we walk through your circumstances, the support questions that matter most, and which details will make a later discussion more useful.',
       dialogPoints: [
         'Income, needs, and household expenses',
-        'Support during separation versus after a divorce',
+        'Support during separation versus after divorce',
         'How support connects to property and living costs',
-        'Information that is useful to organize next',
+        'Information worth organizing before you continue',
       ],
     },
     {
       areaId: 'property',
       concern: 'Sorting shared assets and debts',
-      outcome: 'Organize property, obligations, and financial priorities.',
+      outcome: 'Map property, obligations, and financial priorities.',
       dialogBody:
-        'Shared homes, accounts, debts, and other assets can make next steps feel complicated. We help you identify what may need closer attention, group related questions, and set priorities so financial decisions are easier to follow in a first conversation.',
+        'Homes, accounts, debts, and business interests can make every next step feel complicated. We help you identify what needs closer attention, group related questions, and set priorities so a first conversation stays focused instead of overwhelming.',
       dialogPoints: [
         'Shared assets and household debts',
         'Homes, accounts, and business interests',
         'Records worth gathering early',
-        'Which priorities should lead the next discussion',
+        'Which financial questions should lead next',
       ],
     },
     {
       areaId: 'prenup',
       concern: 'Planning finances around marriage',
-      outcome: 'Set expectations before or during a marriage agreement.',
+      outcome: 'Set clear expectations before or during marriage.',
       dialogBody:
-        'Talking about finances before or during marriage can feel sensitive. We help you name expectations around assets, debts, and future plans, and clarify the subjects a prenuptial or postnuptial agreement might address—before treating the discussion as a finished negotiation.',
+        'Talking about money before or during marriage can feel sensitive. We help you name expectations around assets, debts, and future plans—and clarify what a prenuptial or postnuptial agreement can address—before treating the talk as a finished negotiation.',
       dialogPoints: [
         'Financial expectations before or during marriage',
         'Assets, debts, and business interests',
         'How to open the conversation thoughtfully',
-        'Topics to revisit before preparing an agreement',
+        'Topics to revisit before drafting an agreement',
       ],
     },
   ] as const,
@@ -168,21 +168,23 @@ export const homePractice = {
 
 export const homeMeet = {
   heading: 'Meet Robert J. Whitfield, Esq.',
-  body: `Robert J. Whitfield, Esq. leads Whitfield Law Group. In a consultation, he listens to your priorities, explains options in ordinary language, and helps you organize what may need attention next—without asking you to decide everything in one sitting.`,
+  body: `Robert leads Whitfield Law Group with a simple promise: your consultation starts with your questions. He listens carefully, explains options in plain English, and helps you separate what needs attention now from what can wait—without pressure to hire the firm on the spot.`,
   /** Specific commitments drawn from the consultation approach above. */
   commitments: [
     {
-      title: 'Your priorities come first',
-      description: 'The conversation starts with what matters most to you—family, finances, and timing.',
-    },
-    {
-      title: 'Options in ordinary language',
-      description: 'He explains the landscape in plain terms so you can understand possible paths.',
-    },
-    {
-      title: 'Organize what needs attention next',
+      title: 'Your questions set the agenda',
       description:
-        'Leave with a clearer sense of next steps—without pressure to decide everything in one sitting.',
+        'We begin with what brought you here—family, finances, timing—not a one-size script.',
+    },
+    {
+      title: 'Plain explanations',
+      description:
+        'You leave understanding the landscape in language you can use, not legal jargon.',
+    },
+    {
+      title: 'A clearer next step',
+      description:
+        'You walk away knowing what to prepare, what can wait, and whether further help makes sense.',
     },
   ] as const,
   linkLabel: 'About the firm and team',
@@ -190,57 +192,57 @@ export const homeMeet = {
 
 export const homeExperience = {
   eyebrow: 'Our results',
-  heading: 'How a first conversation can help organize priorities.',
+  heading: 'What a first conversation can change.',
   supporting:
-    'Short examples of how people clarify what needs attention now—and what can wait.',
-  buttonLabel: 'See More Results',
+    'Illustrative examples of how people left with clearer priorities—not promises of outcomes.',
+  buttonLabel: 'See more results',
   /** Two outcome-led stories on Home; full set lives on Our Results. */
   stories: [
     {
       id: 'michael',
       outcome:
-        'Named what felt urgent and what could wait, then left with topics to prepare for a next discussion.',
+        'Named what felt urgent versus what could wait—and left with a short list for the next discussion.',
     },
     {
       id: 'sarah',
       outcome:
-        'Sorted immediate concerns from longer-term questions into a focused set of priorities.',
+        'Turned a swirl of separation questions into a focused set of priorities.',
     },
   ] as const,
 } as const
 
 export const homeConsultation = {
-  heading: 'What the first consultation includes.',
+  heading: 'What the consultation covers.',
   withAttorney: 'with Robert J. Whitfield, Esq.',
   feeNote: 'Consultation · Online or in person',
   valueLine:
-    'Leave with clearer priorities, a practical sense of options, and what may help a next discussion.',
+    'Leave with clearer priorities, a practical sense of options, and what to prepare next.',
   bookLabel: 'Book a consultation',
   linkLabel: 'Read the full consultation guide',
   steps: [
     {
       step: 1,
       title: 'Choose a time and format',
-      description: 'Select a date and time, then choose online or in person.',
+      description: 'Pick a date and time. Meet online or in person—whichever fits.',
     },
     {
       step: 2,
-      title: 'Discuss your priorities',
+      title: 'Discuss what is on your mind',
       description:
-        'Bring the questions you want to cover—family, finances, timing, or several connected topics.',
+        'Bring the questions that matter: children, finances, timing, or several issues at once.',
     },
     {
       step: 3,
-      title: 'Review possible next steps',
+      title: 'Leave with direction',
       description:
-        'Leave with a practical sense of options and what information may help a later discussion.',
+        'Walk away knowing your options and what information will help a later conversation.',
     },
   ],
 } as const
 
 export const homeConcerns = {
   eyebrow: 'Before you book',
-  heading: 'Frequently Asked Questions',
+  heading: 'Questions people ask first',
   supporting:
-    'Direct answers about preparation, fit, cost, booking, and how to get in touch.',
+    'Straight answers about preparation, fit, cost, booking, and how to reach us.',
 } as const

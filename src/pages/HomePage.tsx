@@ -26,16 +26,10 @@ import { useDocumentTitle } from '@/lib/useDocumentTitle'
 export function HomePage() {
   useDocumentTitle()
 
-  const featuredStories = homeExperience.stories
-    .map((item) => {
-      const story = clientStories.find((entry) => entry.id === item.id)
-      if (!story) return null
-      return { ...story, outcome: item.outcome }
-    })
-    .filter(
-      (story): story is (typeof clientStories)[number] & { outcome: string } =>
-        Boolean(story),
-    )
+  const featuredStories = homeExperience.stories.flatMap((item) => {
+    const story = clientStories.find((entry) => entry.id === item.id)
+    return story ? [{ ...story, outcome: item.outcome }] : []
+  })
 
   return (
     <main id="main">
