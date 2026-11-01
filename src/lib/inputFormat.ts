@@ -38,3 +38,20 @@ export function formatUsPhone(value: string): string {
 export function isValidUsPhone(value: string): boolean {
   return phoneDigits(value).length === 10
 }
+
+/** Digits only for US ZIP (5 or ZIP+4). */
+export function zipDigits(value: string): string {
+  return value.replace(/\D/g, '').slice(0, 9)
+}
+
+/** Format as ##### or #####-#### while typing. */
+export function formatUsZip(value: string): string {
+  const digits = zipDigits(value)
+  if (digits.length <= 5) return digits
+  return `${digits.slice(0, 5)}-${digits.slice(5)}`
+}
+
+export function isValidUsZip(value: string): boolean {
+  const digits = zipDigits(value)
+  return digits.length === 5 || digits.length === 9
+}
