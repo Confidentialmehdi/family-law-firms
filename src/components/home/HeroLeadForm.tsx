@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { CircleCheck } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Loader2 } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
 import { homeHeroForm } from '@/content/home'
+import type { RequestReceivedState } from '@/content/requestReceived'
 import {
   capitalizeFirstOnly,
   formatUsPhone,
@@ -64,9 +65,9 @@ export function HeroLeadForm({
   idPrefix = 'hero',
   tone = 'dark',
 }: HeroLeadFormProps) {
+  const navigate = useNavigate()
   const [form, setForm] = React.useState<FormState>(emptyForm)
   const [errors, setErrors] = React.useState<Partial<Record<FieldKey, string>>>({})
-  const [completed, setCompleted] = React.useState(false)
   const [submitting, setSubmitting] = React.useState(false)
   const submitTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
   const light = tone === 'light'
@@ -108,58 +109,15 @@ export function HeroLeadForm({
     if (submitting) return
     if (!validate()) return
     setSubmitting(true)
+    const nextState: RequestReceivedState = {
+      firstName: form.firstName.trim(),
+      contactMethod: form.contactMethod || undefined,
+      caseType: form.caseType || undefined,
+    }
     submitTimeoutRef.current = setTimeout(() => {
       submitTimeoutRef.current = null
-      setSubmitting(false)
-      setCompleted(true)
+      navigate('/request-received', { state: nextState })
     }, 2000)
-  }
-
-  function handleReset() {
-    if (submitTimeoutRef.current) {
-      clearTimeout(submitTimeoutRef.current)
-      submitTimeoutRef.current = null
-    }
-    setForm(emptyForm)
-    setErrors({})
-    setSubmitting(false)
-    setCompleted(false)
-  }
-
-  if (completed) {
-    return (
-      <div
-        id={id('form')}
-        className={cn(
-          'flex h-full flex-col justify-center rounded-sm px-5 py-8 text-center sm:px-6 sm:py-10',
-          light
-            ? 'border border-border bg-white'
-            : 'border border-brass/35 bg-navy',
-          className,
-        )}
-        role="status"
-        aria-live="polite"
-      >
-        <CircleCheck className="mx-auto size-12 text-brass" strokeWidth={1.5} aria-hidden />
-        <p
-          className={cn(
-            'mt-4 font-serif text-2xl',
-            light ? 'text-navy' : 'text-ivory',
-          )}
-        >
-          {homeHeroForm.completeHeading}
-        </p>
-        <p className={cn('mt-2 text-base', light ? 'text-muted' : 'text-ivory/70')}>
-          {homeHeroForm.completeCopy}
-        </p>
-        <Button type="button" className="mt-6 w-full" onClick={handleReset}>
-          {homeHeroForm.startAgain}
-        </Button>
-        <p className={cn('mt-5 text-sm', light ? 'text-muted' : 'text-ivory/60')}>
-          {homeHeroForm.completeDemoNotice}
-        </p>
-      </div>
-    )
   }
 
   return (
@@ -438,7 +396,14 @@ export function HeroLeadForm({
           aria-busy={submitting}
           className="w-full shrink-0"
         >
-          {submitting ? homeHeroForm.submittingLabel : homeHeroForm.submitLabel}
+          {submitting ? (
+            <>
+              <Loader2 className="animate-spin" aria-hidden="true" />
+              {homeHeroForm.submittingLabel}
+            </>
+          ) : (
+            homeHeroForm.submitLabel
+          )}
         </Button>
       </form>
     </div>

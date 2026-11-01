@@ -11,6 +11,7 @@ import { LegalPage } from '@/pages/LegalPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 import { OurResultsPage } from '@/pages/OurResultsPage'
 import { PracticeAreasPage } from '@/pages/PracticeAreasPage'
+import { RequestReceivedPage } from '@/pages/RequestReceivedPage'
 import { WhatToExpectPage } from '@/pages/WhatToExpectPage'
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="what-to-expect" element={<WhatToExpectPage />} />
           <Route path="faq" element={<Navigate to="/#faq" replace />} />
           <Route path="book-consultation" element={<BookConsultationPage />} />
+          <Route path="request-received" element={<RequestReceivedPage />} />
           <Route
             path="privacy"
             element={
