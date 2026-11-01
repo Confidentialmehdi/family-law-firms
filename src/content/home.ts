@@ -33,7 +33,7 @@ export const homeHeroForm = {
   caseTypePlaceholder: '- Practice area -',
   formatLabel: 'Preferred format',
   formats: [
-    { value: 'video', label: 'Video' },
+    { value: 'video', label: 'Online' },
     { value: 'in-person', label: 'In person' },
   ] as const,
   contactWindowPlaceholder: '- Best time to reach you -',
