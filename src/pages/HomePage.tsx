@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { ImageFallback } from '@/components/ImageFallback'
@@ -34,7 +35,7 @@ export function HomePage() {
     <main id="main">
       <Hero />
 
-      {/* 2. Practice areas — group row, then area grid */}
+      {/* 2. Practice areas — flat editorial service list */}
       <section className="border-b border-border/60" aria-labelledby="home-practice-heading">
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
           <div className="max-w-2xl">
@@ -47,63 +48,36 @@ export function HomePage() {
             <p className="mt-3 text-lg text-muted">{homePractice.introduction}</p>
           </div>
 
-          <div className="mt-12 space-y-8 md:space-y-10">
-            {homePractice.groups.map((group) => {
-              const colCount = Math.min(group.areaIds.length, 3)
-              const areaColsClass =
-                colCount === 1
-                  ? 'md:grid-cols-1'
-                  : colCount === 2
-                    ? 'md:grid-cols-2'
-                    : 'md:grid-cols-3'
-
+          <ul className="mt-12 grid grid-cols-1 border-t border-border md:grid-cols-2">
+            {homePractice.areaIds.map((areaId) => {
+              const area = getPracticeArea(areaId)
+              if (!area) return null
               return (
-                <div
-                  key={group.id}
-                  className="overflow-hidden rounded-sm border border-border"
-                >
-                  <div className="border-b border-border bg-surface/60 px-5 py-6 md:px-7 md:py-7">
-                    <h3 className="font-serif text-2xl text-navy md:text-[1.75rem]">
-                      {group.title}
-                    </h3>
-                    <p className="mt-2 max-w-2xl text-base text-muted">
-                      {group.description}
-                    </p>
-                  </div>
-
-                  <ul className={`grid grid-cols-1 divide-y divide-border md:divide-x md:divide-y-0 ${areaColsClass}`}>
-                    {group.areaIds.map((areaId) => {
-                      const area = getPracticeArea(areaId)
-                      if (!area) return null
-                      return (
-                        <li key={area.id} className="min-w-0">
-                          <Link
-                            to={`/practice-areas#${area.id}`}
-                            className="group flex h-full flex-col px-5 py-6 outline-none transition-colors hover:bg-ivory/80 md:px-6 md:py-7"
-                          >
-                            <p className="font-serif text-xl text-navy transition-colors group-hover:text-teal">
-                              {area.title}
-                            </p>
-                            <div
-                              className="mt-3 h-px w-8 bg-brass/50 transition-all group-hover:w-12 group-hover:bg-brass"
-                              aria-hidden="true"
-                            />
-                            <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
-                              {area.preview}
-                            </p>
-                          </Link>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
+                <li key={area.id} className="border-b border-border md:odd:border-r">
+                  <Link
+                    to={`/practice-areas#${area.id}`}
+                    className="group flex items-start justify-between gap-6 py-6 outline-none transition-colors md:px-6 md:py-7 md:odd:pr-8 md:even:pl-8"
+                  >
+                    <div className="min-w-0 max-w-xl">
+                      <p className="font-serif text-xl text-navy transition-colors group-hover:text-teal md:text-[1.35rem]">
+                        {area.title}
+                      </p>
+                      <p className="mt-2 text-base leading-relaxed text-muted">{area.preview}</p>
+                    </div>
+                    <ArrowUpRight
+                      className="mt-1 size-5 shrink-0 text-brass transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-teal"
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
+                  </Link>
+                </li>
               )
             })}
-          </div>
+          </ul>
 
           <Link
             to="/practice-areas"
-            className="mt-12 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
+            className="mt-10 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
           >
             {homePractice.linkLabel}
           </Link>

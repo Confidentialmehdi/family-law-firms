@@ -83,33 +83,18 @@ export const homeHeroForm = {
 } as const
 
 export const homePractice = {
-  heading: 'Which questions are you bringing?',
-  introduction:
-    'Many people arrive with more than one concern. Use these groups to find the services that match what you want to discuss.',
-  linkLabel: 'View all practice areas',
-  groups: [
-    {
-      id: 'divorce-finances',
-      title: 'Divorce and finances',
-      description:
-        'Ending a marriage, financial support, and shared property—topics that often need to be discussed together.',
-      areaIds: ['divorce', 'spousal-support', 'property'],
-    },
-    {
-      id: 'parenting-support',
-      title: 'Parenting and child support',
-      description:
-        'Schedules, decision-making, and financial contributions toward your children’s needs.',
-      areaIds: ['custody', 'child-support'],
-    },
-    {
-      id: 'planning',
-      title: 'Agreements before or during marriage',
-      description:
-        'Financial expectations, assets, and debts discussed thoughtfully before preparing an agreement.',
-      areaIds: ['prenup'],
-    },
-  ],
+  heading: 'How can we help?',
+  introduction: 'Explore the family law matters we handle.',
+  linkLabel: 'Explore all practice areas',
+  /** Flat editorial list — six services, no category containers. */
+  areaIds: [
+    'divorce',
+    'custody',
+    'child-support',
+    'spousal-support',
+    'property',
+    'prenup',
+  ] as const,
 } as const
 
 export const homeMeet = {
