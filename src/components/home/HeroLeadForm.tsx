@@ -39,7 +39,7 @@ const emptyForm: FormState = {
 }
 
 const fieldClass =
-  'flex h-11 w-full rounded-sm border border-border bg-surface px-3.5 py-2 text-base text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25'
+  'flex h-10 w-full rounded-sm border border-border bg-surface px-3 py-2 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25 sm:text-base'
 
 type HeroLeadFormProps = {
   className?: string
@@ -136,18 +136,18 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
     <div
       id="hero-form"
       className={cn(
-        'flex h-full min-h-0 flex-col rounded-sm border border-brass/35 bg-navy px-5 py-5 sm:px-6 sm:py-6 lg:px-7 lg:py-7',
+        'flex h-full min-h-0 flex-col rounded-sm border border-brass/35 bg-navy px-4 py-4 sm:px-5 sm:py-5',
         className,
       )}
     >
-      <h2 className="shrink-0 font-serif text-[1.65rem] leading-tight text-ivory sm:text-[1.85rem] lg:text-[2rem]">
+      <h2 className="shrink-0 font-serif text-xl leading-tight text-ivory sm:text-[1.5rem]">
         {homeHeroForm.heading}
       </h2>
 
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="mt-4 flex min-h-0 flex-1 flex-col gap-3 sm:mt-5 sm:gap-3.5"
+        className="mt-3 flex min-h-0 flex-1 flex-col gap-2.5 sm:mt-4 sm:gap-3"
       >
         <div className="grid shrink-0 grid-cols-2 gap-3">
           <div>
@@ -317,11 +317,11 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
             placeholder={homeHeroForm.detailsPlaceholder}
             value={form.details}
             onChange={(event) => update('details', event.target.value)}
-            className="min-h-[5.5rem] w-full flex-1 resize-none rounded-sm border border-border bg-surface px-3.5 py-2.5 text-base text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25"
+            className="min-h-[4.5rem] w-full flex-1 resize-none rounded-sm border border-border bg-surface px-3 py-2 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25 sm:text-base"
           />
         </div>
 
-        <div className="shrink-0 space-y-2.5 text-[0.7rem] leading-relaxed text-ivory/70 sm:text-xs">
+        <div className="shrink-0 space-y-2 text-[0.65rem] leading-relaxed text-ivory/70 sm:text-[0.7rem]">
           <p>
             {homeHeroForm.termsLead}{' '}
             <Link to="/terms" className="text-brass-muted underline underline-offset-2 hover:text-brass">
@@ -338,7 +338,6 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
 
         <Button
           type="submit"
-          size="lg"
           disabled={submitting}
           aria-busy={submitting}
           className="w-full shrink-0"

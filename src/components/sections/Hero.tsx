@@ -24,16 +24,16 @@ function AttorneyPortrait({ className }: { className?: string }) {
         className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/25 to-transparent"
         aria-hidden="true"
       />
-      <figcaption className="absolute right-5 bottom-5 left-5 md:right-6 md:bottom-6 md:left-6">
-        <p className="font-serif text-2xl text-navy md:text-3xl">{attorney.name}</p>
-        <p className="mt-1 text-sm text-muted md:mt-1.5 md:text-base">{attorney.role}</p>
+      <figcaption className="absolute right-4 bottom-4 left-4">
+        <p className="font-serif text-xl text-navy md:text-2xl">{attorney.name}</p>
+        <p className="mt-0.5 text-sm text-muted">{attorney.role}</p>
       </figcaption>
     </figure>
   )
 }
 
 /**
- * Home hero — left stack (headline + portrait) matches the expanded form column.
+ * Home hero — compact left stack (headline + square portrait) beside the intake form.
  */
 export function Hero() {
   return (
@@ -41,32 +41,31 @@ export function Hero() {
       className="texture-paper relative overflow-hidden border-b border-border/60"
       aria-labelledby="page-heading"
     >
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-5 py-14 md:gap-10 md:px-8 md:py-16 lg:py-20">
-        <div className="animate-fade-in grid grid-cols-1 items-stretch gap-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:gap-7 lg:gap-8">
-          {/* One left section: headline above portrait, same overall size as form */}
-          <div className="animate-fade-up flex min-h-0 flex-col gap-6 md:gap-7">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-6 px-5 py-10 md:gap-8 md:px-8 md:py-12 lg:py-14">
+        <div className="animate-fade-in grid grid-cols-1 items-stretch gap-5 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:gap-6 lg:gap-7">
+          <div className="animate-fade-up flex min-h-0 flex-col gap-4 md:gap-5">
             <div className="shrink-0">
               <h1
                 id="page-heading"
                 tabIndex={-1}
-                className="font-serif text-[2.5rem] leading-[1.08] text-navy outline-none md:text-[2.75rem] lg:text-[3.25rem]"
+                className="font-serif text-[2rem] leading-[1.1] text-navy outline-none md:text-[2.35rem] lg:text-[2.75rem]"
               >
                 {homeHero.headline}
               </h1>
-              <p className="mt-4 text-base text-muted md:mt-5 md:text-lg lg:text-xl lg:leading-relaxed">
+              <p className="mt-3 max-w-xl text-base text-muted md:mt-3.5 md:text-lg">
                 {homeHero.supporting}
               </p>
             </div>
 
-            <AttorneyPortrait className="relative aspect-square w-full overflow-hidden border border-border/70 bg-[#ebe6de]" />
+            <AttorneyPortrait className="relative aspect-square w-full max-w-[18rem] overflow-hidden border border-border/70 bg-[#ebe6de] sm:max-w-[20rem] md:max-w-[22rem]" />
           </div>
 
           <div className="flex min-h-0 flex-col">
-            <HeroLeadForm className="h-full min-h-[42rem] md:min-h-[50rem] lg:min-h-[56rem]" />
+            <HeroLeadForm className="h-full" />
           </div>
         </div>
 
-        <ul className="animate-fade-up flex flex-col gap-4 text-sm text-muted md:flex-row md:flex-nowrap md:items-center md:gap-0">
+        <ul className="animate-fade-up flex flex-col gap-3 text-sm text-muted md:flex-row md:flex-nowrap md:items-center md:gap-0">
           {homeHero.points.map((point, index) => {
             const Icon = heroPointIcons[point.id]
             return (
@@ -74,12 +73,12 @@ export function Hero() {
                 key={point.id}
                 className={
                   index === 0
-                    ? 'flex shrink-0 items-center gap-2.5 md:pr-4 lg:pr-5'
-                    : 'flex shrink-0 items-center gap-2.5 md:border-l md:border-border md:px-4 lg:px-5 md:last:pr-0'
+                    ? 'flex shrink-0 items-center gap-2 md:pr-4'
+                    : 'flex shrink-0 items-center gap-2 md:border-l md:border-border md:px-4 md:last:pr-0'
                 }
               >
                 <Icon
-                  className="size-6 shrink-0 text-brass md:size-6 lg:size-7"
+                  className="size-5 shrink-0 text-brass"
                   strokeWidth={1.5}
                   aria-hidden="true"
                 />
