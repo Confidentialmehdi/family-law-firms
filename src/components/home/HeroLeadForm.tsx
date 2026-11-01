@@ -140,18 +140,18 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
     <div
       id="hero-form"
       className={cn(
-        'flex flex-col rounded-sm border border-brass/35 bg-navy px-3.5 py-3.5 sm:px-4 sm:py-4',
+        'flex h-full min-h-0 flex-col rounded-sm border border-brass/35 bg-navy px-3.5 py-3.5 sm:px-4 sm:py-4',
         className,
       )}
     >
-      <h2 className="font-serif text-lg leading-tight text-ivory sm:text-xl">
+      <h2 className="shrink-0 font-serif text-lg leading-tight text-ivory sm:text-xl">
         {homeHeroForm.heading}
       </h2>
 
       <form
         onSubmit={handleSubmit}
         noValidate
-        className="mt-2.5 flex flex-col gap-2 sm:mt-3 sm:gap-2.5"
+        className="mt-2.5 flex min-h-0 flex-1 flex-col gap-2 sm:mt-3 sm:gap-2.5"
       >
         <div className="grid shrink-0 grid-cols-2 gap-3">
           <div>
@@ -368,18 +368,18 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
           </select>
         </div>
 
-        <div className="shrink-0">
+        <div className="flex min-h-0 flex-1 flex-col">
           <label htmlFor="hero-details" className="sr-only">
             What you would like to discuss
           </label>
           <textarea
             id="hero-details"
             name="details"
-            rows={2}
+            rows={3}
             placeholder={homeHeroForm.detailsPlaceholder}
             value={form.details}
             onChange={(event) => update('details', event.target.value)}
-            className="h-[4.5rem] w-full resize-y rounded-sm border border-border bg-surface px-3 py-2 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25 sm:text-base"
+            className="min-h-[4.5rem] w-full flex-1 resize-none rounded-sm border border-border bg-surface px-3 py-2 text-sm text-navy shadow-soft placeholder:text-muted/70 focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25 sm:text-base"
           />
         </div>
 

@@ -43,7 +43,7 @@ export function Hero() {
       aria-labelledby="page-heading"
     >
       <div className="mx-auto w-full max-w-[1080px] px-5 py-8 md:px-6 md:py-10">
-        <div className="animate-fade-in grid grid-cols-1 items-start gap-5 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:gap-6 lg:gap-8">
+        <div className="animate-fade-in grid grid-cols-1 items-stretch gap-5 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:gap-6 lg:gap-8">
           <div className="animate-fade-up flex min-h-0 flex-col gap-4 md:gap-5">
             <div className="shrink-0">
               <h1
@@ -87,8 +87,8 @@ export function Hero() {
             </ul>
           </div>
 
-          <div className="w-full min-w-0">
-            <HeroLeadForm className="w-full" />
+          <div className="flex min-h-0 w-full min-w-0">
+            <HeroLeadForm className="h-full w-full" />
           </div>
         </div>
       </div>
