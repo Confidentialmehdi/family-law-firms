@@ -18,6 +18,7 @@ import {
   homeMeet,
   homePractice,
 } from '@/content/home'
+import { faqItems } from '@/content/faq'
 import { getPracticeArea } from '@/content/practiceAreas'
 import { clientStories } from '@/content/results'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
@@ -224,9 +225,10 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 6. FAQ preview */}
+      {/* 6. FAQ */}
       <section
-        className="border-b border-border/60 bg-navy text-ivory"
+        id="faq"
+        className="scroll-mt-28 border-b border-border/60 bg-navy text-ivory"
         aria-labelledby="home-concerns-heading"
       >
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
@@ -246,8 +248,8 @@ export function HomePage() {
           </div>
 
           <div className="mt-10 max-w-3xl border-t border-ivory/15">
-            <Accordion type="single" collapsible defaultValue={homeConcerns.items[0]?.id}>
-              {homeConcerns.items.map((item) => (
+            <Accordion type="single" collapsible defaultValue={faqItems[0]?.id}>
+              {faqItems.map((item) => (
                 <AccordionItem
                   key={item.id}
                   value={item.id}
@@ -261,13 +263,6 @@ export function HomePage() {
               ))}
             </Accordion>
           </div>
-
-          <Link
-            to="/faq"
-            className="mt-10 inline-block text-sm font-medium text-brass-muted underline-offset-4 hover:text-brass hover:underline"
-          >
-            {homeConcerns.linkLabel}
-          </Link>
         </div>
       </section>
 

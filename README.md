@@ -20,13 +20,14 @@ Multi-page front-end for a New York family law firm. Shared consultation booking
 | `/contact-us` | Contact Us |
 | `/our-results` | Our Results |
 | `/what-to-expect` | What to Expect |
-| `/faq` | FAQ |
+| `/faq` | Redirects to `/#faq` on Home |
 | `/book-consultation` | Book a Consultation |
 | `/privacy` | Privacy Policy |
 | `/terms` | Terms of Use |
 | `/disclaimer` | Disclaimer |
 
-`/meet-robert` redirects to `/about-us`.
+`/meet-robert` redirects to `/about-us`.  
+`/faq` redirects to the FAQ section on Home (`/#faq`).
 
 ## Local development
 

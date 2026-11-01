@@ -75,7 +75,7 @@ export const footerNav = [
   { to: '/contact-us', label: 'Contact Us' },
   { to: '/our-results', label: 'Our Results' },
   { to: '/what-to-expect', label: 'What to Expect' },
-  { to: '/faq', label: 'FAQ' },
+  { to: '/#faq', label: 'FAQ' },
   { to: '/book-consultation', label: 'Book a Consultation' },
 ] as const
 

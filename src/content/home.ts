@@ -90,26 +90,5 @@ export const homeConcerns = {
   eyebrow: 'Before you book',
   heading: 'Common questions about the consultation.',
   supporting:
-    'Short answers about preparation, fit, and cost. Fuller responses are on the FAQ page.',
-  linkLabel: 'Read the FAQ',
-  items: [
-    {
-      id: 'service',
-      question: 'Do I need to know which practice area applies?',
-      answer:
-        'No. Choose “Not sure” when you book. Identifying the right topics can be part of the conversation.',
-    },
-    {
-      id: 'prepare',
-      question: 'What should I prepare?',
-      answer:
-        'A short list of questions is enough. You do not need documents to schedule the first consultation.',
-    },
-    {
-      id: 'cost',
-      question: 'What does the consultation cost?',
-      answer:
-        'The consultation fee is $150 for 30 minutes. Fees are confirmed when you book.',
-    },
-  ],
+    'Direct answers about preparation, fit, cost, booking, and how to get in touch.',
 } as const

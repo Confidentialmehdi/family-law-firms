@@ -5,7 +5,6 @@ import { RootLayout } from '@/layouts/RootLayout'
 import { AboutUsPage } from '@/pages/AboutUsPage'
 import { BookConsultationPage } from '@/pages/BookConsultationPage'
 import { ContactUsPage } from '@/pages/ContactUsPage'
-import { FaqPage } from '@/pages/FaqPage'
 import { HomePage } from '@/pages/HomePage'
 import { LegalPage } from '@/pages/LegalPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
@@ -24,7 +23,7 @@ export default function App() {
           <Route path="contact-us" element={<ContactUsPage />} />
           <Route path="our-results" element={<OurResultsPage />} />
           <Route path="what-to-expect" element={<WhatToExpectPage />} />
-          <Route path="faq" element={<FaqPage />} />
+          <Route path="faq" element={<Navigate to="/#faq" replace />} />
           <Route path="book-consultation" element={<BookConsultationPage />} />
           <Route
             path="privacy"
