@@ -64,7 +64,6 @@ export const homeHeroForm = {
   privacyLinkLabel: 'privacy policy',
   consentCopy:
     'By submitting your phone number, you authorize Whitfield Law Group to contact you by phone or SMS at the number you provided, including with an automatic dialing system. Consent is not required to request a consultation. Message and data rates may apply.',
-  footerLine: 'Requests contact only · No attorney-client relationship',
   completeHeading: 'Request received',
   completeCopy: 'Thank you. We will use the details you provided to follow up.',
   completeDemoNotice: 'Demo only. Your form was not sent. Nothing was stored.',
