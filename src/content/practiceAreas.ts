@@ -176,7 +176,9 @@ export const practicePage = {
   softNextTo: '/what-to-expect',
   unsure: {
     heading: 'Not sure where your situation fits?',
-    copy: 'You do not need to choose a legal category before speaking with us. Family matters often involve several connected questions. Select “Not sure” when you book and start with what you want to discuss.',
+    copy: 'You do not need to choose a legal category before speaking with us. Family matters often involve several connected questions.',
+    bookingNote: 'Select “Not sure” when you book and start with what you want to discuss.',
+    bookLabel: 'Book a consultation',
     linkLabel: 'What to expect at your consultation',
   },
   closing: {
