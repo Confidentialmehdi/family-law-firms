@@ -30,7 +30,7 @@ export const homeHeroForm = {
   phonePlaceholder: 'Phone number',
   zipPlaceholder: 'ZIP code',
   emailPlaceholder: 'Email',
-  caseTypePlaceholder: '- What is most on your mind? -',
+  caseTypePlaceholder: '- Select a practice area -',
   /** Hero-specific labels; values match practice-area ids used elsewhere. */
   practiceTopics: [
     { value: 'divorce', label: 'Divorce or separation' },

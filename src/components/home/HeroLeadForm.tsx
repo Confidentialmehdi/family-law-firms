@@ -22,7 +22,7 @@ type FormState = {
   zip: string
   email: string
   caseType: string
-  meetingFormat: 'video' | 'in-person' | ''
+  contactMethod: 'phone' | 'email' | 'text' | ''
   contactWindow: string
   details: string
 }
@@ -36,7 +36,7 @@ const emptyForm: FormState = {
   zip: '',
   email: '',
   caseType: '',
-  meetingFormat: '',
+  contactMethod: '',
   contactWindow: '',
   details: '',
 }
