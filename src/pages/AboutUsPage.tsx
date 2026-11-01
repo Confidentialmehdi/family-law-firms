@@ -60,48 +60,55 @@ export function AboutUsPage() {
         </div>
       </section>
 
-      {/* Team roster */}
+      {/* Supporting team — Robert is in the profile section above */}
       <section
         className="border-b border-border bg-[#efe9e2]/45"
         aria-labelledby="team-heading"
       >
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
-          <div className="max-w-2xl">
-            <h2
-              id="team-heading"
-              className="font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
-            >
-              {aboutPage.team.heading}
-            </h2>
-            <p className="mt-4 text-lg text-muted">{aboutPage.team.supporting}</p>
-          </div>
+          <div className="grid gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-start md:gap-16 lg:gap-20">
+            <div className="md:sticky md:top-28">
+              <h2
+                id="team-heading"
+                className="font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
+              >
+                {aboutPage.team.heading}
+              </h2>
+              <p className="mt-4 max-w-sm text-lg leading-relaxed text-muted">
+                {aboutPage.team.supporting}
+              </p>
+              <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
+            </div>
 
-          <ul className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-10">
-            {teamMembers.map((member) => (
-              <li key={member.id} className="border-t border-border pt-6">
-                <ImageFallback
-                  src={member.imageSrc}
-                  alt={member.imageAlt}
-                  aspect="square"
-                  className="w-full border border-border"
-                />
-                <h3 className="mt-5 font-serif text-xl text-navy md:text-2xl">
-                  {member.profileHref ? (
-                    <a
-                      href={member.profileHref}
-                      className="underline-offset-4 hover:text-teal hover:underline"
-                    >
-                      {member.name}
-                    </a>
-                  ) : (
-                    member.name
-                  )}
-                </h3>
-                <p className="mt-1 text-sm text-muted">{member.role}</p>
-                <p className="mt-3 text-base text-muted">{member.description}</p>
-              </li>
-            ))}
-          </ul>
+            <ul className="border-t border-border">
+              {teamMembers
+                .filter((member) => member.id !== aboutPage.team.leadId)
+                .map((member) => (
+                  <li
+                    key={member.id}
+                    className="flex gap-5 border-b border-border py-6 md:gap-6 md:py-7"
+                  >
+                    <ImageFallback
+                      src={member.imageSrc}
+                      alt={member.imageAlt}
+                      aspect="square"
+                      className="size-20 shrink-0 border border-border sm:size-24"
+                    />
+                    <div className="min-w-0 pt-0.5">
+                      <h3 className="font-serif text-xl text-navy md:text-[1.35rem]">
+                        {member.name}
+                      </h3>
+                      <p className="mt-1 text-[0.7rem] tracking-[0.14em] text-brass uppercase">
+                        {member.role}
+                      </p>
+                      <p className="mt-3 text-base leading-relaxed text-muted">
+                        {member.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+            </ul>
+          </div>
         </div>
       </section>
 
