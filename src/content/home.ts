@@ -43,7 +43,7 @@ export const homeHeroForm = {
   ] as const,
   formatLabel: 'Preferred way to reach you',
   formats: [
-    { value: 'phone', label: 'Phone' },
+    { value: 'phone', label: 'Phone call' },
     { value: 'email', label: 'Email' },
     { value: 'text', label: 'Text' },
   ] as const,
