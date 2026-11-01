@@ -59,7 +59,7 @@ export function Hero() {
             </div>
 
             {/* Landscape media panel — similar footprint to a hero video thumbnail */}
-            <AttorneyPortrait className="relative aspect-[5/6] w-full max-h-[28rem] overflow-hidden border border-border/70 bg-[#ebe6de] md:max-h-[32rem]" />
+            <AttorneyPortrait className="relative aspect-[4/5] w-full overflow-hidden border border-border/70 bg-[#ebe6de]" />
 
             <ul className="mt-auto flex flex-col gap-3 pt-1 text-sm text-muted sm:flex-row sm:flex-wrap sm:items-center sm:gap-0">
               {homeHero.points.map((point, index) => {
