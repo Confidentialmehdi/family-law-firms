@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 
 import { HeroLeadForm } from '@/components/home/HeroLeadForm'
 import { Button } from '@/components/ui/button'
+import { homeHeroForm } from '@/content/home'
 import { closingConversion, site } from '@/content/site'
 
 type ClosingConversionProps = {
@@ -61,10 +62,13 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
               </Link>
             </div>
 
-            <div className="mt-8 pt-2">
+            <div className="mt-8 flex flex-col gap-2 pt-2">
               <Button asChild size="lg" className="w-full">
                 <Link to="/book-consultation">{site.ctaLabel}</Link>
               </Button>
+              <p className="text-center text-[0.65rem] leading-snug text-ivory/55 sm:text-[0.7rem]">
+                {homeHeroForm.footerLine}
+              </p>
             </div>
           </div>
 
