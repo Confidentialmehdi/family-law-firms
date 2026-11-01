@@ -36,6 +36,8 @@ export const aboutPage = {
   },
   values: {
     heading: 'How we approach the work.',
+    supporting:
+      'Three commitments that shape every consultation—from the first question through practical next steps.',
     linkLabel: 'What happens at the first consultation?',
     items: [
       {

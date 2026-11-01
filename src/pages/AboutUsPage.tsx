@@ -116,43 +116,49 @@ export function AboutUsPage() {
         </div>
       </section>
 
-      {/* Approach */}
+      {/* Approach — sticky intro + stacked principles */}
       <section
         className="border-b border-border bg-ivory"
         aria-labelledby="approach-heading"
       >
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
-          <h2
-            id="approach-heading"
-            className="max-w-2xl font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
-          >
-            {aboutPage.values.heading}
-          </h2>
-
-          <ol className="mt-12 divide-y divide-border border-y border-border">
-            {aboutPage.values.items.map((item) => (
-              <li
-                key={item.number}
-                className="grid gap-4 py-10 md:grid-cols-[5rem_minmax(0,0.4fr)_minmax(0,0.7fr)] md:items-baseline md:gap-10"
+          <div className="grid gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-start md:gap-16 lg:gap-20">
+            <div className="md:sticky md:top-28">
+              <h2
+                id="approach-heading"
+                className="font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
               >
-                <span className="font-serif text-sm text-brass tabular-nums">
-                  {item.number}
-                </span>
-                <h3 className="font-serif text-2xl text-navy md:text-[1.75rem]">
-                  {item.title}
-                </h3>
-                <p className="text-lg text-muted">{item.description}</p>
-              </li>
-            ))}
-          </ol>
+                {aboutPage.values.heading}
+              </h2>
+              <p className="mt-4 max-w-sm text-lg leading-relaxed text-muted">
+                {aboutPage.values.supporting}
+              </p>
+              <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
+              <Link
+                to="/what-to-expect"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-teal underline-offset-4 hover:underline"
+              >
+                {aboutPage.values.linkLabel}
+                <ArrowUpRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
 
-          <Link
-            to="/what-to-expect"
-            className="mt-10 inline-flex items-center gap-2 text-base text-teal underline-offset-4 hover:underline"
-          >
-            {aboutPage.values.linkLabel}
-            <ArrowUpRight className="size-4" aria-hidden="true" />
-          </Link>
+            <ol className="border-t border-border">
+              {aboutPage.values.items.map((item) => (
+                <li key={item.number} className="border-b border-border py-7 md:py-8">
+                  <p className="font-serif text-sm text-brass tabular-nums">
+                    {item.number}
+                  </p>
+                  <h3 className="mt-3 font-serif text-2xl text-navy md:text-[1.75rem]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 max-w-xl text-lg leading-relaxed text-muted">
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
 
