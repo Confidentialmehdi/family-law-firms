@@ -1,4 +1,3 @@
-import { CircleCheck } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
@@ -6,6 +5,7 @@ import {
   requestReceivedPage,
   type RequestReceivedState,
 } from '@/content/requestReceived'
+import { site } from '@/content/site'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
 export function RequestReceivedPage() {
@@ -16,116 +16,194 @@ export function RequestReceivedPage() {
 
   return (
     <main id="main" className="flex flex-1 flex-col bg-ivory">
-      <div className="flex flex-1 flex-col justify-center border-b border-border/60 px-5 py-16 md:px-8 md:py-24">
+      <section
+        className="relative flex min-h-[min(72vh,40rem)] flex-1 flex-col justify-center overflow-hidden bg-navy text-ivory"
+        aria-labelledby="page-heading"
+        role="status"
+        aria-live="polite"
+      >
+        <img
+          src="/images/hero/new-york.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full scale-105 object-cover object-center opacity-[0.28]"
+          aria-hidden="true"
+        />
         <div
-          className="mx-auto w-full max-w-xl rounded-sm border border-border bg-surface px-5 py-10 text-center md:px-8 md:py-12"
-          role="status"
-          aria-live="polite"
-        >
-          <div className="flex flex-col items-center">
-            <CircleCheck
-              className="size-16 text-teal md:size-[4.5rem]"
-              strokeWidth={1.5}
-              aria-hidden
-            />
-            <h1
-              id="page-heading"
-              tabIndex={-1}
-              className="mt-5 font-serif text-3xl leading-[1.15] text-navy outline-none md:text-4xl lg:text-[2.75rem]"
-            >
-              {firstName
-                ? requestReceivedPage.headingWithName(firstName)
-                : requestReceivedPage.heading}
-            </h1>
-            <p className="mt-4 max-w-md text-lg text-muted md:text-xl">
-              {requestReceivedPage.supporting}
-            </p>
-            <p className="mt-5 text-sm text-muted">{requestReceivedPage.demoNotice}</p>
-          </div>
-        </div>
-      </div>
+          className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/88 to-navy"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(ellipse_at_top,rgb(165_139_115/0.22),transparent_65%)]"
+          aria-hidden="true"
+        />
 
-      <div className="mx-auto w-full max-w-[1200px] px-5 py-14 md:px-8 md:py-16">
-        <section className="mx-auto max-w-3xl" aria-labelledby="request-next-heading">
-          <h2
-            id="request-next-heading"
-            className="font-serif text-2xl text-navy md:text-3xl"
-          >
-            {requestReceivedPage.nextHeading}
-          </h2>
-          <ol className="mt-8 space-y-8">
-            {requestReceivedPage.nextSteps.map((step, index) => (
-              <li key={step.title} className="flex gap-5">
-                <span
-                  className="font-serif text-4xl leading-none text-brass/45"
-                  aria-hidden="true"
-                >
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <div>
-                  <h3 className="font-serif text-xl text-navy">{step.title}</h3>
-                  <p className="mt-2 text-base text-muted">{step.description}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        <section
-          className="mx-auto mt-16 max-w-3xl"
-          aria-labelledby="request-prepare-heading"
-        >
-          <h2
-            id="request-prepare-heading"
-            className="font-serif text-2xl text-navy md:text-3xl"
-          >
-            {requestReceivedPage.prepareHeading}
-          </h2>
-          <p className="mt-3 text-base text-muted">{requestReceivedPage.prepareIntro}</p>
-          <ul className="mt-6 space-y-3 text-base text-navy">
-            {requestReceivedPage.prepareItems.map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brass" aria-hidden />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section
-          className="mx-auto mt-16 max-w-3xl"
-          aria-labelledby="request-resources-heading"
-        >
-          <h2
-            id="request-resources-heading"
-            className="font-serif text-2xl text-navy md:text-3xl"
-          >
-            {requestReceivedPage.resourcesHeading}
-          </h2>
-          <p className="mt-3 text-base text-muted">
-            {requestReceivedPage.resourcesIntro}
+        <div className="relative z-10 mx-auto flex w-full max-w-[880px] flex-col items-center px-5 py-20 text-center md:px-8 md:py-28">
+          <p className="animate-fade-in text-[0.7rem] tracking-[0.2em] text-brass uppercase">
+            {requestReceivedPage.eyebrow}
           </p>
-          <ul className="mt-8 divide-y divide-border border-y border-border">
-            {requestReceivedPage.resources.map((resource) => (
-              <li key={resource.to}>
-                <Link
-                  to={resource.to}
-                  className="group flex flex-col gap-1 py-5 transition-colors hover:text-teal focus-visible:outline-none"
-                >
-                  <span className="font-serif text-xl text-navy group-hover:text-teal">
-                    {resource.label}
-                  </span>
-                  <span className="text-base text-muted">{resource.description}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
+          <div
+            className="animate-fade-up mt-6 h-px w-14 bg-brass"
+            aria-hidden="true"
+          />
+          <p
+            className="animate-fade-up mt-8 text-[0.7rem] tracking-[0.18em] text-brass-muted uppercase"
+            style={{ animationDelay: '80ms' }}
+          >
+            {requestReceivedPage.statusLabel}
+          </p>
+          <h1
+            id="page-heading"
+            tabIndex={-1}
+            className="animate-fade-up mt-4 max-w-[18ch] font-serif text-[2.5rem] leading-[1.08] text-balance text-ivory outline-none md:text-[3.5rem] lg:text-[4rem]"
+            style={{ animationDelay: '120ms' }}
+          >
+            {firstName
+              ? requestReceivedPage.headingWithName(firstName)
+              : requestReceivedPage.heading}
+          </h1>
+          <p
+            className="animate-fade-up mt-6 max-w-xl text-lg text-balance text-ivory/72 md:text-xl"
+            style={{ animationDelay: '180ms' }}
+          >
+            {requestReceivedPage.supporting}
+          </p>
+          <p
+            className="animate-fade-up mt-3 text-sm text-ivory/50"
+            style={{ animationDelay: '220ms' }}
+          >
+            {requestReceivedPage.followUpNote}
+          </p>
 
-        <div className="mx-auto mt-12 max-w-3xl">
-          <Button asChild variant="outline">
-            <Link to="/">{requestReceivedPage.homeLabel}</Link>
-          </Button>
+          <div
+            className="animate-fade-up mt-10 flex flex-col items-center gap-4 sm:flex-row"
+            style={{ animationDelay: '280ms' }}
+          >
+            <Button asChild size="lg">
+              <Link to="/book-consultation">{requestReceivedPage.bookCtaLabel}</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-ivory/25 bg-transparent text-ivory hover:border-ivory/45 hover:bg-ivory/5"
+            >
+              <Link to="/">{requestReceivedPage.homeLabel}</Link>
+            </Button>
+          </div>
+
+          <p
+            className="animate-fade-up mt-10 text-xs text-ivory/40"
+            style={{ animationDelay: '320ms' }}
+          >
+            {requestReceivedPage.demoNotice}
+          </p>
+        </div>
+      </section>
+
+      <div className="texture-paper border-b border-border/60">
+        <div className="mx-auto w-full max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
+          <section
+            className="mx-auto max-w-3xl"
+            aria-labelledby="request-next-heading"
+          >
+            <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
+              After you submit
+            </p>
+            <h2
+              id="request-next-heading"
+              className="mt-4 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
+            >
+              {requestReceivedPage.nextHeading}
+            </h2>
+            <ol className="mt-10 space-y-10">
+              {requestReceivedPage.nextSteps.map((step, index) => (
+                <li key={step.title} className="flex gap-5 md:gap-7">
+                  <span
+                    className="font-serif text-4xl leading-none text-brass/40 md:text-5xl"
+                    aria-hidden="true"
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div className="pt-1">
+                    <h3 className="font-serif text-xl text-navy md:text-2xl">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 max-w-prose text-base text-muted md:text-lg">
+                      {step.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section
+            className="mx-auto mt-20 max-w-3xl"
+            aria-labelledby="request-prepare-heading"
+          >
+            <div className="h-px w-14 bg-brass" aria-hidden="true" />
+            <h2
+              id="request-prepare-heading"
+              className="mt-6 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
+            >
+              {requestReceivedPage.prepareHeading}
+            </h2>
+            <p className="mt-4 max-w-prose text-base text-muted md:text-lg">
+              {requestReceivedPage.prepareIntro}
+            </p>
+            <ul className="mt-8 space-y-4 text-base text-navy md:text-lg">
+              {requestReceivedPage.prepareItems.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span
+                    className="mt-2.5 size-1.5 shrink-0 rounded-full bg-brass"
+                    aria-hidden
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section
+            className="mx-auto mt-20 max-w-3xl"
+            aria-labelledby="request-resources-heading"
+          >
+            <div className="h-px w-14 bg-brass" aria-hidden="true" />
+            <h2
+              id="request-resources-heading"
+              className="mt-6 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
+            >
+              {requestReceivedPage.resourcesHeading}
+            </h2>
+            <p className="mt-4 max-w-prose text-base text-muted md:text-lg">
+              {requestReceivedPage.resourcesIntro}
+            </p>
+            <ul className="mt-10 divide-y divide-border border-y border-border">
+              {requestReceivedPage.resources.map((resource) => (
+                <li key={resource.to}>
+                  <Link
+                    to={resource.to}
+                    className="group flex flex-col gap-1 py-6 transition-colors focus-visible:outline-none"
+                  >
+                    <span className="font-serif text-xl text-navy transition-colors group-hover:text-teal md:text-2xl">
+                      {resource.label}
+                    </span>
+                    <span className="text-base text-muted">{resource.description}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-10 text-sm text-muted">
+              Prefer to talk sooner? Call {site.firmName} during office hours, or{' '}
+              <Link
+                to="/book-consultation"
+                className="font-medium text-teal underline-offset-4 hover:underline"
+              >
+                {site.ctaLabel.toLowerCase()}
+              </Link>
+              .
+            </p>
+          </section>
         </div>
       </div>
     </main>

@@ -1,10 +1,14 @@
 export const requestReceivedPage = {
   title: 'Request received',
+  eyebrow: 'Whitfield Law Group',
+  statusLabel: 'Request received',
   heading: 'We received your request.',
   headingWithName: (firstName: string) => `Thank you, ${firstName}.`,
   supporting:
-    'A member of the Whitfield Law Group team will review what you shared and follow up using the contact method you preferred.',
+    'A member of our team will review what you shared and follow up using the contact method you preferred.',
+  followUpNote: 'Weekday outreach is typical during New York office hours.',
   demoNotice: 'Demo only. Your form was not sent. Nothing was stored.',
+  bookCtaLabel: 'Or book a consultation time',
   nextHeading: 'What happens next',
   nextSteps: [
     {
