@@ -57,7 +57,7 @@ export function Hero() {
               </p>
             </div>
 
-            <AttorneyPortrait className="relative aspect-square w-[min(100%,11.5rem)] shrink-0 overflow-hidden border border-border/70 bg-[#ebe6de] sm:w-[min(100%,13rem)] md:w-[min(100%,14rem)]" />
+            <AttorneyPortrait className="relative aspect-square w-[min(100%,16rem)] min-h-0 flex-1 overflow-hidden border border-border/70 bg-[#ebe6de] sm:w-[min(100%,18rem)] md:w-[min(100%,20rem)] md:max-h-[min(100%,22rem)]" />
 
             <ul className="mt-auto flex flex-col gap-2.5 pt-1 text-xs text-muted sm:flex-row sm:flex-wrap sm:items-center sm:gap-0 md:text-sm">
               {homeHero.points.map((point, index) => {
