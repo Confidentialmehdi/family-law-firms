@@ -140,24 +140,6 @@ function HeroScalesMark() {
   )
 }
 
-function ServiceTopics({ questions }: { questions: readonly string[] }) {
-  return (
-    <div className="flex h-full flex-col">
-      <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-        Questions to explore
-      </p>
-      <ul className="mt-4 divide-y divide-border/80 border-y border-border/80">
-        {questions.map((question) => (
-          <li key={question} className="py-3 text-base text-navy/85">
-            {question}
-          </li>
-        ))}
-      </ul>
-      <p className="mt-4 text-sm text-muted">{practicePage.questionsNote}</p>
-    </div>
-  )
-}
-
 function ServiceSection({
   area,
   index,
@@ -187,64 +169,88 @@ function ServiceSection({
           index === 0 ? 'pb-16 pt-10 md:pb-20 md:pt-12' : 'py-16 md:py-20',
         )}
       >
-        <Icon
-          className="size-6 text-brass md:size-7"
-          strokeWidth={1.25}
-          aria-hidden="true"
-        />
-        <h2
-          id={`${area.id}-heading`}
-          className="mt-4 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem] lg:text-[2.75rem]"
-        >
-          {area.title}
-        </h2>
-        <div className="mt-5 h-px w-16 bg-brass" aria-hidden="true" />
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16 xl:gap-20">
+          <div className="lg:sticky lg:top-28">
+            <Icon
+              className="size-6 text-brass md:size-7"
+              strokeWidth={1.25}
+              aria-hidden="true"
+            />
+            <h2
+              id={`${area.id}-heading`}
+              className="mt-4 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem] lg:text-[2.75rem]"
+            >
+              {area.title}
+            </h2>
+            <div className="mt-5 h-px w-14 bg-brass" aria-hidden="true" />
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
+              {area.description}
+            </p>
+            <Button asChild size="sm" className="mt-8">
+              <Link to="/book-consultation">{site.ctaLabel}</Link>
+            </Button>
+          </div>
 
-        <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-12">
-          <div>
-            <p className="max-w-prose text-lg text-muted">{area.description}</p>
+          <div className="min-w-0">
+            <section aria-labelledby={`${area.id}-involves`}>
+              <h3
+                id={`${area.id}-involves`}
+                className="text-[0.7rem] tracking-[0.16em] text-brass uppercase"
+              >
+                {practicePage.oftenInvolvesLabel}
+              </h3>
+              <ul className="mt-4 space-y-3 border-t border-border pt-4">
+                {area.oftenInvolves.map((item) => (
+                  <li key={item} className="flex gap-3 text-base text-navy/85">
+                    <span
+                      className="mt-2.5 h-px w-3 shrink-0 bg-brass/70"
+                      aria-hidden="true"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
-            <h3 className="mt-8 text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-              {practicePage.oftenInvolvesLabel}
-            </h3>
-            <ul className="mt-3 max-w-prose space-y-2.5">
-              {area.oftenInvolves.map((item) => (
-                <li key={item} className="flex gap-3 text-base text-navy/85">
-                  <span
-                    className="mt-2.5 h-px w-3 shrink-0 bg-brass/70"
-                    aria-hidden="true"
-                  />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <section className="mt-10" aria-labelledby={`${area.id}-questions`}>
+              <h3
+                id={`${area.id}-questions`}
+                className="text-[0.7rem] tracking-[0.16em] text-brass uppercase"
+              >
+                {practicePage.questionsLabel}
+              </h3>
+              <ul className="mt-4 divide-y divide-border/80 border-y border-border/80">
+                {area.questions.map((question) => (
+                  <li key={question} className="py-3.5 text-base text-navy/85">
+                    {question}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-sm text-muted">{practicePage.questionsNote}</p>
+            </section>
 
-            <div className="mt-8 border-l border-brass pl-4">
+            <div className="mt-10 border-t border-brass/40 pt-5">
               <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
                 {practicePage.approachLabel}
               </p>
-              <p className="mt-2 font-serif text-xl leading-snug text-navy">
+              <p className="mt-3 font-serif text-xl leading-snug text-navy md:text-[1.35rem]">
                 {area.approachLine}
               </p>
             </div>
           </div>
-
-          <aside className="border border-border bg-[#efe9e2] px-5 py-6 md:px-6 md:py-7">
-            <ServiceTopics questions={area.questions} />
-          </aside>
         </div>
 
         {related.length > 0 ? (
-          <div className="mt-10 border-t border-border pt-6">
-            <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+          <div className="mt-12 flex flex-col gap-3 border-t border-border pt-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+            <p className="shrink-0 text-[0.7rem] tracking-[0.16em] text-brass uppercase">
               {practicePage.relatedLabel}
             </p>
-            <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 sm:justify-end">
               {related.map((item) => (
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
-                    className="text-base text-teal underline-offset-4 hover:underline"
+                    className="text-sm font-medium text-teal underline-offset-4 hover:underline"
                   >
                     {item.title}
                   </a>

@@ -166,6 +166,7 @@ export const practicePage = {
     'Divorce, parenting arrangements, financial support, property, and agreements before or during marriage—each explained in practical terms.',
   navHeading: 'Choose a topic to explore.',
   oftenInvolvesLabel: 'What this often involves',
+  questionsLabel: 'Questions to explore',
   approachLabel: 'How we approach this',
   relatedLabel: 'Related areas',
   questionsNote: 'Bring whichever of these you want to cover first.',
