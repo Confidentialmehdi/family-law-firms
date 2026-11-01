@@ -58,7 +58,7 @@ export function Hero() {
               </p>
             </div>
 
-            <AttorneyPortrait className="relative aspect-[3/4] w-full max-w-[20rem] overflow-hidden border border-border/70 bg-[#ebe6de] sm:max-w-[22rem] md:max-w-[24rem]" />
+            <AttorneyPortrait className="relative aspect-square w-full overflow-hidden border border-border/70 bg-[#ebe6de]" />
           </div>
 
           <div className="flex min-h-0 flex-col">
