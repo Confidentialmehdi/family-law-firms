@@ -43,7 +43,7 @@ export const homeHeroForm = {
     { value: 'flexible', label: 'Flexible' },
   ] as const,
   detailsPlaceholder: 'Optional: a few words about your questions',
-  consultationNote: '30-minute consultation · Video or in person · $150',
+  consultationNote: '30-minute consultation · Online or in person',
   submitLabel: 'Request a consultation',
   submittingLabel: 'Submitting…',
   termsLead: 'By submitting this form, you agree to our',
