@@ -218,7 +218,11 @@ export const homeExperience = {
 
 export const homeConsultation = {
   heading: 'What the first consultation includes.',
+  withAttorney: 'with Robert J. Whitfield, Esq.',
   feeNote: '30 minutes · Video or in person · $150',
+  valueLine:
+    'Leave with clearer priorities, a practical sense of options, and what may help a next discussion.',
+  bookLabel: 'Book a consultation',
   linkLabel: 'Read the full consultation guide',
   steps: [
     {

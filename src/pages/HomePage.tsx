@@ -159,16 +159,25 @@ export function HomePage() {
               >
                 {homeConsultation.heading}
               </h2>
+              <p className="mt-3 text-base text-muted">{homeConsultation.withAttorney}</p>
               <p className="mt-4 text-base text-muted">{homeConsultation.feeNote}</p>
+              <p className="mt-4 max-w-md text-lg leading-relaxed text-navy/85">
+                {homeConsultation.valueLine}
+              </p>
               <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
-              <Button asChild variant="outline" size="sm" className="mt-8">
-                <Link to="/what-to-expect">{homeConsultation.linkLabel}</Link>
-              </Button>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <Button asChild size="default">
+                  <Link to="/book-consultation">{homeConsultation.bookLabel}</Link>
+                </Button>
+                <Button asChild variant="outline" size="sm">
+                  <Link to="/what-to-expect">{homeConsultation.linkLabel}</Link>
+                </Button>
+              </div>
             </div>
 
             <ol className="order-2 relative md:order-1">
               <div
-                className="absolute top-2 bottom-2 left-[0.4375rem] w-px bg-brass/45"
+                className="absolute top-3 bottom-3 left-5 w-px bg-brass/45 md:left-6"
                 aria-hidden="true"
               />
               {homeConsultation.steps.map((item, index) => (
@@ -178,10 +187,12 @@ export function HomePage() {
                   style={{ animationDelay: `${80 + index * 100}ms` }}
                 >
                   <span
-                    className="relative z-10 mt-1.5 size-3.5 shrink-0 rounded-full border-[1.5px] border-brass bg-ivory"
+                    className="relative z-10 flex size-10 shrink-0 items-center justify-center rounded-full border border-brass/50 bg-ivory font-serif text-sm text-navy md:size-12 md:text-base"
                     aria-hidden="true"
-                  />
-                  <div className="min-w-0 pt-0.5">
+                  >
+                    {String(item.step).padStart(2, '0')}
+                  </span>
+                  <div className="min-w-0 pt-1.5 md:pt-2.5">
                     <h3 className="font-serif text-xl text-navy md:text-[1.35rem]">
                       {item.title}
                     </h3>
