@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom'
 
 import { useBooking } from '@/components/booking/BookingContext'
 import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { groupSlotsByDate, type MeetingType } from '@/content/booking'
 import { homeConsultationStarter } from '@/content/home'
 import { cn } from '@/lib/utils'
@@ -20,35 +18,38 @@ export function ConsultationStarter() {
       </h2>
 
       <div className="mt-4 space-y-4">
-        <div className="space-y-2">
-          <Label id="home-meeting-type-label" className="text-xs tracking-wide text-muted uppercase">
+        <fieldset>
+          <legend className="mb-2 text-xs tracking-wide text-muted uppercase">
             {homeConsultationStarter.formatLabel}
-          </Label>
-          <RadioGroup
-            aria-labelledby="home-meeting-type-label"
-            value={draft.meetingType ?? ''}
-            onValueChange={(value) => {
-              updateDraft({ meetingType: value as MeetingType })
-            }}
+          </legend>
+          <div
+            role="group"
+            aria-label={homeConsultationStarter.formatLabel}
             className="grid grid-cols-2 gap-2"
           >
-            {homeConsultationStarter.formats.map((option) => (
-              <label
-                key={option.value}
-                className={cn(
-                  'flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-sm border border-border bg-ivory px-3 py-2 text-center transition-colors has-[[data-state=checked]]:border-teal has-[[data-state=checked]]:bg-teal/5',
-                )}
-              >
-                <RadioGroupItem
-                  value={option.value}
-                  id={`home-meeting-${option.value}`}
-                  className="sr-only"
-                />
-                <span className="text-sm font-medium text-navy sm:text-base">{option.label}</span>
-              </label>
-            ))}
-          </RadioGroup>
-        </div>
+            {homeConsultationStarter.formats.map((option) => {
+              const selected = draft.meetingType === option.value
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => {
+                    updateDraft({ meetingType: option.value as MeetingType })
+                  }}
+                  aria-pressed={selected}
+                  className={cn(
+                    'flex min-h-11 items-center justify-center rounded-sm border px-3 py-2 text-center text-sm font-medium transition-colors sm:text-base',
+                    selected
+                      ? 'border-teal bg-teal/10 text-navy ring-2 ring-teal/20'
+                      : 'border-border bg-ivory text-navy hover:border-teal/40',
+                  )}
+                >
+                  {option.label}
+                </button>
+              )
+            })}
+          </div>
+        </fieldset>
 
         <fieldset>
           <legend className="mb-2 text-xs tracking-wide text-muted uppercase">
