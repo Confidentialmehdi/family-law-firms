@@ -229,14 +229,14 @@ function ServiceSection({
               <p className="mt-4 text-sm text-muted">{practicePage.questionsNote}</p>
             </section>
 
-            <div className="mt-10 border-t border-brass/40 pt-5">
+            <blockquote className="mt-10 border-l-2 border-brass pl-5">
               <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
                 {practicePage.approachLabel}
               </p>
-              <p className="mt-3 font-serif text-xl leading-snug text-navy md:text-[1.35rem]">
+              <p className="mt-3 font-serif text-[1.35rem] leading-snug text-navy md:text-2xl">
                 {area.approachLine}
               </p>
-            </div>
+            </blockquote>
           </div>
         </div>
 
