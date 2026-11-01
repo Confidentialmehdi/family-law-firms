@@ -55,6 +55,15 @@ export function AboutUsPage() {
               >
                 {aboutPage.profileSoftNextLabel}
               </Link>
+              <span className="mx-2 text-border" aria-hidden="true">
+                ·
+              </span>
+              <Link
+                to={attorney.profileHref}
+                className="font-medium text-teal underline-offset-4 hover:underline"
+              >
+                {aboutPage.profileFullLabel}
+              </Link>
             </p>
           </div>
         </div>
@@ -79,23 +88,21 @@ export function AboutUsPage() {
           <ul className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-10">
             {teamMembers.map((member) => (
               <li key={member.id} className="border-t border-border pt-6">
-                <ImageFallback
-                  src={member.imageSrc}
-                  alt={member.imageAlt}
-                  aspect="square"
-                  className="w-full border border-border"
-                />
+                <Link to={member.profileHref} className="block outline-none">
+                  <ImageFallback
+                    src={member.imageSrc}
+                    alt={member.imageAlt}
+                    aspect="square"
+                    className="w-full border border-border transition-opacity hover:opacity-95"
+                  />
+                </Link>
                 <h3 className="mt-5 font-serif text-xl text-navy md:text-2xl">
-                  {member.profileHref ? (
-                    <a
-                      href={member.profileHref}
-                      className="underline-offset-4 hover:text-teal hover:underline"
-                    >
-                      {member.name}
-                    </a>
-                  ) : (
-                    member.name
-                  )}
+                  <Link
+                    to={member.profileHref}
+                    className="underline-offset-4 hover:text-teal hover:underline"
+                  >
+                    {member.name}
+                  </Link>
                 </h3>
                 <p className="mt-1 text-sm text-muted">{member.role}</p>
                 <p className="mt-3 text-base text-muted">{member.description}</p>

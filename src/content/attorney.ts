@@ -1,3 +1,5 @@
+import { attorneyProfiles } from '@/content/attorneys'
+
 export const attorney = {
   name: 'Robert J. Whitfield, Esq.',
   role: 'Lead Attorney',
@@ -18,12 +20,14 @@ At Whitfield Law Group, the initial consultation is a defined first step: organi
   ],
   homePreview:
     'Robert J. Whitfield, Esq. leads Whitfield Law Group. He focuses on careful listening, plain explanations, and practical next steps.',
+  profileHref: '/attorneys/robert-j-whitfield',
 } as const
 
 export const aboutPage = {
   profileSoftNextPrompt: 'Ready for a defined first conversation?',
   profileSoftNextLabel: 'What to expect at a consultation',
   profileSoftNextTo: '/what-to-expect',
+  profileFullLabel: 'View full profile',
   team: {
     heading: 'The people you may work with.',
     supporting:
@@ -62,37 +66,16 @@ export type TeamMember = {
   description: string
   imageSrc: string
   imageAlt: string
-  /** Anchor to in-page profile when set (e.g. Robert). */
-  profileHref?: string
+  /** Profile page path. */
+  profileHref: string
 }
 
-export const teamMembers: TeamMember[] = [
-  {
-    id: 'robert',
-    name: 'Robert J. Whitfield, Esq.',
-    role: 'Lead Attorney',
-    description:
-      'Leads consultations about client priorities, family law questions, and possible next steps.',
-    imageSrc: '/images/portraits/robert.jpg',
-    imageAlt: 'Portrait of Robert J. Whitfield, Esq.',
-    profileHref: '#robert-whitfield',
-  },
-  {
-    id: 'avery',
-    name: 'Avery Morgan',
-    role: 'Family Law Attorney',
-    description:
-      'Supports discussion and preparation of family law matters, with attention to clear communication.',
-    imageSrc: '/images/portraits/avery.jpg',
-    imageAlt: 'Portrait of Avery Morgan',
-  },
-  {
-    id: 'taylor',
-    name: 'Taylor Reed',
-    role: 'Client Services Coordinator',
-    description:
-      'Coordinates consultations and answers practical questions about preparing for a meeting.',
-    imageSrc: '/images/portraits/taylor.jpg',
-    imageAlt: 'Portrait of Taylor Reed',
-  },
-]
+export const teamMembers: TeamMember[] = attorneyProfiles.map((profile) => ({
+  id: profile.id,
+  name: profile.name,
+  role: profile.role,
+  description: profile.summary,
+  imageSrc: profile.imageSrc,
+  imageAlt: profile.imageAlt,
+  profileHref: `/attorneys/${profile.slug}`,
+}))
