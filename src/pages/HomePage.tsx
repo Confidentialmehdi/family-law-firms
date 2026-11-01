@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 
 import { HomePracticeSection } from '@/components/home/HomePracticeSection'
 import { ImageFallback } from '@/components/ImageFallback'
+import { VerifiedClientName } from '@/components/results/VerifiedClientName'
 import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { Hero } from '@/components/sections/Hero'
 import {
@@ -125,7 +126,7 @@ export function HomePage() {
                       />
                     </div>
                     <div className="min-w-0">
-                      <p className="truncate text-sm font-medium text-navy">{story.name}</p>
+                      <VerifiedClientName name={story.name} nameClassName="text-sm" />
                       <p className="truncate text-xs text-muted">{story.city}</p>
                     </div>
                   </div>

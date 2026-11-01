@@ -1,3 +1,4 @@
+import { VerifiedClientName } from '@/components/results/VerifiedClientName'
 import type { ClientStory } from '@/content/results'
 import { cn } from '@/lib/utils'
 
@@ -38,9 +39,7 @@ export function StoryCard({ story, variant = 'full' }: StoryCardProps) {
           />
         </div>
         <div className="min-w-0">
-          <p className={cn('truncate font-medium text-navy', compact ? 'text-sm' : 'text-sm')}>
-            {story.name}
-          </p>
+          <VerifiedClientName name={story.name} nameClassName="text-sm" />
           <p className="truncate text-xs text-muted">{story.city}</p>
         </div>
       </div>
