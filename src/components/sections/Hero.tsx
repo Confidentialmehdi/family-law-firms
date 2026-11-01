@@ -42,7 +42,7 @@ export function Hero() {
       aria-labelledby="page-heading"
     >
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-5 py-14 md:gap-10 md:px-8 md:py-16 lg:py-20">
-        <div className="animate-fade-in grid grid-cols-1 items-stretch gap-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-7 lg:gap-9">
+        <div className="animate-fade-in grid grid-cols-1 items-stretch gap-6 md:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] md:gap-7 lg:gap-8">
           {/* One left section: headline above portrait, same overall size as form */}
           <div className="animate-fade-up flex min-h-0 flex-col gap-6 md:gap-7">
             <div className="shrink-0">
@@ -62,7 +62,7 @@ export function Hero() {
           </div>
 
           <div className="flex min-h-0 flex-col">
-            <HeroLeadForm className="h-full min-h-[32rem] md:min-h-full" />
+            <HeroLeadForm className="h-full min-h-[36rem] md:min-h-[42rem] lg:min-h-[46rem]" />
           </div>
         </div>
 
