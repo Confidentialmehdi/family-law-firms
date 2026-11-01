@@ -5,7 +5,6 @@ import {
   requestReceivedPage,
   type RequestReceivedState,
 } from '@/content/requestReceived'
-import { site } from '@/content/site'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
 export function RequestReceivedPage() {
@@ -135,74 +134,6 @@ export function RequestReceivedPage() {
                 </li>
               ))}
             </ol>
-          </section>
-
-          <section
-            className="mx-auto mt-20 max-w-3xl"
-            aria-labelledby="request-prepare-heading"
-          >
-            <div className="h-px w-14 bg-brass" aria-hidden="true" />
-            <h2
-              id="request-prepare-heading"
-              className="mt-6 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
-            >
-              {requestReceivedPage.prepareHeading}
-            </h2>
-            <p className="mt-4 max-w-prose text-base text-muted md:text-lg">
-              {requestReceivedPage.prepareIntro}
-            </p>
-            <ul className="mt-8 space-y-4 text-base text-navy md:text-lg">
-              {requestReceivedPage.prepareItems.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span
-                    className="mt-2.5 size-1.5 shrink-0 rounded-full bg-brass"
-                    aria-hidden
-                  />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section
-            className="mx-auto mt-20 max-w-3xl"
-            aria-labelledby="request-resources-heading"
-          >
-            <div className="h-px w-14 bg-brass" aria-hidden="true" />
-            <h2
-              id="request-resources-heading"
-              className="mt-6 font-serif text-[2rem] leading-[1.15] text-navy md:text-[2.5rem]"
-            >
-              {requestReceivedPage.resourcesHeading}
-            </h2>
-            <p className="mt-4 max-w-prose text-base text-muted md:text-lg">
-              {requestReceivedPage.resourcesIntro}
-            </p>
-            <ul className="mt-10 divide-y divide-border border-y border-border">
-              {requestReceivedPage.resources.map((resource) => (
-                <li key={resource.to}>
-                  <Link
-                    to={resource.to}
-                    className="group flex flex-col gap-1 py-6 transition-colors focus-visible:outline-none"
-                  >
-                    <span className="font-serif text-xl text-navy transition-colors group-hover:text-teal md:text-2xl">
-                      {resource.label}
-                    </span>
-                    <span className="text-base text-muted">{resource.description}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-10 text-sm text-muted">
-              Prefer to talk sooner? Call {site.firmName} during office hours, or{' '}
-              <Link
-                to="/book-consultation"
-                className="font-medium text-teal underline-offset-4 hover:underline"
-              >
-                {site.ctaLabel.toLowerCase()}
-              </Link>
-              .
-            </p>
           </section>
         </div>
       </div>
