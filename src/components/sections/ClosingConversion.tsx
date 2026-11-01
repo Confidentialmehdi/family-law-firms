@@ -41,30 +41,18 @@ export function ClosingConversion({ formIdPrefix = 'closing' }: ClosingConversio
 
             <div className="mt-8 flex-1">
               <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-                {closingConversion.booking.stepsHeading}
+                {closingConversion.booking.concernsHeading}
               </p>
-              <ol className="relative mt-5 space-y-5">
-                <div
-                  className="absolute top-2 bottom-2 left-[0.95rem] w-px bg-brass/35"
-                  aria-hidden="true"
-                />
-                {closingConversion.booking.steps.map((item) => (
-                  <li key={item.step} className="relative flex gap-4">
-                    <span
-                      className="relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full border border-brass/50 bg-navy font-serif text-xs text-brass"
-                      aria-hidden="true"
-                    >
-                      {item.step}
-                    </span>
-                    <div className="min-w-0 pt-0.5">
-                      <p className="font-serif text-base text-ivory">{item.title}</p>
-                      <p className="mt-1 text-sm leading-relaxed text-ivory/65">
-                        {item.description}
-                      </p>
-                    </div>
+              <ul className="mt-4 divide-y divide-ivory/15 border-y border-ivory/15">
+                {closingConversion.booking.concerns.map((item) => (
+                  <li key={item.title} className="py-3.5">
+                    <p className="text-sm font-medium text-ivory">{item.title}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-ivory/65">
+                      {item.answer}
+                    </p>
                   </li>
                 ))}
-              </ol>
+              </ul>
               <Link
                 to={closingConversion.booking.guideTo}
                 className="mt-6 inline-block text-sm font-medium text-brass-muted underline-offset-4 hover:text-brass hover:underline"

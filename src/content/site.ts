@@ -53,22 +53,23 @@ export const closingConversion = {
       '$150',
       'New York time',
     ],
-    stepsHeading: 'How booking works',
-    steps: [
+    concernsHeading: 'Common concerns',
+    concerns: [
       {
-        step: '01',
-        title: 'Choose a time and format',
-        description: 'Select a date and time, then choose online or in person.',
+        title: 'Do I need to know my legal category first?',
+        answer: 'No. Start with the questions on your mind—even if several issues connect.',
       },
       {
-        step: '02',
-        title: 'Discuss your priorities',
-        description: 'Cover family, finances, timing, or several connected questions.',
+        title: 'Will I be pressured to hire the firm?',
+        answer: 'No. The consultation is a defined first conversation, not a commitment to retain us.',
       },
       {
-        step: '03',
-        title: 'Review possible next steps',
-        description: 'Leave with options and what may help a later discussion.',
+        title: 'What if I’m not ready to decide next steps?',
+        answer: 'That’s expected. Many people leave clarifying priorities before choosing a path.',
+      },
+      {
+        title: 'Is this confidential?',
+        answer: 'Yes. What you share in the consultation is treated as confidential.',
       },
     ],
     guideLabel: 'Read the full consultation guide',
