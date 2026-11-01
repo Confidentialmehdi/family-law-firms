@@ -297,7 +297,7 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
             }}
           >
             <option value="">{homeHeroForm.caseTypePlaceholder}</option>
-            {homeHeroForm.practiceTopics.map((option) => (
+            {practiceAreaOptions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
