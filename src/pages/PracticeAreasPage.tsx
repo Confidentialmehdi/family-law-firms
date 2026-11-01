@@ -186,9 +186,6 @@ function ServiceSection({
             <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
               {area.description}
             </p>
-            <Button asChild size="sm" className="mt-8">
-              <Link to="/book-consultation">{site.ctaLabel}</Link>
-            </Button>
           </div>
 
           <div className="min-w-0">
