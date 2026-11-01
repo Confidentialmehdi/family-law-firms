@@ -16,7 +16,7 @@ function AttorneyPortrait({ className }: { className?: string }) {
       <img
         src={attorney.imageSrc}
         alt={attorney.imageAlt}
-        className="absolute inset-0 h-full w-full object-cover object-[center_0%]"
+        className="absolute inset-0 h-full w-full object-contain object-center"
         loading="eager"
         decoding="async"
       />
