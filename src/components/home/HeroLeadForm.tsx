@@ -270,7 +270,7 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
 
         <div className="shrink-0">
           <label htmlFor="hero-case-type" className="sr-only">
-            Case Type
+            Practice area
           </label>
           <select
             id="hero-case-type"
@@ -308,7 +308,7 @@ export function HeroLeadForm({ className }: HeroLeadFormProps) {
 
         <div className="flex min-h-0 flex-1 flex-col">
           <label htmlFor="hero-details" className="sr-only">
-            Case details
+            What you would like to discuss
           </label>
           <textarea
             id="hero-details"
