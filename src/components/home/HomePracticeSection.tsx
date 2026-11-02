@@ -82,51 +82,53 @@ export function HomePracticeSection() {
           if (!open) setOpenAreaId(null)
         }}
       >
-        <DialogContent className="w-[min(100%-1.5rem,34rem)] gap-0 p-0 shadow-[0_18px_50px_rgb(37_38_41/0.14)]">
+        <DialogContent className="w-[min(100%-1.25rem,34rem)] gap-0 p-0 shadow-[0_18px_50px_rgb(37_38_41/0.14)]">
           {activeConcern && activeArea ? (
             <>
-              <div className="h-1 w-full bg-brass/70" aria-hidden="true" />
+              <div className="h-1 w-full shrink-0 bg-brass/70" aria-hidden="true" />
 
-              <DialogHeader className="gap-0 px-6 pt-6 pr-14 pb-5 md:px-7 md:pt-7">
-                <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
-                  {activeArea.title}
-                </p>
-                <div className="mt-4 h-px w-10 bg-brass" aria-hidden="true" />
-                <DialogTitle className="mt-5 text-[1.65rem] leading-[1.15] md:text-[1.85rem]">
-                  {activeConcern.concern}
-                </DialogTitle>
-                <p className="mt-4 font-serif text-lg leading-snug text-navy/85 md:text-xl">
-                  {activeConcern.outcome}
-                </p>
-                <DialogDescription className="mt-4 text-base leading-relaxed text-muted">
-                  {activeConcern.dialogBody}
-                </DialogDescription>
-              </DialogHeader>
-
-              <div className="min-h-0 flex-1 overflow-y-auto px-6 pb-2 md:px-7">
-                <div className="border-y border-border py-5">
-                  <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
-                    {homePractice.dialogTopicsLabel}
+              <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+                <DialogHeader className="gap-0 px-5 pt-5 pr-12 pb-4 sm:px-6 sm:pt-6 sm:pr-14 sm:pb-5 md:px-7 md:pt-7">
+                  <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
+                    {activeArea.title}
                   </p>
-                  <ul className="mt-5 space-y-4">
-                    {activeConcern.dialogPoints.map((point, index) => (
-                      <li key={point} className="flex gap-4">
-                        <span
-                          className="font-serif text-lg leading-none text-brass/55 tabular-nums"
-                          aria-hidden="true"
-                        >
-                          {String(index + 1).padStart(2, '0')}
-                        </span>
-                        <span className="pt-0.5 text-base leading-relaxed text-navy">
-                          {point}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="mt-3 h-px w-10 bg-brass sm:mt-4" aria-hidden="true" />
+                  <DialogTitle className="mt-4 text-[1.45rem] leading-[1.15] sm:mt-5 sm:text-[1.65rem] md:text-[1.85rem]">
+                    {activeConcern.concern}
+                  </DialogTitle>
+                  <p className="mt-3 font-serif text-base leading-snug text-navy/85 sm:mt-4 sm:text-lg md:text-xl">
+                    {activeConcern.outcome}
+                  </p>
+                  <DialogDescription className="mt-3 text-[0.95rem] leading-relaxed text-muted sm:mt-4 sm:text-base">
+                    {activeConcern.dialogBody}
+                  </DialogDescription>
+                </DialogHeader>
+
+                <div className="px-5 pb-5 sm:px-6 md:px-7">
+                  <div className="border-y border-border py-5">
+                    <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+                      {homePractice.dialogTopicsLabel}
+                    </p>
+                    <ul className="mt-4 space-y-3.5 sm:mt-5 sm:space-y-4">
+                      {activeConcern.dialogPoints.map((point, index) => (
+                        <li key={point} className="flex gap-3.5 sm:gap-4">
+                          <span
+                            className="font-serif text-base leading-none text-brass/55 tabular-nums sm:text-lg"
+                            aria-hidden="true"
+                          >
+                            {String(index + 1).padStart(2, '0')}
+                          </span>
+                          <span className="pt-0.5 text-[0.95rem] leading-relaxed text-navy sm:text-base">
+                            {point}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
 
-              <DialogFooter className="flex-col gap-3 border-t-0 bg-surface/70 px-6 py-5 sm:flex-col sm:justify-stretch md:px-7">
+              <DialogFooter className="flex-col gap-2.5 border-t border-border bg-surface/80 px-5 py-4 sm:flex-col sm:justify-stretch sm:gap-3 sm:px-6 sm:py-5 md:px-7">
                 <Button asChild size="lg" className="w-full">
                   <Link to="/book-consultation" onClick={() => setOpenAreaId(null)}>
                     {homePractice.dialogCtaLabel}
