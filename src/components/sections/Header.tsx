@@ -25,7 +25,7 @@ export function Header() {
 
   const mobileLinkClass = ({ isActive }: { isActive: boolean }) =>
     cn(
-      'rounded-sm px-2 py-3 text-base',
+      'rounded-sm px-2 py-3 text-base transition-colors',
       isActive ? 'bg-teal/10 text-teal' : 'text-navy hover:bg-navy/5',
     )
 
@@ -61,7 +61,24 @@ export function Header() {
             aria-controls="mobile-nav"
             onClick={() => setMenuOpen((open) => !open)}
           >
-            {menuOpen ? <X /> : <Menu />}
+            <span className="relative size-4" aria-hidden="true">
+              <Menu
+                className={cn(
+                  'absolute inset-0 size-4 transition-[opacity,transform] duration-300 ease-out',
+                  menuOpen
+                    ? 'scale-75 rotate-90 opacity-0'
+                    : 'scale-100 rotate-0 opacity-100',
+                )}
+              />
+              <X
+                className={cn(
+                  'absolute inset-0 size-4 transition-[opacity,transform] duration-300 ease-out',
+                  menuOpen
+                    ? 'scale-100 rotate-0 opacity-100'
+                    : 'scale-75 -rotate-90 opacity-0',
+                )}
+              />
+            </span>
             <span className="sr-only">{menuOpen ? 'Close menu' : 'Open menu'}</span>
           </Button>
         </div>
@@ -69,30 +86,53 @@ export function Header() {
 
       <div
         id="mobile-nav"
-        className={cn('border-t border-border lg:hidden', menuOpen ? 'block' : 'hidden')}
+        className={cn(
+          'grid overflow-hidden transition-[grid-template-rows,opacity] duration-300 ease-out lg:hidden',
+          menuOpen
+            ? 'grid-rows-[1fr] opacity-100'
+            : 'pointer-events-none grid-rows-[0fr] opacity-0',
+        )}
+        aria-hidden={!menuOpen}
+        inert={!menuOpen ? true : undefined}
       >
-        <nav
-          className="mx-auto flex max-w-[1200px] flex-col gap-1 px-5 py-3 md:px-8"
-          aria-label="Mobile"
-        >
-          {headerNav.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              className={mobileLinkClass}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </NavLink>
-          ))}
-          {!onBookingPage ? (
-            <Button asChild className="mt-2 sm:hidden">
-              <Link to={BOOK_PATH} onClick={() => setMenuOpen(false)}>
-                {site.ctaLabel}
-              </Link>
-            </Button>
-          ) : null}
-        </nav>
+        <div className="min-h-0 overflow-hidden border-t border-border">
+          <nav
+            className={cn(
+              'mx-auto flex max-w-[1200px] flex-col gap-1 px-5 py-3 transition-transform duration-300 ease-out md:px-8',
+              menuOpen ? 'translate-y-0' : '-translate-y-2',
+            )}
+            aria-label="Mobile"
+          >
+            {headerNav.map((link, index) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  cn(
+                    mobileLinkClass({ isActive }),
+                    'transition-[opacity,transform] duration-300 ease-out',
+                    menuOpen
+                      ? 'translate-y-0 opacity-100'
+                      : 'translate-y-1 opacity-0',
+                  )
+                }
+                style={{
+                  transitionDelay: menuOpen ? `${80 + index * 40}ms` : '0ms',
+                }}
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </NavLink>
+            ))}
+            {!onBookingPage ? (
+              <Button asChild className="mt-2 sm:hidden">
+                <Link to={BOOK_PATH} onClick={() => setMenuOpen(false)}>
+                  {site.ctaLabel}
+                </Link>
+              </Button>
+            ) : null}
+          </nav>
+        </div>
       </div>
     </header>
   )
