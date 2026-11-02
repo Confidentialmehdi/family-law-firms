@@ -1,3 +1,6 @@
+import * as React from 'react'
+import { Loader2 } from 'lucide-react'
+
 import { bookingPage } from '@/content/booking'
 import { site } from '@/content/site'
 import { Button } from '@/components/ui/button'
@@ -13,6 +16,23 @@ export function ReviewStep() {
     setStep,
     completeBooking,
   } = useBooking()
+  const [submitting, setSubmitting] = React.useState(false)
+  const submitTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  React.useEffect(() => {
+    return () => {
+      if (submitTimeoutRef.current) clearTimeout(submitTimeoutRef.current)
+    }
+  }, [])
+
+  function handleConfirm() {
+    if (submitting) return
+    setSubmitting(true)
+    submitTimeoutRef.current = setTimeout(() => {
+      submitTimeoutRef.current = null
+      completeBooking()
+    }, 2000)
+  }
 
   return (
     <div className="flex flex-col">
@@ -33,6 +53,7 @@ export function ReviewStep() {
             type="button"
             variant="link"
             className="h-auto p-0 text-sm"
+            disabled={submitting}
             onClick={() => setStep('consultation')}
           >
             Edit
@@ -56,6 +77,7 @@ export function ReviewStep() {
             type="button"
             variant="link"
             className="h-auto p-0 text-sm"
+            disabled={submitting}
             onClick={() => setStep('consultation')}
           >
             Edit
@@ -71,6 +93,7 @@ export function ReviewStep() {
             type="button"
             variant="link"
             className="h-auto p-0 text-sm"
+            disabled={submitting}
             onClick={() => setStep('consultation')}
           >
             Edit
@@ -78,20 +101,17 @@ export function ReviewStep() {
         </div>
 
         <div className="border-b border-border pb-3">
-          <dt className="text-sm text-muted">Duration</dt>
+          <dt className="text-sm text-muted">Type</dt>
           <dd className="mt-1 text-navy">{bookingPage.duration}</dd>
-        </div>
-
-        <div className="border-b border-border pb-3">
-          <dt className="text-sm text-muted">Fee</dt>
-          <dd className="mt-1 text-navy">{bookingPage.sampleFee}</dd>
         </div>
 
         <div className="flex items-start justify-between gap-4 border-b border-border pb-3">
           <div>
             <dt className="text-sm text-muted">Your details</dt>
             <dd className="mt-1 text-navy">
-              <span className="block">{draft.name}</span>
+              <span className="block">
+                {draft.firstName} {draft.lastName}
+              </span>
               <span className="block">{draft.email}</span>
               <span className="block">{draft.phone}</span>
               {practiceAreaLabel ? (
@@ -103,6 +123,7 @@ export function ReviewStep() {
             type="button"
             variant="link"
             className="h-auto p-0 text-sm"
+            disabled={submitting}
             onClick={() => setStep('details')}
           >
             Edit
@@ -111,11 +132,28 @@ export function ReviewStep() {
       </dl>
 
       <div className="mt-6 flex flex-col-reverse gap-2 border-t border-border pt-4 sm:flex-row sm:justify-between">
-        <Button type="button" variant="outline" onClick={() => setStep('details')}>
+        <Button
+          type="button"
+          variant="outline"
+          disabled={submitting}
+          onClick={() => setStep('details')}
+        >
           Back
         </Button>
-        <Button type="button" onClick={completeBooking}>
-          {site.ctaLabel}
+        <Button
+          type="button"
+          disabled={submitting}
+          aria-busy={submitting}
+          onClick={handleConfirm}
+        >
+          {submitting ? (
+            <>
+              <Loader2 className="animate-spin" aria-hidden="true" />
+              {bookingPage.submittingLabel}
+            </>
+          ) : (
+            bookingPage.confirmLabel
+          )}
         </Button>
       </div>
     </div>

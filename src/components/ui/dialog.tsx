@@ -34,7 +34,7 @@ export function DialogContent({
       <DialogOverlay />
       <DialogPrimitive.Content
         className={cn(
-          'fixed top-1/2 left-1/2 z-50 flex max-h-[min(92vh,44rem)] w-[min(100%-1.5rem,32rem)] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-sm border border-border bg-ivory shadow-soft outline-none data-[state=open]:animate-fade-up',
+          'fixed top-1/2 left-1/2 z-50 flex max-h-[min(92dvh,44rem)] w-[min(100%-1.5rem,32rem)] -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded-sm border border-border bg-ivory shadow-soft outline-none data-[state=open]:animate-fade-up',
           className,
         )}
         {...props}
@@ -59,7 +59,7 @@ export function DialogFooter({ className, ...props }: React.ComponentProps<'div'
   return (
     <div
       className={cn(
-        'mt-auto flex flex-col-reverse gap-2 border-t border-border bg-surface/60 px-5 py-4 sm:flex-row sm:justify-end',
+        'mt-auto flex shrink-0 flex-col-reverse gap-2 border-t border-border bg-surface/60 px-5 py-4 sm:flex-row sm:justify-end',
         className,
       )}
       {...props}

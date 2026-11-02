@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { disclaimerPage, privacyPage, termsPage } from '@/content/legal'
 import { RootLayout } from '@/layouts/RootLayout'
 import { AboutUsPage } from '@/pages/AboutUsPage'
+import { AttorneyProfilePage } from '@/pages/AttorneyProfilePage'
 import { BookConsultationPage } from '@/pages/BookConsultationPage'
 import { ContactUsPage } from '@/pages/ContactUsPage'
 import { HomePage } from '@/pages/HomePage'
@@ -10,6 +11,7 @@ import { LegalPage } from '@/pages/LegalPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 import { OurResultsPage } from '@/pages/OurResultsPage'
 import { PracticeAreasPage } from '@/pages/PracticeAreasPage'
+import { RequestReceivedPage } from '@/pages/RequestReceivedPage'
 import { WhatToExpectPage } from '@/pages/WhatToExpectPage'
 
 export default function App() {
@@ -20,11 +22,13 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="practice-areas" element={<PracticeAreasPage />} />
           <Route path="about-us" element={<AboutUsPage />} />
+          <Route path="attorneys/:slug" element={<AttorneyProfilePage />} />
           <Route path="contact-us" element={<ContactUsPage />} />
           <Route path="our-results" element={<OurResultsPage />} />
           <Route path="what-to-expect" element={<WhatToExpectPage />} />
           <Route path="faq" element={<Navigate to="/#faq" replace />} />
           <Route path="book-consultation" element={<BookConsultationPage />} />
+          <Route path="request-received" element={<RequestReceivedPage />} />
           <Route
             path="privacy"
             element={
@@ -58,7 +62,10 @@ export default function App() {
               />
             }
           />
-          <Route path="meet-robert" element={<Navigate to="/about-us" replace />} />
+          <Route
+            path="meet-robert"
+            element={<Navigate to="/attorneys/robert-j-whitfield" replace />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

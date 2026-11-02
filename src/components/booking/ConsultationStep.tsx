@@ -52,7 +52,7 @@ export function ConsultationStep() {
           >
             {(
               [
-                { value: 'video', label: 'Video' },
+                { value: 'video', label: 'Online' },
                 { value: 'in-person', label: 'In person' },
               ] as const
             ).map((option) => (

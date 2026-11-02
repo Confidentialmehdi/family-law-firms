@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 
+import { HomePracticeSection } from '@/components/home/HomePracticeSection'
 import { ImageFallback } from '@/components/ImageFallback'
-import { StoryCard } from '@/components/results/StoryCard'
+import { StoryClientIdentity } from '@/components/results/VerifiedClientName'
 import { ClosingConversion } from '@/components/sections/ClosingConversion'
 import { Hero } from '@/components/sections/Hero'
 import {
@@ -10,105 +11,31 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { Button } from '@/components/ui/button'
 import { attorney } from '@/content/attorney'
 import {
   homeConsultation,
   homeConcerns,
   homeExperience,
   homeMeet,
-  homePractice,
 } from '@/content/home'
 import { faqItems } from '@/content/faq'
-import { getPracticeArea } from '@/content/practiceAreas'
 import { clientStories } from '@/content/results'
 import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
 export function HomePage() {
   useDocumentTitle()
 
-  const featuredStories = homeExperience.storyIds
-    .map((id) => clientStories.find((story) => story.id === id))
-    .filter((story): story is (typeof clientStories)[number] => Boolean(story))
+  const featuredStories = homeExperience.stories.flatMap((item) => {
+    const story = clientStories.find((entry) => entry.id === item.id)
+    return story ? [{ ...story, outcome: item.outcome }] : []
+  })
 
   return (
     <main id="main">
       <Hero />
 
-      {/* 2. Practice areas — group row, then area grid */}
-      <section className="border-b border-border/60" aria-labelledby="home-practice-heading">
-        <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
-          <div className="max-w-2xl">
-            <h2
-              id="home-practice-heading"
-              className="font-serif text-3xl text-navy md:text-4xl"
-            >
-              {homePractice.heading}
-            </h2>
-            <p className="mt-3 text-lg text-muted">{homePractice.introduction}</p>
-          </div>
-
-          <div className="mt-12 space-y-8 md:space-y-10">
-            {homePractice.groups.map((group) => {
-              const colCount = Math.min(group.areaIds.length, 3)
-              const areaColsClass =
-                colCount === 1
-                  ? 'md:grid-cols-1'
-                  : colCount === 2
-                    ? 'md:grid-cols-2'
-                    : 'md:grid-cols-3'
-
-              return (
-                <div
-                  key={group.id}
-                  className="overflow-hidden rounded-sm border border-border"
-                >
-                  <div className="border-b border-border bg-surface/60 px-5 py-6 md:px-7 md:py-7">
-                    <h3 className="font-serif text-2xl text-navy md:text-[1.75rem]">
-                      {group.title}
-                    </h3>
-                    <p className="mt-2 max-w-2xl text-base text-muted">
-                      {group.description}
-                    </p>
-                  </div>
-
-                  <ul className={`grid grid-cols-1 divide-y divide-border md:divide-x md:divide-y-0 ${areaColsClass}`}>
-                    {group.areaIds.map((areaId) => {
-                      const area = getPracticeArea(areaId)
-                      if (!area) return null
-                      return (
-                        <li key={area.id} className="min-w-0">
-                          <Link
-                            to={`/practice-areas#${area.id}`}
-                            className="group flex h-full flex-col px-5 py-6 outline-none transition-colors hover:bg-ivory/80 md:px-6 md:py-7"
-                          >
-                            <p className="font-serif text-xl text-navy transition-colors group-hover:text-teal">
-                              {area.title}
-                            </p>
-                            <div
-                              className="mt-3 h-px w-8 bg-brass/50 transition-all group-hover:w-12 group-hover:bg-brass"
-                              aria-hidden="true"
-                            />
-                            <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
-                              {area.preview}
-                            </p>
-                          </Link>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
-              )
-            })}
-          </div>
-
-          <Link
-            to="/practice-areas"
-            className="mt-12 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
-          >
-            {homePractice.linkLabel}
-          </Link>
-        </div>
-      </section>
+      <HomePracticeSection />
 
       {/* 3. Meet Robert */}
       <section
@@ -130,43 +57,84 @@ export function HomePage() {
               {attorney.role}, {attorney.firm}
             </p>
             <p className="mt-5 max-w-xl text-lg text-muted">{homeMeet.body}</p>
-            <Link
-              to="/about-us"
-              className="mt-6 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
-            >
-              {homeMeet.linkLabel}
-            </Link>
+            <ul className="mt-8 max-w-xl space-y-5 border-t border-border pt-6">
+              {homeMeet.commitments.map((item) => (
+                <li key={item.title} className="flex gap-4">
+                  <span
+                    className="mt-2 h-px w-6 shrink-0 bg-brass"
+                    aria-hidden="true"
+                  />
+                  <div className="min-w-0">
+                    <p className="font-serif text-lg text-navy">{item.title}</p>
+                    <p className="mt-1 text-base leading-relaxed text-muted">
+                      {item.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <Button asChild variant="outline" size="sm" className="mt-8">
+              <Link to="/about-us">{homeMeet.linkLabel}</Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* 4. Results preview */}
+      {/* 4. Results preview — outcome-led editorial list */}
       <section className="border-b border-border/60" aria-labelledby="home-experience-heading">
         <div className="mx-auto max-w-[1200px] px-5 py-16 md:px-8 md:py-20">
-          <div className="max-w-2xl">
-            <h2
-              id="home-experience-heading"
-              className="font-serif text-3xl text-navy md:text-4xl"
-            >
-              {homeExperience.heading}
-            </h2>
-          </div>
-          <div className="mx-auto mt-10 w-full max-w-[80%]">
-            <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
+          <div className="grid gap-12 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-start md:gap-16 lg:gap-20">
+            <div className="md:sticky md:top-28">
+              <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
+                {homeExperience.eyebrow}
+              </p>
+              <h2
+                id="home-experience-heading"
+                className="mt-4 font-serif text-3xl leading-[1.15] text-navy md:text-4xl lg:text-[2.75rem]"
+              >
+                {homeExperience.heading}
+              </h2>
+              <p className="mt-4 max-w-sm text-lg leading-relaxed text-muted">
+                {homeExperience.supporting}
+              </p>
+              <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
+              <Button asChild variant="outline" size="sm" className="mt-8">
+                <Link to="/our-results">{homeExperience.buttonLabel}</Link>
+              </Button>
+            </div>
+
+            <ul className="border-t border-border">
               {featuredStories.map((story) => (
-                <li key={story.id} className="flex min-w-0">
-                  <StoryCard story={story} variant="compact" />
+                <li key={story.id} className="border-b border-border py-6 md:py-7">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#e8e3db]"
+                      aria-hidden="true"
+                    >
+                      <img
+                        src={story.imageSrc}
+                        alt=""
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <StoryClientIdentity
+                      name={story.name}
+                      city={story.city}
+                      nameClassName="text-sm"
+                    />
+                  </div>
+                  <p className="mt-4 text-[0.65rem] tracking-[0.14em] text-brass uppercase">
+                    {story.practiceArea}
+                  </p>
+                  <h3 className="mt-2 font-serif text-xl leading-snug text-navy md:text-[1.35rem]">
+                    {story.title}
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-muted">{story.outcome}</p>
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex justify-center">
-              <Link
-                to="/our-results"
-                className="text-sm font-medium text-teal underline-offset-4 hover:underline"
-              >
-                {homeExperience.buttonLabel}
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -185,19 +153,25 @@ export function HomePage() {
               >
                 {homeConsultation.heading}
               </h2>
+              <p className="mt-3 text-base text-muted">{homeConsultation.withAttorney}</p>
               <p className="mt-4 text-base text-muted">{homeConsultation.feeNote}</p>
+              <p className="mt-4 max-w-md text-lg leading-relaxed text-navy/85">
+                {homeConsultation.valueLine}
+              </p>
               <div className="mt-6 h-px w-14 bg-brass" aria-hidden="true" />
-              <Link
-                to="/what-to-expect"
-                className="mt-8 inline-block text-sm font-medium text-teal underline-offset-4 hover:underline"
-              >
-                {homeConsultation.linkLabel}
-              </Link>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <Button asChild size="default">
+                  <Link to="/book-consultation">{homeConsultation.bookLabel}</Link>
+                </Button>
+                <Button asChild variant="outline" size="sm">
+                  <Link to="/what-to-expect">{homeConsultation.linkLabel}</Link>
+                </Button>
+              </div>
             </div>
 
             <ol className="order-2 relative md:order-1">
               <div
-                className="absolute top-2 bottom-2 left-[0.4375rem] w-px bg-brass/45"
+                className="absolute top-3 bottom-3 left-5 w-px bg-brass/45 md:left-6"
                 aria-hidden="true"
               />
               {homeConsultation.steps.map((item, index) => (
@@ -207,10 +181,12 @@ export function HomePage() {
                   style={{ animationDelay: `${80 + index * 100}ms` }}
                 >
                   <span
-                    className="relative z-10 mt-1.5 size-3.5 shrink-0 rounded-full border-[1.5px] border-brass bg-ivory"
+                    className="relative z-10 flex size-10 shrink-0 items-center justify-center rounded-full border border-brass/50 bg-ivory font-serif text-sm text-navy md:size-12 md:text-base"
                     aria-hidden="true"
-                  />
-                  <div className="min-w-0 pt-0.5">
+                  >
+                    {String(item.step).padStart(2, '0')}
+                  </span>
+                  <div className="min-w-0 pt-1.5 md:pt-2.5">
                     <h3 className="font-serif text-xl text-navy md:text-[1.35rem]">
                       {item.title}
                     </h3>

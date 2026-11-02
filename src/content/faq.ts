@@ -9,25 +9,25 @@ export const faqItems: FaqItem[] = [
     id: 'first',
     question: 'What happens during the first consultation?',
     answer:
-      'You share what brought you here and what you want to discuss. Robert J. Whitfield, Esq. focuses on listening, explaining options, and outlining possible next steps—not on making every decision in one sitting.',
+      'You share what brought you here and what you want to discuss. Robert J. Whitfield, Esq. listens, explains your options in plain language, and outlines possible next steps—not every decision in one sitting.',
   },
   {
     id: 'length',
     question: 'How long is it?',
     answer:
-      'Consultations are scheduled for 30 minutes. That is usually enough time to cover priorities and leave with a practical sense of direction.',
+      'Consultations are focused conversations—usually enough time to cover your priorities and leave with a practical sense of direction.',
   },
   {
     id: 'cost',
     question: 'What does it cost?',
     answer:
-      'The consultation fee is $150 for 30 minutes. Fees are confirmed when you book so you know what to expect before you continue.',
+      'Fees are confirmed when you book, so you know what to expect before you continue.',
   },
   {
     id: 'remote',
-    question: 'Can I meet remotely?',
+    question: 'Can I meet online?',
     answer:
-      'Yes. On the Book a Consultation page, you can choose Video or In person.',
+      'Yes. When you book, you can choose Online or In person.',
   },
   {
     id: 'prepare',
@@ -37,7 +37,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     id: 'area',
-    question: 'What if I’m unsure which practice area applies?',
+    question: 'What if I am unsure which practice area applies?',
     answer:
       'Select “Not sure” when you book or request contact. Sorting that out can be part of the conversation.',
   },
@@ -45,7 +45,7 @@ export const faqItems: FaqItem[] = [
     id: 'details',
     question: 'Do I need to share case details when booking?',
     answer:
-      'No. The booking page asks for your name, email, phone, and an optional practice area. You are not asked for case narratives, documents, or payment details online.',
+      'No. Booking asks for your name, email, phone, and practice area. You are not asked for case narratives, documents, or payment details online.',
   },
   {
     id: 'how-to-book',
@@ -57,10 +57,11 @@ export const faqItems: FaqItem[] = [
     id: 'contact',
     question: 'How can I contact the firm?',
     answer:
-      'Visit Contact Us for phone and email, or leave your details in the Request contact form on most pages.',
+      'Visit Contact Us for phone and email, or leave your details on the request form on most pages.',
   },
 ]
 
 export const faqPage = {
-  supporting: 'Direct answers about the consultation, preparation, cost, and how to get in touch.',
+  supporting:
+    'Straight answers about the consultation, preparation, cost, and how to get in touch.',
 } as const

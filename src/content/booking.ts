@@ -98,15 +98,15 @@ export function groupSlotsByDate(slots: TimeSlot[]): Array<{
 }
 
 export const meetingTypeLabels: Record<MeetingType, string> = {
-  video: 'Video',
+  video: 'Online',
   'in-person': 'In person',
 }
 
 export const bookingPage = {
   headline: 'Book a consultation with Robert J. Whitfield, Esq.',
   supporting:
-    'Choose a format, date, and time for a 30-minute conversation about your questions and priorities.',
-  consultationDetails: '30 minutes · Video or in person · $150',
+    'Choose online or in person, pick a time, and come ready to talk through the questions weighing on you.',
+  consultationDetails: 'Consultation · Online or in person',
   progress: [
     { id: 'consultation', label: 'Consultation' },
     { id: 'details', label: 'Your details' },
@@ -117,38 +117,41 @@ export const bookingPage = {
   dateStaleNotice:
     'That date is no longer among the next three working days. Please choose a new date and time.',
   attorneyName: 'Robert J. Whitfield, Esq.',
-  duration: '30 minutes',
-  sampleFee: '$150',
+  duration: 'Consultation',
   summaryHeading: 'Your consultation',
   summaryEmpty: 'Choose a date and time.',
-  completeHeading: 'Consultation confirmed',
-  completeCopy: 'Here is a summary of the details you selected.',
+  confirmLabel: 'Book a consultation',
+  submittingLabel: 'Submitting',
+  completeHeading: 'Your consultation is booked',
+  completeCopy: 'Here is a summary of what you selected. We look forward to speaking with you.',
   completeDemoNotice: 'Demo only. No consultation has been scheduled. Nothing was sent or stored.',
   validation: {
-    meetingType: 'Choose video or in person.',
+    meetingType: 'Choose online or in person.',
     date: 'Select a date.',
     slot: 'Select a time.',
-    name: 'Enter your full name.',
+    firstName: 'Enter your first name.',
+    lastName: 'Enter your last name.',
     email: 'Enter your email address.',
     emailInvalid: 'Enter a valid email (for example, name@example.com).',
     phone: 'Enter your phone number.',
     phoneInvalid: 'Enter a 10-digit US phone number.',
+    practiceArea: 'Choose a practice area.',
   },
   reassurance: {
-    heading: 'Before you confirm.',
+    heading: 'Before you confirm',
     items: [
       {
         question: 'Unsure which practice area applies?',
-        answer: 'Select “Not sure.” Begin with the questions that matter to you.',
+        answer: 'Select “Not sure.” Start with the questions that matter most to you.',
       },
       {
         question: 'What should I prepare?',
         answer:
-          'Bring your questions and any notes that help you explain them. No uploads are required to book.',
+          'A short list of questions is enough. You do not need documents or uploads to book.',
       },
       {
         question: 'What does the consultation cost?',
-        answer: 'The consultation fee is $150 for 30 minutes. Fees are confirmed when you book.',
+        answer: 'Fees are confirmed when you book, so you know what to expect before you continue.',
       },
     ],
     contactLinkLabel: 'Prefer another way to reach us? Contact us',

@@ -1,9 +1,9 @@
 export const whatToExpectPage = {
   supporting:
-    'How the initial consultation works—from choosing a time to discussing priorities and reviewing possible next steps.',
+    'How the consultation works—from choosing a time to discussing priorities and leaving with a clear next step.',
   prepareHeading: 'What to prepare',
   prepareCopy:
-    'A short list of questions or priorities is enough. You do not need documents or a finished plan for the first consultation. Bring what helps you explain what you want to discuss.',
+    'A short list of questions or priorities is enough. You do not need documents or a finished plan. Bring whatever helps you explain what you want to discuss.',
   concernsHeading: 'Common concerns',
   faqLinkLabel: 'common questions',
   faqLeadIn: 'More answers are in the',
@@ -15,7 +15,7 @@ export const whatToExpect = [
     step: 1,
     title: 'Choose a consultation',
     description:
-      'Pick a date, time, and whether you prefer video or an in-person meeting. Times are shown in New York time.',
+      'Pick a date, time, and whether you prefer to meet online or in person. Times are shown in New York time.',
   },
   {
     step: 2,
@@ -25,8 +25,8 @@ export const whatToExpect = [
   },
   {
     step: 3,
-    title: 'Review possible next steps',
+    title: 'Leave with direction',
     description:
-      'Leave with a practical sense of options and what preparation may help a later conversation.',
+      'Walk away with a practical sense of options and what preparation may help a later conversation.',
   },
 ] as const

@@ -1,3 +1,4 @@
+import { StoryClientIdentity } from '@/components/results/VerifiedClientName'
 import type { ClientStory } from '@/content/results'
 import { cn } from '@/lib/utils'
 
@@ -37,12 +38,11 @@ export function StoryCard({ story, variant = 'full' }: StoryCardProps) {
             decoding="async"
           />
         </div>
-        <div className="min-w-0">
-          <p className={cn('truncate font-medium text-navy', compact ? 'text-sm' : 'text-sm')}>
-            {story.name}
-          </p>
-          <p className="truncate text-xs text-muted">{story.city}</p>
-        </div>
+        <StoryClientIdentity
+          name={story.name}
+          city={story.city}
+          nameClassName="text-sm"
+        />
       </div>
 
       <div

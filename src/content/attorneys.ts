@@ -1,0 +1,136 @@
+import { firmContact } from '@/content/site'
+
+export type AttorneyEducation = {
+  school: string
+  detail: string
+}
+
+export type AttorneyProfile = {
+  id: string
+  slug: string
+  name: string
+  role: string
+  location: string
+  phone: string
+  email: string
+  imageSrc: string
+  imageAlt: string
+  /** Short line for About Us team cards. */
+  summary: string
+  education: readonly AttorneyEducation[]
+  bio: readonly string[]
+  practiceAreas: readonly string[]
+  quote: string
+}
+
+export const attorneyProfiles: AttorneyProfile[] = [
+  {
+    id: 'robert',
+    slug: 'robert-j-whitfield',
+    name: 'Robert J. Whitfield, Esq.',
+    role: 'Lead Attorney',
+    location: firmContact.location,
+    phone: firmContact.phone,
+    email: 'robert@whitfieldlaw.com',
+    imageSrc: '/images/portraits/robert.jpg',
+    imageAlt: 'Portrait of attorney Robert J. Whitfield, Esq.',
+    summary:
+      'Leads consultations that clarify your priorities, options, and a practical next step.',
+    education: [
+      { school: 'Columbia Law School', detail: 'J.D.' },
+      { school: 'New York University', detail: 'B.A.' },
+    ],
+    bio: [
+      'Robert J. Whitfield, Esq. starts with what you need to discuss. Family, finances, and timing often arrive together. He listens carefully, explains options in plain English, and helps you separate what needs attention now from what can wait.',
+      'At Whitfield Law Group, the consultation is a focused first step: clarify your priorities, understand your options, and decide—at your own pace—what comes next.',
+      'He works with people facing divorce, parenting arrangements, support questions, property decisions, and agreements before or during marriage—always beginning with the concerns that feel most urgent.',
+    ],
+    practiceAreas: [
+      'Divorce',
+      'Child Custody & Parenting Time',
+      'Child Support',
+      'Spousal Support',
+      'Property Division',
+      'Prenuptial & Postnuptial Agreements',
+    ],
+    quote: 'A useful consultation starts with your questions.',
+  },
+  {
+    id: 'avery',
+    slug: 'avery-morgan',
+    name: 'Avery Morgan',
+    role: 'Family Law Attorney',
+    location: firmContact.location,
+    phone: firmContact.phone,
+    email: 'avery@whitfieldlaw.com',
+    imageSrc: '/images/portraits/avery.jpg',
+    imageAlt: 'Portrait of Avery Morgan',
+    summary:
+      'Helps clients prepare for clear conversations about family law—and the decisions those conversations unlock.',
+    education: [
+      { school: 'Fordham University School of Law', detail: 'J.D.' },
+      { school: 'Barnard College', detail: 'B.A.' },
+    ],
+    bio: [
+      'Avery Morgan helps clients prepare for thoughtful conversations about family law. She focuses on clear communication so people can name priorities, understand how issues connect, and gather what will help a next discussion.',
+      'She works closely with Robert J. Whitfield, Esq. on parenting arrangements, support, and property—translating complex topics into ordinary language without rushing decisions.',
+      'Clients often meet Avery when they need help organizing documents, clarifying questions before a consultation, or following up on topics raised earlier.',
+    ],
+    practiceAreas: [
+      'Divorce',
+      'Child Custody & Parenting Time',
+      'Child Support',
+      'Spousal Support',
+      'Property Division',
+    ],
+    quote: 'Clear language makes hard decisions easier to approach.',
+  },
+  {
+    id: 'taylor',
+    slug: 'taylor-reed',
+    name: 'Taylor Reed',
+    role: 'Client Services Coordinator',
+    location: firmContact.location,
+    phone: firmContact.phone,
+    email: 'taylor@whitfieldlaw.com',
+    imageSrc: '/images/portraits/taylor.jpg',
+    imageAlt: 'Portrait of Taylor Reed',
+    summary:
+      'Coordinates consultations and answers practical questions so you can arrive prepared.',
+    education: [
+      { school: 'Hunter College', detail: 'B.A.' },
+    ],
+    bio: [
+      'Taylor Reed coordinates consultations and helps people prepare for a first conversation with the firm—including scheduling, online or in-person format, and what to bring.',
+      'Taylor is often the first person you speak with, handling logistics so the consultation can focus on your priorities rather than process details.',
+      'If you are unsure which practice area fits, Taylor can help you book with “Not sure” selected and start from what you want to discuss.',
+    ],
+    practiceAreas: [
+      'Consultation coordination',
+      'Scheduling & format',
+      'Preparation guidance',
+    ],
+    quote: 'A calm first step starts with clear logistics.',
+  },
+]
+
+export const attorneyProfilePage = {
+  breadcrumbHome: 'Home',
+  breadcrumbAttorneys: 'Attorneys',
+  breadcrumbAbout: 'About Us',
+  educationLabel: 'Education',
+  practiceAreasLabel: 'Practice areas',
+  quoteLabel: 'In their words',
+  backLabel: 'Back to About Us',
+  softNextPrompt: 'Ready for a focused first conversation?',
+  softNextLabel: 'Book a consultation',
+  softNextTo: '/book-consultation',
+} as const
+
+export function getAttorneyBySlug(slug: string) {
+  return attorneyProfiles.find((profile) => profile.slug === slug)
+}
+
+export function getAttorneyById(id: string) {
+  return attorneyProfiles.find((profile) => profile.id === id)
+}

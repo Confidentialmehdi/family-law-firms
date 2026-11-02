@@ -27,28 +27,54 @@ export function DetailsStep() {
   return (
     <div className="flex flex-col">
       <div className="space-y-5">
-        <div className="space-y-2">
-          <Label htmlFor="booking-name">
-            Full name <span className="text-muted">(required)</span>
-          </Label>
-          <Input
-            id="booking-name"
-            name="name"
-            autoComplete="name"
-            autoCapitalize="words"
-            value={draft.name}
-            aria-invalid={Boolean(detailsErrors.name)}
-            aria-describedby={detailsErrors.name ? 'name-error' : undefined}
-            onChange={(event) => {
-              updateDraft({ name: toInitialCaps(event.target.value) })
-              clearDetailsErrors()
-            }}
-          />
-          {detailsErrors.name ? (
-            <p id="name-error" className="text-sm text-red-800" role="alert">
-              {detailsErrors.name}
-            </p>
-          ) : null}
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="booking-first-name">
+              First name <span className="text-muted">(required)</span>
+            </Label>
+            <Input
+              id="booking-first-name"
+              name="firstName"
+              autoComplete="given-name"
+              autoCapitalize="words"
+              value={draft.firstName}
+              aria-invalid={Boolean(detailsErrors.firstName)}
+              aria-describedby={detailsErrors.firstName ? 'first-name-error' : undefined}
+              onChange={(event) => {
+                updateDraft({ firstName: toInitialCaps(event.target.value) })
+                clearDetailsErrors()
+              }}
+            />
+            {detailsErrors.firstName ? (
+              <p id="first-name-error" className="text-sm text-red-800" role="alert">
+                {detailsErrors.firstName}
+              </p>
+            ) : null}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="booking-last-name">
+              Last name <span className="text-muted">(required)</span>
+            </Label>
+            <Input
+              id="booking-last-name"
+              name="lastName"
+              autoComplete="family-name"
+              autoCapitalize="words"
+              value={draft.lastName}
+              aria-invalid={Boolean(detailsErrors.lastName)}
+              aria-describedby={detailsErrors.lastName ? 'last-name-error' : undefined}
+              onChange={(event) => {
+                updateDraft({ lastName: toInitialCaps(event.target.value) })
+                clearDetailsErrors()
+              }}
+            />
+            {detailsErrors.lastName ? (
+              <p id="last-name-error" className="text-sm text-red-800" role="alert">
+                {detailsErrors.lastName}
+              </p>
+            ) : null}
+          </div>
         </div>
 
         <div className="space-y-2">
@@ -105,15 +131,23 @@ export function DetailsStep() {
 
         <div className="space-y-2">
           <Label htmlFor="booking-practice-area">
-            Practice area <span className="text-muted">(optional)</span>
+            Practice area <span className="text-muted">(required)</span>
           </Label>
           <select
             id="booking-practice-area"
             name="practiceArea"
             value={draft.practiceArea}
-            onChange={(event) => updateDraft({ practiceArea: event.target.value })}
+            aria-invalid={Boolean(detailsErrors.practiceArea)}
+            aria-describedby={
+              detailsErrors.practiceArea ? 'practice-area-error' : undefined
+            }
+            onChange={(event) => {
+              updateDraft({ practiceArea: event.target.value })
+              clearDetailsErrors()
+            }}
             className={cn(
               'flex h-11 w-full rounded-sm border border-border bg-surface px-3 py-2 text-base text-navy shadow-soft focus-visible:border-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/25',
+              !draft.practiceArea && 'text-muted',
             )}
           >
             <option value="">{contactForm.selectOption}</option>
@@ -123,6 +157,11 @@ export function DetailsStep() {
               </option>
             ))}
           </select>
+          {detailsErrors.practiceArea ? (
+            <p id="practice-area-error" className="text-sm text-red-800" role="alert">
+              {detailsErrors.practiceArea}
+            </p>
+          ) : null}
         </div>
       </div>
 
