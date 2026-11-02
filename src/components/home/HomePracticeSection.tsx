@@ -82,55 +82,67 @@ export function HomePracticeSection() {
           if (!open) setOpenAreaId(null)
         }}
       >
-        <DialogContent>
+        <DialogContent className="w-[min(100%-1.5rem,34rem)] gap-0 p-0 shadow-[0_18px_50px_rgb(37_38_41/0.14)]">
           {activeConcern && activeArea ? (
             <>
-              <DialogHeader>
+              <div className="h-1 w-full bg-brass/70" aria-hidden="true" />
+
+              <DialogHeader className="gap-0 px-6 pt-6 pr-14 pb-5 md:px-7 md:pt-7">
                 <p className="text-[0.7rem] tracking-[0.18em] text-brass uppercase">
                   {activeArea.title}
                 </p>
-                <DialogTitle className="mt-2 text-2xl leading-snug md:text-[1.65rem]">
+                <div className="mt-4 h-px w-10 bg-brass" aria-hidden="true" />
+                <DialogTitle className="mt-5 text-[1.65rem] leading-[1.15] md:text-[1.85rem]">
                   {activeConcern.concern}
                 </DialogTitle>
-                <DialogDescription className="mt-3 text-base leading-relaxed text-muted">
+                <p className="mt-4 font-serif text-lg leading-snug text-navy/85 md:text-xl">
+                  {activeConcern.outcome}
+                </p>
+                <DialogDescription className="mt-4 text-base leading-relaxed text-muted">
                   {activeConcern.dialogBody}
                 </DialogDescription>
               </DialogHeader>
 
-              <div className="min-h-0 flex-1 overflow-y-auto px-5 pb-2">
-                <p className="text-sm font-medium text-navy">
-                  {homePractice.dialogTopicsLabel}
-                </p>
-                <ul className="mt-3 space-y-2.5">
-                  {activeConcern.dialogPoints.map((point) => (
-                    <li
-                      key={point}
-                      className="flex gap-3 text-base leading-relaxed text-muted"
-                    >
-                      <span
-                        className="mt-2 size-1.5 shrink-0 rounded-full bg-brass"
-                        aria-hidden="true"
-                      />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="min-h-0 flex-1 overflow-y-auto px-6 pb-2 md:px-7">
+                <div className="border-y border-border py-5">
+                  <p className="text-[0.7rem] tracking-[0.16em] text-brass uppercase">
+                    {homePractice.dialogTopicsLabel}
+                  </p>
+                  <ul className="mt-5 space-y-4">
+                    {activeConcern.dialogPoints.map((point, index) => (
+                      <li key={point} className="flex gap-4">
+                        <span
+                          className="font-serif text-lg leading-none text-brass/55 tabular-nums"
+                          aria-hidden="true"
+                        >
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <span className="pt-0.5 text-base leading-relaxed text-navy">
+                          {point}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <DialogFooter className="flex-col gap-2 sm:flex-col sm:justify-stretch">
+              <DialogFooter className="flex-col gap-3 border-t-0 bg-surface/70 px-6 py-5 sm:flex-col sm:justify-stretch md:px-7">
                 <Button asChild size="lg" className="w-full">
                   <Link to="/book-consultation" onClick={() => setOpenAreaId(null)}>
                     {homePractice.dialogCtaLabel}
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="sm" className="w-full">
-                  <Link
-                    to={`/practice-areas#${activeArea.id}`}
-                    onClick={() => setOpenAreaId(null)}
-                  >
-                    {homePractice.linkLabel}
-                  </Link>
-                </Button>
+                <Link
+                  to={`/practice-areas#${activeArea.id}`}
+                  onClick={() => setOpenAreaId(null)}
+                  className="inline-flex items-center justify-center gap-1.5 text-sm font-medium text-teal underline-offset-4 hover:underline"
+                >
+                  {homePractice.dialogSecondaryLabel}
+                  <ArrowUpRight className="size-3.5" strokeWidth={1.75} aria-hidden="true" />
+                </Link>
+                <p className="text-center text-xs text-muted">
+                  {homePractice.dialogFooterNote}
+                </p>
               </DialogFooter>
             </>
           ) : null}

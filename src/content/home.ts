@@ -82,7 +82,9 @@ export const homePractice = {
     'Start with the situation that feels closest. Open any item to see how a consultation can help—then book when you are ready.',
   linkLabel: 'Learn more',
   dialogCtaLabel: 'Book a consultation',
-  dialogTopicsLabel: 'What we can cover',
+  dialogTopicsLabel: 'In a consultation',
+  dialogSecondaryLabel: 'Read more about this practice area',
+  dialogFooterNote: 'No documents required to book. Online or in person.',
   /** Situation-led mapping — concern first, practice area second. */
   concerns: [
     {
